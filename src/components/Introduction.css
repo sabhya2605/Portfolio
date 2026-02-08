@@ -1,3 +1,16 @@
+/* Case Card Link */
+.case-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.case-card-link:hover {
+  opacity: 0.9;
+}
+
 /* Main Container - matches Figma node 2314-2 */
 .introduction-container {
   display: flex;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Search.css';
 
 // Figma image URLs (valid for 7 days)
@@ -18,6 +19,12 @@ const imgArrow1 = "https://www.figma.com/api/mcp/asset/7efe6360-01fb-42e3-996f-f
 const imgLine36 = "https://www.figma.com/api/mcp/asset/600e5fdd-dd0b-4344-8bda-4f04582ce07d";
 
 const Search = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+
   return (
     <div className="search-container" data-node-id="2351:19">
       <div className="search-background" data-node-id="2351:20"></div>
@@ -27,7 +34,7 @@ const Search = () => {
             {/* Header Section */}
             <div className="search-header" data-node-id="2351:24">
               <div className="search-header-left" data-node-id="2351:25">
-                <div className="search-back-button" data-node-id="2351:26">
+                <div className="search-back-button" data-node-id="2351:26" onClick={handleBackClick} style={{ cursor: 'pointer' }}>
                   <div className="search-back-icon-wrapper">
                     <div className="search-back-icon-rotate">
                       <div className="search-back-icon" data-name="Expand Arrow" data-node-id="2351:27">

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Introduction.css';
 
 // Figma image URLs (valid for 7 days)
@@ -184,28 +185,30 @@ const Introduction = () => {
           </div>
 
           <div className="work-cases">
-            {/* Case 1 */}
-            <div className="case-card case-card-large">
-              <div className="case-content">
-                <div className="case-image-container">
-                  <img src={imgRectangle3} alt="Case 1" className="case-image" />
-                </div>
-                <div className="case-text-container">
-                  <p className="case-category">Multi functional experience</p>
-                  <p className="case-title">
-                    Worked on how search experience should work across a multi-service ecosystem
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
-                  </p>
-                  <div className="case-tags">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tag">Product thinking</div>
-                    <div className="case-tag">Solution</div>
+            {/* Case 1 - Search */}
+            <Link to="/search" className="case-card-link">
+              <div className="case-card case-card-large">
+                <div className="case-content">
+                  <div className="case-image-container">
+                    <img src={imgRectangle3} alt="Case 1" className="case-image" />
+                  </div>
+                  <div className="case-text-container">
+                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-title">
+                      Worked on how search experience should work across a multi-service ecosystem
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                    </p>
+                    <div className="case-tags">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tag">Product thinking</div>
+                      <div className="case-tag">Solution</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
