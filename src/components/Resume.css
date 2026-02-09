@@ -1,0 +1,252 @@
+/* Main Container - node 2409:571 */
+.resume-container {
+  display: flex;
+  width: 1440px;
+  padding: 118px 120px 368px 120px;
+  flex-direction: column;
+  align-items: center;
+  background: #FFF;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Content Wrapper - node 2409:572 */
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  align-items: flex-start;
+  width: 1200px;
+  padding: 0 16px;
+}
+
+/* Section Header - node 2409:573, 2409:585 */
+.resume-section-header {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.resume-section-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  line-height: 32px;
+  color: #094020;
+  font-size: 24px;
+  margin: 0;
+}
+
+/* About me Card - node 2409:575 */
+.resume-about-card {
+  display: flex;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 32px;
+  background: #F7F7F7;
+}
+
+/* About Image - node 2409:576 */
+.resume-about-image-wrapper {
+  position: relative;
+  border-radius: 28px;
+  width: 511px;
+  flex-shrink: 0;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.resume-about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
+/* About Content - node 2409:577 */
+.resume-about-content {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 0;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.resume-about-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Name Card - node 2409:579 */
+.resume-name-card {
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 24px;
+  color: #1C1C1C;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.resume-name {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  line-height: 36px;
+  font-size: 28px;
+  width: 100%;
+  margin: 0;
+  color: #1C1C1C;
+}
+
+.resume-role {
+  font-family: 'Lucida Bright', serif;
+  line-height: 32px;
+  font-style: normal;
+  font-size: 20px;
+  width: 100%;
+  margin: 0;
+  color: #1C1C1C;
+}
+
+/* Description Card - node 2409:582 */
+.resume-description-card {
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 24px;
+  width: 100%;
+}
+
+.resume-description-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #1C1C1C;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.resume-description-text p {
+  margin: 0;
+}
+
+.resume-description-bold {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 40px;
+  font-style: normal;
+  color: #547F6A;
+  font-size: 28px;
+}
+
+.resume-description-normal {
+  font-family: 'Lucida Bright', serif;
+  line-height: 32px;
+  font-style: normal;
+  color: #1C1C1C;
+  font-size: 20px;
+}
+
+.resume-description-spacing {
+  line-height: 32px;
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Experience Section - node 2409:584 */
+.resume-experience-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Experience Card - node 2409:587 */
+.resume-experience-card {
+  display: flex;
+  height: 672px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 32px;
+  background: #F7F7F7;
+  font-style: normal;
+  white-space: pre-wrap;
+}
+
+.resume-experience-card-small {
+  height: 224px;
+}
+
+/* Experience Header - node 2409:588 */
+.resume-experience-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.resume-experience-company {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  line-height: 32px;
+  color: #094020;
+  font-size: 24px;
+  width: 1132px;
+  margin: 0;
+}
+
+.resume-experience-position {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1C1C1C;
+  font-size: 20px;
+  width: 1132px;
+  margin: 0;
+}
+
+/* Experience List - node 2409:591 */
+.resume-experience-list {
+  display: block;
+  font-family: 'Lucida Bright', serif;
+  line-height: 0;
+  list-style-type: disc;
+  color: #1C1C1C;
+  font-size: 20px;
+  width: 1132px;
+  margin: 0;
+  padding-left: 0;
+}
+
+.resume-experience-list li {
+  margin-left: 30px;
+  margin-bottom: 0;
+}
+
+.resume-experience-list li:last-child {
+  margin-bottom: 0;
+}
+
+.resume-experience-list li span {
+  line-height: 32px;
+}
