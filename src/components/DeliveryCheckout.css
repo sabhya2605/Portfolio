@@ -347,7 +347,7 @@
 
 .delivery-checkout-opportunity-header {
   display: flex;
-  width: 1143.56px;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
@@ -376,6 +376,7 @@
   position: relative;
   width: 1143.56px;
   height: 672.333px;
+  margin: 0 auto;
 }
 
 .delivery-checkout-opportunity-mockup-container {
@@ -383,22 +384,22 @@
   top: 0;
 }
 
+.delivery-checkout-opportunity-mockup-3 {
+  left: 0;
+  width: 335.027px;
+  height: 646.355px;
+}
+
 .delivery-checkout-opportunity-mockup-1 {
-  right: 408.78px;
-  width: 327.56px;
-  height: 672.333px;
+  left: 404.556px;
+  width: 335.027px;
+  height: 646.355px;
 }
 
 .delivery-checkout-opportunity-mockup-2 {
-  right: 1.22px;
-  width: 327.56px;
-  height: 672.333px;
-}
-
-.delivery-checkout-opportunity-mockup-3 {
-  right: 816.34px;
-  width: 327.224px;
-  height: 671.643px;
+  left: 807.556px;
+  width: 335.027px;
+  height: 646.355px;
 }
 
 .delivery-checkout-opportunity-mockup-image {
@@ -455,6 +456,30 @@
   text-align: center;
 }
 
+/* Things that have been working for us Section - node 2362:17175 */
+.delivery-checkout-things-working-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+  padding: 24px 0;
+}
+
+.delivery-checkout-things-working-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivery-checkout-things-working-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
 
 .delivery-checkout-requirements-image-wrapper {
   width: 100%;
@@ -1882,56 +1907,15 @@
   transform: translateX(-50%);
 }
 
-/* Payment Screens Section - node 2362:17374 */
-.delivery-checkout-payment-screens-section {
-  display: flex;
-  align-items: center;
-  gap: 56px;
-  width: 100%;
-}
-
-.delivery-checkout-payment-screen-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  flex: 1;
-}
-
-.delivery-checkout-payment-screen-image {
-  width: 243px;
-  height: 540px;
-  border-radius: 13.5px;
-  border: 2px solid #5C5C5C;
-  overflow: hidden;
-  background: #F5F5F5;
-  position: relative;
-}
-
-.delivery-checkout-payment-screen-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.delivery-checkout-payment-screen-caption {
-  font-family: 'Lucida Bright', serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #000000;
-}
-
 /* Impact Section - node 2362:18771 */
 .delivery-checkout-impact-section {
   display: flex;
   width: 1200px;
   justify-content: space-between;
   align-items: center;
-  background: #FFFFFF;
-  position: relative;
+  gap: 24px;
   align-self: stretch;
+  padding: 24px 0;
 }
 
 .delivery-checkout-impact-text-block {
@@ -1939,7 +1923,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  height: 275px;
   padding: 24px;
   background: #F3FAF3;
   border-radius: 32px;
@@ -1970,7 +1953,7 @@
   font-size: 32px;
   line-height: 40px;
   letter-spacing: -0.64px;
-  margin: 0 0 0 0;
+  margin: 0 0 16px 0;
   color: #1C1C1C;
   font-variant-numeric: lining-nums proportional-nums;
 }
@@ -1988,7 +1971,19 @@
   line-height: 24px;
   letter-spacing: 0.32px;
   color: #000000;
+  margin-bottom: 8px;
+}
+
+.delivery-checkout-impact-content li:last-child {
   margin-bottom: 0;
+}
+
+.delivery-checkout-impact-visualization {
+  height: 424.19px;
+  width: 700px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: visible;
 }
 
 .delivery-checkout-impact-macbook {
@@ -2016,6 +2011,9 @@
   top: 51px;
   width: 320.894px;
   border-radius: 28.844px;
+  background: #FFFFFF;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .delivery-checkout-impact-arrow-wrapper-1 {
@@ -2029,7 +2027,7 @@
   justify-content: center;
 }
 
-.delivery-checkout-impact-arrow-1 {
+.delivery-checkout-impact-arrow-wrapper-1 svg {
   transform: rotate(-90deg);
   width: 224.746px;
   height: auto;
@@ -2044,7 +2042,7 @@
   width: 255.994px;
 }
 
-.delivery-checkout-impact-arrow-2 {
+.delivery-checkout-impact-arrow-wrapper-2 svg {
   width: 100%;
   height: auto;
   display: block;
@@ -2148,12 +2146,54 @@
   justify-content: center;
 }
 
-.delivery-checkout-impact-arrow-3 {
+.delivery-checkout-impact-arrow-wrapper-3 svg {
   transform: rotate(14.48deg);
   width: 148.957px;
   height: auto;
   display: block;
 }
+
+/* Payment Screens Section - node 2362:17374 */
+.delivery-checkout-payment-screens-section {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: 100%;
+}
+
+.delivery-checkout-payment-screen-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+
+.delivery-checkout-payment-screen-image {
+  width: 243px;
+  height: 540px;
+  border-radius: 13.5px;
+  border: 2px solid #5C5C5C;
+  overflow: hidden;
+  background: #F5F5F5;
+  position: relative;
+}
+
+.delivery-checkout-payment-screen-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.delivery-checkout-payment-screen-caption {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
 
 /* Final Comparison Section - Rectangle 16 background with node 2362:18788 */
 .delivery-checkout-final-comparison-wrapper {
@@ -2358,7 +2398,7 @@
 }
 
 .delivery-checkout-connect-text {
-  width: 884px;
+  width: 100%;
   height: 116px;
   margin-top: 160px;
   position: relative;
@@ -2380,6 +2420,7 @@
   letter-spacing: -0.96px;
   margin: 0;
   width: 100%;
+  text-align: center;
 }
 
 /* Learning Section - node 2362:17369 */

@@ -55,10 +55,6 @@ import imgLine184 from '../images/delivery-checkout/line-184.png';
 import imgPaymentScreenErrorPrevention from '../images/delivery-checkout/payment-screen-error-prevention.png';
 import imgPaymentScreen2 from '../images/delivery-checkout/payment-screen-2.png';
 import imgPaymentScreen3 from '../images/delivery-checkout/payment-screen-3.png';
-import imgMacbookAirM2SilverFlatten from '../images/delivery-checkout/macbook-air-m2-silver-flatten.png';
-import imgArrowImpact1 from '../images/delivery-checkout/arrow-impact-1.png';
-import imgArrowImpact2 from '../images/delivery-checkout/arrow-impact-2.png';
-import imgArrowImpact3 from '../images/delivery-checkout/arrow-impact-3.png';
 import imgIPhone15ProWhiteFinal from '../images/delivery-checkout/iphone-15-pro-white-final.png';
 import imgAndroidSilverFinal from '../images/delivery-checkout/android-silver-final.png';
 import imgAndroidSilverFinalBg from '../images/delivery-checkout/android-silver-final-bg.png';
@@ -67,6 +63,9 @@ import imgScreenInsertDesignsHereIPhone from '../images/delivery-checkout/screen
 import imgScreenInsertDesignsHereAndroid from '../images/delivery-checkout/screen-insert-designs-here-android.png';
 import imgWhatsappImageFinal from '../images/delivery-checkout/whatsapp-image-final.png';
 import imgScreenInsertDesignsHereAndroidUpdated from '../images/delivery-checkout/screen-insert-designs-here-android-updated.png';
+import imgMacbookAirM2SilverFlatten from '../images/delivery-checkout/macbook-air-m2-silver-flatten.png';
+import imgThingsWorkingForUs from '../images/delivery-checkout/things-working-for-us.png';
+import gifCheckOut from '../video/Check_out.gif';
 
 // Use the same icon as Search page
 const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
@@ -154,17 +153,17 @@ const DeliveryCheckout = () => {
                   <p className="delivery-checkout-section-title delivery-checkout-opportunity-title" data-node-id="2362:17149">Opportunity</p>
                   <div className="delivery-checkout-opportunity-mockups" data-node-id="2362:17150">
                     <div className="delivery-checkout-opportunity-mockups-wrapper" data-node-id="2362:17151">
-                      {/* First Mockup - node 2362:17154 */}
+                      {/* Third Mockup - node 2362:17170 (leftmost) */}
+                      <div className="delivery-checkout-opportunity-mockup-container delivery-checkout-opportunity-mockup-3" data-node-id="2362:17170">
+                        <img src={imgOpportunityMockup3} alt="Opportunity Mockup 3" className="delivery-checkout-opportunity-mockup-image" />
+                      </div>
+                      {/* First Mockup - node 2362:17154 (middle) */}
                       <div className="delivery-checkout-opportunity-mockup-container delivery-checkout-opportunity-mockup-1" data-node-id="2362:17154">
                         <img src={imgOpportunityMockup1} alt="Opportunity Mockup 1" className="delivery-checkout-opportunity-mockup-image" />
                       </div>
-                      {/* Second Mockup - node 2362:17162 */}
+                      {/* Second Mockup - node 2362:17162 (rightmost) */}
                       <div className="delivery-checkout-opportunity-mockup-container delivery-checkout-opportunity-mockup-2" data-node-id="2362:17162">
                         <img src={imgOpportunityMockup2} alt="Opportunity Mockup 2" className="delivery-checkout-opportunity-mockup-image" />
-                      </div>
-                      {/* Third Mockup - node 2362:17170 */}
-                      <div className="delivery-checkout-opportunity-mockup-container delivery-checkout-opportunity-mockup-3" data-node-id="2362:17170">
-                        <img src={imgOpportunityMockup3} alt="Opportunity Mockup 3" className="delivery-checkout-opportunity-mockup-image" />
                       </div>
                     </div>
                   </div>
@@ -186,6 +185,13 @@ const DeliveryCheckout = () => {
                   </ol>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Things that have been working for us Section - node 2362:17175 */}
+          <div className="delivery-checkout-things-working-section" data-node-id="2362:17175">
+            <div className="delivery-checkout-things-working-content">
+              <img src={imgThingsWorkingForUs} alt="Things that have been working for us" className="delivery-checkout-things-working-image" />
             </div>
           </div>
 
@@ -450,7 +456,7 @@ const DeliveryCheckout = () => {
               <div className="delivery-checkout-phase02-android-frame">
                 <img src={imgAndroidSilver} alt="Android Silver" className="delivery-checkout-phase02-android-img" />
                 <div className="delivery-checkout-phase02-magic9" data-node-id="2362:17298">
-                  <img src={imgMagic91} alt="magic9" className="delivery-checkout-phase02-magic9-img" />
+                  <img src={gifCheckOut} alt="Checkout Animation" className="delivery-checkout-phase02-magic9-img" />
                 </div>
                 <div className="delivery-checkout-phase02-reviewed-file" data-node-id="2362:17299">
                   <div className="delivery-checkout-phase02-reviewed-file-wrapper">
@@ -781,23 +787,34 @@ const DeliveryCheckout = () => {
                 </ol>
               </div>
             </div>
-            <div className="delivery-checkout-impact-macbook" data-node-id="2362:18775">
-              <img src={imgMacbookAirM2SilverFlatten} alt="MacBook Air M2" className="delivery-checkout-impact-macbook-img" />
-              <div className="delivery-checkout-impact-chart" data-node-id="2362:18777">
-                <div className="delivery-checkout-impact-arrow-wrapper-1" data-node-id="2362:18778">
-                  <img src={imgArrowImpact1} alt="Arrow 1" className="delivery-checkout-impact-arrow-1" />
-                </div>
-                <div className="delivery-checkout-impact-arrow-wrapper-2" data-node-id="2362:18779">
-                  <img src={imgArrowImpact2} alt="Arrow 2" className="delivery-checkout-impact-arrow-2" />
-                </div>
-                <div className="delivery-checkout-impact-bar-1" data-node-id="2362:18780"></div>
-                <div className="delivery-checkout-impact-bar-2" data-node-id="2362:18781"></div>
-                <p className="delivery-checkout-impact-label-avg-time" data-node-id="2362:18782">Avg time spend</p>
-                <p className="delivery-checkout-impact-label-before" data-node-id="2362:18783">Before release</p>
-                <p className="delivery-checkout-impact-label-after" data-node-id="2362:18784">After release</p>
-                <p className="delivery-checkout-impact-percentage" data-node-id="2362:18785">30%</p>
-                <div className="delivery-checkout-impact-arrow-wrapper-3" data-node-id="2362:18786">
-                  <img src={imgArrowImpact3} alt="Arrow 3" className="delivery-checkout-impact-arrow-3" />
+            <div className="delivery-checkout-impact-visualization" data-node-id="2362:18775">
+              <div className="delivery-checkout-impact-macbook" data-node-id="2362:18775">
+                <img src={imgMacbookAirM2SilverFlatten} alt="MacBook Air M2" className="delivery-checkout-impact-macbook-img" />
+                <div className="delivery-checkout-impact-chart" data-node-id="2362:18777">
+                  <div className="delivery-checkout-impact-arrow-wrapper-1" data-node-id="2362:18778">
+                    <svg width="225" height="1" viewBox="0 0 225 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 0.5H225" stroke="#333" strokeWidth="0.5"/>
+                      <path d="M220 0L225 0.5L220 1" stroke="#333" strokeWidth="0.5" fill="none"/>
+                    </svg>
+                  </div>
+                  <div className="delivery-checkout-impact-arrow-wrapper-2" data-node-id="2362:18779">
+                    <svg width="256" height="1" viewBox="0 0 256 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 0.5H256" stroke="#333" strokeWidth="0.5"/>
+                      <path d="M251 0L256 0.5L251 1" stroke="#333" strokeWidth="0.5" fill="none"/>
+                    </svg>
+                  </div>
+                  <div className="delivery-checkout-impact-bar-1" data-node-id="2362:18780"></div>
+                  <div className="delivery-checkout-impact-bar-2" data-node-id="2362:18781"></div>
+                  <p className="delivery-checkout-impact-label-avg-time" data-node-id="2362:18782">Avg time spend</p>
+                  <p className="delivery-checkout-impact-label-before" data-node-id="2362:18783">Before release</p>
+                  <p className="delivery-checkout-impact-label-after" data-node-id="2362:18784">After release</p>
+                  <p className="delivery-checkout-impact-percentage" data-node-id="2362:18785">30%</p>
+                  <div className="delivery-checkout-impact-arrow-wrapper-3" data-node-id="2362:18786">
+                    <svg width="149" height="37" viewBox="0 0 149 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 18.5L144 18.5" stroke="#333" strokeWidth="1"/>
+                      <path d="M139 13L144 18.5L139 24" stroke="#333" strokeWidth="1" fill="none"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
