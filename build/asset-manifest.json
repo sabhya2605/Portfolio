@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0dc460ae.css",
+    "main.js": "/static/js/main.05cad993.js",
+    "static/media/journey-card.png": "/static/media/journey-card.84f3dabe3b4740145ea9.png",
+    "static/media/solution.png": "/static/media/solution.7fa870e72437e3929034.png",
+    "static/media/lifecycle.png": "/static/media/lifecycle.05cfafe0cfb69bf4896d.png",
+    "static/media/final-conclusion.png": "/static/media/final-conclusion.ac16b04a2caadcea03d7.png",
+    "static/media/learning.png": "/static/media/learning.0882ac2161c4dc49c7a7.png",
+    "static/media/rectangle5.png": "/static/media/rectangle5.9777557f35c8f707f96a.png",
+    "index.html": "/index.html",
+    "main.0dc460ae.css.map": "/static/css/main.0dc460ae.css.map",
+    "main.05cad993.js.map": "/static/js/main.05cad993.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0dc460ae.css",
+    "static/js/main.05cad993.js"
+  ]
+}
