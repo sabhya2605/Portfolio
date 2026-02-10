@@ -876,16 +876,23 @@
   border-radius: 12px;
 }
 
-/* Testimonials Section - matches Figma node 2314-128 */
+/* Testimonials Section - matches Figma node 2353:296 */
 .testimonials-section {
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
   padding-left: 16px;
-  width: 1604px;
-  max-width: calc(100vw - 240px);
-  overflow: hidden;
+  width: 100%;
+  overflow: visible;
+}
+
+.testimonials-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  position: relative;
 }
 
 .testimonials-content {
@@ -893,7 +900,7 @@
   gap: 24px;
   align-items: center;
   width: max-content;
-  min-width: 100%;
+  flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
@@ -904,6 +911,7 @@
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  -webkit-overflow-scrolling: touch;
 }
 
 .testimonials-content::-webkit-scrollbar {
@@ -912,6 +920,68 @@
 
 .testimonials-content:active {
   cursor: grabbing;
+}
+
+.testimonials-carousel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #E5E5E5;
+  background: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.testimonials-carousel-button:hover {
+  background: #F5F5F5;
+  border-color: #094020;
+}
+
+.testimonials-carousel-button:active {
+  transform: scale(0.95);
+}
+
+.testimonials-carousel-button-prev {
+  order: -1;
+}
+
+.testimonials-carousel-button-next {
+  order: 1;
+}
+
+.testimonials-carousel-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 16px;
+}
+
+.testimonials-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #D9D9D9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.testimonials-carousel-dot:hover {
+  background: #A0A0A0;
+}
+
+.testimonials-carousel-dot.active {
+  background: #094020;
+  width: 24px;
+  border-radius: 4px;
 }
 
 .testimonial-card {
@@ -977,9 +1047,16 @@
   gap: 24px;
   align-items: flex-start;
   padding-left: 16px;
-  width: 1604px;
-  max-width: calc(100vw - 240px);
-  overflow: hidden;
+  width: 100%;
+  overflow: visible;
+}
+
+.projects-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  position: relative;
 }
 
 .projects-content {
@@ -987,7 +1064,7 @@
   gap: 24px;
   align-items: center;
   width: max-content;
-  min-width: 100%;
+  flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
@@ -998,6 +1075,7 @@
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  -webkit-overflow-scrolling: touch;
 }
 
 .projects-content::-webkit-scrollbar {
@@ -1006,6 +1084,68 @@
 
 .projects-content:active {
   cursor: grabbing;
+}
+
+.projects-carousel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #E5E5E5;
+  background: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.projects-carousel-button:hover {
+  background: #F5F5F5;
+  border-color: #094020;
+}
+
+.projects-carousel-button:active {
+  transform: scale(0.95);
+}
+
+.projects-carousel-button-prev {
+  order: -1;
+}
+
+.projects-carousel-button-next {
+  order: 1;
+}
+
+.projects-carousel-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 16px;
+}
+
+.projects-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #D9D9D9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.projects-carousel-dot:hover {
+  background: #A0A0A0;
+}
+
+.projects-carousel-dot.active {
+  background: #094020;
+  width: 24px;
+  border-radius: 4px;
 }
 
 .project-image-wrapper {

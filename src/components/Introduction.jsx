@@ -28,11 +28,35 @@ const img11 = "https://www.figma.com/api/mcp/asset/1a783e53-0e35-4bf8-895d-48266
 const imgLine1 = "https://www.figma.com/api/mcp/asset/69f707cf-b683-4073-a817-73bb498de360";
 
 const Introduction = () => {
-  // Drag functionality for testimonials container scrolling
+  // Carousel functionality for testimonials
   const testimonialsRef = useRef(null);
   const [isTestimonialsDragging, setIsTestimonialsDragging] = useState(false);
   const [testimonialsStartX, setTestimonialsStartX] = useState(0);
   const [testimonialsScrollLeft, setTestimonialsScrollLeft] = useState(0);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const totalTestimonials = 4;
+
+  const scrollToTestimonial = (index) => {
+    if (!testimonialsRef.current) return;
+    const cardWidth = 384; // Width of each card
+    const gap = 24; // Gap between cards
+    const scrollPosition = index * (cardWidth + gap);
+    testimonialsRef.current.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+    setCurrentTestimonialIndex(index);
+  };
+
+  const handlePrevTestimonial = () => {
+    const newIndex = currentTestimonialIndex > 0 ? currentTestimonialIndex - 1 : totalTestimonials - 1;
+    scrollToTestimonial(newIndex);
+  };
+
+  const handleNextTestimonial = () => {
+    const newIndex = currentTestimonialIndex < totalTestimonials - 1 ? currentTestimonialIndex + 1 : 0;
+    scrollToTestimonial(newIndex);
+  };
 
   const handleTestimonialsMouseDown = (e) => {
     if (!testimonialsRef.current) return;
@@ -84,11 +108,40 @@ const Introduction = () => {
     setIsTestimonialsDragging(false);
   };
 
-  // Drag functionality for projects container scrolling
+  // Carousel functionality for projects
   const projectsRef = useRef(null);
   const [isProjectsDragging, setIsProjectsDragging] = useState(false);
   const [projectsStartX, setProjectsStartX] = useState(0);
   const [projectsScrollLeft, setProjectsScrollLeft] = useState(0);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const totalProjects = 5;
+
+  const scrollToProject = (index) => {
+    if (!projectsRef.current) return;
+    const cardWidth = 384; // Base width of each card
+    const gap = 24; // Gap between cards
+    // Account for the 3rd card which is 375px instead of 384px
+    let scrollPosition = 0;
+    for (let i = 0; i < index; i++) {
+      const width = i === 2 ? 375 : 384; // 3rd card (index 2) is 375px
+      scrollPosition += width + gap;
+    }
+    projectsRef.current.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+    setCurrentProjectIndex(index);
+  };
+
+  const handlePrevProject = () => {
+    const newIndex = currentProjectIndex > 0 ? currentProjectIndex - 1 : totalProjects - 1;
+    scrollToProject(newIndex);
+  };
+
+  const handleNextProject = () => {
+    const newIndex = currentProjectIndex < totalProjects - 1 ? currentProjectIndex + 1 : 0;
+    scrollToProject(newIndex);
+  };
 
   const handleProjectsMouseDown = (e) => {
     if (!projectsRef.current) return;
@@ -399,45 +452,84 @@ const Introduction = () => {
           <div className="section-header">
             <p className="section-title">See what people say about their experience working with me</p>
           </div>
-          <div 
-            className="testimonials-content"
-            ref={testimonialsRef}
-            onMouseDown={handleTestimonialsMouseDown}
-            onMouseLeave={handleTestimonialsMouseLeave}
-            onMouseUp={handleTestimonialsMouseUp}
-            onMouseMove={handleTestimonialsMouseMove}
-            onTouchStart={handleTestimonialsTouchStart}
-            onTouchMove={handleTestimonialsTouchMove}
-            onTouchEnd={handleTestimonialsTouchEnd}
-          >
-            <div className="testimonial-card testimonial-card-green">
-              <p className="testimonial-role">Staff software engineer at Magicpin</p>
-              <p className="testimonial-name">Md Shahbaz Hussain</p>
-              <p className="testimonial-text">
-                Sabhya has been owning the flows like a Pro. Always ready to give her best shot in the design from both the UI and UX persepective and gauges the tech constraints as well. Beyond her design execution, Sabhya brings tremendous value by actively engaging in product discussions as well. Her work ethic, quality of output, and collaborative spirit make her an asset to any te...
-              </p>
+          <div className="testimonials-carousel-wrapper">
+            <button 
+              className="testimonials-carousel-button testimonials-carousel-button-prev"
+              onClick={handlePrevTestimonial}
+              aria-label="Previous testimonial"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#094020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <div 
+              className="testimonials-content"
+              ref={testimonialsRef}
+              onMouseDown={handleTestimonialsMouseDown}
+              onMouseLeave={handleTestimonialsMouseLeave}
+              onMouseUp={handleTestimonialsMouseUp}
+              onMouseMove={handleTestimonialsMouseMove}
+              onTouchStart={handleTestimonialsTouchStart}
+              onTouchMove={handleTestimonialsTouchMove}
+              onTouchEnd={handleTestimonialsTouchEnd}
+              onScroll={(e) => {
+                // Update current index based on scroll position
+                if (!testimonialsRef.current) return;
+                const cardWidth = 384;
+                const gap = 24;
+                const scrollLeft = testimonialsRef.current.scrollLeft;
+                const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+                setCurrentTestimonialIndex(Math.min(newIndex, totalTestimonials - 1));
+              }}
+            >
+              <div className="testimonial-card testimonial-card-green">
+                <p className="testimonial-role">Staff software engineer at Magicpin</p>
+                <p className="testimonial-name">Md Shahbaz Hussain</p>
+                <p className="testimonial-text">
+                  Sabhya has been owning the flows like a Pro. Always ready to give her best shot in the design from both the UI and UX persepective and gauges the tech constraints as well. Beyond her design execution, Sabhya brings tremendous value by actively engaging in product discussions as well. Her work ethic, quality of output, and collaborative spirit make her an asset to any te...
+                </p>
+              </div>
+              <div className="testimonial-card testimonial-card-grey">
+                <p className="testimonial-role">Senior designer at Microsoft</p>
+                <p className="testimonial-name">Rhiddit Paul</p>
+                <p className="testimonial-text">
+                  Sabhya's approach when it comes to UX research is truly commendable for her age! What I loved about her work was the attention to detail she had and the determination to understand the entire ecosystem in which the project is situated! I would definitely feel lucky to have her on any team I am working in!
+                </p>
+              </div>
+              <div className="testimonial-card testimonial-card-green">
+                <p className="testimonial-role">Faculty at NIFT</p>
+                <p className="testimonial-name">Arnav Deepak Barik</p>
+                <p className="testimonial-text">
+                  I had the privilege of teaching and mentoring Sabhya in various subjects and projects. During her study, I was consistently impressed with her dedication towards projects, curiosity to know more and go deep into the subject. She is a good thinker and visual designer with the ability to think critically and analyze complex issues. I personally recommend h...
+                </p>
+              </div>
+              <div className="testimonial-card testimonial-card-grey">
+                <p className="testimonial-role">Ex- Newton School, Associate manager </p>
+                <p className="testimonial-name testimonial-name-large">Lavin Punjabi</p>
+                <p className="testimonial-text">
+                  Worked With Sabhya for a brief period. She converted imagination into a visual design rapidly and with elegance, a profound thinker and an intriguing person beyond work conversations.
+                </p>
+              </div>
             </div>
-            <div className="testimonial-card testimonial-card-grey">
-              <p className="testimonial-role">Senior designer at Microsoft</p>
-              <p className="testimonial-name">Rhiddit Paul</p>
-              <p className="testimonial-text">
-                Sabhya's approach when it comes to UX research is truly commendable for her age! What I loved about her work was the attention to detail she had and the determination to understand the entire ecosystem in which the project is situated! I would definitely feel lucky to have her on any team I am working in!
-              </p>
-            </div>
-            <div className="testimonial-card testimonial-card-green">
-              <p className="testimonial-role">Faculty at NIFT</p>
-              <p className="testimonial-name">Arnav Deepak Barik</p>
-              <p className="testimonial-text">
-                I had the privilege of teaching and mentoring Sabhya in various subjects and projects. During her study, I was consistently impressed with her dedication towards projects, curiosity to know more and go deep into the subject. She is a good thinker and visual designer with the ability to think critically and analyze complex issues. I personally recommend h...
-              </p>
-            </div>
-            <div className="testimonial-card testimonial-card-grey">
-              <p className="testimonial-role">Ex- Newton School, Associate manager </p>
-              <p className="testimonial-name testimonial-name-large">Lavin Punjabi</p>
-              <p className="testimonial-text">
-                Worked With Sabhya for a brief period. She converted imagination into a visual design rapidly and with elegance, a profound thinker and an intriguing person beyond work conversations.
-              </p>
-            </div>
+            <button 
+              className="testimonials-carousel-button testimonials-carousel-button-next"
+              onClick={handleNextTestimonial}
+              aria-label="Next testimonial"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#094020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div className="testimonials-carousel-dots">
+            {[...Array(totalTestimonials)].map((_, index) => (
+              <button
+                key={index}
+                className={`testimonials-carousel-dot ${currentTestimonialIndex === index ? 'active' : ''}`}
+                onClick={() => scrollToTestimonial(index)}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -446,32 +538,80 @@ const Introduction = () => {
           <div className="section-header">
             <p className="section-title">Graduating from NIFT, I tried my hands on a lot of different things. Check some of them out</p>
           </div>
-          <div 
-            className="projects-content"
-            ref={projectsRef}
-            onMouseDown={handleProjectsMouseDown}
-            onMouseLeave={handleProjectsMouseLeave}
-            onMouseUp={handleProjectsMouseUp}
-            onMouseMove={handleProjectsMouseMove}
-            onTouchStart={handleProjectsTouchStart}
-            onTouchMove={handleProjectsTouchMove}
-            onTouchEnd={handleProjectsTouchEnd}
-          >
-            <div className="project-image-wrapper">
-              <img src={imgScreenshot41} alt="Project 1" className="project-image" />
+          <div className="projects-carousel-wrapper">
+            <button 
+              className="projects-carousel-button projects-carousel-button-prev"
+              onClick={handlePrevProject}
+              aria-label="Previous project"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#094020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <div 
+              className="projects-content"
+              ref={projectsRef}
+              onMouseDown={handleProjectsMouseDown}
+              onMouseLeave={handleProjectsMouseLeave}
+              onMouseUp={handleProjectsMouseUp}
+              onMouseMove={handleProjectsMouseMove}
+              onTouchStart={handleProjectsTouchStart}
+              onTouchMove={handleProjectsTouchMove}
+              onTouchEnd={handleProjectsTouchEnd}
+              onScroll={(e) => {
+                // Update current index based on scroll position
+                if (!projectsRef.current) return;
+                const scrollLeft = projectsRef.current.scrollLeft;
+                // Calculate which project is currently visible
+                let accumulatedWidth = 0;
+                let newIndex = 0;
+                const cardWidths = [384, 384, 375, 384, 384]; // Widths for each card
+                const gap = 24;
+                
+                for (let i = 0; i < cardWidths.length; i++) {
+                  if (scrollLeft >= accumulatedWidth - 50) { // 50px threshold
+                    newIndex = i;
+                  }
+                  accumulatedWidth += cardWidths[i] + gap;
+                }
+                setCurrentProjectIndex(Math.min(newIndex, totalProjects - 1));
+              }}
+            >
+              <div className="project-image-wrapper">
+                <img src={imgScreenshot41} alt="Project 1" className="project-image" />
+              </div>
+              <div className="project-image-wrapper">
+                <img src={imgSimpleMockupFreeScene11} alt="Project 2" className="project-image" />
+              </div>
+              <div className="project-image-wrapper">
+                <img src={imgF32C13117719167629462De4680C1} alt="Project 3" className="project-image" />
+              </div>
+              <div className="project-image-wrapper project-image-green">
+                <img src={imgFrame4851} alt="Project 4" className="project-image" />
+              </div>
+              <div className="project-image-wrapper">
+                <img src={img11} alt="Project 5" className="project-image" />
+              </div>
             </div>
-            <div className="project-image-wrapper">
-              <img src={imgSimpleMockupFreeScene11} alt="Project 2" className="project-image" />
-            </div>
-            <div className="project-image-wrapper">
-              <img src={imgF32C13117719167629462De4680C1} alt="Project 3" className="project-image" />
-            </div>
-            <div className="project-image-wrapper project-image-green">
-              <img src={imgFrame4851} alt="Project 4" className="project-image" />
-            </div>
-            <div className="project-image-wrapper">
-              <img src={img11} alt="Project 5" className="project-image" />
-            </div>
+            <button 
+              className="projects-carousel-button projects-carousel-button-next"
+              onClick={handleNextProject}
+              aria-label="Next project"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#094020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div className="projects-carousel-dots">
+            {[...Array(totalProjects)].map((_, index) => (
+              <button
+                key={index}
+                className={`projects-carousel-dot ${currentProjectIndex === index ? 'active' : ''}`}
+                onClick={() => scrollToProject(index)}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
           </div>
           <div className="view-all-button view-all-button-projects">
             <p className="view-all-text">View all other cases</p>

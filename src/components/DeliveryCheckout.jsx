@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DeliveryCheckout.css';
-import imgExpandArrow from '../images/delivery-checkout/expand-arrow.png';
 import imgMenu from '../images/delivery-checkout/menu.png';
 import imgOpportunityMockup1 from '../images/delivery-checkout/opportunity-mockup1.png';
 import imgOpportunityMockup2 from '../images/delivery-checkout/opportunity-mockup2.png';
@@ -66,8 +65,11 @@ import imgAndroidSilverFinalBg from '../images/delivery-checkout/android-silver-
 import imgFinalComparison from '../images/delivery-checkout/final-comparison.png';
 import imgScreenInsertDesignsHereIPhone from '../images/delivery-checkout/screen-insert-designs-here-iphone.png';
 import imgScreenInsertDesignsHereAndroid from '../images/delivery-checkout/screen-insert-designs-here-android.png';
-import imgScreenInsertDesignsHereAndroidUpdated from '../images/delivery-checkout/screen-insert-designs-here-android-updated.png';
 import imgWhatsappImageFinal from '../images/delivery-checkout/whatsapp-image-final.png';
+import imgScreenInsertDesignsHereAndroidUpdated from '../images/delivery-checkout/screen-insert-designs-here-android-updated.png';
+
+// Use the same icon as Search page
+const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
 
 const DeliveryCheckout = () => {
   const navigate = useNavigate();
