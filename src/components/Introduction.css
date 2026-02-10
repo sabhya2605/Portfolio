@@ -1263,3 +1263,357 @@
   color: #000;
   margin: 0;
 }
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .introduction-container {
+    padding: 93px 80px 63.318px 80px;
+  }
+  
+  .introduction-content {
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .header-section {
+    width: 100%;
+  }
+  
+  .footer-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .introduction-container {
+    padding: 60px 40px 40px 40px;
+  }
+  
+  .introduction-content {
+    gap: 60px;
+  }
+  
+  .hero-title-container {
+    width: 100%;
+    max-width: 653px;
+  }
+  
+  .hero-title,
+  .hero-subtitle {
+    font-size: 36px;
+    line-height: 48px;
+  }
+  
+  .hero-tagline {
+    font-size: 20px;
+  }
+  
+  .case-content {
+    flex-direction: column;
+  }
+  
+  .case-content-reverse {
+    flex-direction: column;
+  }
+  
+  .case-image-container {
+    width: 100%;
+  }
+  
+  .case-cards-row {
+    flex-direction: column;
+  }
+  
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .about-image-wrapper {
+    width: 100%;
+  }
+  
+  .recognitions-content {
+    flex-direction: column;
+  }
+  
+  .recognition-card-left {
+    width: 100%;
+  }
+  
+  .testimonial-card {
+    width: 100%;
+    max-width: 384px;
+  }
+  
+  .project-image-wrapper {
+    width: 100%;
+    max-width: 384px;
+  }
+  
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .footer-text,
+  .footer-right {
+    width: 100%;
+  }
+  
+  .footer-line {
+    width: 100%;
+    max-width: 444px;
+  }
+}
+
+@media (max-width: 768px) {
+  .introduction-container {
+    padding: 40px 24px 32px 24px;
+  }
+  
+  .introduction-content {
+    gap: 40px;
+  }
+  
+  .name-text,
+  .menu-text {
+    font-size: 20px;
+  }
+  
+  .hero-title,
+  .hero-subtitle {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .hero-tagline {
+    font-size: 18px;
+  }
+  
+  .work-company-text,
+  .work-company-name,
+  .work-date {
+    font-size: 20px;
+  }
+  
+  .case-title,
+  .case-title-large {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .case-description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .case-tag {
+    font-size: 16px;
+  }
+  
+  .view-all-text {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .about-name {
+    font-size: 24px;
+  }
+  
+  .about-role {
+    font-size: 18px;
+  }
+  
+  .about-description-bold {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .about-description-normal {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .recognition-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .recognition-description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .testimonial-name {
+    font-size: 20px;
+  }
+  
+  .testimonial-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .footer-text,
+  .footer-email-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .introduction-container {
+    padding: 32px 16px 24px 16px;
+  }
+  
+  .introduction-content {
+    gap: 32px;
+  }
+  
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .hero-title,
+  .hero-subtitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .hero-tagline {
+    font-size: 16px;
+  }
+  
+  .name-text,
+  .menu-text {
+    font-size: 18px;
+  }
+  
+  .menu-button {
+    padding: 10px 14px 10px 12px;
+  }
+  
+  .menu-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .work-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .case-card {
+    padding: 20px;
+  }
+  
+  .case-title,
+  .case-title-large {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .case-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .case-tags {
+    flex-wrap: wrap;
+  }
+  
+  .case-tag {
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .view-all-text {
+    font-size: 20px;
+  }
+  
+  .view-all-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .view-all-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .about-content {
+    padding: 20px;
+  }
+  
+  .about-card {
+    padding: 12px;
+  }
+  
+  .about-name {
+    font-size: 20px;
+  }
+  
+  .about-role {
+    font-size: 16px;
+  }
+  
+  .about-description-bold {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .about-description-normal {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .know-more-text {
+    font-size: 18px;
+  }
+  
+  .recognition-card {
+    padding: 20px;
+  }
+  
+  .recognition-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .recognition-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-name {
+    font-size: 18px;
+  }
+  
+  .testimonial-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .footer-top {
+    padding: 8px 12px;
+  }
+  
+  .footer-text,
+  .footer-email-text {
+    font-size: 16px;
+  }
+  
+  .footer-email {
+    padding: 6px 12px 8px 12px;
+  }
+}

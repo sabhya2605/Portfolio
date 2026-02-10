@@ -250,3 +250,177 @@
 .resume-experience-list li span {
   line-height: 32px;
 }
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .resume-container {
+    width: 100%;
+    padding: 118px 80px 368px 80px;
+  }
+  
+  .resume-content {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .resume-container {
+    padding: 80px 40px 200px 40px;
+  }
+  
+  .resume-content {
+    gap: 40px;
+  }
+  
+  .resume-about-card {
+    flex-direction: column;
+  }
+  
+  .resume-about-image-wrapper {
+    width: 100%;
+    max-width: 511px;
+  }
+  
+  .resume-experience-company,
+  .resume-experience-position,
+  .resume-experience-list {
+    width: 100%;
+  }
+  
+  .resume-experience-card {
+    height: auto;
+    min-height: 224px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    padding: 60px 24px 150px 24px;
+  }
+  
+  .resume-content {
+    gap: 32px;
+    padding: 0 12px;
+  }
+  
+  .resume-section-title {
+    font-size: 20px;
+  }
+  
+  .resume-about-card {
+    padding: 20px;
+  }
+  
+  .resume-name {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .resume-role {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .resume-description-bold {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .resume-description-normal {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .resume-experience-card {
+    padding: 20px;
+  }
+  
+  .resume-experience-company {
+    font-size: 20px;
+  }
+  
+  .resume-experience-position {
+    font-size: 18px;
+  }
+  
+  .resume-experience-list {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-container {
+    padding: 40px 16px 100px 16px;
+  }
+  
+  .resume-content {
+    gap: 24px;
+    padding: 0 8px;
+  }
+  
+  .resume-section-header {
+    padding: 8px 12px;
+  }
+  
+  .resume-section-title {
+    font-size: 18px;
+  }
+  
+  .resume-about-card {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .resume-name-card,
+  .resume-description-card {
+    padding: 12px;
+  }
+  
+  .resume-name {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .resume-role {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .resume-description-bold {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .resume-description-normal {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .resume-experience-card {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .resume-experience-header {
+    gap: 12px;
+  }
+  
+  .resume-experience-company {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .resume-experience-position {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .resume-experience-list {
+    font-size: 16px;
+  }
+  
+  .resume-experience-list li {
+    margin-left: 20px;
+  }
+}

@@ -3062,3 +3062,177 @@
   text-align: center;
   width: 100%;
 }
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .delivery-checkout-container {
+    padding: 64px 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .delivery-checkout-container {
+    padding: 48px 40px;
+  }
+  
+  .delivery-checkout-content-wrapper,
+  .delivery-checkout-content {
+    width: 100%;
+  }
+  
+  .delivery-checkout-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .delivery-checkout-name {
+    font-size: 20px;
+  }
+  
+  .delivery-checkout-title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+  
+  .delivery-checkout-section-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .delivery-checkout-section-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .delivery-checkout-opportunity-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .delivery-checkout-opportunity-mockup {
+    width: 100%;
+    max-width: 335.027px;
+  }
+  
+  .delivery-checkout-iphone-container {
+    width: 100%;
+    max-width: 327.224px;
+  }
+  
+  .delivery-checkout-impact-content {
+    flex-direction: column;
+  }
+  
+  .delivery-checkout-things-working-content {
+    flex-direction: column;
+  }
+  
+  .delivery-checkout-phase-content {
+    flex-direction: column;
+  }
+  
+  .delivery-checkout-final-comparison-content {
+    flex-direction: column;
+  }
+  
+  .delivery-checkout-final-conclusion-content {
+    width: 100%;
+  }
+  
+  .delivery-checkout-learning-divider {
+    width: 100%;
+    max-width: 960px;
+  }
+  
+  .delivery-checkout-cta-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .delivery-checkout-container {
+    padding: 32px 24px;
+  }
+  
+  .delivery-checkout-name {
+    font-size: 18px;
+  }
+  
+  .delivery-checkout-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .delivery-checkout-section-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .delivery-checkout-section-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .delivery-checkout-opportunity-mockup {
+    max-width: 100%;
+  }
+  
+  .delivery-checkout-iphone-container {
+    max-width: 100%;
+  }
+  
+  .delivery-checkout-cta-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .delivery-checkout-container {
+    padding: 24px 16px;
+  }
+  
+  .delivery-checkout-header {
+    gap: 12px;
+  }
+  
+  .delivery-checkout-name {
+    font-size: 16px;
+  }
+  
+  .delivery-checkout-back-button {
+    height: 40px;
+  }
+  
+  .delivery-checkout-back-icon-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .delivery-checkout-back-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .delivery-checkout-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .delivery-checkout-section-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .delivery-checkout-section-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  .delivery-checkout-cta-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

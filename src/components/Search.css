@@ -1283,3 +1283,461 @@
   z-index: 1;
   font-feature-settings: 'lnum' 1, 'pnum' 1;
 }
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .search-container {
+    width: 100%;
+  }
+  
+  .search-background {
+    width: 100%;
+  }
+  
+  .search-content-wrapper {
+    padding: 64px 80px;
+  }
+  
+  .search-bg-section-1,
+  .search-bg-section-2,
+  .search-bg-section-3,
+  .search-learning-bg,
+  .search-solution-bg {
+    width: 100%;
+    left: -80px;
+  }
+  
+  .search-requirements-section {
+    width: 100%;
+  }
+  
+  .search-requirements-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .search-content-wrapper {
+    padding: 48px 40px;
+    height: auto;
+  }
+  
+  .search-content,
+  .search-inner-content {
+    width: 100%;
+    position: relative;
+  }
+  
+  .search-header {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .search-header-left {
+    width: 100%;
+  }
+  
+  .search-name {
+    font-size: 20px;
+  }
+  
+  .search-menu-text {
+    font-size: 20px;
+  }
+  
+  .search-main-title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+  
+  .search-description {
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .search-previous-title-wrapper {
+    width: 100%;
+  }
+  
+  .search-previous-title {
+    font-size: 28px;
+  }
+  
+  .search-previous-captions {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .search-caption {
+    width: 100%;
+  }
+  
+  .search-section-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .search-section-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .search-touchpoints-title {
+    font-size: 28px;
+  }
+  
+  .search-touchpoints-header-text {
+    font-size: 28px;
+  }
+  
+  .search-touchpoints-question-text {
+    font-size: 20px;
+  }
+  
+  .search-touchpoints-badge-text {
+    font-size: 20px;
+  }
+  
+  .search-touchpoints-list {
+    font-size: 16px;
+  }
+  
+  .search-lifecycle-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1164 / 1310;
+  }
+  
+  .search-divider {
+    width: 100%;
+    max-width: 960px;
+  }
+  
+  .search-principles-section {
+    width: 100%;
+    padding-left: 0;
+  }
+  
+  .search-principles-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .search-principles-item {
+    width: 100%;
+  }
+  
+  .search-tackle-section {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .search-tackle-content {
+    width: 100%;
+  }
+  
+  .search-tackle-steps {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .search-tackle-step {
+    width: 100%;
+  }
+  
+  .search-tackle-quote {
+    width: 100%;
+  }
+  
+  .search-tackle-quote-text {
+    font-size: 36px;
+  }
+  
+  .search-solution-section {
+    flex-direction: column;
+    padding: 24px 40px;
+  }
+  
+  .search-solution-left {
+    width: 100%;
+  }
+  
+  .search-solution-title {
+    font-size: 36px;
+  }
+  
+  .search-solution-list {
+    font-size: 28px;
+  }
+  
+  .search-solution-right {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .search-intent-list {
+    font-size: 28px;
+  }
+  
+  .search-version2-section {
+    width: 100%;
+  }
+  
+  .search-version2-note {
+    width: 100%;
+  }
+  
+  .search-decisions-section {
+    width: 100%;
+  }
+  
+  .search-learning-wrapper {
+    padding: 24px 40px;
+  }
+  
+  .search-learning-title,
+  .search-learning-subtitle {
+    font-size: 28px;
+  }
+  
+  .search-learning-text {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .search-learning-divider {
+    width: 100%;
+    max-width: 960px;
+  }
+  
+  .search-final-cta {
+    width: 100%;
+    height: auto;
+    font-size: 36px;
+    line-height: 48px;
+  }
+  
+  .search-bg-section-1,
+  .search-bg-section-2,
+  .search-bg-section-3,
+  .search-learning-bg,
+  .search-solution-bg {
+    left: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-content-wrapper {
+    padding: 32px 24px;
+  }
+  
+  .search-name,
+  .search-menu-text {
+    font-size: 18px;
+  }
+  
+  .search-main-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .search-description {
+    font-size: 14px;
+  }
+  
+  .search-previous-title {
+    font-size: 24px;
+  }
+  
+  .search-section-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .search-section-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  .search-touchpoints-title,
+  .search-touchpoints-header-text {
+    font-size: 24px;
+  }
+  
+  .search-touchpoints-question-text {
+    font-size: 18px;
+  }
+  
+  .search-touchpoints-badge-text {
+    font-size: 18px;
+  }
+  
+  .search-touchpoints-list {
+    font-size: 14px;
+  }
+  
+  .search-tackle-quote-text {
+    font-size: 28px;
+  }
+  
+  .search-solution-title {
+    font-size: 28px;
+  }
+  
+  .search-solution-list {
+    font-size: 24px;
+  }
+  
+  .search-intent-list {
+    font-size: 24px;
+  }
+  
+  .search-learning-title,
+  .search-learning-subtitle {
+    font-size: 24px;
+  }
+  
+  .search-learning-text {
+    font-size: 16px;
+  }
+  
+  .search-final-cta {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .search-solution-section {
+    padding: 24px;
+  }
+  
+  .search-learning-wrapper {
+    padding: 24px;
+  }
+  
+  .search-bg-section-1,
+  .search-bg-section-2,
+  .search-bg-section-3,
+  .search-learning-bg,
+  .search-solution-bg {
+    left: -24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-content-wrapper {
+    padding: 24px 16px;
+  }
+  
+  .search-header {
+    gap: 12px;
+  }
+  
+  .search-name,
+  .search-menu-text {
+    font-size: 16px;
+  }
+  
+  .search-back-button {
+    height: 40px;
+  }
+  
+  .search-back-icon-wrapper,
+  .search-back-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .search-main-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .search-description {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  
+  .search-previous-title {
+    font-size: 20px;
+  }
+  
+  .search-section-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .search-section-text {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  
+  .search-touchpoints-title,
+  .search-touchpoints-header-text {
+    font-size: 20px;
+  }
+  
+  .search-touchpoints-question-text {
+    font-size: 16px;
+  }
+  
+  .search-touchpoints-badge-text {
+    font-size: 16px;
+  }
+  
+  .search-touchpoints-list {
+    font-size: 12px;
+  }
+  
+  .search-tackle-quote-text {
+    font-size: 24px;
+  }
+  
+  .search-tackle-quote-subtext {
+    font-size: 14px;
+  }
+  
+  .search-solution-title {
+    font-size: 24px;
+  }
+  
+  .search-solution-list {
+    font-size: 20px;
+  }
+  
+  .search-intent-list {
+    font-size: 20px;
+  }
+  
+  .search-learning-title,
+  .search-learning-subtitle {
+    font-size: 20px;
+  }
+  
+  .search-learning-text {
+    font-size: 14px;
+  }
+  
+  .search-final-cta {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .search-solution-section {
+    padding: 16px;
+  }
+  
+  .search-learning-wrapper {
+    padding: 16px;
+  }
+  
+  .search-bg-section-1,
+  .search-bg-section-2,
+  .search-bg-section-3,
+  .search-learning-bg,
+  .search-solution-bg {
+    left: -16px;
+  }
+}

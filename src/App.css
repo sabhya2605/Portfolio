@@ -20,4 +20,31 @@ body {
   align-items: flex-start;
   min-height: 100vh;
   background: #FFF;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .App {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .App {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    width: 100%;
+  }
 }
