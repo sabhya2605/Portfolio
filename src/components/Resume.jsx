@@ -1,15 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Resume.css';
 import imgRectangle5 from '../images/resume/rectangle5.png';
 
 const Resume = () => {
-  const navigate = useNavigate();
-
-  const handleBackClick = () => {
-    navigate('/');
-  };
-
   return (
     <div className="resume-container" data-node-id="2409:571">
       <div className="resume-content" data-node-id="2409:572">

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
 
@@ -12,7 +12,6 @@ const imgRectangle5 = "https://www.figma.com/api/mcp/asset/ac57eec5-55b0-4d60-bd
 const imgRectangle6 = "https://www.figma.com/api/mcp/asset/32cbde40-5fdb-4345-b6e8-06d1388288ae";
 const imgAdvance = "https://www.figma.com/api/mcp/asset/178a31ab-87bf-4910-8079-8897f0021de5";
 const imgRectangle7 = "https://www.figma.com/api/mcp/asset/4e896079-51a5-47ec-956e-f44c8fc1d6b1";
-const imgWhatsAppImage20241219At111349Pm1 = "https://www.figma.com/api/mcp/asset/4756c326-f60b-4776-85e6-926fb48ebd0f";
 const imgWhatsAppImage20241219At111349Pm2 = "https://www.figma.com/api/mcp/asset/327695f4-ca30-4188-a7a0-d37430f670f3";
 const imgWhatsAppImage20241219At111349Pm11 = "https://www.figma.com/api/mcp/asset/c3c912ce-e37c-4a82-8ff3-032caee00a29";
 const imgWhatsAppImage20241211At45326Pm11 = "https://www.figma.com/api/mcp/asset/d1baca64-15a3-411e-aaf7-b381aba2b731";
@@ -118,7 +117,6 @@ const Introduction = () => {
 
   const scrollToProject = (index) => {
     if (!projectsRef.current) return;
-    const cardWidth = 384; // Base width of each card
     const gap = 24; // Gap between cards
     // Account for the 3rd card which is 375px instead of 384px
     let scrollPosition = 0;

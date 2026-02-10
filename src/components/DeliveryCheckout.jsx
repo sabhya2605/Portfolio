@@ -29,7 +29,6 @@ import imgPhase02Phone1 from '../images/delivery-checkout/phase02-phone-1.png';
 import imgPhase02Phone2 from '../images/delivery-checkout/phase02-phone-2.png';
 import imgPhase02Phone3 from '../images/delivery-checkout/phase02-phone-3.png';
 import imgAndroidSilver from '../images/delivery-checkout/android-silver.png';
-import imgMagic91 from '../images/delivery-checkout/magic9-1.png';
 import imgReviewedFileS11 from '../images/delivery-checkout/reviewed-file-s1-1.png';
 import imgAndroidSilverBenefits from '../images/delivery-checkout/android-silver-benefits.png';
 import imgMagic9Benefits from '../images/delivery-checkout/magic9-benefits.png';
@@ -56,11 +55,9 @@ import imgPaymentScreenErrorPrevention from '../images/delivery-checkout/payment
 import imgPaymentScreen2 from '../images/delivery-checkout/payment-screen-2.png';
 import imgPaymentScreen3 from '../images/delivery-checkout/payment-screen-3.png';
 import imgIPhone15ProWhiteFinal from '../images/delivery-checkout/iphone-15-pro-white-final.png';
-import imgAndroidSilverFinal from '../images/delivery-checkout/android-silver-final.png';
 import imgAndroidSilverFinalBg from '../images/delivery-checkout/android-silver-final-bg.png';
 import imgFinalComparison from '../images/delivery-checkout/final-comparison.png';
 import imgScreenInsertDesignsHereIPhone from '../images/delivery-checkout/screen-insert-designs-here-iphone.png';
-import imgScreenInsertDesignsHereAndroid from '../images/delivery-checkout/screen-insert-designs-here-android.png';
 import imgWhatsappImageFinal from '../images/delivery-checkout/whatsapp-image-final.png';
 import imgScreenInsertDesignsHereAndroidUpdated from '../images/delivery-checkout/screen-insert-designs-here-android-updated.png';
 import imgMacbookAirM2SilverFlatten from '../images/delivery-checkout/macbook-air-m2-silver-flatten.png';
@@ -836,7 +833,7 @@ const DeliveryCheckout = () => {
                   </div>
                   <div className="delivery-checkout-final-comparison-overlay-iphone" data-node-id="2362:18797">
                     <div className="delivery-checkout-final-comparison-overlay-content-iphone" data-node-id="2362:18798">
-                      <img src={imgWhatsappImageFinal} alt="WhatsApp Image" className="delivery-checkout-final-comparison-overlay-img-iphone" />
+                      <img src={imgWhatsappImageFinal} alt="WhatsApp" className="delivery-checkout-final-comparison-overlay-img-iphone" />
                     </div>
                   </div>
                 </div>
