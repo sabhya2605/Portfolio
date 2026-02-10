@@ -26,6 +26,48 @@ import imgPd1 from '../images/delivery-checkout/pd-1.png';
 import imgDeliveryTipAdded2 from '../images/delivery-checkout/delivery-tip-added-2.png';
 import imgDeliveryTipAdded from '../images/delivery-checkout/delivery-tip-added.png';
 import imgPro1Pd1 from '../images/delivery-checkout/pro-1-pd-1.png';
+import imgPhase02Phone1 from '../images/delivery-checkout/phase02-phone-1.png';
+import imgPhase02Phone2 from '../images/delivery-checkout/phase02-phone-2.png';
+import imgPhase02Phone3 from '../images/delivery-checkout/phase02-phone-3.png';
+import imgAndroidSilver from '../images/delivery-checkout/android-silver.png';
+import imgMagic91 from '../images/delivery-checkout/magic9-1.png';
+import imgReviewedFileS11 from '../images/delivery-checkout/reviewed-file-s1-1.png';
+import imgAndroidSilverBenefits from '../images/delivery-checkout/android-silver-benefits.png';
+import imgMagic9Benefits from '../images/delivery-checkout/magic9-benefits.png';
+import imgReviewedFileBenefits from '../images/delivery-checkout/reviewed-file-benefits.png';
+import imgMagicNow from '../images/delivery-checkout/magic-now.png';
+import imgLine179 from '../images/delivery-checkout/line-179.png';
+import imgLine180 from '../images/delivery-checkout/line-180.png';
+import imgLine181 from '../images/delivery-checkout/line-181.png';
+import imgLine182 from '../images/delivery-checkout/line-182.png';
+import imgLine190 from '../images/delivery-checkout/line-190.png';
+import imgLine191 from '../images/delivery-checkout/line-191.png';
+import imgAndroidSilverPhase03 from '../images/delivery-checkout/android-silver-phase03.png';
+import imgCouponApplied from '../images/delivery-checkout/coupon-applied.png';
+import imgMxPageTakeaway from '../images/delivery-checkout/mx-page-takeaway.png';
+import imgAndroidLSilver1 from '../images/delivery-checkout/android-l-silver-1.png';
+import imgAddress1 from '../images/delivery-checkout/address-1.png';
+import imgCheckoutTakeaway from '../images/delivery-checkout/checkout-takeaway.png';
+import imgMxToPg from '../images/delivery-checkout/mx-to-pg.png';
+import imgLine179Phase03 from '../images/delivery-checkout/line-179-phase03.png';
+import imgLine180Phase03 from '../images/delivery-checkout/line-180-phase03.png';
+import imgLine185 from '../images/delivery-checkout/line-185.png';
+import imgLine184 from '../images/delivery-checkout/line-184.png';
+import imgPaymentScreenErrorPrevention from '../images/delivery-checkout/payment-screen-error-prevention.png';
+import imgPaymentScreen2 from '../images/delivery-checkout/payment-screen-2.png';
+import imgPaymentScreen3 from '../images/delivery-checkout/payment-screen-3.png';
+import imgMacbookAirM2SilverFlatten from '../images/delivery-checkout/macbook-air-m2-silver-flatten.png';
+import imgArrowImpact1 from '../images/delivery-checkout/arrow-impact-1.png';
+import imgArrowImpact2 from '../images/delivery-checkout/arrow-impact-2.png';
+import imgArrowImpact3 from '../images/delivery-checkout/arrow-impact-3.png';
+import imgIPhone15ProWhiteFinal from '../images/delivery-checkout/iphone-15-pro-white-final.png';
+import imgAndroidSilverFinal from '../images/delivery-checkout/android-silver-final.png';
+import imgAndroidSilverFinalBg from '../images/delivery-checkout/android-silver-final-bg.png';
+import imgFinalComparison from '../images/delivery-checkout/final-comparison.png';
+import imgScreenInsertDesignsHereIPhone from '../images/delivery-checkout/screen-insert-designs-here-iphone.png';
+import imgScreenInsertDesignsHereAndroid from '../images/delivery-checkout/screen-insert-designs-here-android.png';
+import imgScreenInsertDesignsHereAndroidUpdated from '../images/delivery-checkout/screen-insert-designs-here-android-updated.png';
+import imgWhatsappImageFinal from '../images/delivery-checkout/whatsapp-image-final.png';
 
 const DeliveryCheckout = () => {
   const navigate = useNavigate();
@@ -306,6 +348,494 @@ const DeliveryCheckout = () => {
               <p className="delivery-checkout-phase01-label delivery-checkout-phase01-label-1" data-node-id="2362:17262">delivery tip added</p>
               <p className="delivery-checkout-phase01-label delivery-checkout-phase01-label-2" data-node-id="2362:17263">delivery tip not added</p>
               <p className="delivery-checkout-phase01-label delivery-checkout-phase01-label-3" data-node-id="2362:17264">delivery tip added from here</p>
+            </div>
+          </div>
+
+          {/* Phase 02 Text Content - Above Phase 02 */}
+          <div className="delivery-checkout-phase02-intro-text">
+            <p className="delivery-checkout-phase02-intro-paragraph-1">
+              • Inspired by competitor patterns, we highlighted discount coupons upfront to ensure quick visibility within users' limited attention span, aiming to increase delight.
+            </p>
+            <p className="delivery-checkout-phase02-intro-paragraph-2">
+              • To reduce cognitive load from multiple calculations, payment details were moved to a bottom-sheet interaction, making the action more focused and intentional.
+            </p>
+          </div>
+
+          {/* Phase 02 Checkout Landing Section - node 2362:17275 */}
+          <div className="delivery-checkout-phase02-section" data-node-id="2362:17275">
+            <p className="delivery-checkout-phase02-title" data-node-id="2362:17276">Phase : 02</p>
+            <p className="delivery-checkout-phase02-subtitle" data-node-id="2362:17277">Checkout landing</p>
+
+            {/* Dark Green Background Frame - node 2362:17278 */}
+            <div className="delivery-checkout-phase02-frame" data-node-id="2362:17278">
+              <div className="delivery-checkout-phase02-frame-content" data-node-id="2362:17279">
+                {/* Left Section */}
+                <div className="delivery-checkout-phase02-left-section" data-node-id="2362:17280">
+                  <div className="delivery-checkout-phase02-phone-1" data-node-id="2362:17281">
+                    <img src={imgPhase02Phone1} alt="EatFit App" className="delivery-checkout-phase02-phone-img" />
+                  </div>
+                  <div className="delivery-checkout-phase02-left-text" data-node-id="2362:17282">
+                    <div className="delivery-checkout-phase02-problem-text" data-node-id="2362:17283">
+                      <p>This page needs no explanation on how cluttered it used to be.</p>
+                      <p>It violated multiple laws of heuristics, starting from:</p>
+                      <ol>
+                        <li>Visibility</li>
+                        <li>Consistency</li>
+                        <li>Recognition over recall TO</li>
+                        <li>Aesthetic and minimal design</li>
+                      </ol>
+                    </div>
+                    <div className="delivery-checkout-phase02-questions" data-node-id="2362:17284">
+                      <p>Q1) Why isn't the cooking instructions section with the item list?</p>
+                      <p>Q2) Is magicPro cross sell more important than item upsell? What is driving more revenue?</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Section */}
+                <div className="delivery-checkout-phase02-right-section" data-node-id="2362:17285">
+                  <div className="delivery-checkout-phase02-phone-2" data-node-id="2362:17286">
+                    <img src={imgPhase02Phone2} alt="Pizza Hut App 1" className="delivery-checkout-phase02-phone-img" />
+                  </div>
+                  <div className="delivery-checkout-phase02-phone-3" data-node-id="2362:17287">
+                    <img src={imgPhase02Phone3} alt="Pizza Hut App 2" className="delivery-checkout-phase02-phone-img" />
+                  </div>
+                  <div className="delivery-checkout-phase02-right-text" data-node-id="2362:17288">
+                    <p className="delivery-checkout-phase02-solution-text" data-node-id="2362:17289">
+                      Let's break it down how this solves the mentioned problems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Prototype Link */}
+            <p className="delivery-checkout-phase02-prototype-link">
+              <a 
+                href="https://www.figma.com/proto/BKrNUUj9m2FUqPwgbRvnXc/Mp?page-id=45%3A12882&node-id=685-30032&viewport=-2681%2C-4343%2C0.26&t=zdu9JnNudbZsqKtv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=685%3A30032" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Prototype link: https://www.figma.com/proto/BKrNUUj9m2FUqPwgbRvnXc/Mp?page-id=45%3A12882&node-id=685-30032&viewport=-2681%2C-4343%2C0.26&t=zdu9JnNudbZsqKtv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=685%3A30032
+              </a>
+            </p>
+          </div>
+
+          {/* Phase 02 Details Section - node 2362:17291 */}
+          <div className="delivery-checkout-phase02-details" data-node-id="2362:17291">
+            <div className="delivery-checkout-phase02-details-left" data-node-id="2362:17292">
+              <p className="delivery-checkout-phase02-details-title" data-node-id="2362:17293">Phase : 02</p>
+              <p className="delivery-checkout-phase02-details-subtitle" data-node-id="2362:17294">Checkout landing</p>
+              <ul className="delivery-checkout-phase02-details-list" data-node-id="2362:17295">
+                <li>
+                  Micro animation for "<span className="delivery-checkout-phase02-bold">exclusive gift</span>", intent is to attract user attention.
+                </li>
+                <li>
+                  Highlighted special offers and pricing with another micro-animation and gradient bg.
+                </li>
+                <li>
+                  Toggle to switch between services to make it more <span className="delivery-checkout-phase02-bold">accessible</span>.
+                </li>
+                <li>
+                  Adaptive filter response
+                </li>
+                <li>
+                  Upsell offer shimmer highlighted
+                </li>
+              </ul>
+            </div>
+            <div className="delivery-checkout-phase02-details-right" data-node-id="2362:17296">
+              <div className="delivery-checkout-phase02-android-frame">
+                <img src={imgAndroidSilver} alt="Android Silver" className="delivery-checkout-phase02-android-img" />
+                <div className="delivery-checkout-phase02-magic9" data-node-id="2362:17298">
+                  <img src={imgMagic91} alt="magic9" className="delivery-checkout-phase02-magic9-img" />
+                </div>
+                <div className="delivery-checkout-phase02-reviewed-file" data-node-id="2362:17299">
+                  <div className="delivery-checkout-phase02-reviewed-file-wrapper">
+                    <img src={imgReviewedFileS11} alt="Reviewed file S1" className="delivery-checkout-phase02-reviewed-file-img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Product Benefits Section - node 2362:17300 */}
+          <div className="delivery-checkout-product-benefits-section" data-node-id="2362:17300">
+            {/* Header - node 2362:17301 */}
+            <div className="delivery-checkout-product-benefits-header" data-node-id="2362:17301">
+              <p className="delivery-checkout-product-benefits-title" data-node-id="2362:17302">Product benefits</p>
+              <p className="delivery-checkout-product-benefits-subtitle" data-node-id="2362:17303">magic9 and magicNow</p>
+            </div>
+
+            {/* Phone Mockups Grid - node 2362:17304 */}
+            <div className="delivery-checkout-product-benefits-grid" data-node-id="2362:17304">
+              {/* Left Phone - magic9 */}
+              <div className="delivery-checkout-product-benefits-phone delivery-checkout-product-benefits-phone-left" data-node-id="2362:17305">
+                <img src={imgAndroidSilverBenefits} alt="Android Silver" className="delivery-checkout-product-benefits-phone-frame" />
+                <div className="delivery-checkout-product-benefits-magic9-screen" data-node-id="2362:17307">
+                  <img src={imgMagic9Benefits} alt="magic9" className="delivery-checkout-product-benefits-screen-img" />
+                </div>
+                <div className="delivery-checkout-product-benefits-line-179" data-node-id="2362:17308">
+                  <div className="delivery-checkout-product-benefits-line-wrapper">
+                    <img src={imgLine179} alt="Line" className="delivery-checkout-product-benefits-line-img" />
+                  </div>
+                </div>
+                <div className="delivery-checkout-product-benefits-line-180" data-node-id="2362:17309">
+                  <div className="delivery-checkout-product-benefits-line-wrapper">
+                    <img src={imgLine180} alt="Line" className="delivery-checkout-product-benefits-line-img" />
+                  </div>
+                </div>
+                <div className="delivery-checkout-product-benefits-reviewed-overlay" data-node-id="2362:17310">
+                  <div className="delivery-checkout-product-benefits-reviewed-wrapper">
+                    <img src={imgReviewedFileBenefits} alt="Reviewed file" className="delivery-checkout-product-benefits-reviewed-img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Phone - magicNow */}
+              <div className="delivery-checkout-product-benefits-phone delivery-checkout-product-benefits-phone-right" data-node-id="2362:17311">
+                <img src={imgAndroidSilverBenefits} alt="Android Silver" className="delivery-checkout-product-benefits-phone-frame" />
+                <div className="delivery-checkout-product-benefits-magicnow-screen" data-node-id="2362:17313">
+                  <img src={imgMagicNow} alt="magicNow" className="delivery-checkout-product-benefits-screen-img" />
+                </div>
+                <div className="delivery-checkout-product-benefits-line-181" data-node-id="2362:17314">
+                  <div className="delivery-checkout-product-benefits-line-wrapper">
+                    <img src={imgLine181} alt="Line" className="delivery-checkout-product-benefits-line-img" />
+                  </div>
+                </div>
+                <div className="delivery-checkout-product-benefits-reviewed-overlay" data-node-id="2362:17315">
+                  <div className="delivery-checkout-product-benefits-reviewed-wrapper">
+                    <img src={imgReviewedFileBenefits} alt="Reviewed file" className="delivery-checkout-product-benefits-reviewed-img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Horizontal Line */}
+              <div className="delivery-checkout-product-benefits-line-182" data-node-id="2362:17316">
+                <div className="delivery-checkout-product-benefits-line-wrapper">
+                  <img src={imgLine182} alt="Line" className="delivery-checkout-product-benefits-line-img" />
+                </div>
+              </div>
+
+              {/* Annotations */}
+              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-magic9" data-node-id="2362:17317">
+                magic9 deal
+              </p>
+              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-best-coupon" data-node-id="2362:17318">
+                <span className="delivery-checkout-product-benefits-bold">"Best coupon applied" </span>
+                Could be magic9 or a better coupon on overall cart value.
+              </p>
+              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-priority" data-node-id="2362:17319">
+                Priority: magicNow
+              </p>
+              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-maintains" data-node-id="2362:17320">
+                magic9 maintains its mention
+              </p>
+
+              {/* Vertical Lines */}
+              <div className="delivery-checkout-product-benefits-line-190" data-node-id="2362:17321">
+                <div className="delivery-checkout-product-benefits-line-rotate">
+                  <div className="delivery-checkout-product-benefits-line-wrapper">
+                    <img src={imgLine190} alt="Line" className="delivery-checkout-product-benefits-line-img" />
+                  </div>
+                </div>
+              </div>
+              <div className="delivery-checkout-product-benefits-line-191" data-node-id="2362:17322">
+                <div className="delivery-checkout-product-benefits-line-rotate">
+                  <div className="delivery-checkout-product-benefits-line-wrapper">
+                    <img src={imgLine191} alt="Line" className="delivery-checkout-product-benefits-line-img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Text */}
+            <p className="delivery-checkout-product-benefits-bottom-text" data-node-id="2362:17323">
+              It is important for user delight. Principal: Recognition over recall. 
+            </p>
+          </div>
+
+          {/* Phase 03 Highlighting Takeaway Section - node 2362:17325 */}
+          <div className="delivery-checkout-phase03-section" data-node-id="2362:17325">
+            {/* Left Content - node 2362:17326 */}
+            <div className="delivery-checkout-phase03-left" data-node-id="2362:17326">
+              <p className="delivery-checkout-phase03-title" data-node-id="2362:17327">Phase : 03</p>
+              <p className="delivery-checkout-phase03-subtitle" data-node-id="2362:17328">Highlighting takeaway</p>
+              <div className="delivery-checkout-phase03-points" data-node-id="2362:17329">
+                <p className="delivery-checkout-phase03-points-intro">
+                  Important points starting from merchant page until reaching payment gateway:
+                </p>
+                <ol className="delivery-checkout-phase03-points-list">
+                  <li>Clear communication of the 2 journeys.</li>
+                  <li>Highlighting benefits clearly</li>
+                  <li>Easy access to switch between delivery and takeaway</li>
+                  <li>Location accessibility</li>
+                  <li>Prior communication of potential errors</li>
+                  <li>Visual differences</li>
+                </ol>
+              </div>
+            </div>
+
+            {/* Right Content - Phone Mockups - node 2362:17330 */}
+            <div className="delivery-checkout-phase03-right" data-node-id="2362:17330">
+              {/* Left Phone Frame - Empty */}
+              <div className="delivery-checkout-phase03-phone delivery-checkout-phase03-phone-left" data-node-id="2362:17331">
+                <img src={imgAndroidSilverPhase03} alt="Android Silver" className="delivery-checkout-phase03-phone-frame" />
+              </div>
+
+              {/* Right Phone - Coupon applied */}
+              <div className="delivery-checkout-phase03-phone delivery-checkout-phase03-phone-right" data-node-id="2362:17333">
+                <img src={imgAndroidSilverPhase03} alt="Android Silver" className="delivery-checkout-phase03-phone-frame" />
+                <div className="delivery-checkout-phase03-coupon-screen" data-node-id="2362:17335">
+                  <img src={imgCouponApplied} alt="Coupon applied" className="delivery-checkout-phase03-screen-img" />
+                </div>
+              </div>
+
+              {/* MX page takeaway - positioned directly in grid */}
+              <div className="delivery-checkout-phase03-mx-screen" data-node-id="2362:17336">
+                <img src={imgMxPageTakeaway} alt="MX page takeaway" className="delivery-checkout-phase03-screen-img" />
+              </div>
+
+              {/* Labels */}
+              <p className="delivery-checkout-phase03-label delivery-checkout-phase03-label-mx" data-node-id="2362:17337">
+                MX page
+              </p>
+              <p className="delivery-checkout-phase03-label delivery-checkout-phase03-label-checkout" data-node-id="2362:17338">
+                Mx page to Checkout
+              </p>
+            </div>
+          </div>
+
+          {/* Phase 03 Detail Section - node 2362:17339 */}
+          <div className="delivery-checkout-phase03-detail-section" data-node-id="2362:17339">
+            <div className="delivery-checkout-phase03-detail-content" data-node-id="2362:17340">
+              {/* Left Phone - Address */}
+              <div className="delivery-checkout-phase03-detail-phone delivery-checkout-phase03-detail-phone-left" data-node-id="2362:17341">
+                <img src={imgAndroidLSilver1} alt="Android Silver" className="delivery-checkout-phase03-detail-phone-frame" />
+                <div className="delivery-checkout-phase03-detail-address-screen" data-node-id="2362:17343">
+                  <img src={imgAddress1} alt="Address" className="delivery-checkout-phase03-detail-screen-img" />
+                </div>
+                <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-1" data-node-id="2362:17344">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine179Phase03} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+                <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-2" data-node-id="2362:17345">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine179Phase03} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+                <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-3" data-node-id="2362:17346">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine179Phase03} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Middle Phone - Checkout Takeaway */}
+              <div className="delivery-checkout-phase03-detail-phone delivery-checkout-phase03-detail-phone-middle" data-node-id="2362:17347">
+                <img src={imgAndroidLSilver1} alt="Android Silver" className="delivery-checkout-phase03-detail-phone-frame" />
+                <div className="delivery-checkout-phase03-detail-checkout-screen" data-node-id="2362:17349">
+                  <img src={imgCheckoutTakeaway} alt="Checkout takeaway" className="delivery-checkout-phase03-detail-screen-img" />
+                </div>
+                <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-4" data-node-id="2362:17350">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine179Phase03} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+                <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-5" data-node-id="2362:17351">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine179Phase03} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Phone - MX to PG */}
+              <div className="delivery-checkout-phase03-detail-phone delivery-checkout-phase03-detail-phone-right" data-node-id="2362:17352">
+                <img src={imgAndroidLSilver1} alt="Android Silver" className="delivery-checkout-phase03-detail-phone-frame" />
+                <div className="delivery-checkout-phase03-detail-mx-screen" data-node-id="2362:17354">
+                  <img src={imgMxToPg} alt="mx to pg" className="delivery-checkout-phase03-detail-screen-img" />
+                </div>
+              </div>
+
+              {/* Horizontal Lines */}
+              <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-horizontal-1" data-node-id="2362:17355">
+                <div className="delivery-checkout-phase03-detail-line-rotate">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine180Phase03} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Vertical Lines */}
+              <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-vertical-1" data-node-id="2362:17356">
+                <div className="delivery-checkout-phase03-detail-line-rotate-vertical">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine185} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+              </div>
+              <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-vertical-2" data-node-id="2362:17357">
+                <div className="delivery-checkout-phase03-detail-line-rotate-vertical">
+                  <div className="delivery-checkout-phase03-detail-line-wrapper">
+                    <img src={imgLine185} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Horizontal Line 2 */}
+              <div className="delivery-checkout-phase03-detail-line delivery-checkout-phase03-detail-line-horizontal-2" data-node-id="2362:17358">
+                <div className="delivery-checkout-phase03-detail-line-wrapper">
+                  <img src={imgLine184} alt="Line" className="delivery-checkout-phase03-detail-line-img" />
+                </div>
+              </div>
+
+              {/* Labels */}
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-delivery-address" data-node-id="2362:17359">
+                Delivery address
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-delivery-icon" data-node-id="2362:17360">
+                Delivery icon
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-toggle-color" data-node-id="2362:17361">
+                Toggle: Color prominence
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-no-rider" data-node-id="2362:17362">
+                In case no rider available
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-toggle-takeaway" data-node-id="2362:17363">
+                Toggle takeaway: Color prominence
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-checkout-pg" data-node-id="2362:17364">
+                <span>From checkout</span>
+                <span>to PG page</span>
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-pickup-address" data-node-id="2362:17365">
+                Pickup address with GPS navigation
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-takeaway-icon" data-node-id="2362:17366">
+                Takeaway icon for visual consistency
+              </p>
+              <p className="delivery-checkout-phase03-detail-label delivery-checkout-phase03-detail-label-delivery-takeaway" data-node-id="2362:17367">
+                Delivery / Takeaway
+              </p>
+            </div>
+          </div>
+
+          {/* Learning Section - node 2362:17369 */}
+          <div className="delivery-checkout-learning-section" data-node-id="2362:17369">
+            <p className="delivery-checkout-learning-title" data-node-id="2362:17370">Learning</p>
+            <p className="delivery-checkout-learning-subtitle" data-node-id="2362:17371">Re-introducing pre-selected payments</p>
+            <p className="delivery-checkout-learning-description" data-node-id="2362:17372">
+              User action tracked down from payments gave us insights about user preferences for payment mode, discount led decision bias, and lower satisfaction while juggling between offers and payment mode.
+            </p>
+            <div className="delivery-checkout-learning-note" data-node-id="2362:17373">
+              <p>
+                This lead to refinement of another element on checkout, i.e., payment offers and re-visiting pre-selected payment mode.
+              </p>
+              <p>
+                NOTE: This was taken separately but, a glimpse of it has been shared here given it being part of the checkout experience. A lot of other steps, too much product thinking, technical feasibility, coming together for a perfect solution took place. It would be amazing to hop on a call and share the story. For now, just a glimpse.
+              </p>
+            </div>
+          </div>
+
+          {/* Payment Screens Section - node 2362:17374 */}
+          <div className="delivery-checkout-payment-screens-section" data-node-id="2362:17374">
+            <div className="delivery-checkout-payment-screen-item" data-node-id="2362:17376">
+              <div className="delivery-checkout-payment-screen-image">
+                <img src={imgPaymentScreenErrorPrevention} alt="Error prevention" />
+              </div>
+              <p className="delivery-checkout-payment-screen-caption">Error prevention</p>
+            </div>
+            <div className="delivery-checkout-payment-screen-item" data-node-id="2362:17640">
+              <div className="delivery-checkout-payment-screen-image">
+                <img src={imgPaymentScreen2} alt="Changed payment mode" />
+              </div>
+              <p className="delivery-checkout-payment-screen-caption">Changed payment mode</p>
+            </div>
+            <div className="delivery-checkout-payment-screen-item" data-node-id="2362:17995">
+              <div className="delivery-checkout-payment-screen-image">
+                <img src={imgPaymentScreen3} alt="Payment offers visible" />
+              </div>
+              <p className="delivery-checkout-payment-screen-caption">Payment offers visible</p>
+            </div>
+            <div className="delivery-checkout-payment-screen-item">
+              <div className="delivery-checkout-payment-screen-image">
+                <img src={imgPaymentScreen3} alt="Breakdown of offers mentioned in dropdown" />
+              </div>
+              <p className="delivery-checkout-payment-screen-caption">Breakdown of offers mentioned in dropdown</p>
+            </div>
+          </div>
+
+          {/* Impact Section - node 2362:18771 */}
+          <div className="delivery-checkout-impact-section" data-node-id="2362:18771">
+            <div className="delivery-checkout-impact-text-block" data-node-id="2362:18772">
+              <p className="delivery-checkout-impact-title" data-node-id="2362:18773">Impact</p>
+              <div className="delivery-checkout-impact-content" data-node-id="2362:18774">
+                <p className="delivery-checkout-impact-subtitle">Within less than 2 months:</p>
+                <ol start="1">
+                  <li>30% reduction in average user time spent on checkout.</li>
+                  <li>Lesser user drop rate and higher conversion from cart.</li>
+                </ol>
+              </div>
+            </div>
+            <div className="delivery-checkout-impact-macbook" data-node-id="2362:18775">
+              <img src={imgMacbookAirM2SilverFlatten} alt="MacBook Air M2" className="delivery-checkout-impact-macbook-img" />
+              <div className="delivery-checkout-impact-chart" data-node-id="2362:18777">
+                <div className="delivery-checkout-impact-arrow-wrapper-1" data-node-id="2362:18778">
+                  <img src={imgArrowImpact1} alt="Arrow 1" className="delivery-checkout-impact-arrow-1" />
+                </div>
+                <div className="delivery-checkout-impact-arrow-wrapper-2" data-node-id="2362:18779">
+                  <img src={imgArrowImpact2} alt="Arrow 2" className="delivery-checkout-impact-arrow-2" />
+                </div>
+                <div className="delivery-checkout-impact-bar-1" data-node-id="2362:18780"></div>
+                <div className="delivery-checkout-impact-bar-2" data-node-id="2362:18781"></div>
+                <p className="delivery-checkout-impact-label-avg-time" data-node-id="2362:18782">Avg time spend</p>
+                <p className="delivery-checkout-impact-label-before" data-node-id="2362:18783">Before release</p>
+                <p className="delivery-checkout-impact-label-after" data-node-id="2362:18784">After release</p>
+                <p className="delivery-checkout-impact-percentage" data-node-id="2362:18785">30%</p>
+                <div className="delivery-checkout-impact-arrow-wrapper-3" data-node-id="2362:18786">
+                  <img src={imgArrowImpact3} alt="Arrow 3" className="delivery-checkout-impact-arrow-3" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Final Comparison Section - Rectangle 16 background with node 2362:18788 */}
+          <div className="delivery-checkout-final-comparison-wrapper">
+            <div className="delivery-checkout-bg-rectangle-16"></div>
+            <div className="delivery-checkout-final-comparison-content" data-node-id="2362:18788">
+              <div className="delivery-checkout-final-comparison-text" data-node-id="2362:18789">
+                <p className="delivery-checkout-final-comparison-title" data-node-id="2362:18790">Final Comparison</p>
+                <p className="delivery-checkout-final-comparison-subtitle" data-node-id="2362:18791">Delivery checkout previously and now.</p>
+              </div>
+              <div className="delivery-checkout-final-comparison-phone-iphone" data-node-id="2362:18792">
+                <div className="delivery-checkout-final-comparison-phone-frame-iphone">
+                  <img src={imgIPhone15ProWhiteFinal} alt="iPhone 15 Pro White" className="delivery-checkout-final-comparison-phone-bg-iphone" />
+                  <div className="delivery-checkout-final-comparison-screen-iphone" data-node-id="2362:18794">
+                    <img src={imgScreenInsertDesignsHereIPhone} alt="Screen" className="delivery-checkout-final-comparison-screen-img-iphone" />
+                  </div>
+                  <div className="delivery-checkout-final-comparison-overlay-iphone" data-node-id="2362:18797">
+                    <div className="delivery-checkout-final-comparison-overlay-content-iphone" data-node-id="2362:18798">
+                      <img src={imgWhatsappImageFinal} alt="WhatsApp Image" className="delivery-checkout-final-comparison-overlay-img-iphone" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="delivery-checkout-final-comparison-phone-android" data-node-id="2362:18799">
+                <div className="delivery-checkout-final-comparison-phone-frame-android" data-node-id="2362:18800">
+                  <img src={imgAndroidSilverFinalBg} alt="Android Silver" className="delivery-checkout-final-comparison-phone-bg-android" />
+                  <div className="delivery-checkout-final-comparison-screen-android" data-node-id="2362:18802">
+                    <img src={imgScreenInsertDesignsHereAndroidUpdated} alt="Screen" className="delivery-checkout-final-comparison-screen-img-android" />
+                  </div>
+                </div>
+              </div>
+              <div className="delivery-checkout-final-comparison-final-image" data-node-id="2362:18804">
+                <img src={imgFinalComparison} alt="Final" className="delivery-checkout-final-comparison-final-img" />
+              </div>
+            </div>
+            <div className="delivery-checkout-connect-text">
+              <p>Let's connect to discuss what can be done differently today!</p>
             </div>
           </div>
         </div>
