@@ -106,24 +106,26 @@ const Search = () => {
             </div>
 
             {/* Background sections */}
-            <div className="search-bg-section-1" data-node-id="2351:45"></div>
             <div className="search-bg-section-2" data-node-id="2351:46"></div>
             <div className="search-bg-section-3" data-node-id="2351:47"></div>
 
-            {/* Problem Section */}
-            <div id="problem" className="search-problem-section" data-node-id="2351:48">
-              <p className="search-section-title" data-node-id="2351:49">Problem</p>
-              <p className="search-section-text" data-node-id="2351:50">
-                Magicpin's global search suggesters struggled to scale across multiple categories and three services, resulting in cluttered and poorly contextualized suggestions. Users found it overwhelming to identify relevant options, leading to friction and reduced search effectiveness. Data showed a clear drop in search engagement and conversions, creating an urgent need to redesign the suggesters.
-              </p>
-            </div>
+            {/* Problem Sections Wrapper */}
+            <div className="search-problem-wrapper">
+              {/* Problem Section */}
+              <div id="problem" className="search-problem-section" data-node-id="2351:48">
+                <p className="search-section-title" data-node-id="2351:49">Problem</p>
+                <p className="search-section-text" data-node-id="2351:50">
+                  Magicpin's global search suggesters struggled to scale across multiple categories and three services, resulting in cluttered and poorly contextualized suggestions. Users found it overwhelming to identify relevant options, leading to friction and reduced search effectiveness. Data showed a clear drop in search engagement and conversions, creating an urgent need to redesign the suggesters.
+                </p>
+              </div>
 
-            {/* Problem Identification Section */}
-            <div id="problem-identification" className="search-problem-identification-section" data-node-id="2351:51">
-              <p className="search-section-title" data-node-id="2351:52">Problem identification</p>
-              <p className="search-section-text" data-node-id="2351:53">
-                During in-office observation, I noticed users opened Magicpin only after deciding what to order or buy on other apps. They spent minimal time exploring or discovering and directly searched for a known merchant or brand. This highlighted a weak search and discovery experience, which was later discussed with product stakeholders and validated through data.
-              </p>
+              {/* Problem Identification Section */}
+              <div id="problem-identification" className="search-problem-identification-section" data-node-id="2351:51">
+                <p className="search-section-title" data-node-id="2351:52">Problem identification</p>
+                <p className="search-section-text" data-node-id="2351:53">
+                  During in-office observation, I noticed users opened Magicpin only after deciding what to order or buy on other apps. They spent minimal time exploring or discovering and directly searched for a known merchant or brand. This highlighted a weak search and discovery experience, which was later discussed with product stakeholders and validated through data.
+                </p>
+              </div>
             </div>
 
             {/* Touchpoints Section */}
