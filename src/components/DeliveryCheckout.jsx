@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DeliveryCheckout.css';
+import Menu from './Menu';
 import imgMenu from '../images/delivery-checkout/menu.png';
 import imgOpportunityMockup1 from '../images/delivery-checkout/opportunity-mockup1.png';
 import imgOpportunityMockup2 from '../images/delivery-checkout/opportunity-mockup2.png';
@@ -69,6 +70,24 @@ const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b
 
 const DeliveryCheckout = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const deliveryCheckoutSections = [
+    { id: 'delivery-title', title: 'Delivery checkout | Magicpin' },
+    { id: 'problem', title: 'Problem' },
+    { id: 'why-problem', title: 'Why is it a problem?' },
+    { id: 'breaking-down', title: 'Breaking down the need to solve this' },
+    { id: 'opportunity', title: 'Opportunity' },
+    { id: 'things-working', title: 'Things that have been working' },
+    { id: 'competitor-analysis', title: 'Competitor analysis' },
+    { id: 'design-solution', title: 'Design Solution' },
+    { id: 'phase-01', title: 'Phase 01' },
+    { id: 'phase-02', title: 'Phase 02' },
+    { id: 'phase-03', title: 'Phase 03' },
+    { id: 'learning', title: 'Learning' },
+    { id: 'impact', title: 'Impact' },
+    { id: 'final-comparison', title: 'Final Comparison' },
+  ];
 
   const handleBackClick = () => {
     navigate('/');
@@ -76,6 +95,7 @@ const DeliveryCheckout = () => {
 
   return (
     <div className="delivery-checkout-container" data-node-id="2362:17114">
+      {isMenuOpen && <Menu sections={deliveryCheckoutSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="delivery-checkout-content-wrapper" data-node-id="2362:17115">
         {/* Header Section */}
         <div className="delivery-checkout-header" data-node-id="2362:17118">
@@ -91,7 +111,7 @@ const DeliveryCheckout = () => {
             </div>
             <p className="delivery-checkout-name" data-node-id="2362:17122">Sabhya Singhal</p>
           </div>
-          <div className="delivery-checkout-menu-button" data-node-id="2362:17123">
+          <div className="delivery-checkout-menu-button" data-node-id="2362:17123" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
             <div className="delivery-checkout-menu-icon" data-name="Menu" data-node-id="2362:17124">
               <img alt="" src={imgMenu} />
             </div>
@@ -101,7 +121,7 @@ const DeliveryCheckout = () => {
 
         <div className="delivery-checkout-content" data-node-id="2362:17116">
           {/* Title Section */}
-          <div className="delivery-checkout-title-section" data-node-id="2362:17126">
+          <div id="delivery-title" className="delivery-checkout-title-section" data-node-id="2362:17126">
             <p className="delivery-checkout-main-title" data-node-id="2362:17127">Delivery checkout | Magicpin</p>
             <div className="delivery-checkout-description-wrapper" data-node-id="2362:17128">
               <p className="delivery-checkout-description" data-node-id="2362:17129">
@@ -113,7 +133,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Problem Section */}
-          <div className="delivery-checkout-problem-section" data-node-id="2362:17133">
+          <div id="problem" className="delivery-checkout-problem-section" data-node-id="2362:17133">
             <p className="delivery-checkout-section-title" data-node-id="2362:17134">Problem</p>
             <p className="delivery-checkout-section-text" data-node-id="2362:17135">
               The delivery checkout process had high user drop rates as users spent a lot of time on it, which <span className="delivery-checkout-text-bold">could be</span> because of lack of clarity around discounts, insufficient prioritization of upsell/cross-sell options, and poor visibility of charges.
@@ -126,7 +146,7 @@ const DeliveryCheckout = () => {
             <div className="delivery-checkout-bg-rectangle-14" data-node-id="2362:17129"></div>
             
             {/* Why is it a problem? Section */}
-            <div className="delivery-checkout-why-problem-section">
+            <div id="why-problem" className="delivery-checkout-why-problem-section">
               <p className="delivery-checkout-section-title" data-node-id="2362:17137">Why is it a problem?</p>
               <p className="delivery-checkout-section-text" data-node-id="2362:17138">
                 This confusion and lack of information hierarchy lead to user frustration and abandonment of carts, resulting in lost sales opportunities and decreased overall conversion rates. Users struggle to understand their payment details and available promotions, which further hinders their shopping experience.
@@ -134,7 +154,7 @@ const DeliveryCheckout = () => {
             </div>
 
             {/* Breaking down the need to solve this Section - node 2362:17139 */}
-            <div className="delivery-checkout-breaking-down-section" data-node-id="2362:17139">
+            <div id="breaking-down" className="delivery-checkout-breaking-down-section" data-node-id="2362:17139">
               <p className="delivery-checkout-section-title" data-node-id="2362:17140">Breaking down the need to solve this</p>
               <p className="delivery-checkout-section-text" data-node-id="2362:17141">
                 Improving the checkout experience is crucial for providing better experience to users in order to retain customers. By addressing issues, we can enhance user satisfaction, maximize revenue through effective upselling, and streamline the checkout process, ultimately fostering long-term customer loyalty and business growth.
@@ -143,7 +163,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Opportunity Section - node 2362:17142 */}
-          <div className="delivery-checkout-opportunity-section" data-node-id="2362:17142">
+          <div id="opportunity" className="delivery-checkout-opportunity-section" data-node-id="2362:17142">
             <div className="delivery-checkout-opportunity-content" data-node-id="2362:17143">
               <div className="delivery-checkout-opportunity-card" data-node-id="2362:17144">
                 <div className="delivery-checkout-opportunity-header" data-node-id="2362:17148">
@@ -186,14 +206,14 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Things that have been working for us Section - node 2362:17175 */}
-          <div className="delivery-checkout-things-working-section" data-node-id="2362:17175">
+          <div id="things-working" className="delivery-checkout-things-working-section" data-node-id="2362:17175">
             <div className="delivery-checkout-things-working-content">
               <img src={imgThingsWorkingForUs} alt="Things that have been working for us" className="delivery-checkout-things-working-image" />
             </div>
           </div>
 
           {/* Competitor Analysis Section - node 2362:17205 */}
-          <div className="delivery-checkout-competitor-section-wrapper" data-node-id="2362:17205">
+          <div id="competitor-analysis" className="delivery-checkout-competitor-section-wrapper" data-node-id="2362:17205">
             <div className="delivery-checkout-bg-rectangle-competitor" data-node-id="2362:17205-bg"></div>
             <div className="delivery-checkout-competitor-analysis-header" data-node-id="2362:17206">
               <p className="delivery-checkout-section-title delivery-checkout-section-title-white" data-node-id="2362:17207">Competitor analysis</p>
@@ -280,7 +300,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Phases Section - node 2362:17243 */}
-          <div className="delivery-checkout-phases-section" data-node-id="2362:17243">
+          <div id="design-solution" className="delivery-checkout-phases-section" data-node-id="2362:17243">
             <div className="delivery-checkout-phases-title" data-node-id="2362:17244">
               <div className="delivery-checkout-phases-title-text" data-node-id="2362:17245">
                 <span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span>
@@ -321,7 +341,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Phase 01 Payment Details Section - node 2362:17258 */}
-          <div className="delivery-checkout-phase01-section" data-node-id="2362:17258">
+          <div id="phase-01" className="delivery-checkout-phase01-section" data-node-id="2362:17258">
             <p className="delivery-checkout-phase01-title" data-node-id="2362:17259">Phase : 01</p>
             <p className="delivery-checkout-phase01-subtitle" data-node-id="2362:17260">Payment details</p>
             
@@ -367,7 +387,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Phase 02 Checkout Landing Section - node 2362:17275 */}
-          <div className="delivery-checkout-phase02-section" data-node-id="2362:17275">
+          <div id="phase-02" className="delivery-checkout-phase02-section" data-node-id="2362:17275">
             <p className="delivery-checkout-phase02-title" data-node-id="2362:17276">Phase : 02</p>
             <p className="delivery-checkout-phase02-subtitle" data-node-id="2362:17277">Checkout landing</p>
 
@@ -561,7 +581,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Phase 03 Highlighting Takeaway Section - node 2362:17325 */}
-          <div className="delivery-checkout-phase03-section" data-node-id="2362:17325">
+          <div id="phase-03" className="delivery-checkout-phase03-section" data-node-id="2362:17325">
             {/* Left Content - node 2362:17326 */}
             <div className="delivery-checkout-phase03-left" data-node-id="2362:17326">
               <p className="delivery-checkout-phase03-title" data-node-id="2362:17327">Phase : 03</p>
@@ -728,7 +748,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Learning Section - node 2362:17369 */}
-          <div className="delivery-checkout-learning-section" data-node-id="2362:17369">
+          <div id="learning" className="delivery-checkout-learning-section" data-node-id="2362:17369">
             <p className="delivery-checkout-learning-title" data-node-id="2362:17370">Learning</p>
             <p className="delivery-checkout-learning-subtitle" data-node-id="2362:17371">Re-introducing pre-selected payments</p>
             <p className="delivery-checkout-learning-description" data-node-id="2362:17372">
@@ -773,7 +793,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Impact Section - node 2362:18771 */}
-          <div className="delivery-checkout-impact-section" data-node-id="2362:18771">
+          <div id="impact" className="delivery-checkout-impact-section" data-node-id="2362:18771">
             <div className="delivery-checkout-impact-text-block" data-node-id="2362:18772">
               <p className="delivery-checkout-impact-title" data-node-id="2362:18773">Impact</p>
               <div className="delivery-checkout-impact-content" data-node-id="2362:18774">
@@ -818,7 +838,7 @@ const DeliveryCheckout = () => {
           </div>
 
           {/* Final Comparison Section - Rectangle 16 background with node 2362:18788 */}
-          <div className="delivery-checkout-final-comparison-wrapper">
+          <div id="final-comparison" className="delivery-checkout-final-comparison-wrapper">
             <div className="delivery-checkout-bg-rectangle-16"></div>
             <div className="delivery-checkout-final-comparison-content" data-node-id="2362:18788">
               <div className="delivery-checkout-final-comparison-text" data-node-id="2362:18789">

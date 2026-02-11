@@ -1,13 +1,181 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Resume.css';
+import Menu from './Menu';
 import imgRectangle5 from '../images/resume/rectangle5.png';
+import imgDance from '../images/interests/dance.png';
+import imgCook from '../images/interests/cook.png';
+import imgStyleClick from '../images/interests/style-click.png';
+import imgFilming from '../images/interests/filming.png';
+import imgNaturePhotography from '../images/interests/nature-photography.png';
+import imgMusic from '../images/interests/music.png';
+
+// Use the same menu icon as other pages
+const imgMenu = "https://www.figma.com/api/mcp/asset/acd85a33-c6fc-4c7f-a397-754b252f51aa";
+// Use the same expand arrow icon as Search page
+const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
 
 const Resume = () => {
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+
+  const resumeSections = [
+    { id: 'about-me', title: 'About me' },
+    { id: 'experience', title: 'Experience' },
+    { id: 'education', title: 'Education' },
+    { id: 'certification', title: 'Certification' },
+    { id: 'interests', title: 'Interests' },
+    { id: 'footer', title: 'Footer' },
+  ];
+
+  // Auto-playing carousel for Interests
+  const interestsRef = useRef(null);
+  const [currentInterestIndex, setCurrentInterestIndex] = useState(0);
+  const [isInterestsDragging, setIsInterestsDragging] = useState(false);
+  const [interestsStartX, setInterestsStartX] = useState(0);
+  const [interestsScrollLeft, setInterestsScrollLeft] = useState(0);
+  const totalInterests = 6;
+  const carouselIntervalRef = useRef(null);
+
+  // Interest images
+  const interestImages = [
+    { id: 1, name: 'dance', img: imgDance },
+    { id: 2, name: 'cook', img: imgCook },
+    { id: 3, name: 'style-click', img: imgStyleClick },
+    { id: 4, name: 'filming', img: imgFilming },
+    { id: 5, name: 'nature-photography', img: imgNaturePhotography },
+    { id: 6, name: 'music', img: imgMusic },
+  ];
+
+  // Function to start auto-play
+  const startAutoPlay = () => {
+    if (carouselIntervalRef.current) {
+      clearInterval(carouselIntervalRef.current);
+    }
+    carouselIntervalRef.current = setInterval(() => {
+      if (!isInterestsDragging && interestsRef.current) {
+        setCurrentInterestIndex((prevIndex) => {
+          const newIndex = (prevIndex + 1) % totalInterests;
+          const cardWidth = 384; // Width of each card
+          const gap = 24; // Gap between cards
+          const scrollPosition = newIndex * (cardWidth + gap);
+          interestsRef.current.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+          });
+          return newIndex;
+        });
+      }
+    }, 3000); // Change slide every 3 seconds
+  };
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => {
+      if (carouselIntervalRef.current) {
+        clearInterval(carouselIntervalRef.current);
+      }
+    };
+  }, [isInterestsDragging]);
+
+  // Mouse event handlers for dragging
+  const handleInterestsMouseDown = (e) => {
+    if (!interestsRef.current) return;
+    setIsInterestsDragging(true);
+    setInterestsStartX(e.pageX - interestsRef.current.offsetLeft);
+    setInterestsScrollLeft(interestsRef.current.scrollLeft);
+    interestsRef.current.style.cursor = 'grabbing';
+    if (carouselIntervalRef.current) {
+      clearInterval(carouselIntervalRef.current);
+    }
+  };
+
+  const handleInterestsMouseLeave = () => {
+    setIsInterestsDragging(false);
+    if (interestsRef.current) {
+      interestsRef.current.style.cursor = 'grab';
+    }
+    // Resume auto-play after a delay
+    setTimeout(() => {
+      startAutoPlay();
+    }, 1000);
+  };
+
+  const handleInterestsMouseUp = () => {
+    setIsInterestsDragging(false);
+    if (interestsRef.current) {
+      interestsRef.current.style.cursor = 'grab';
+    }
+    // Resume auto-play after a delay
+    setTimeout(() => {
+      startAutoPlay();
+    }, 1000);
+  };
+
+  const handleInterestsMouseMove = (e) => {
+    if (!isInterestsDragging || !interestsRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - interestsRef.current.offsetLeft;
+    const walk = (x - interestsStartX) * 2; // Scroll speed multiplier
+    interestsRef.current.scrollLeft = interestsScrollLeft - walk;
+  };
+
+  // Touch event handlers for mobile
+  const handleInterestsTouchStart = (e) => {
+    if (!interestsRef.current) return;
+    setIsInterestsDragging(true);
+    setInterestsStartX(e.touches[0].pageX - interestsRef.current.offsetLeft);
+    setInterestsScrollLeft(interestsRef.current.scrollLeft);
+    if (carouselIntervalRef.current) {
+      clearInterval(carouselIntervalRef.current);
+    }
+  };
+
+  const handleInterestsTouchMove = (e) => {
+    if (!isInterestsDragging || !interestsRef.current) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - interestsRef.current.offsetLeft;
+    const walk = (x - interestsStartX) * 2;
+    interestsRef.current.scrollLeft = interestsScrollLeft - walk;
+  };
+
+  const handleInterestsTouchEnd = () => {
+    setIsInterestsDragging(false);
+    // Resume auto-play after a delay
+    setTimeout(() => {
+      startAutoPlay();
+    }, 1000);
+  };
+
   return (
     <div className="resume-container" data-node-id="2409:571">
+      {isMenuOpen && <Menu sections={resumeSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="resume-content" data-node-id="2409:572">
+        {/* Header Section */}
+        <div className="resume-header-section">
+          <div className="resume-header-left">
+            <div className="resume-back-button" onClick={handleBackClick} style={{ cursor: 'pointer' }}>
+              <div className="resume-back-icon-wrapper">
+                <div className="resume-back-icon-rotate">
+                  <div className="resume-back-icon">
+                    <img alt="" src={imgExpandArrow} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="resume-name-text">Sabhya Singhal</p>
+          </div>
+          <div className="resume-menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
+            <img src={imgMenu} alt="Menu" className="resume-menu-icon" />
+            <p className="resume-menu-text">Menu</p>
+          </div>
+        </div>
         {/* About me Section */}
-        <div className="resume-section-header" data-node-id="2409:573">
+        <div id="about-me" className="resume-section-header" data-node-id="2409:573">
           <p className="resume-section-title" data-node-id="2409:574">About me</p>
         </div>
 
@@ -41,7 +209,7 @@ const Resume = () => {
         </div>
 
         {/* Experience Section */}
-        <div className="resume-experience-section" data-node-id="2409:584">
+        <div id="experience" className="resume-experience-section" data-node-id="2409:584">
           <div className="resume-section-header" data-node-id="2409:585">
             <p className="resume-section-title" data-node-id="2409:586">Experience</p>
           </div>
@@ -95,6 +263,88 @@ const Resume = () => {
             <ul className="resume-experience-list" data-node-id="2409:606">
               <li><span>Acquired 2 new clients through compelling design pitches. Contributed to multiple live website and mobile app projects.</span></li>
             </ul>
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div id="education" className="resume-education-section">
+          <div className="resume-section-header">
+            <p className="resume-section-title">Education</p>
+          </div>
+
+          <div className="resume-education-card">
+            <p className="resume-education-institution">NIFT | July 19' - June 23'</p>
+            <p className="resume-education-degree">Fashion Communication</p>
+            <ul className="resume-education-list">
+              <li>
+                <span>Activities and societies: Literary Club</span>
+                <ul className="resume-education-sublist">
+                  <li><span>Organized "Kisse and kahaniya", a storytelling session to understand the cultural diversity at NIFT and providing a platform for people to share their experiences and stories that are dying.</span></li>
+                  <li><span>Unraveled the "Indian approach to design" with a team of designers and shared it with fellow students and staffs.</span></li>
+                </ul>
+              </li>
+              <li><span>Minor : Fashion Management, Storytelling & Narratives, and Copywriting.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Certification Section */}
+        <div id="certification" className="resume-certification-section">
+          <div className="resume-section-header">
+            <p className="resume-section-title">Certification</p>
+          </div>
+
+          <div className="resume-certification-cards">
+            <div className="resume-certification-card">
+              <p className="resume-certification-organization">IxDF, Interaction Design Foundation</p>
+              <p className="resume-certification-course">AI in Design</p>
+            </div>
+            <div className="resume-certification-card">
+              <p className="resume-certification-organization">UC San diego | Coursera</p>
+              <p className="resume-certification-course">Human Computer Interaction</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Interests Section */}
+        <div id="interests" className="resume-interests-section">
+          <div className="resume-section-header">
+            <p className="resume-section-title">Interests</p>
+          </div>
+
+          <div 
+            className="resume-interests-carousel"
+            ref={interestsRef}
+            onMouseDown={handleInterestsMouseDown}
+            onMouseLeave={handleInterestsMouseLeave}
+            onMouseUp={handleInterestsMouseUp}
+            onMouseMove={handleInterestsMouseMove}
+            onTouchStart={handleInterestsTouchStart}
+            onTouchMove={handleInterestsTouchMove}
+            onTouchEnd={handleInterestsTouchEnd}
+          >
+            {interestImages.map((image, index) => (
+              <div key={image.id} className="resume-interest-card">
+                <img 
+                  src={image.img} 
+                  alt={image.name}
+                  className="resume-interest-image"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer Section */}
+        <div id="footer" className="resume-footer-section">
+          <div className="resume-footer-left">
+            <p className="resume-footer-connect">Let's connect. Drop me a 👋 hi!</p>
+            <p className="resume-footer-email">singhalsabhya05@gmail.com</p>
+          </div>
+          <div className="resume-footer-right">
+            <p className="resume-footer-curated">Curated by <strong>Sabhya Singhal</strong></p>
+            <p className="resume-footer-powered">Powered by fun, food, and caffeine...</p>
+            <div className="resume-footer-line"></div>
           </div>
         </div>
       </div>

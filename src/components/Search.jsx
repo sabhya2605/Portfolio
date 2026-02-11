@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Search.css';
+import Menu from './Menu';
 
 // Figma image URLs (valid for 7 days)
 const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
@@ -20,6 +21,26 @@ const imgLine36 = "https://www.figma.com/api/mcp/asset/600e5fdd-dd0b-4344-8bda-4
 
 const Search = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const searchSections = [
+    { id: 'search-title', title: 'Magicpin\'s search' },
+    { id: 'previous-search', title: 'Previous search experience' },
+    { id: 'problem', title: 'Problem' },
+    { id: 'problem-identification', title: 'Problem identification' },
+    { id: 'touchpoints', title: 'Touchpoints' },
+    { id: 'product-lifecycle', title: 'Product lifecycle' },
+    { id: 'brainstorming', title: 'Brainstorming' },
+    { id: 'design-principles', title: 'Design principles' },
+    { id: 'fulfilling-requirements', title: 'Fulfilling all product requirements' },
+    { id: 'how-to-tackle', title: 'How do we tackle this problem?' },
+    { id: 'version-2', title: 'Version 2' },
+    { id: 'key-design-decisions', title: 'Key Design Decisions' },
+    { id: 'solution', title: 'Solution' },
+    { id: 'intent-based-suggesters', title: 'Intent based suggesters' },
+    { id: 'keeping-intent-clear', title: 'Keeping the intent clear' },
+    { id: 'my-learning', title: 'My learning' },
+  ];
 
   const handleBackClick = () => {
     navigate('/');
@@ -27,6 +48,7 @@ const Search = () => {
 
   return (
     <div className="search-container" data-node-id="2351:19">
+      {isMenuOpen && <Menu sections={searchSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="search-background" data-node-id="2351:20"></div>
       <div className="search-content-wrapper" data-node-id="2351:21">
         <div className="search-content" data-node-id="2351:22">
@@ -45,7 +67,7 @@ const Search = () => {
                 </div>
                 <p className="search-name" data-node-id="2351:28">Sabhya Singhal</p>
               </div>
-              <div className="search-menu-button" data-node-id="2351:29">
+              <div className="search-menu-button" data-node-id="2351:29" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
                 <div className="search-menu-icon" data-name="Menu" data-node-id="2351:30">
                   <img alt="" src={imgMenu} />
                 </div>
@@ -54,7 +76,7 @@ const Search = () => {
             </div>
 
             {/* Title Section */}
-            <div className="search-title-section" data-node-id="2351:32">
+            <div id="search-title" className="search-title-section" data-node-id="2351:32">
               <p className="search-main-title" data-node-id="2351:33">Magicpin's search</p>
               <div className="search-description-wrapper" data-node-id="2351:34">
                 <p className="search-description" data-node-id="2351:35">
@@ -64,7 +86,7 @@ const Search = () => {
             </div>
 
             {/* Previous Search Experience Section */}
-            <div className="search-previous-section" data-node-id="2351:36">
+            <div id="previous-search" className="search-previous-section" data-node-id="2351:36">
               <div className="search-previous-title-wrapper" data-node-id="2351:37">
                 <div className="search-previous-title" data-node-id="2351:38">
                   <p>Previous search experience</p>
@@ -89,7 +111,7 @@ const Search = () => {
             <div className="search-bg-section-3" data-node-id="2351:47"></div>
 
             {/* Problem Section */}
-            <div className="search-problem-section" data-node-id="2351:48">
+            <div id="problem" className="search-problem-section" data-node-id="2351:48">
               <p className="search-section-title" data-node-id="2351:49">Problem</p>
               <p className="search-section-text" data-node-id="2351:50">
                 Magicpin's global search suggesters struggled to scale across multiple categories and three services, resulting in cluttered and poorly contextualized suggestions. Users found it overwhelming to identify relevant options, leading to friction and reduced search effectiveness. Data showed a clear drop in search engagement and conversions, creating an urgent need to redesign the suggesters.
@@ -97,7 +119,7 @@ const Search = () => {
             </div>
 
             {/* Problem Identification Section */}
-            <div className="search-problem-identification-section" data-node-id="2351:51">
+            <div id="problem-identification" className="search-problem-identification-section" data-node-id="2351:51">
               <p className="search-section-title" data-node-id="2351:52">Problem identification</p>
               <p className="search-section-text" data-node-id="2351:53">
                 During in-office observation, I noticed users opened Magicpin only after deciding what to order or buy on other apps. They spent minimal time exploring or discovering and directly searched for a known merchant or brand. This highlighted a weak search and discovery experience, which was later discussed with product stakeholders and validated through data.
@@ -105,7 +127,7 @@ const Search = () => {
             </div>
 
             {/* Touchpoints Section */}
-            <div className="search-touchpoints-section" data-node-id="2351:54">
+            <div id="touchpoints" className="search-touchpoints-section" data-node-id="2351:54">
               <p className="search-touchpoints-title" data-node-id="2351:55">How do we understand pains of the stakeholders involved?</p>
               <div className="search-touchpoints-content" data-node-id="2351:56">
                 <div className="search-touchpoints-header" data-node-id="2351:57">
@@ -156,7 +178,7 @@ const Search = () => {
             </div>
 
             {/* Product Lifecycle Section */}
-            <div className="search-lifecycle-section" data-node-id="2351:72">
+            <div id="product-lifecycle" className="search-lifecycle-section" data-node-id="2351:72">
               <p className="search-section-title" data-node-id="2351:73">Product lifecycle</p>
               <p className="search-section-text" data-node-id="2351:74">
                 Go through to this and get a summary of everything that happened during this product lifecycle.
@@ -172,7 +194,7 @@ const Search = () => {
             </div>
 
             {/* Brainstorming Section */}
-            <div className="search-brainstorming-section" data-node-id="2351:77">
+            <div id="brainstorming" className="search-brainstorming-section" data-node-id="2351:77">
               <div className="search-brainstorming-content" data-node-id="2351:78">
                 <p className="search-section-title" data-node-id="2351:79">Brainstorming</p>
                 <div className="search-brainstorming-text" data-node-id="2351:80">
@@ -190,7 +212,7 @@ const Search = () => {
             </div>
 
             {/* Design Principles Section */}
-            <div className="search-principles-section" data-node-id="2351:82">
+            <div id="design-principles" className="search-principles-section" data-node-id="2351:82">
               <p className="search-section-title" data-node-id="2351:83">Design principles</p>
               <div className="search-principles-list" data-node-id="2351:84">
                 <div className="search-principles-row" data-node-id="2351:85">
@@ -213,7 +235,7 @@ const Search = () => {
             </div>
 
             {/* Fulfilling Requirements Section */}
-            <div className="search-requirements-section" data-node-id="2351:91">
+            <div id="fulfilling-requirements" className="search-requirements-section" data-node-id="2351:91">
               <div className="search-requirements-content" data-node-id="2351:92">
                 <p className="search-section-title" data-node-id="2351:93">Fulfilling all product requirements</p>
                 <p className="search-section-text" data-node-id="2351:94">This is how the V1 looked after fulfilling all kinds of product and business requirements. </p>
@@ -226,7 +248,7 @@ const Search = () => {
             </div>
 
             {/* How to Tackle Section */}
-            <div className="search-tackle-section" data-node-id="2351:97">
+            <div id="how-to-tackle" className="search-tackle-section" data-node-id="2351:97">
               <div className="search-tackle-left" data-node-id="2351:98">
                 <div className="search-tackle-content" data-node-id="2351:99">
                   <p className="search-section-title" data-node-id="2351:100">How do we tackle this problem?</p>
@@ -275,7 +297,7 @@ const Search = () => {
             </div>
 
             {/* Version 2 Section */}
-            <div className="search-version2-section" data-node-id="2351:123">
+            <div id="version-2" className="search-version2-section" data-node-id="2351:123">
               <p className="search-section-title" data-node-id="2351:124">Version 2</p>
               <div className="search-version2-text" data-node-id="2351:125">
                 <p>Tackled the problem of:</p>
@@ -301,7 +323,7 @@ const Search = () => {
             </div>
 
             {/* Key Design Decisions Section */}
-            <div className="search-decisions-section" data-node-id="2351:129">
+            <div id="key-design-decisions" className="search-decisions-section" data-node-id="2351:129">
               <p className="search-section-title" data-node-id="2351:130">Key Design Decisions</p>
               <div className="search-decision-item" data-node-id="2351:131">
                 <p className="search-decision-title" data-node-id="2351:132">Contextual suggesters</p>
@@ -324,7 +346,7 @@ const Search = () => {
             </div>
 
             {/* Solution Section */}
-            <div className="search-solution-wrapper">
+            <div id="solution" className="search-solution-wrapper">
               <div className="search-solution-bg"></div>
               <div className="search-solution-section" data-node-id="2351:140">
                 <div className="search-solution-left" data-node-id="2351:141">
@@ -346,7 +368,7 @@ const Search = () => {
             </div>
 
             {/* Intent Based Suggesters Section */}
-            <div className="search-intent-section" data-node-id="2351:150">
+            <div id="intent-based-suggesters" className="search-intent-section" data-node-id="2351:150">
               <ol className="search-intent-list" data-node-id="2351:151" start="2">
                 <li><span>Intent based suggesters</span></li>
               </ol>
@@ -361,7 +383,7 @@ const Search = () => {
             </div>
 
             {/* Keeping Intent Clear Section */}
-            <div className="search-intent-clear-section" data-node-id="2351:154">
+            <div id="keeping-intent-clear" className="search-intent-clear-section" data-node-id="2351:154">
               <ol className="search-intent-list" data-node-id="2351:155" start="3">
                 <li><span>Keeping the intent clear and the results consistent</span></li>
               </ol>
@@ -374,7 +396,7 @@ const Search = () => {
             </div>
 
             {/* My Learning Section */}
-            <div className="search-learning-wrapper">
+            <div id="my-learning" className="search-learning-wrapper">
               <div className="search-learning-bg"></div>
               <div className="search-learning-section" data-node-id="2351:158">
                 <p className="search-learning-title" data-node-id="2351:159">My learning</p>

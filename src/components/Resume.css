@@ -20,6 +20,92 @@
   padding: 0 16px;
 }
 
+/* Header Section */
+.resume-header-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.resume-header-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.resume-back-button {
+  background: #DFFCA1;
+  display: flex;
+  height: 44px;
+  align-items: center;
+  padding: 4px 4.8px 4px 3.2px;
+  border-radius: 40px;
+}
+
+.resume-back-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.resume-back-icon-rotate {
+  transform: rotate(90deg);
+}
+
+.resume-back-icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.resume-back-icon img {
+  position: absolute;
+  inset: 0;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.resume-name-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: normal;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.resume-menu-button {
+  display: flex;
+  background: #DFFCA1;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px 12px 16px;
+  border-radius: 36px;
+}
+
+.resume-menu-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.resume-menu-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #094020;
+  margin: 0;
+}
+
 /* Section Header - node 2409:573, 2409:585 */
 .resume-section-header {
   display: flex;
@@ -128,6 +214,7 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
+  padding-bottom: 24px;
   border-radius: 24px;
   width: 100%;
 }
@@ -142,7 +229,11 @@
 }
 
 .resume-description-text p {
-  margin: 0;
+  margin: 0 0 16px 0;
+}
+
+.resume-description-text p:last-child {
+  margin-bottom: 0;
 }
 
 .resume-description-bold {
@@ -165,7 +256,7 @@
 .resume-description-spacing {
   line-height: 32px;
   font-size: 20px;
-  margin: 0;
+  margin: 0 0 16px 0;
 }
 
 /* Experience Section - node 2409:584 */
@@ -251,6 +342,264 @@
   line-height: 32px;
 }
 
+/* Education Section */
+.resume-education-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.resume-education-card {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 32px;
+  background: #F7F7F7;
+  font-style: normal;
+}
+
+.resume-education-institution {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  line-height: 32px;
+  color: #094020;
+  font-size: 24px;
+  width: 100%;
+  margin: 0;
+}
+
+.resume-education-degree {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1C1C1C;
+  font-size: 20px;
+  width: 100%;
+  margin: 0;
+}
+
+.resume-education-list {
+  display: block;
+  font-family: 'Lucida Bright', serif;
+  list-style-type: disc;
+  color: #1C1C1C;
+  font-size: 20px;
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+}
+
+.resume-education-list li {
+  margin-left: 30px;
+  margin-bottom: 8px;
+}
+
+.resume-education-list li span {
+  line-height: 32px;
+  display: block;
+}
+
+.resume-education-sublist {
+  display: block;
+  font-family: 'Lucida Bright', serif;
+  list-style-type: disc;
+  color: #1C1C1C;
+  font-size: 20px;
+  margin: 8px 0 0 20px;
+  padding-left: 0;
+}
+
+.resume-education-sublist li {
+  margin-left: 30px;
+  margin-bottom: 8px;
+}
+
+.resume-education-sublist li span {
+  line-height: 32px;
+  display: block;
+}
+
+/* Certification Section */
+.resume-certification-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.resume-certification-cards {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.resume-certification-card {
+  display: flex;
+  flex: 1;
+  padding: 24px;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  border-radius: 32px;
+  background: #F7F7F7;
+  font-style: normal;
+}
+
+.resume-certification-organization {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  line-height: 32px;
+  color: #094020;
+  font-size: 24px;
+  width: 100%;
+  margin: 0;
+}
+
+.resume-certification-course {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1C1C1C;
+  font-size: 20px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Interests Section */
+.resume-interests-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.resume-interests-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.resume-interests-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.resume-interests-carousel:active {
+  cursor: grabbing;
+}
+
+.resume-interests-carousel.dragging {
+  cursor: grabbing;
+}
+
+.resume-interest-card {
+  flex-shrink: 0;
+  width: 384px;
+  height: 384px;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+}
+
+.resume-interest-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px;
+}
+
+/* Footer Section */
+.resume-footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 24px;
+  margin-top: 52px;
+}
+
+.resume-footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.resume-footer-connect {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.resume-footer-email {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.resume-footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.resume-footer-curated {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1C1C1C;
+  margin: 0;
+  text-align: right;
+}
+
+.resume-footer-curated strong {
+  font-weight: 600;
+}
+
+.resume-footer-powered {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1C1C1C;
+  margin: 0;
+  text-align: right;
+}
+
+.resume-footer-line {
+  width: 100%;
+  max-width: 300px;
+  height: 1px;
+  background: #E0E0E0;
+  margin-top: 8px;
+}
+
 /* Responsive Styles */
 @media (max-width: 1440px) {
   .resume-container {
@@ -280,6 +629,8 @@
   .resume-about-image-wrapper {
     width: 100%;
     max-width: 511px;
+    aspect-ratio: 511 / auto;
+    height: auto;
   }
   
   .resume-experience-company,
@@ -291,6 +642,47 @@
   .resume-experience-card {
     height: auto;
     min-height: 224px;
+  }
+  
+  .resume-education-card {
+    padding: 20px;
+  }
+  
+  .resume-certification-cards {
+    flex-direction: column;
+  }
+  
+  .resume-certification-card {
+    width: 100%;
+  }
+  
+  .resume-interests-carousel {
+    gap: 16px;
+  }
+  
+  .resume-interest-card {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .resume-footer-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .resume-footer-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .resume-footer-curated,
+  .resume-footer-powered {
+    text-align: left;
+  }
+  
+  .resume-footer-line {
+    max-width: 100%;
   }
 }
 
@@ -313,23 +705,23 @@
   }
   
   .resume-name {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: clamp(28px, 4vw, 36px);
   }
   
   .resume-role {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: clamp(24px, 3vw, 32px);
   }
   
   .resume-description-bold {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: clamp(28px, 4vw, 40px);
   }
   
   .resume-description-normal {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: clamp(24px, 3vw, 32px);
   }
   
   .resume-experience-card {
@@ -346,6 +738,66 @@
   
   .resume-experience-list {
     font-size: 18px;
+  }
+  
+  .resume-education-card {
+    padding: 20px;
+  }
+  
+  .resume-education-institution {
+    font-size: 20px;
+  }
+  
+  .resume-education-degree {
+    font-size: 18px;
+  }
+  
+  .resume-education-list,
+  .resume-education-sublist {
+    font-size: 18px;
+  }
+  
+  .resume-certification-cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .resume-certification-card {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .resume-certification-organization {
+    font-size: 20px;
+  }
+  
+  .resume-certification-course {
+    font-size: 18px;
+  }
+  
+  .resume-interests-carousel {
+    gap: 16px;
+  }
+  
+  .resume-interest-card {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .resume-footer-section {
+    margin-top: 40px;
+  }
+  
+  .resume-footer-connect,
+  .resume-footer-curated,
+  .resume-footer-powered {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  
+  .resume-footer-email {
+    font-size: 20px;
+    line-height: 28px;
   }
 }
 
@@ -422,5 +874,85 @@
   
   .resume-experience-list li {
     margin-left: 20px;
+  }
+  
+  .resume-education-card {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .resume-education-institution {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .resume-education-degree {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .resume-education-list,
+  .resume-education-sublist {
+    font-size: 16px;
+  }
+  
+  .resume-education-list li,
+  .resume-education-sublist li {
+    margin-left: 20px;
+  }
+  
+  .resume-certification-cards {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .resume-certification-card {
+    width: 100%;
+    padding: 16px;
+  }
+  
+  .resume-certification-organization {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .resume-certification-course {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .resume-interests-carousel {
+    gap: 12px;
+  }
+  
+  .resume-interest-card {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .resume-footer-section {
+    margin-top: 32px;
+    gap: 20px;
+  }
+  
+  .resume-footer-left,
+  .resume-footer-right {
+    gap: 6px;
+  }
+  
+  .resume-footer-connect,
+  .resume-footer-curated,
+  .resume-footer-powered {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .resume-footer-email {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  
+  .resume-footer-line {
+    margin-top: 6px;
   }
 }

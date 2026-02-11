@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
+import Menu from './Menu';
+import imgMvpAwardJuly2024 from '../images/mvp-award-july-2024.png';
+import imgProject1Squeez from '../images/project-1-squeez.png';
 
 // Figma image URLs (valid for 7 days)
 const imgMenu = "https://www.figma.com/api/mcp/asset/acd85a33-c6fc-4c7f-a397-754b252f51aa";
@@ -18,8 +21,7 @@ const imgWhatsAppImage20241211At45326Pm11 = "https://www.figma.com/api/mcp/asset
 const imgWhatsAppImage20241211At45326Pm21 = "https://www.figma.com/api/mcp/asset/1cfbceab-520e-4b31-8be7-f8a8e757b501";
 const imgScreenshot20241217At104908Pm1 = "https://www.figma.com/api/mcp/asset/6e535bf3-4327-42c6-8fa1-e499ee024545";
 const imgScreenshot20241217At104805Pm1 = "https://www.figma.com/api/mcp/asset/56bb8cbc-5391-4fe0-85ff-51d68eb724c6";
-const imgScreenshot20241217At110817Pm1 = "https://www.figma.com/api/mcp/asset/822ce065-c1aa-476b-8cc9-00f588329bee";
-const imgScreenshot41 = "https://www.figma.com/api/mcp/asset/a279d95c-3e5d-4012-a6d1-7998fde5a6a4";
+const imgScreenshot41 = imgProject1Squeez;
 const imgSimpleMockupFreeScene11 = "https://www.figma.com/api/mcp/asset/869a6aaa-780c-4667-8766-71e27e396f2e";
 const imgF32C13117719167629462De4680C1 = "https://www.figma.com/api/mcp/asset/0f1cb84d-91cb-4f5d-8f5a-eb8a72a33019";
 const imgFrame4851 = "https://www.figma.com/api/mcp/asset/fdc81015-ff19-4632-befd-5bd3b653260b";
@@ -27,6 +29,18 @@ const img11 = "https://www.figma.com/api/mcp/asset/1a783e53-0e35-4bf8-895d-48266
 const imgLine1 = "https://www.figma.com/api/mcp/asset/69f707cf-b683-4073-a817-73bb498de360";
 
 const Introduction = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const introductionSections = [
+    { id: 'hero', title: 'Hero' },
+    { id: 'work-experience', title: 'Work Experience' },
+    { id: 'about-me', title: 'About me' },
+    { id: 'recognitions', title: 'Recognitions and participations' },
+    { id: 'testimonials', title: 'Testimonials' },
+    { id: 'projects', title: 'Projects' },
+    { id: 'footer', title: 'Footer' },
+  ];
+
   // Carousel functionality for testimonials
   const testimonialsRef = useRef(null);
   const [isTestimonialsDragging, setIsTestimonialsDragging] = useState(false);
@@ -193,18 +207,19 @@ const Introduction = () => {
 
   return (
     <div className="introduction-container">
+      {isMenuOpen && <Menu sections={introductionSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="introduction-content">
         {/* Header Section */}
         <div className="header-section">
           <p className="name-text">Sabhya Singhal</p>
-          <div className="menu-button">
+          <div className="menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
             <img src={imgMenu} alt="Menu" className="menu-icon" />
             <p className="menu-text">Menu</p>
           </div>
         </div>
 
         {/* Hero Section */}
-        <div className="hero-section">
+        <div id="hero" className="hero-section">
           <div className="hero-title-container">
             <div className="hero-title-row">
               <p className="hero-title">Creative </p>
@@ -221,7 +236,7 @@ const Introduction = () => {
         </div>
 
         {/* Work Experience Section */}
-        <div className="work-section">
+        <div id="work-experience" className="work-section">
           <div className="work-header">
             <div className="work-header-left">
               <div className="work-image-wrapper">
@@ -263,72 +278,78 @@ const Introduction = () => {
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
-              <div className="case-card case-card-green">
-                <div className="case-image-top">
-                  <img src={imgRectangle4} alt="Case 2" className="case-image-full" />
-                </div>
-                <div className="case-text-container">
-                  <p className="case-category">Multi functional experience</p>
-                  <p className="case-title">
-                    Worked on how search experience should work across a multi-service ecosystem
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
-                  </p>
-                  <div className="case-tags-vertical">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tags-row">
-                      <div className="case-tag">Product thinking</div>
-                      <div className="case-tag">Solution</div>
+              <Link to="/delivery-checkout" className="case-card-link">
+                <div className="case-card case-card-green">
+                  <div className="case-image-top">
+                    <img src={imgRectangle4} alt="Case 2" className="case-image-full" />
+                  </div>
+                  <div className="case-text-container">
+                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-title">
+                      A multi service checkout experience re-designed; this project focuses on food delivery checkout
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                    </p>
+                    <div className="case-tags-vertical">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tags-row">
+                        <div className="case-tag">Product thinking</div>
+                        <div className="case-tag">Solution</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              <div className="case-card case-card-grey">
-                <div className="case-image-top">
-                  <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
-                </div>
-                <div className="case-text-container">
-                  <p className="case-category">Multi functional experience</p>
-                  <p className="case-title">
-                    Worked on how search experience should work across a multi-service ecosystem
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
-                  </p>
-                  <div className="case-tags-vertical">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tags-row">
-                      <div className="case-tag">Product thinking</div>
-                      <div className="case-tag">Solution</div>
+              <a href="https://medium.com/@sabhya.jvm/order-here-app-order-acceptance-flow-revamp-eaad7571e760" target="_blank" rel="noopener noreferrer" className="case-card-link">
+                <div className="case-card case-card-grey">
+                  <div className="case-image-top">
+                    <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
+                  </div>
+                  <div className="case-text-container">
+                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-title">
+                      magicPay, a payment method provided by Magicpin for users to save more during offline shopping
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                    </p>
+                    <div className="case-tags-vertical">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tags-row">
+                        <div className="case-tag">Product thinking</div>
+                        <div className="case-tag">Solution</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Case 4 */}
-            <div className="case-card case-card-large">
-              <div className="case-content case-content-reverse">
-                <div className="case-text-container">
-                  <p className="case-category case-category-large">Multi functional experience</p>
-                  <p className="case-title case-title-large">
-                    Worked on how search experience should work across a multi-service 
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing 
-                  </p>
-                  <div className="case-tags">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tag">Product thinking</div>
+            <a href="https://medium.com/@sabhya.jvm/order-here-app-order-acceptance-flow-revamp-eaad7571e760" target="_blank" rel="noopener noreferrer" className="case-card-link">
+              <div className="case-card case-card-large">
+                <div className="case-content case-content-reverse">
+                  <div className="case-text-container">
+                    <p className="case-category case-category-large">Multi functional experience</p>
+                    <p className="case-title case-title-large">
+                      Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing
+                    </p>
+                    <div className="case-tags">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tag">Product thinking</div>
+                    </div>
+                  </div>
+                  <div className="case-image-container">
+                    <img src={imgRectangle6} alt="Case 4" className="case-image" />
                   </div>
                 </div>
-                <div className="case-image-container">
-                  <img src={imgRectangle6} alt="Case 4" className="case-image" />
-                </div>
               </div>
-            </div>
+            </a>
 
             {/* View All Cases Button */}
             <div className="view-all-button">
@@ -341,7 +362,7 @@ const Introduction = () => {
         </div>
 
         {/* About Me Section */}
-        <div className="about-section">
+        <div id="about-me" className="about-section">
           <div className="section-header">
             <p className="section-title">About me</p>
           </div>
@@ -371,18 +392,20 @@ const Introduction = () => {
                   I treat my brain like software—always updating it. From tracking design trends to learning a new language to sharpen cognition, and experimenting to find faster, smarter ways to work and understand where I truly excel.  Basically, I enjoy building for a company, for users, and myself—everything in between.
                 </p>
               </div>
-              <div className="know-more-button">
-                <p className="know-more-text">Know more about me</p>
-                <div className="know-more-icon-wrapper">
-                  <img src={imgAdvance} alt="Arrow" className="know-more-icon" />
+              <Link to="/resume" className="know-more-button-link">
+                <div className="know-more-button">
+                  <p className="know-more-text">Know more about me</p>
+                  <div className="know-more-icon-wrapper">
+                    <img src={imgAdvance} alt="Arrow" className="know-more-icon" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Recognitions Section */}
-        <div className="recognitions-section">
+        <div id="recognitions" className="recognitions-section">
           <div className="section-header">
             <p className="section-title">Recognitions and participations</p>
           </div>
@@ -438,7 +461,7 @@ const Introduction = () => {
                   </p>
                 </div>
                 <div className="recognition-award-image">
-                  <img src={imgScreenshot20241217At110817Pm1} alt="Award" className="recognition-award-img" />
+                  <img src={imgMvpAwardJuly2024} alt="Award" className="recognition-award-img" />
                 </div>
               </div>
             </div>
@@ -446,7 +469,7 @@ const Introduction = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="testimonials-section">
+        <div id="testimonials" className="testimonials-section">
           <div className="section-header">
             <p className="section-title">See what people say about their experience working with me</p>
           </div>
@@ -532,7 +555,7 @@ const Introduction = () => {
         </div>
 
         {/* Projects Section */}
-        <div className="projects-section">
+        <div id="projects" className="projects-section">
           <div className="section-header">
             <p className="section-title">Graduating from NIFT, I tried my hands on a lot of different things. Check some of them out</p>
           </div>
@@ -620,7 +643,7 @@ const Introduction = () => {
         </div>
 
         {/* Footer Section */}
-        <div className="footer-section">
+        <div id="footer" className="footer-section">
           <div className="footer-top">
             <p className="footer-text">
               Since we have come to the finish line, I believe we should get in touch. Drop me a👋 hi!
