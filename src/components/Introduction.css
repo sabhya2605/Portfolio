@@ -135,7 +135,7 @@
 
 .hero-tagline {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 24px;
   line-height: 32px;
   color: #547F6A;
@@ -230,6 +230,8 @@
 }
 
 .case-card-large {
+  padding: 24px;
+  border-radius: 36px;
   background: #F7F7F7;
 }
 
@@ -244,7 +246,7 @@
 .case-content {
   display: flex;
   gap: 24px;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -255,9 +257,18 @@
 .case-image-container {
   flex-shrink: 0;
   width: 487px;
-  height: 100%;
   overflow: hidden;
   border-radius: 32px;
+  align-self: flex-start;
+}
+
+.case-content .case-image-container {
+  height: fit-content;
+  max-height: 100%;
+}
+
+.case-content .case-text-container {
+  height: fit-content;
 }
 
 .case-image {
@@ -265,6 +276,8 @@
   height: 100%;
   object-fit: cover;
   border-radius: 32px;
+  background: lightgray 50% / cover no-repeat;
+  display: block;
 }
 
 .case-image-top {
@@ -288,15 +301,21 @@
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .case-category {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 16px !important;
+  font-style: normal;
   line-height: 24px;
   color: #1C1C1C;
   margin: 0;
+  align-self: stretch;
 }
 
 .case-category-large {
@@ -308,13 +327,18 @@
 }
 
 .case-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Franklin', 'Inter', sans-serif;
   font-weight: 600;
   font-size: 28px;
   line-height: 42px;
   letter-spacing: 0.56px;
   color: #1C1C1C;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  align-self: stretch;
+  font-variant-numeric: lining-nums proportional-nums;
 }
 
 .case-title-large {
@@ -327,19 +351,31 @@
 }
 
 .case-description {
-  font-family: 'Inter', 'Noto Sans', sans-serif;
+  font-family: 'Lucida Bright', 'Lucida', serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
   color: #3E3D3B;
   margin: 0;
+  align-self: stretch;
+}
+
+.case-description strong,
+.case-description b {
+  font-weight: 600;
+  font-family: 'Lucida Bright', 'Lucida', serif;
+  font-size: 20px;
+  line-height: 32px;
 }
 
 .case-tags {
   display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
   align-items: flex-start;
   width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
 }
 
 .case-tags-vertical {
@@ -348,12 +384,28 @@
   gap: 16px;
   align-items: flex-start;
   width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.case-tags-vertical > .case-tag {
+  width: max-content;
+  max-width: none;
+  flex-shrink: 0;
+  min-width: fit-content;
+  white-space: nowrap;
+  overflow: visible;
+  display: inline-block;
 }
 
 .case-tags-row {
   display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
   align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .case-tag {
@@ -361,13 +413,20 @@
   border: 1px solid #F7F7F7;
   padding: 12px;
   border-radius: 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Franklin', 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 24px;
   text-transform: capitalize;
   color: #547F6A;
   white-space: nowrap;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: max-content;
+  min-width: fit-content;
+  box-sizing: border-box;
+  overflow: visible;
+  display: inline-block;
 }
 
 .case-cards-row {
@@ -433,6 +492,7 @@
   align-items: flex-start;
   padding: 0 16px;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .section-header {
@@ -544,7 +604,7 @@
 }
 
 .about-description-normal {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lucida Bright', serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
@@ -611,6 +671,7 @@
   align-items: flex-start;
   padding: 0 16px;
   width: 100%;
+  margin-top: 0;
 }
 
 .recognitions-content {
@@ -632,7 +693,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-items: flex-start;
+  align-items: stretch;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -705,40 +766,51 @@
 .recognition-images-grid {
   display: inline-grid;
   grid-template-columns: max-content;
-  grid-template-rows: max-content;
+  grid-template-rows: 1fr;
   place-items: start;
   line-height: 0;
   margin-bottom: 16px;
+  margin-left: 16px;
+  margin-right: 0;
   position: relative;
-  width: 100%;
-  overflow: visible; /* Changed to visible to allow rounded corners to show */
+  width: calc(100% - 16px);
+  overflow: visible;
   border-radius: 0;
+  align-self: flex-start;
 }
 
 .recognition-image-mask {
-  height: 237.352px;
+  height: 100%;
   width: 178.626px;
-  overflow: hidden;
+  overflow: hidden !important;
   margin-left: -22.02px;
   margin-top: 0;
+  margin-bottom: 0;
   position: relative;
   grid-column: 1;
   grid-row: 1;
   z-index: 1;
-  border-radius: 16px 0 0 16px !important; /* Rounded left corners only (top-left and bottom-left) */
+  border-top-left-radius: 16px !important;
+  border-bottom-left-radius: 16px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-radius: 16px 0 0 16px !important;
+  align-self: stretch;
 }
 
 .recognition-image-mask-right {
-  height: 237.352px;
+  height: 100%;
   width: 281.397px;
   overflow: hidden;
   margin-left: 156.6px;
   margin-top: 0;
+  margin-bottom: 0;
   position: relative;
   grid-column: 1;
   grid-row: 1;
   z-index: 2;
   border-radius: 0 16px 16px 0 !important; /* Rounded right corners only (top-right and bottom-right) */
+  align-self: stretch;
 }
 
 .recognition-image {
@@ -749,6 +821,18 @@
   border-radius: inherit;
 }
 
+.recognition-image-mask .recognition-image {
+  border-radius: 16px 0 0 16px !important;
+  border-top-left-radius: 16px !important;
+  border-bottom-left-radius: 16px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.recognition-image-mask-right .recognition-image {
+  border-radius: 0 16px 16px 0 !important;
+}
+
 .recognition-text-content {
   display: flex;
   flex-direction: column;
@@ -757,6 +841,10 @@
   flex: 1;
   min-width: 0;
   min-height: 0;
+  position: relative;
+  width: calc(100% - 16px);
+  margin-left: 16px;
+  margin-right: 0;
 }
 
 .recognition-card-green .recognition-text-content {
@@ -777,7 +865,7 @@
 }
 
 .recognition-description {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lucida Bright', serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
@@ -939,7 +1027,7 @@
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
-  padding-left: 16px;
+  padding: 0;
   width: 100%;
   overflow: visible;
 }
@@ -947,9 +1035,10 @@
 .testimonials-carousel-wrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 0;
   width: 100%;
   position: relative;
+  padding: 0 16px;
 }
 
 .testimonials-content {
@@ -969,6 +1058,7 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   -webkit-overflow-scrolling: touch;
+  padding: 0;
 }
 
 .testimonials-content::-webkit-scrollbar {
@@ -992,6 +1082,15 @@
   flex-shrink: 0;
   transition: all 0.2s ease;
   z-index: 10;
+  position: absolute;
+}
+
+.testimonials-carousel-button-prev {
+  left: -64px;
+}
+
+.testimonials-carousel-button-next {
+  right: -64px;
 }
 
 .testimonials-carousel-button:hover {
@@ -1003,13 +1102,6 @@
   transform: scale(0.95);
 }
 
-.testimonials-carousel-button-prev {
-  order: -1;
-}
-
-.testimonials-carousel-button-next {
-  order: 1;
-}
 
 .testimonials-carousel-dots {
   display: flex;
@@ -1063,7 +1155,7 @@
 }
 
 .testimonial-role {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lucida Bright', serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -1090,7 +1182,7 @@
 }
 
 .testimonial-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lucida Bright', serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
@@ -1104,7 +1196,7 @@
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
-  padding-left: 16px;
+  padding: 0;
   width: 100%;
   overflow: visible;
 }
@@ -1112,9 +1204,10 @@
 .projects-carousel-wrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 0;
   width: 100%;
   position: relative;
+  padding: 0 16px;
 }
 
 .projects-content {
@@ -1134,6 +1227,7 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   -webkit-overflow-scrolling: touch;
+  padding: 0;
 }
 
 .projects-content::-webkit-scrollbar {
@@ -1157,6 +1251,15 @@
   flex-shrink: 0;
   transition: all 0.2s ease;
   z-index: 10;
+  position: absolute;
+}
+
+.projects-carousel-button-prev {
+  left: -64px;
+}
+
+.projects-carousel-button-next {
+  right: -64px;
 }
 
 .projects-carousel-button:hover {
@@ -1168,13 +1271,6 @@
   transform: scale(0.95);
 }
 
-.projects-carousel-button-prev {
-  order: -1;
-}
-
-.projects-carousel-button-next {
-  order: 1;
-}
 
 .projects-carousel-dots {
   display: flex;
@@ -1257,7 +1353,7 @@
 
 .footer-top {
   display: flex;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lucida Bright', serif;
   font-weight: 400;
   font-size: 20px;
   align-items: center;
@@ -1267,6 +1363,7 @@
 }
 
 .footer-text {
+  font-family: 'Lucida Bright', serif;
   line-height: 28px;
   color: #000;
   margin: 0;
@@ -1291,6 +1388,7 @@
 }
 
 .footer-powered {
+  font-family: 'Lucida Bright', serif;
   line-height: 28px;
   margin: 0;
   color: #000;
@@ -1372,10 +1470,22 @@
   
   .case-content {
     flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .case-content-reverse {
     flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-card,
+  .case-card-large,
+  .case-card-green,
+  .case-card-grey {
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .case-image-container {
@@ -1464,6 +1574,7 @@
     will-change: transform;
     position: relative;
     z-index: 1;
+    overflow: visible; /* Changed to visible to allow rounded corners to show */
   }
   
   .recognition-card.recognition-card-left:hover,
@@ -1521,17 +1632,40 @@
   }
   
   .recognition-images-grid {
-    overflow: hidden; /* Keep hidden on mobile to prevent overflow */
+    overflow: visible; /* Changed to visible to allow rounded corners to show */
+    border-radius: 0; /* Remove grid border-radius, let masks handle it */
   }
   
   .recognition-image-mask {
-    overflow: hidden;
-    border-radius: 16px 0 0 16px !important; /* Rounded left corners only (top-left and bottom-left) */
+    overflow: hidden !important;
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-radius: 16px 0 0 16px !important;
   }
   
   .recognition-image-mask-right {
     overflow: hidden;
     border-radius: 0 16px 16px 0 !important; /* Rounded right corners only (top-right and bottom-right) */
+  }
+  
+  .recognition-image-mask .recognition-image {
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-radius: 16px 0 0 16px !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .recognition-image-mask-right .recognition-image {
+    border-radius: 0 16px 16px 0 !important; /* Rounded right corners only */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .recognition-image {
@@ -1642,6 +1776,17 @@
   .case-title-large {
     font-size: clamp(20px, 3vw, 28px);
     line-height: clamp(28px, 4vw, 42px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-text-container {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   
   .case-description {
@@ -1649,8 +1794,56 @@
     line-height: clamp(24px, 3vw, 32px);
   }
   
+  .case-tags {
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-tags-vertical {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-tags-row {
+    flex-wrap: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
   .case-tag {
     font-size: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: fit-content;
+    width: auto;
+    overflow: visible;
+  }
+  
+  .case-tags-row .case-tag {
+    flex-shrink: 1;
+    flex-grow: 0;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .case-tags-vertical > .case-tag {
+    width: max-content;
+    max-width: none;
+    flex-shrink: 0;
+    min-width: fit-content;
+    white-space: nowrap;
+    overflow: visible;
+    display: inline-block;
+  }
+  
+  .case-tags-row {
+    width: 100%;
   }
   
   .view-all-button {
@@ -1831,10 +2024,27 @@
     gap: 12px;
   }
   
-  .case-card {
+  .case-card,
+  .case-card-large,
+  .case-card-green,
+  .case-card-grey {
     padding: 20px;
     border-radius: 36px;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-content,
+  .case-content-reverse {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-text-container {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   
   .case-image-container {
@@ -1852,6 +2062,17 @@
   .case-title-large {
     font-size: 20px;
     line-height: 28px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-text-container {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   
   .case-description {
@@ -1861,12 +2082,56 @@
   
   .case-tags {
     flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-tags-vertical {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .case-tags-row {
+    flex-wrap: nowrap;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .case-tag {
-    font-size: 14px;
-    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px;
     border-radius: 12px;
+    white-space: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .case-tags-row .case-tag {
+    flex-shrink: 1;
+    flex-grow: 0;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .case-tags-vertical > .case-tag {
+    width: max-content;
+    max-width: none;
+    flex-shrink: 0;
+    min-width: fit-content;
+    white-space: nowrap;
+    overflow: visible;
+    display: inline-block;
+  }
+  
+  .case-tags-row {
+    width: 100%;
   }
   
   .about-image-wrapper {
@@ -1912,17 +2177,40 @@
   }
   
   .recognition-images-grid {
-    overflow: hidden; /* Keep hidden on mobile to prevent overflow */
+    overflow: visible; /* Changed to visible to allow rounded corners to show */
+    border-radius: 0; /* Remove grid border-radius, let masks handle it */
   }
   
   .recognition-image-mask {
-    overflow: hidden;
-    border-radius: 16px 0 0 16px !important; /* Rounded left corners only (top-left and bottom-left) */
+    overflow: hidden !important;
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-radius: 16px 0 0 16px !important;
   }
   
   .recognition-image-mask-right {
     overflow: hidden;
     border-radius: 0 16px 16px 0 !important; /* Rounded right corners only (top-right and bottom-right) */
+  }
+  
+  .recognition-image-mask .recognition-image {
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-radius: 16px 0 0 16px !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .recognition-image-mask-right .recognition-image {
+    border-radius: 0 16px 16px 0 !important; /* Rounded right corners only */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .recognition-image {

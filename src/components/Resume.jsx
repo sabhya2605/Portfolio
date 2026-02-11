@@ -41,7 +41,7 @@ const Resume = () => {
   const carouselIntervalRef = useRef(null);
   const currentIndexRef = useRef(0);
 
-  // Interest images
+  // Interest images - duplicate for infinite scroll
   const interestImages = [
     { id: 1, name: 'dance', img: imgDance },
     { id: 2, name: 'cook', img: imgCook },
@@ -51,6 +51,9 @@ const Resume = () => {
     { id: 6, name: 'music', img: imgMusic },
   ];
 
+  // Duplicate images for infinite scroll
+  const duplicatedImages = [...interestImages, ...interestImages, ...interestImages];
+
   // Function to start auto-play
   const startAutoPlay = useCallback(() => {
     if (carouselIntervalRef.current) {
@@ -58,17 +61,28 @@ const Resume = () => {
     }
     carouselIntervalRef.current = setInterval(() => {
       if (!isInterestsDragging && interestsRef.current) {
-        currentIndexRef.current = (currentIndexRef.current + 1) % totalInterests;
         const cardWidth = 384; // Width of each card
         const gap = 24; // Gap between cards
-        const scrollPosition = currentIndexRef.current * (cardWidth + gap);
-        interestsRef.current.scrollTo({
-          left: scrollPosition,
-          behavior: 'smooth'
-        });
+        const scrollWidth = cardWidth + gap;
+        
+        // Get current scroll position
+        const currentScroll = interestsRef.current.scrollLeft;
+        const nextScroll = currentScroll + scrollWidth;
+        
+        // If we've scrolled past the first set of images, reset to beginning seamlessly
+        if (nextScroll >= totalInterests * scrollWidth) {
+          interestsRef.current.scrollLeft = 0;
+          currentIndexRef.current = 0;
+        } else {
+          interestsRef.current.scrollTo({
+            left: nextScroll,
+            behavior: 'smooth'
+          });
+          currentIndexRef.current = Math.floor(nextScroll / scrollWidth) % totalInterests;
+        }
       }
     }, 3000); // Change slide every 3 seconds
-  }, [isInterestsDragging]);
+  }, [isInterestsDragging, totalInterests]);
 
   useEffect(() => {
     startAutoPlay();
@@ -193,7 +207,6 @@ const Resume = () => {
                     <br />
                     <span className="resume-description-normal">I bring product thinking into every design decision and am always looking to actively collaborate across design, product, and business where I see a strong vision.</span>
                   </p>
-                  <p className="resume-description-spacing">&nbsp;</p>
                   <p className="resume-description-normal">
                     Something "about me"
                     <br />
@@ -320,8 +333,8 @@ const Resume = () => {
             onTouchMove={handleInterestsTouchMove}
             onTouchEnd={handleInterestsTouchEnd}
           >
-            {interestImages.map((image, index) => (
-              <div key={image.id} className="resume-interest-card">
+            {duplicatedImages.map((image, index) => (
+              <div key={`${image.id}-${index}`} className="resume-interest-card">
                 <img 
                   src={image.img} 
                   alt={image.name}

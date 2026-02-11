@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
 import Menu from './Menu';
@@ -32,13 +32,11 @@ const Introduction = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const introductionSections = [
-    { id: 'hero', title: 'Hero' },
-    { id: 'work-experience', title: 'Work Experience' },
-    { id: 'about-me', title: 'About me' },
-    { id: 'recognitions', title: 'Recognitions and participations' },
-    { id: 'testimonials', title: 'Testimonials' },
     { id: 'projects', title: 'Projects' },
-    { id: 'footer', title: 'Footer' },
+    { id: 'about-me', title: 'About me' },
+    { id: 'recognitions', title: 'Recognitions' },
+    { id: 'testimonials', title: 'Testimonials' },
+    { id: 'explorations', title: 'Explorations' },
   ];
 
   // Carousel functionality for testimonials
@@ -46,6 +44,7 @@ const Introduction = () => {
   const [isTestimonialsDragging, setIsTestimonialsDragging] = useState(false);
   const [testimonialsStartX, setTestimonialsStartX] = useState(0);
   const [testimonialsScrollLeft, setTestimonialsScrollLeft] = useState(0);
+  const [testimonialsDragDistance, setTestimonialsDragDistance] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const totalTestimonials = 4;
 
@@ -71,11 +70,22 @@ const Introduction = () => {
     scrollToTestimonial(newIndex);
   };
 
+  // Scroll handler for testimonials - updates index
+  const handleTestimonialsScroll = (e) => {
+    if (!testimonialsRef.current) return;
+    const cardWidth = 384;
+    const gap = 24;
+    const scrollLeft = testimonialsRef.current.scrollLeft;
+    const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+    setCurrentTestimonialIndex(Math.min(newIndex, totalTestimonials - 1));
+  };
+
   const handleTestimonialsMouseDown = (e) => {
     if (!testimonialsRef.current) return;
     setIsTestimonialsDragging(true);
     setTestimonialsStartX(e.pageX - testimonialsRef.current.offsetLeft);
     setTestimonialsScrollLeft(testimonialsRef.current.scrollLeft);
+    setTestimonialsDragDistance(0);
     testimonialsRef.current.style.cursor = 'grabbing';
   };
 
@@ -90,6 +100,28 @@ const Introduction = () => {
     setIsTestimonialsDragging(false);
     if (testimonialsRef.current) {
       testimonialsRef.current.style.cursor = 'grab';
+      
+      // Snap to next/previous item based on drag distance
+      const cardWidth = 384;
+      const gap = 24;
+      const threshold = 50; // Minimum drag distance to trigger item change
+      
+      if (Math.abs(testimonialsDragDistance) > threshold) {
+        if (testimonialsDragDistance > 0) {
+          // Dragged right - go to previous item
+          const newIndex = currentTestimonialIndex > 0 ? currentTestimonialIndex - 1 : totalTestimonials - 1;
+          scrollToTestimonial(newIndex);
+        } else {
+          // Dragged left - go to next item
+          const newIndex = currentTestimonialIndex < totalTestimonials - 1 ? currentTestimonialIndex + 1 : 0;
+          scrollToTestimonial(newIndex);
+        }
+      } else {
+        // Not enough drag, snap back to current item
+        scrollToTestimonial(currentTestimonialIndex);
+      }
+      
+      setTestimonialsDragDistance(0);
     }
   };
 
@@ -98,6 +130,8 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.pageX - testimonialsRef.current.offsetLeft;
     const walk = (x - testimonialsStartX) * 2; // Scroll speed multiplier
+    // Track drag distance for snapping
+    setTestimonialsDragDistance(walk);
     testimonialsRef.current.scrollLeft = testimonialsScrollLeft - walk;
   };
 
@@ -107,6 +141,7 @@ const Introduction = () => {
     setIsTestimonialsDragging(true);
     setTestimonialsStartX(e.touches[0].pageX - testimonialsRef.current.offsetLeft);
     setTestimonialsScrollLeft(testimonialsRef.current.scrollLeft);
+    setTestimonialsDragDistance(0);
   };
 
   const handleTestimonialsTouchMove = (e) => {
@@ -114,11 +149,36 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.touches[0].pageX - testimonialsRef.current.offsetLeft;
     const walk = (x - testimonialsStartX) * 2;
+    // Track drag distance for snapping
+    setTestimonialsDragDistance(walk);
     testimonialsRef.current.scrollLeft = testimonialsScrollLeft - walk;
   };
 
   const handleTestimonialsTouchEnd = () => {
     setIsTestimonialsDragging(false);
+    if (!testimonialsRef.current) return;
+    
+    // Snap to next/previous item based on drag distance
+    const cardWidth = 384;
+    const gap = 24;
+    const threshold = 50; // Minimum drag distance to trigger item change
+    
+    if (Math.abs(testimonialsDragDistance) > threshold) {
+      if (testimonialsDragDistance > 0) {
+        // Dragged right - go to previous item
+        const newIndex = currentTestimonialIndex > 0 ? currentTestimonialIndex - 1 : totalTestimonials - 1;
+        scrollToTestimonial(newIndex);
+      } else {
+        // Dragged left - go to next item
+        const newIndex = currentTestimonialIndex < totalTestimonials - 1 ? currentTestimonialIndex + 1 : 0;
+        scrollToTestimonial(newIndex);
+      }
+    } else {
+      // Not enough drag, snap back to current item
+      scrollToTestimonial(currentTestimonialIndex);
+    }
+    
+    setTestimonialsDragDistance(0);
   };
 
   // Carousel functionality for projects
@@ -126,6 +186,7 @@ const Introduction = () => {
   const [isProjectsDragging, setIsProjectsDragging] = useState(false);
   const [projectsStartX, setProjectsStartX] = useState(0);
   const [projectsScrollLeft, setProjectsScrollLeft] = useState(0);
+  const [projectsDragDistance, setProjectsDragDistance] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const totalProjects = 5;
 
@@ -155,11 +216,31 @@ const Introduction = () => {
     scrollToProject(newIndex);
   };
 
+  // Scroll handler for projects - updates index
+  const handleProjectsScroll = (e) => {
+    if (!projectsRef.current) return;
+    const scrollLeft = projectsRef.current.scrollLeft;
+    // Calculate which project is currently visible
+    let accumulatedWidth = 0;
+    let newIndex = 0;
+    const cardWidths = [384, 384, 375, 384, 384]; // Widths for each card
+    const gap = 24;
+    
+    for (let i = 0; i < cardWidths.length; i++) {
+      if (scrollLeft >= accumulatedWidth - 50) { // 50px threshold
+        newIndex = i;
+      }
+      accumulatedWidth += cardWidths[i] + gap;
+    }
+    setCurrentProjectIndex(Math.min(newIndex, totalProjects - 1));
+  };
+
   const handleProjectsMouseDown = (e) => {
     if (!projectsRef.current) return;
     setIsProjectsDragging(true);
     setProjectsStartX(e.pageX - projectsRef.current.offsetLeft);
     setProjectsScrollLeft(projectsRef.current.scrollLeft);
+    setProjectsDragDistance(0);
     projectsRef.current.style.cursor = 'grabbing';
   };
 
@@ -174,6 +255,26 @@ const Introduction = () => {
     setIsProjectsDragging(false);
     if (projectsRef.current) {
       projectsRef.current.style.cursor = 'grab';
+      
+      // Snap to next/previous item based on drag distance
+      const threshold = 50; // Minimum drag distance to trigger item change
+      
+      if (Math.abs(projectsDragDistance) > threshold) {
+        if (projectsDragDistance > 0) {
+          // Dragged right - go to previous item
+          const newIndex = currentProjectIndex > 0 ? currentProjectIndex - 1 : totalProjects - 1;
+          scrollToProject(newIndex);
+        } else {
+          // Dragged left - go to next item
+          const newIndex = currentProjectIndex < totalProjects - 1 ? currentProjectIndex + 1 : 0;
+          scrollToProject(newIndex);
+        }
+      } else {
+        // Not enough drag, snap back to current item
+        scrollToProject(currentProjectIndex);
+      }
+      
+      setProjectsDragDistance(0);
     }
   };
 
@@ -182,6 +283,8 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.pageX - projectsRef.current.offsetLeft;
     const walk = (x - projectsStartX) * 2; // Scroll speed multiplier
+    // Track drag distance for snapping
+    setProjectsDragDistance(walk);
     projectsRef.current.scrollLeft = projectsScrollLeft - walk;
   };
 
@@ -191,6 +294,7 @@ const Introduction = () => {
     setIsProjectsDragging(true);
     setProjectsStartX(e.touches[0].pageX - projectsRef.current.offsetLeft);
     setProjectsScrollLeft(projectsRef.current.scrollLeft);
+    setProjectsDragDistance(0);
   };
 
   const handleProjectsTouchMove = (e) => {
@@ -198,12 +302,75 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.touches[0].pageX - projectsRef.current.offsetLeft;
     const walk = (x - projectsStartX) * 2;
+    // Track drag distance for snapping
+    setProjectsDragDistance(walk);
     projectsRef.current.scrollLeft = projectsScrollLeft - walk;
   };
 
   const handleProjectsTouchEnd = () => {
     setIsProjectsDragging(false);
+    if (!projectsRef.current) return;
+    
+    // Snap to next/previous item based on drag distance
+    const threshold = 50; // Minimum drag distance to trigger item change
+    
+    if (Math.abs(projectsDragDistance) > threshold) {
+      if (projectsDragDistance > 0) {
+        // Dragged right - go to previous item
+        const newIndex = currentProjectIndex > 0 ? currentProjectIndex - 1 : totalProjects - 1;
+        scrollToProject(newIndex);
+      } else {
+        // Dragged left - go to next item
+        const newIndex = currentProjectIndex < totalProjects - 1 ? currentProjectIndex + 1 : 0;
+        scrollToProject(newIndex);
+      }
+    } else {
+      // Not enough drag, snap back to current item
+      scrollToProject(currentProjectIndex);
+    }
+    
+    setProjectsDragDistance(0);
   };
+
+  // Match image container height to text container height
+  const caseImageRef = useRef(null);
+  const caseTextRef = useRef(null);
+
+  useEffect(() => {
+    const matchImageHeight = () => {
+      if (caseImageRef.current && caseTextRef.current) {
+        const textHeight = caseTextRef.current.offsetHeight;
+        caseImageRef.current.style.height = `${textHeight}px`;
+      }
+    };
+
+    matchImageHeight();
+    window.addEventListener('resize', matchImageHeight);
+    
+    return () => {
+      window.removeEventListener('resize', matchImageHeight);
+    };
+  }, []);
+
+  // Match recognition image height to text content height
+  const recognitionImageRef = useRef(null);
+  const recognitionTextRef = useRef(null);
+
+  useEffect(() => {
+    const matchRecognitionImageHeight = () => {
+      if (recognitionImageRef.current && recognitionTextRef.current) {
+        const textHeight = recognitionTextRef.current.offsetHeight;
+        recognitionImageRef.current.style.height = `${textHeight}px`;
+      }
+    };
+
+    matchRecognitionImageHeight();
+    window.addEventListener('resize', matchRecognitionImageHeight);
+    
+    return () => {
+      window.removeEventListener('resize', matchRecognitionImageHeight);
+    };
+  }, []);
 
   return (
     <div className="introduction-container">
@@ -255,21 +422,21 @@ const Introduction = () => {
             <Link to="/search" className="case-card-link">
               <div className="case-card case-card-large">
                 <div className="case-content">
-                  <div className="case-image-container">
+                  <div className="case-image-container" ref={caseImageRef}>
                     <img src={imgRectangle3} alt="Case 1" className="case-image" />
                   </div>
-                  <div className="case-text-container">
+                  <div className="case-text-container" ref={caseTextRef}>
                     <p className="case-category">Multi functional experience</p>
                     <p className="case-title">
-                      Worked on how search experience should work across a multi-service ecosystem
+                      Solved for "how search experience should work across a multi-service ecosystem"
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by <strong>39%</strong> and significantly increasing conversions
                     </p>
                     <div className="case-tags">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tag">Product thinking</div>
-                      <div className="case-tag">Solution</div>
+                      <div className="case-tag">User Pain Points</div>
+                      <div className="case-tag">Product Flow Iterations</div>
+                      <div className="case-tag">Process Design</div>
                     </div>
                   </div>
                 </div>
@@ -289,14 +456,12 @@ const Introduction = () => {
                       A multi service checkout experience re-designed; this project focuses on food delivery checkout
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                      Led end-to-end design for food and fashion delivery products, driving revenue growth by improving brand positioning and optimizing item widget content.
                     </p>
-                    <div className="case-tags-vertical">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tags-row">
-                        <div className="case-tag">Product thinking</div>
-                        <div className="case-tag">Solution</div>
-                      </div>
+                    <div className="case-tags">
+                      <div className="case-tag">Problem Identification</div>
+                      <div className="case-tag">Space Optimization</div>
+                      <div className="case-tag">Iteration</div>
                     </div>
                   </div>
                 </div>
@@ -308,19 +473,17 @@ const Introduction = () => {
                     <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
                   </div>
                   <div className="case-text-container">
-                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-category">Payment method experience</p>
                     <p className="case-title">
                       magicPay, a payment method provided by Magicpin for users to save more during offline shopping
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                      Identified the problem of information overload and redesigned magicPay flow, increasing daily average users by 24% and reducing transaction time by 27%.
                     </p>
-                    <div className="case-tags-vertical">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tags-row">
-                        <div className="case-tag">Product thinking</div>
-                        <div className="case-tag">Solution</div>
-                      </div>
+                    <div className="case-tags">
+                      <div className="case-tag">Product Scope</div>
+                      <div className="case-tag">Product Thinking</div>
+                      <div className="case-tag">Design Solution</div>
                     </div>
                   </div>
                 </div>
@@ -332,16 +495,17 @@ const Introduction = () => {
               <div className="case-card case-card-large">
                 <div className="case-content case-content-reverse">
                   <div className="case-text-container">
-                    <p className="case-category case-category-large">Multi functional experience</p>
+                    <p className="case-category case-category-large">Partner app/ web portal experience</p>
                     <p className="case-title case-title-large">
                       Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing
+                      Conducted user research and usability testing to incorporate those insights for better delivery experience for merchants. Result: Reduced support tickets by 48%.
                     </p>
                     <div className="case-tags">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tag">Product thinking</div>
+                      <div className="case-tag">User Research</div>
+                      <div className="case-tag">User Journey Mapping</div>
+                      <div className="case-tag">Problem Solving</div>
                     </div>
                   </div>
                   <div className="case-image-container">
@@ -411,7 +575,7 @@ const Introduction = () => {
           </div>
           <div className="recognitions-content">
             <div className="recognition-card recognition-card-left">
-              <div className="recognition-images-grid">
+              <div className="recognition-images-grid" ref={recognitionImageRef}>
                 <div className="recognition-image-mask">
                   <img src={imgWhatsAppImage20241219At111349Pm2} alt="UXINDIA" className="recognition-image" />
                 </div>
@@ -419,7 +583,7 @@ const Introduction = () => {
                   <img src={imgWhatsAppImage20241219At111349Pm11} alt="UXINDIA" className="recognition-image" />
                 </div>
               </div>
-              <div className="recognition-text-content">
+              <div className="recognition-text-content" ref={recognitionTextRef}>
                 <p className="recognition-title">Volunteer at UXINDIA2024</p>
                 <p className="recognition-description">
                   This September, I had the privilege of volunteering at UXINDIA's 20th anniversary, which not only allowed me to contribute to the design community, promote women in design, but also opened doors to connect with leading designers and product experts from around the world. 
@@ -493,15 +657,7 @@ const Introduction = () => {
               onTouchStart={handleTestimonialsTouchStart}
               onTouchMove={handleTestimonialsTouchMove}
               onTouchEnd={handleTestimonialsTouchEnd}
-              onScroll={(e) => {
-                // Update current index based on scroll position
-                if (!testimonialsRef.current) return;
-                const cardWidth = 384;
-                const gap = 24;
-                const scrollLeft = testimonialsRef.current.scrollLeft;
-                const newIndex = Math.round(scrollLeft / (cardWidth + gap));
-                setCurrentTestimonialIndex(Math.min(newIndex, totalTestimonials - 1));
-              }}
+              onScroll={handleTestimonialsScroll}
             >
               <div className="testimonial-card testimonial-card-green">
                 <p className="testimonial-role">Staff software engineer at Magicpin</p>
@@ -579,24 +735,7 @@ const Introduction = () => {
               onTouchStart={handleProjectsTouchStart}
               onTouchMove={handleProjectsTouchMove}
               onTouchEnd={handleProjectsTouchEnd}
-              onScroll={(e) => {
-                // Update current index based on scroll position
-                if (!projectsRef.current) return;
-                const scrollLeft = projectsRef.current.scrollLeft;
-                // Calculate which project is currently visible
-                let accumulatedWidth = 0;
-                let newIndex = 0;
-                const cardWidths = [384, 384, 375, 384, 384]; // Widths for each card
-                const gap = 24;
-                
-                for (let i = 0; i < cardWidths.length; i++) {
-                  if (scrollLeft >= accumulatedWidth - 50) { // 50px threshold
-                    newIndex = i;
-                  }
-                  accumulatedWidth += cardWidths[i] + gap;
-                }
-                setCurrentProjectIndex(Math.min(newIndex, totalProjects - 1));
-              }}
+              onScroll={handleProjectsScroll}
             >
               <div className="project-image-wrapper">
                 <img src={imgScreenshot41} alt="Project 1" className="project-image" />
