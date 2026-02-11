@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Search.css';
 import Menu from './Menu';
+import searchGif from '../video/search_gif.gif';
 
 // Figma image URLs (valid for 7 days)
 const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
@@ -363,7 +364,7 @@ const Search = () => {
                 </div>
                 <div className="search-solution-right" data-name="iPhone 15 Pro - White" data-node-id="2351:147">
                   <div className="search-solution-phone" data-name="Screen **Insert Designs here**" data-node-id="2351:148">
-                    <img alt="" src={imgScreenInsertDesignsHere} />
+                    <img alt="" src={searchGif} />
                   </div>
                 </div>
               </div>

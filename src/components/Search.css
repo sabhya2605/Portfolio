@@ -1115,13 +1115,16 @@
   height: 471.827px;
   width: 212.303px;
   position: relative;
+  overflow: hidden;
+  border-radius: 0;
 }
 
 .search-solution-phone img {
   display: block;
-  max-width: none;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Intent Based Suggesters Section - node 2351:150 */
