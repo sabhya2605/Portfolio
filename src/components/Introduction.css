@@ -1311,6 +1311,18 @@
   position: relative;
 }
 
+.project-image-link {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Prevent link click during carousel drag */
+.projects-content:active .project-image-link {
+  pointer-events: none;
+}
+
 .project-image-wrapper-first,
 .project-image-wrapper-second,
 .project-image-wrapper-third,
@@ -1319,13 +1331,142 @@
   transition: all 0.3s ease;
 }
 
-.project-image-wrapper-first:hover .project-image,
-.project-image-wrapper-second:hover .project-image,
-.project-image-wrapper-third:hover .project-image,
-.project-image-wrapper-fourth:hover .project-image,
+.project-image-wrapper-first {
+  animation: projectImagePulse 3s ease-in-out infinite;
+}
+
+@keyframes projectImagePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(53, 163, 90, 0.3);
+  }
+}
+
+.project-image-wrapper-first:hover {
+  animation: none;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(53, 163, 90, 0.4);
+}
+
+.project-image-wrapper-first:hover .project-image {
+  filter: blur(8px);
+  transform: scale(1.05);
+}
+
+.project-image-wrapper-second:hover .project-image {
+  filter: blur(8px);
+  transform: scale(1.05);
+}
+
+.project-image-overlay-second {
+  background: rgba(0, 0, 0, 0.6);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper-second:hover .project-image-overlay-second {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-image-overlay-second .project-image-overlay-content {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 0;
+}
+
+.project-image-wrapper-third:hover .project-image {
+  filter: blur(8px);
+  transform: scale(1.05);
+}
+
+.project-image-overlay-third {
+  background: rgba(0, 0, 0, 0.6);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper-third:hover .project-image-overlay-third {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-image-overlay-third .project-image-overlay-content {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 0;
+}
+
+.project-image-wrapper-fourth:hover .project-image {
+  filter: blur(8px);
+  transform: scale(1.05);
+}
+
+.project-image-overlay-fourth {
+  background: rgba(0, 0, 0, 0.6);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper-fourth:hover .project-image-overlay-fourth {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-image-overlay-fourth .project-image-overlay-content {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 0;
+}
+
 .project-image-wrapper-fifth:hover .project-image {
   filter: blur(8px);
   transform: scale(1.05);
+}
+
+.project-image-overlay-fifth {
+  background: rgba(0, 0, 0, 0.6);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper-fifth:hover .project-image-overlay-fifth {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-image-overlay-fifth .project-image-overlay-content {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 0;
 }
 
 .project-image-wrapper-first .project-image,
@@ -1348,6 +1489,21 @@
   justify-content: center;
   border-radius: 32px;
   animation: fadeIn 0.3s ease;
+}
+
+.project-image-overlay-first {
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper-first:hover .project-image-overlay-first {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @keyframes fadeIn {

@@ -1,9 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
-import Menu from './Menu';
 import imgMvpAwardJuly2024 from '../images/mvp-award-july-2024.png';
-import imgProject1Squeez from '../images/project-1-squeez.png';
+import imgProject1Skweez from '../images/project-1-squeez.png';
 
 // Figma image URLs (valid for 7 days)
 const imgMenu = "https://www.figma.com/api/mcp/asset/acd85a33-c6fc-4c7f-a397-754b252f51aa";
@@ -21,7 +20,7 @@ const imgWhatsAppImage20241211At45326Pm11 = "https://www.figma.com/api/mcp/asset
 const imgWhatsAppImage20241211At45326Pm21 = "https://www.figma.com/api/mcp/asset/1cfbceab-520e-4b31-8be7-f8a8e757b501";
 const imgScreenshot20241217At104908Pm1 = "https://www.figma.com/api/mcp/asset/6e535bf3-4327-42c6-8fa1-e499ee024545";
 const imgScreenshot20241217At104805Pm1 = "https://www.figma.com/api/mcp/asset/56bb8cbc-5391-4fe0-85ff-51d68eb724c6";
-const imgScreenshot41 = imgProject1Squeez;
+const imgScreenshot41 = "https://www.figma.com/api/mcp/asset/a279d95c-3e5d-4012-a6d1-7998fde5a6a4";
 const imgSimpleMockupFreeScene11 = "https://www.figma.com/api/mcp/asset/869a6aaa-780c-4667-8766-71e27e396f2e";
 const imgF32C13117719167629462De4680C1 = "https://www.figma.com/api/mcp/asset/0f1cb84d-91cb-4f5d-8f5a-eb8a72a33019";
 const imgFrame4851 = "https://www.figma.com/api/mcp/asset/fdc81015-ff19-4632-befd-5bd3b653260b";
@@ -29,27 +28,11 @@ const img11 = "https://www.figma.com/api/mcp/asset/1a783e53-0e35-4bf8-895d-48266
 const imgLine1 = "https://www.figma.com/api/mcp/asset/69f707cf-b683-4073-a817-73bb498de360";
 
 const Introduction = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFirstProjectHovered, setIsFirstProjectHovered] = useState(false);
-  const [isSecondProjectHovered, setIsSecondProjectHovered] = useState(false);
-  const [isThirdProjectHovered, setIsThirdProjectHovered] = useState(false);
-  const [isFourthProjectHovered, setIsFourthProjectHovered] = useState(false);
-  const [isFifthProjectHovered, setIsFifthProjectHovered] = useState(false);
-
-  const introductionSections = [
-    { id: 'projects', title: 'Projects' },
-    { id: 'about-me', title: 'About me' },
-    { id: 'recognitions', title: 'Recognitions' },
-    { id: 'testimonials', title: 'Testimonials' },
-    { id: 'explorations', title: 'Explorations' },
-  ];
-
   // Carousel functionality for testimonials
   const testimonialsRef = useRef(null);
   const [isTestimonialsDragging, setIsTestimonialsDragging] = useState(false);
   const [testimonialsStartX, setTestimonialsStartX] = useState(0);
   const [testimonialsScrollLeft, setTestimonialsScrollLeft] = useState(0);
-  const [testimonialsDragDistance, setTestimonialsDragDistance] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const totalTestimonials = 4;
 
@@ -75,22 +58,11 @@ const Introduction = () => {
     scrollToTestimonial(newIndex);
   };
 
-  // Scroll handler for testimonials - updates index
-  const handleTestimonialsScroll = (e) => {
-    if (!testimonialsRef.current) return;
-    const cardWidth = 384;
-    const gap = 24;
-    const scrollLeft = testimonialsRef.current.scrollLeft;
-    const newIndex = Math.round(scrollLeft / (cardWidth + gap));
-    setCurrentTestimonialIndex(Math.min(newIndex, totalTestimonials - 1));
-  };
-
   const handleTestimonialsMouseDown = (e) => {
     if (!testimonialsRef.current) return;
     setIsTestimonialsDragging(true);
     setTestimonialsStartX(e.pageX - testimonialsRef.current.offsetLeft);
     setTestimonialsScrollLeft(testimonialsRef.current.scrollLeft);
-    setTestimonialsDragDistance(0);
     testimonialsRef.current.style.cursor = 'grabbing';
   };
 
@@ -105,26 +77,6 @@ const Introduction = () => {
     setIsTestimonialsDragging(false);
     if (testimonialsRef.current) {
       testimonialsRef.current.style.cursor = 'grab';
-      
-      // Snap to next/previous item based on drag distance
-      const threshold = 50; // Minimum drag distance to trigger item change
-      
-      if (Math.abs(testimonialsDragDistance) > threshold) {
-        if (testimonialsDragDistance > 0) {
-          // Dragged right - go to previous item
-          const newIndex = currentTestimonialIndex > 0 ? currentTestimonialIndex - 1 : totalTestimonials - 1;
-          scrollToTestimonial(newIndex);
-        } else {
-          // Dragged left - go to next item
-          const newIndex = currentTestimonialIndex < totalTestimonials - 1 ? currentTestimonialIndex + 1 : 0;
-          scrollToTestimonial(newIndex);
-        }
-      } else {
-        // Not enough drag, snap back to current item
-        scrollToTestimonial(currentTestimonialIndex);
-      }
-      
-      setTestimonialsDragDistance(0);
     }
   };
 
@@ -133,8 +85,6 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.pageX - testimonialsRef.current.offsetLeft;
     const walk = (x - testimonialsStartX) * 2; // Scroll speed multiplier
-    // Track drag distance for snapping
-    setTestimonialsDragDistance(walk);
     testimonialsRef.current.scrollLeft = testimonialsScrollLeft - walk;
   };
 
@@ -144,7 +94,6 @@ const Introduction = () => {
     setIsTestimonialsDragging(true);
     setTestimonialsStartX(e.touches[0].pageX - testimonialsRef.current.offsetLeft);
     setTestimonialsScrollLeft(testimonialsRef.current.scrollLeft);
-    setTestimonialsDragDistance(0);
   };
 
   const handleTestimonialsTouchMove = (e) => {
@@ -152,34 +101,11 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.touches[0].pageX - testimonialsRef.current.offsetLeft;
     const walk = (x - testimonialsStartX) * 2;
-    // Track drag distance for snapping
-    setTestimonialsDragDistance(walk);
     testimonialsRef.current.scrollLeft = testimonialsScrollLeft - walk;
   };
 
   const handleTestimonialsTouchEnd = () => {
     setIsTestimonialsDragging(false);
-    if (!testimonialsRef.current) return;
-    
-    // Snap to next/previous item based on drag distance
-    const threshold = 50; // Minimum drag distance to trigger item change
-    
-    if (Math.abs(testimonialsDragDistance) > threshold) {
-      if (testimonialsDragDistance > 0) {
-        // Dragged right - go to previous item
-        const newIndex = currentTestimonialIndex > 0 ? currentTestimonialIndex - 1 : totalTestimonials - 1;
-        scrollToTestimonial(newIndex);
-      } else {
-        // Dragged left - go to next item
-        const newIndex = currentTestimonialIndex < totalTestimonials - 1 ? currentTestimonialIndex + 1 : 0;
-        scrollToTestimonial(newIndex);
-      }
-    } else {
-      // Not enough drag, snap back to current item
-      scrollToTestimonial(currentTestimonialIndex);
-    }
-    
-    setTestimonialsDragDistance(0);
   };
 
   // Carousel functionality for projects
@@ -187,7 +113,6 @@ const Introduction = () => {
   const [isProjectsDragging, setIsProjectsDragging] = useState(false);
   const [projectsStartX, setProjectsStartX] = useState(0);
   const [projectsScrollLeft, setProjectsScrollLeft] = useState(0);
-  const [projectsDragDistance, setProjectsDragDistance] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const totalProjects = 5;
 
@@ -217,31 +142,11 @@ const Introduction = () => {
     scrollToProject(newIndex);
   };
 
-  // Scroll handler for projects - updates index
-  const handleProjectsScroll = (e) => {
-    if (!projectsRef.current) return;
-    const scrollLeft = projectsRef.current.scrollLeft;
-    // Calculate which project is currently visible
-    let accumulatedWidth = 0;
-    let newIndex = 0;
-    const cardWidths = [384, 384, 375, 384, 384]; // Widths for each card
-    const gap = 24;
-    
-    for (let i = 0; i < cardWidths.length; i++) {
-      if (scrollLeft >= accumulatedWidth - 50) { // 50px threshold
-        newIndex = i;
-      }
-      accumulatedWidth += cardWidths[i] + gap;
-    }
-    setCurrentProjectIndex(Math.min(newIndex, totalProjects - 1));
-  };
-
   const handleProjectsMouseDown = (e) => {
     if (!projectsRef.current) return;
     setIsProjectsDragging(true);
     setProjectsStartX(e.pageX - projectsRef.current.offsetLeft);
     setProjectsScrollLeft(projectsRef.current.scrollLeft);
-    setProjectsDragDistance(0);
     projectsRef.current.style.cursor = 'grabbing';
   };
 
@@ -256,26 +161,13 @@ const Introduction = () => {
     setIsProjectsDragging(false);
     if (projectsRef.current) {
       projectsRef.current.style.cursor = 'grab';
-      
-      // Snap to next/previous item based on drag distance
-      const threshold = 50; // Minimum drag distance to trigger item change
-      
-      if (Math.abs(projectsDragDistance) > threshold) {
-        if (projectsDragDistance > 0) {
-          // Dragged right - go to previous item
-          const newIndex = currentProjectIndex > 0 ? currentProjectIndex - 1 : totalProjects - 1;
-          scrollToProject(newIndex);
-        } else {
-          // Dragged left - go to next item
-          const newIndex = currentProjectIndex < totalProjects - 1 ? currentProjectIndex + 1 : 0;
-          scrollToProject(newIndex);
-        }
-      } else {
-        // Not enough drag, snap back to current item
-        scrollToProject(currentProjectIndex);
-      }
-      
-      setProjectsDragDistance(0);
+    }
+  };
+
+  const handleProjectLinkClick = (e) => {
+    // Prevent link navigation if user was dragging
+    if (isProjectsDragging) {
+      e.preventDefault();
     }
   };
 
@@ -284,8 +176,6 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.pageX - projectsRef.current.offsetLeft;
     const walk = (x - projectsStartX) * 2; // Scroll speed multiplier
-    // Track drag distance for snapping
-    setProjectsDragDistance(walk);
     projectsRef.current.scrollLeft = projectsScrollLeft - walk;
   };
 
@@ -295,7 +185,6 @@ const Introduction = () => {
     setIsProjectsDragging(true);
     setProjectsStartX(e.touches[0].pageX - projectsRef.current.offsetLeft);
     setProjectsScrollLeft(projectsRef.current.scrollLeft);
-    setProjectsDragDistance(0);
   };
 
   const handleProjectsTouchMove = (e) => {
@@ -303,91 +192,27 @@ const Introduction = () => {
     e.preventDefault();
     const x = e.touches[0].pageX - projectsRef.current.offsetLeft;
     const walk = (x - projectsStartX) * 2;
-    // Track drag distance for snapping
-    setProjectsDragDistance(walk);
     projectsRef.current.scrollLeft = projectsScrollLeft - walk;
   };
 
   const handleProjectsTouchEnd = () => {
     setIsProjectsDragging(false);
-    if (!projectsRef.current) return;
-    
-    // Snap to next/previous item based on drag distance
-    const threshold = 50; // Minimum drag distance to trigger item change
-    
-    if (Math.abs(projectsDragDistance) > threshold) {
-      if (projectsDragDistance > 0) {
-        // Dragged right - go to previous item
-        const newIndex = currentProjectIndex > 0 ? currentProjectIndex - 1 : totalProjects - 1;
-        scrollToProject(newIndex);
-      } else {
-        // Dragged left - go to next item
-        const newIndex = currentProjectIndex < totalProjects - 1 ? currentProjectIndex + 1 : 0;
-        scrollToProject(newIndex);
-      }
-    } else {
-      // Not enough drag, snap back to current item
-      scrollToProject(currentProjectIndex);
-    }
-    
-    setProjectsDragDistance(0);
   };
-
-  // Match image container height to text container height
-  const caseImageRef = useRef(null);
-  const caseTextRef = useRef(null);
-
-  useEffect(() => {
-    const matchImageHeight = () => {
-      if (caseImageRef.current && caseTextRef.current) {
-        const textHeight = caseTextRef.current.offsetHeight;
-        caseImageRef.current.style.height = `${textHeight}px`;
-      }
-    };
-
-    matchImageHeight();
-    window.addEventListener('resize', matchImageHeight);
-    
-    return () => {
-      window.removeEventListener('resize', matchImageHeight);
-    };
-  }, []);
-
-  // Match recognition image height to text content height
-  const recognitionImageRef = useRef(null);
-  const recognitionTextRef = useRef(null);
-
-  useEffect(() => {
-    const matchRecognitionImageHeight = () => {
-      if (recognitionImageRef.current && recognitionTextRef.current) {
-        const textHeight = recognitionTextRef.current.offsetHeight;
-        recognitionImageRef.current.style.height = `${textHeight}px`;
-      }
-    };
-
-    matchRecognitionImageHeight();
-    window.addEventListener('resize', matchRecognitionImageHeight);
-    
-    return () => {
-      window.removeEventListener('resize', matchRecognitionImageHeight);
-    };
-  }, []);
 
   return (
     <div className="introduction-container">
-      {isMenuOpen && <Menu sections={introductionSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="introduction-content">
         {/* Header Section */}
         <div className="header-section">
           <p className="name-text">Sabhya Singhal</p>
-          <div className="menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
+          <div className="menu-button">
             <img src={imgMenu} alt="Menu" className="menu-icon" />
             <p className="menu-text">Menu</p>
           </div>
         </div>
 
         {/* Hero Section */}
-        <div id="hero" className="hero-section">
+        <div className="hero-section">
           <div className="hero-title-container">
             <div className="hero-title-row">
               <p className="hero-title">Creative </p>
@@ -404,7 +229,7 @@ const Introduction = () => {
         </div>
 
         {/* Work Experience Section */}
-        <div id="work-experience" className="work-section">
+        <div className="work-section">
           <div className="work-header">
             <div className="work-header-left">
               <div className="work-image-wrapper">
@@ -420,101 +245,98 @@ const Introduction = () => {
 
           <div className="work-cases">
             {/* Case 1 - Search */}
-            <a href="https://www.figma.com/deck/QrGmLRinM3sdFA99CevFeF/Untitled?node-id=1-354&viewport=-101%2C-95%2C0.49&t=4ExDtFVThhKcrqpX-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" target="_blank" rel="noopener noreferrer" className="case-card-link">
+            <Link to="/search" className="case-card-link">
               <div className="case-card case-card-large">
                 <div className="case-content">
-                  <div className="case-image-container" ref={caseImageRef}>
+                  <div className="case-image-container">
                     <img src={imgRectangle3} alt="Case 1" className="case-image" />
                   </div>
-                  <div className="case-text-container" ref={caseTextRef}>
+                  <div className="case-text-container">
                     <p className="case-category">Multi functional experience</p>
                     <p className="case-title">
-                      Solved for "how search experience should work across a multi-service ecosystem"
+                      Worked on how search experience should work across a multi-service ecosystem
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by <strong>39%</strong> and significantly increasing conversions
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
                     </p>
                     <div className="case-tags">
-                      <div className="case-tag">User Pain Points</div>
-                      <div className="case-tag">Product Flow Iterations</div>
-                      <div className="case-tag">Process Design</div>
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tag">Product thinking</div>
+                      <div className="case-tag">Solution</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
-              <Link to="/delivery-checkout" className="case-card-link">
-                <div className="case-card case-card-green">
-                  <div className="case-image-top">
-                    <img src={imgRectangle4} alt="Case 2" className="case-image-full" />
-                  </div>
-                  <div className="case-text-container">
-                    <p className="case-category">Multi functional experience</p>
-                    <p className="case-title">
-                      A multi service checkout experience re-designed; this project focuses on food delivery checkout
-                    </p>
-                    <p className="case-description">
-                      Led end-to-end design for food and fashion delivery products, driving revenue growth by improving brand positioning and optimizing item widget content.
-                    </p>
-                    <div className="case-tags">
-                      <div className="case-tag">Problem Identification</div>
-                      <div className="case-tag">Space Optimization</div>
-                      <div className="case-tag">Iteration</div>
-                    </div>
-                  </div>
+              <div className="case-card case-card-green">
+                <div className="case-image-top">
+                  <img src={imgRectangle4} alt="Case 2" className="case-image-full" />
                 </div>
-              </Link>
-
-              <a href="https://medium.com/@sabhya.jvm/order-here-app-order-acceptance-flow-revamp-eaad7571e760" target="_blank" rel="noopener noreferrer" className="case-card-link">
-                <div className="case-card case-card-grey">
-                  <div className="case-image-top">
-                    <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
-                  </div>
-                  <div className="case-text-container">
-                    <p className="case-category">Payment method experience</p>
-                    <p className="case-title">
-                      magicPay, a payment method provided by Magicpin for users to save more during offline shopping
-                    </p>
-                    <p className="case-description">
-                      Identified the problem of information overload and redesigned magicPay flow, increasing daily average users by 24% and reducing transaction time by 27%.
-                    </p>
-                    <div className="case-tags">
-                      <div className="case-tag">Product Scope</div>
-                      <div className="case-tag">Product Thinking</div>
-                      <div className="case-tag">Design Solution</div>
+                <div className="case-text-container">
+                  <p className="case-category">Multi functional experience</p>
+                  <p className="case-title">
+                    A multi service checkout experience re-designed; this project focuses on food delivery checkout
+                  </p>
+                  <p className="case-description">
+                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                  </p>
+                  <div className="case-tags-vertical">
+                    <div className="case-tag">Problem identification</div>
+                    <div className="case-tags-row">
+                      <div className="case-tag">Product thinking</div>
+                      <div className="case-tag">Solution</div>
                     </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            {/* Case 4 */}
-            <a href="https://medium.com/@sabhya.jvm/order-here-app-order-acceptance-flow-revamp-eaad7571e760" target="_blank" rel="noopener noreferrer" className="case-card-link">
-              <div className="case-card case-card-large">
-                <div className="case-content case-content-reverse">
-                  <div className="case-text-container">
-                    <p className="case-category case-category-large">Partner app/ web portal experience</p>
-                    <p className="case-title case-title-large">
-                      Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
-                    </p>
-                    <p className="case-description">
-                      Conducted user research and usability testing to incorporate those insights for better delivery experience for merchants. Result: Reduced support tickets by 48%.
-                    </p>
-                    <div className="case-tags">
-                      <div className="case-tag">User Research</div>
-                      <div className="case-tag">User Journey Mapping</div>
-                      <div className="case-tag">Problem Solving</div>
-                    </div>
-                  </div>
-                  <div className="case-image-container">
-                    <img src={imgRectangle6} alt="Case 4" className="case-image" />
                   </div>
                 </div>
               </div>
-            </a>
+
+              <div className="case-card case-card-grey">
+                <div className="case-image-top">
+                  <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
+                </div>
+                <div className="case-text-container">
+                  <p className="case-category">Multi functional experience</p>
+                  <p className="case-title">
+                    magicPay, a payment method provided by Magicpin for users to save more during offline shopping
+                  </p>
+                  <p className="case-description">
+                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                  </p>
+                  <div className="case-tags-vertical">
+                    <div className="case-tag">Problem identification</div>
+                    <div className="case-tags-row">
+                      <div className="case-tag">Product thinking</div>
+                      <div className="case-tag">Solution</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Case 4 */}
+            <div className="case-card case-card-large">
+              <div className="case-content case-content-reverse">
+                <div className="case-text-container">
+                  <p className="case-category case-category-large">Multi functional experience</p>
+                  <p className="case-title case-title-large">
+                    Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
+                  </p>
+                  <p className="case-description">
+                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing
+                  </p>
+                  <div className="case-tags">
+                    <div className="case-tag">Problem identification</div>
+                    <div className="case-tag">Product thinking</div>
+                  </div>
+                </div>
+                <div className="case-image-container">
+                  <img src={imgRectangle6} alt="Case 4" className="case-image" />
+                </div>
+              </div>
+            </div>
 
             {/* View All Cases Button */}
             <div className="view-all-button">
@@ -527,7 +349,7 @@ const Introduction = () => {
         </div>
 
         {/* About Me Section */}
-        <div id="about-me" className="about-section">
+        <div className="about-section">
           <div className="section-header">
             <p className="section-title">About me</p>
           </div>
@@ -570,21 +392,21 @@ const Introduction = () => {
         </div>
 
         {/* Recognitions Section */}
-        <div id="recognitions" className="recognitions-section">
+        <div className="recognitions-section">
           <div className="section-header">
             <p className="section-title">Recognitions and participations</p>
           </div>
           <div className="recognitions-content">
             <div className="recognition-card recognition-card-left">
-              <div className="recognition-images-grid" ref={recognitionImageRef}>
+              <div className="recognition-images-grid">
                 <div className="recognition-image-mask">
                   <img src={imgWhatsAppImage20241219At111349Pm2} alt="UXINDIA" className="recognition-image" />
                 </div>
-                <div className="recognition-image-mask-right">
+                <div className="recognition-image-mask recognition-image-mask-right">
                   <img src={imgWhatsAppImage20241219At111349Pm11} alt="UXINDIA" className="recognition-image" />
                 </div>
               </div>
-              <div className="recognition-text-content" ref={recognitionTextRef}>
+              <div className="recognition-text-content">
                 <p className="recognition-title">Volunteer at UXINDIA2024</p>
                 <p className="recognition-description">
                   This September, I had the privilege of volunteering at UXINDIA's 20th anniversary, which not only allowed me to contribute to the design community, promote women in design, but also opened doors to connect with leading designers and product experts from around the world. 
@@ -634,7 +456,7 @@ const Introduction = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div id="testimonials" className="testimonials-section">
+        <div className="testimonials-section">
           <div className="section-header">
             <p className="section-title">See what people say about their experience working with me</p>
           </div>
@@ -658,7 +480,15 @@ const Introduction = () => {
               onTouchStart={handleTestimonialsTouchStart}
               onTouchMove={handleTestimonialsTouchMove}
               onTouchEnd={handleTestimonialsTouchEnd}
-              onScroll={handleTestimonialsScroll}
+              onScroll={(e) => {
+                // Update current index based on scroll position
+                if (!testimonialsRef.current) return;
+                const cardWidth = 384;
+                const gap = 24;
+                const scrollLeft = testimonialsRef.current.scrollLeft;
+                const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+                setCurrentTestimonialIndex(Math.min(newIndex, totalTestimonials - 1));
+              }}
             >
               <div className="testimonial-card testimonial-card-green">
                 <p className="testimonial-role">Staff software engineer at Magicpin</p>
@@ -712,7 +542,7 @@ const Introduction = () => {
         </div>
 
         {/* Projects Section */}
-        <div id="projects" className="projects-section">
+        <div className="projects-section">
           <div className="section-header">
             <p className="section-title">Graduating from NIFT, I tried my hands on a lot of different things. Check some of them out</p>
           </div>
@@ -736,108 +566,100 @@ const Introduction = () => {
               onTouchStart={handleProjectsTouchStart}
               onTouchMove={handleProjectsTouchMove}
               onTouchEnd={handleProjectsTouchEnd}
-              onScroll={handleProjectsScroll}
+              onScroll={(e) => {
+                // Update current index based on scroll position
+                if (!projectsRef.current) return;
+                const scrollLeft = projectsRef.current.scrollLeft;
+                // Calculate which project is currently visible
+                let accumulatedWidth = 0;
+                let newIndex = 0;
+                const cardWidths = [384, 384, 375, 384, 384]; // Widths for each card
+                const gap = 24;
+                
+                for (let i = 0; i < cardWidths.length; i++) {
+                  if (scrollLeft >= accumulatedWidth - 50) { // 50px threshold
+                    newIndex = i;
+                  }
+                  accumulatedWidth += cardWidths[i] + gap;
+                }
+                setCurrentProjectIndex(Math.min(newIndex, totalProjects - 1));
+              }}
             >
-              <div 
-                className="project-image-wrapper project-image-wrapper-first"
-                onMouseEnter={() => setIsFirstProjectHovered(true)}
-                onMouseLeave={() => setIsFirstProjectHovered(false)}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open('https://www.behance.net/gallery/136344091/Self-project-PACKAGING-DESIGN', '_blank', 'noopener,noreferrer');
-                }}
-                style={{ cursor: 'pointer' }}
+              <a 
+                href="https://www.behance.net/gallery/136344091/Self-project-PACKAGING-DESIGN" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-image-wrapper project-image-wrapper-first project-image-link"
+                onClick={handleProjectLinkClick}
               >
-                <img src={imgScreenshot41} alt="Project 1" className="project-image" />
-                {isFirstProjectHovered && (
-                  <div className="project-image-overlay">
-                    <div className="project-image-overlay-content">
-                      <p className="project-image-overlay-title">Quirky branding and packaging design</p>
-                      <p className="project-image-overlay-description">Designer for a juice tetra-pack brand to attract children.</p>
-                    </div>
+                <img src={imgProject1Skweez} alt="Project 1" className="project-image" />
+                <div className="project-image-overlay project-image-overlay-first">
+                  <div className="project-image-overlay-content">
+                    <p className="project-image-overlay-title">Quirky branding and packaging design</p>
+                    <p className="project-image-overlay-description">Designer for a juice tetra-pack brand to attract children.</p>
                   </div>
-                )}
-              </div>
-              <div 
-                className="project-image-wrapper project-image-wrapper-second"
-                onMouseEnter={() => setIsSecondProjectHovered(true)}
-                onMouseLeave={() => setIsSecondProjectHovered(false)}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open('https://www.behance.net/gallery/167455935/Website-Design-Project', '_blank', 'noopener,noreferrer');
-                }}
-                style={{ cursor: 'pointer' }}
+                </div>
+              </a>
+              <a 
+                href="https://www.behance.net/gallery/167455935/Website-Design-Project" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-image-wrapper project-image-wrapper-second project-image-link"
+                onClick={handleProjectLinkClick}
               >
                 <img src={imgSimpleMockupFreeScene11} alt="Project 2" className="project-image" />
-                {isSecondProjectHovered && (
-                  <div className="project-image-overlay">
-                    <div className="project-image-overlay-content">
-                      <p className="project-image-overlay-title">Website Design Project</p>
-                      <p className="project-image-overlay-description">UI/UX design for landing page with mobile responsive design and progressive disclosure.</p>
-                    </div>
+                <div className="project-image-overlay project-image-overlay-second">
+                  <div className="project-image-overlay-content">
+                    <p className="project-image-overlay-title">Website Design Project</p>
+                    <p className="project-image-overlay-description">Mobile responsive design with progressive disclosure and interactive hover states.</p>
                   </div>
-                )}
-              </div>
-              <div 
-                className="project-image-wrapper project-image-wrapper-third"
-                onMouseEnter={() => setIsThirdProjectHovered(true)}
-                onMouseLeave={() => setIsThirdProjectHovered(false)}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open('https://www.behance.net/gallery/117719167/Food-Styling-and-Photography', '_blank', 'noopener,noreferrer');
-                }}
-                style={{ cursor: 'pointer' }}
+                </div>
+              </a>
+              <a 
+                href="https://www.behance.net/gallery/117719167/Food-Styling-and-Photography" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-image-wrapper project-image-wrapper-third project-image-link"
+                onClick={handleProjectLinkClick}
               >
                 <img src={imgF32C13117719167629462De4680C1} alt="Project 3" className="project-image" />
-                {isThirdProjectHovered && (
-                  <div className="project-image-overlay">
-                    <div className="project-image-overlay-content">
-                      <p className="project-image-overlay-title">Coffee table book design</p>
-                      <p className="project-image-overlay-description">An interactive photography and illustrative flip boo experience.</p>
-                    </div>
+                <div className="project-image-overlay project-image-overlay-third">
+                  <div className="project-image-overlay-content">
+                    <p className="project-image-overlay-title">Coffee table book design</p>
+                    <p className="project-image-overlay-description">An interactive photography and illustrative flip book experience.</p>
                   </div>
-                )}
-              </div>
-              <div 
-                className="project-image-wrapper project-image-green project-image-wrapper-fourth"
-                onMouseEnter={() => setIsFourthProjectHovered(true)}
-                onMouseLeave={() => setIsFourthProjectHovered(false)}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open('https://www.behance.net/gallery/143395399/SWIGGY-UIUX-Project', '_blank', 'noopener,noreferrer');
-                }}
-                style={{ cursor: 'pointer' }}
+                </div>
+              </a>
+              <a 
+                href="https://www.behance.net/gallery/143395399/SWIGGY-UIUX-Project" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-image-wrapper project-image-wrapper-fourth project-image-green project-image-link"
+                onClick={handleProjectLinkClick}
               >
                 <img src={imgFrame4851} alt="Project 4" className="project-image" />
-                {isFourthProjectHovered && (
-                  <div className="project-image-overlay">
-                    <div className="project-image-overlay-content">
-                      <p className="project-image-overlay-title">Swiggy group ordering feature</p>
-                      <p className="project-image-overlay-description">Designed and pitched in 2022 summer. An experience designed to bring people together.</p>
-                    </div>
+                <div className="project-image-overlay project-image-overlay-fourth">
+                  <div className="project-image-overlay-content">
+                    <p className="project-image-overlay-title">Swiggy group ordering feature</p>
+                    <p className="project-image-overlay-description">Designed and pitched in 2022 summer. An experience designed to bring people together.</p>
                   </div>
-                )}
-              </div>
-              <div 
-                className="project-image-wrapper project-image-wrapper-fifth"
-                onMouseEnter={() => setIsFifthProjectHovered(true)}
-                onMouseLeave={() => setIsFifthProjectHovered(false)}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open('https://www.behance.net/gallery/123455395/CALENDAR-DESIGN-2022', '_blank', 'noopener,noreferrer');
-                }}
-                style={{ cursor: 'pointer' }}
+                </div>
+              </a>
+              <a 
+                href="https://www.behance.net/gallery/123455395/CALENDAR-DESIGN-2022" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-image-wrapper project-image-wrapper-fifth project-image-link"
+                onClick={handleProjectLinkClick}
               >
                 <img src={img11} alt="Project 5" className="project-image" />
-                {isFifthProjectHovered && (
-                  <div className="project-image-overlay">
-                    <div className="project-image-overlay-content">
-                      <p className="project-image-overlay-title">Calendar design</p>
-                      <p className="project-image-overlay-description">Evoking different emotions through themed visuals.</p>
-                    </div>
+                <div className="project-image-overlay project-image-overlay-fifth">
+                  <div className="project-image-overlay-content">
+                    <p className="project-image-overlay-title">Calendar design</p>
+                    <p className="project-image-overlay-description">Evoking different emotions through themed visuals.</p>
                   </div>
-                )}
-              </div>
+                </div>
+              </a>
             </div>
             <button 
               className="projects-carousel-button projects-carousel-button-next"
@@ -868,7 +690,7 @@ const Introduction = () => {
         </div>
 
         {/* Footer Section */}
-        <div id="footer" className="footer-section">
+        <div className="footer-section">
           <div className="footer-top">
             <p className="footer-text">
               Since we have come to the finish line, I believe we should get in touch. Drop me a👋 hi!
