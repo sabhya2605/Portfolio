@@ -138,18 +138,22 @@
 /* About Image - node 2409:576 */
 .resume-about-image-wrapper {
   position: relative;
-  border-radius: 24px;
+  border-radius: 28px;
   width: 511px;
   flex-shrink: 0;
   align-self: stretch;
   overflow: hidden;
+  background: lightgray;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
 
 .resume-about-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 28px;
   display: block;
 }
 
@@ -167,9 +171,17 @@
 .resume-about-text-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
   align-items: flex-start;
   width: 100%;
+}
+
+.resume-name-card {
+  margin-bottom: 0;
+}
+
+.resume-description-card {
+  margin-top: 0;
 }
 
 /* Name Card - node 2409:579 */
@@ -184,6 +196,7 @@
   color: #1C1C1C;
   width: 100%;
   white-space: pre-wrap;
+  margin-bottom: 0;
 }
 
 .resume-name {
@@ -211,12 +224,35 @@
   background: #FFF;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 16px;
-  padding-bottom: 24px;
+  gap: 8px;
   border-radius: 24px;
   width: 100%;
+  align-self: stretch;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.resume-description-card > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resume-description-text {
+  margin: 0;
+  padding: 0;
+}
+
+.resume-description-text p:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.resume-description-text p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .resume-description-text {
@@ -226,14 +262,16 @@
   color: #1C1C1C;
   width: 100%;
   white-space: pre-wrap;
+  align-self: stretch;
 }
 
 .resume-description-text p {
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
 .resume-description-text p:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .resume-description-bold {
@@ -243,14 +281,17 @@
   font-style: normal;
   color: #547F6A;
   font-size: 28px;
+  align-self: stretch;
 }
 
 .resume-description-normal {
   font-family: 'Lucida Bright', serif;
   line-height: 32px;
   font-style: normal;
+  font-weight: 400;
   color: #1C1C1C;
   font-size: 20px;
+  align-self: stretch;
 }
 
 .resume-description-spacing {
@@ -271,8 +312,8 @@
 /* Experience Card - node 2409:587 */
 .resume-experience-card {
   display: flex;
-  height: 672px;
-  padding: 24px;
+  height: auto;
+  padding: 24px 24px 24px 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
@@ -280,11 +321,14 @@
   border-radius: 32px;
   background: #F7F7F7;
   font-style: normal;
+  box-sizing: border-box;
   white-space: pre-wrap;
+  box-sizing: border-box;
 }
 
 .resume-experience-card-small {
-  height: 224px;
+  height: auto;
+  border-radius: 28px;
 }
 
 /* Experience Header - node 2409:588 */
@@ -294,6 +338,8 @@
   gap: 16px;
   align-items: flex-start;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .resume-experience-company {
@@ -319,15 +365,16 @@
 /* Experience List - node 2409:591 */
 .resume-experience-list {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lucida Bright', serif;
   line-height: 0;
   list-style-type: disc;
   color: #1C1C1C;
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
-  font-weight: 500;
-  width: 1132px;
+  font-weight: 400;
+  width: 100%;
   margin: 0;
+  padding: 0;
   padding-left: 0;
   align-self: stretch;
 }
@@ -335,7 +382,7 @@
 .resume-experience-list li {
   margin-left: 30px;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .resume-experience-list li:last-child {
@@ -343,14 +390,22 @@
 }
 
 .resume-experience-list li span {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-family: 'Lucida Bright', serif;
+  font-size: 20px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
+  font-weight: 400;
+  line-height: 32px;
   color: #1C1C1C;
   display: block;
   align-self: stretch;
+}
+
+.resume-experience-list li span strong,
+.resume-experience-list li span b {
+  font-weight: 600;
+  font-family: 'Lucida Bright', serif;
+  font-size: 20px;
+  line-height: 32px;
 }
 
 /* Education Section */
@@ -369,7 +424,7 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
-  border-radius: 32px;
+  border-radius: 28px;
   background: #F7F7F7;
   font-style: normal;
 }
@@ -458,7 +513,7 @@
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
-  border-radius: 32px;
+  border-radius: 20px;
   background: #F7F7F7;
   font-style: normal;
 }
@@ -522,9 +577,12 @@
 
 .resume-interest-card {
   flex-shrink: 0;
-  width: 384px;
-  height: 384px;
-  border-radius: 28px;
+  width: 174.129px;
+  height: 200px;
+  border-radius: 23.881px;
+  border: 0.995px solid rgba(0, 0, 0, 0.08);
+  background: #123C52;
+  box-shadow: 0 1.99px 2.985px 0 rgba(0, 0, 0, 0.03);
   overflow: hidden;
   position: relative;
 }
@@ -534,7 +592,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 28px;
+  border-radius: 23.881px;
 }
 
 /* Footer Section */
@@ -672,8 +730,16 @@
   }
   
   .resume-interest-card {
-    width: 320px;
-    height: 320px;
+    width: 174.129px;
+    height: 200px;
+    border-radius: 23.881px;
+    border: 0.995px solid rgba(0, 0, 0, 0.08);
+    background: #123C52;
+    box-shadow: 0 1.99px 2.985px 0 rgba(0, 0, 0, 0.03);
+  }
+  
+  .resume-interest-image {
+    border-radius: 23.881px;
   }
   
   .resume-footer-section {
@@ -791,8 +857,16 @@
   }
   
   .resume-interest-card {
-    width: 280px;
-    height: 280px;
+    width: 174.129px;
+    height: 200px;
+    border-radius: 23.881px;
+    border: 0.995px solid rgba(0, 0, 0, 0.08);
+    background: #123C52;
+    box-shadow: 0 1.99px 2.985px 0 rgba(0, 0, 0, 0.03);
+  }
+  
+  .resume-interest-image {
+    border-radius: 23.881px;
   }
   
   .resume-footer-section {
@@ -937,8 +1011,16 @@
   }
   
   .resume-interest-card {
-    width: 240px;
-    height: 240px;
+    width: 174.129px;
+    height: 200px;
+    border-radius: 23.881px;
+    border: 0.995px solid rgba(0, 0, 0, 0.08);
+    background: #123C52;
+    box-shadow: 0 1.99px 2.985px 0 rgba(0, 0, 0, 0.03);
+  }
+  
+  .resume-interest-image {
+    border-radius: 23.881px;
   }
   
   .resume-footer-section {

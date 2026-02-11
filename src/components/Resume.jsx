@@ -18,6 +18,10 @@ const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b
 const Resume = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Refs for matching image height to text content
+  const aboutImageRef = useRef(null);
+  const aboutTextRef = useRef(null);
 
   const handleBackClick = () => {
     navigate('/');
@@ -29,7 +33,6 @@ const Resume = () => {
     { id: 'education', title: 'Education' },
     { id: 'certification', title: 'Certification' },
     { id: 'interests', title: 'Interests' },
-    { id: 'footer', title: 'Footer' },
   ];
 
   // Auto-playing carousel for Interests
@@ -61,7 +64,7 @@ const Resume = () => {
     }
     carouselIntervalRef.current = setInterval(() => {
       if (!isInterestsDragging && interestsRef.current) {
-        const cardWidth = 384; // Width of each card
+        const cardWidth = 174.129; // Width of each card
         const gap = 24; // Gap between cards
         const scrollWidth = cardWidth + gap;
         
@@ -92,6 +95,23 @@ const Resume = () => {
       }
     };
   }, [startAutoPlay]);
+
+  // Match about image height to text content height
+  useEffect(() => {
+    const matchAboutImageHeight = () => {
+      if (aboutImageRef.current && aboutTextRef.current) {
+        const textHeight = aboutTextRef.current.offsetHeight;
+        aboutImageRef.current.style.height = `${textHeight}px`;
+      }
+    };
+
+    matchAboutImageHeight();
+    window.addEventListener('resize', matchAboutImageHeight);
+    
+    return () => {
+      window.removeEventListener('resize', matchAboutImageHeight);
+    };
+  }, []);
 
   // Mouse event handlers for dragging
   const handleInterestsMouseDown = (e) => {
@@ -191,11 +211,11 @@ const Resume = () => {
         </div>
 
         <div className="resume-about-card" data-node-id="2409:575">
-          <div className="resume-about-image-wrapper" data-node-id="2409:576">
+          <div className="resume-about-image-wrapper" ref={aboutImageRef} data-node-id="2409:576">
             <img alt="" src={imgRectangle5} className="resume-about-image" />
           </div>
           <div className="resume-about-content" data-node-id="2409:577">
-            <div className="resume-about-text-container" data-node-id="2409:578">
+            <div className="resume-about-text-container" ref={aboutTextRef} data-node-id="2409:578">
               <div className="resume-name-card" data-node-id="2409:579">
                 <p className="resume-name" data-node-id="2409:580">Sabhya Singhal</p>
                 <p className="resume-role" data-node-id="2409:581">Product Designer | Living for experiences!</p>
@@ -246,7 +266,7 @@ const Resume = () => {
           <div className="resume-experience-card resume-experience-card-small" data-node-id="2409:592">
             <div className="resume-experience-header" data-node-id="2409:593">
               <p className="resume-experience-company" data-node-id="2409:594">Flying Saints | Jan 23' - April 23'</p>
-              <p className="resume-experience-position" data-node-id="2409:595">UI/UX Designer</p>
+              <p className="resume-experience-position" data-node-id="2409:595">UI/UX Design Intern</p>
             </div>
             <ul className="resume-experience-list" data-node-id="2409:596">
               <li><span>Acquired 2 new clients through compelling design pitches. Contributed to multiple live website and mobile app projects.</span></li>
@@ -256,11 +276,11 @@ const Resume = () => {
           {/* NapEazy Experience */}
           <div className="resume-experience-card resume-experience-card-small" data-node-id="2409:597">
             <div className="resume-experience-header" data-node-id="2409:598">
-              <p className="resume-experience-company" data-node-id="2409:599">NapEazy</p>
-              <p className="resume-experience-position" data-node-id="2409:600">UX </p>
+              <p className="resume-experience-company" data-node-id="2409:599">NapEazy | Sept 22' - Nov 22'</p>
+              <p className="resume-experience-position" data-node-id="2409:600">Packaging and UX- IC role</p>
             </div>
             <ul className="resume-experience-list" data-node-id="2409:601">
-              <li><span>Acquired 2 new clients through compelling design pitches. Contributed to multiple live website and mobile app projects.</span></li>
+              <li><span>I redesign the packaging for their product, travel pillow. I have also worked for their website UX.</span></li>
             </ul>
           </div>
 
@@ -268,10 +288,10 @@ const Resume = () => {
           <div className="resume-experience-card resume-experience-card-small" data-node-id="2409:602">
             <div className="resume-experience-header" data-node-id="2409:603">
               <p className="resume-experience-company" data-node-id="2409:604">Newton School | June 22' - August 22'</p>
-              <p className="resume-experience-position" data-node-id="2409:605">Graphic Designer</p>
+              <p className="resume-experience-position" data-node-id="2409:605">Graphic Designer Intern</p>
             </div>
             <ul className="resume-experience-list" data-node-id="2409:606">
-              <li><span>Acquired 2 new clients through compelling design pitches. Contributed to multiple live website and mobile app projects.</span></li>
+              <li><span>Increased rate of response by more than 50% within 2 months by leading different email campaigns. Contributed as a creative planner and did strategy planning. I was also able to achieve maximum one day registration, via e-mails, till then.</span></li>
             </ul>
           </div>
         </div>
