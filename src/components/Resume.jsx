@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Resume.css';
 import Menu from './Menu';
@@ -34,12 +34,12 @@ const Resume = () => {
 
   // Auto-playing carousel for Interests
   const interestsRef = useRef(null);
-  const [currentInterestIndex, setCurrentInterestIndex] = useState(0);
   const [isInterestsDragging, setIsInterestsDragging] = useState(false);
   const [interestsStartX, setInterestsStartX] = useState(0);
   const [interestsScrollLeft, setInterestsScrollLeft] = useState(0);
   const totalInterests = 6;
   const carouselIntervalRef = useRef(null);
+  const currentIndexRef = useRef(0);
 
   // Interest images
   const interestImages = [
@@ -52,26 +52,23 @@ const Resume = () => {
   ];
 
   // Function to start auto-play
-  const startAutoPlay = () => {
+  const startAutoPlay = useCallback(() => {
     if (carouselIntervalRef.current) {
       clearInterval(carouselIntervalRef.current);
     }
     carouselIntervalRef.current = setInterval(() => {
       if (!isInterestsDragging && interestsRef.current) {
-        setCurrentInterestIndex((prevIndex) => {
-          const newIndex = (prevIndex + 1) % totalInterests;
-          const cardWidth = 384; // Width of each card
-          const gap = 24; // Gap between cards
-          const scrollPosition = newIndex * (cardWidth + gap);
-          interestsRef.current.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-          });
-          return newIndex;
+        currentIndexRef.current = (currentIndexRef.current + 1) % totalInterests;
+        const cardWidth = 384; // Width of each card
+        const gap = 24; // Gap between cards
+        const scrollPosition = currentIndexRef.current * (cardWidth + gap);
+        interestsRef.current.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
         });
       }
     }, 3000); // Change slide every 3 seconds
-  };
+  }, [isInterestsDragging]);
 
   useEffect(() => {
     startAutoPlay();
@@ -80,7 +77,7 @@ const Resume = () => {
         clearInterval(carouselIntervalRef.current);
       }
     };
-  }, [isInterestsDragging]);
+  }, [startAutoPlay]);
 
   // Mouse event handlers for dragging
   const handleInterestsMouseDown = (e) => {
