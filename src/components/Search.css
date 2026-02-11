@@ -1103,28 +1103,42 @@
 }
 
 .search-solution-right {
-  background: #F3FAF3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14.086px;
-  width: 406px;
-}
-
-.search-solution-phone {
-  height: 471.827px;
-  width: 212.303px;
   position: relative;
-  overflow: hidden;
-  border-radius: 0;
+  width: 301.118px;
+  height: 618.06px;
+  flex-shrink: 0;
 }
 
-.search-solution-phone img {
-  display: block;
+.search-solution-phone-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.search-solution-phone-bg {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  max-width: none;
+}
+
+.search-solution-phone {
+  position: absolute;
+  top: 1.88%;
+  bottom: 1.88%;
+  left: 4.4%;
+  right: 4.48%;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.search-solution-phone img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  max-width: none;
+  object-fit: cover;
 }
 
 /* Intent Based Suggesters Section - node 2351:150 */
@@ -1619,7 +1633,10 @@
   
   .search-solution-right {
     width: 100%;
-    justify-content: center;
+    max-width: 301.118px;
+    height: auto;
+    aspect-ratio: 301.118 / 618.06;
+    margin: 0 auto;
   }
   
   .search-intent-list {
@@ -1690,26 +1707,37 @@
   
   .search-solution-right {
     width: 100%;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    max-width: 301.118px;
+    height: auto;
+    aspect-ratio: 301.118 / 618.06;
+    margin: 0 auto;
+  }
+  
+  .search-solution-phone-frame {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .search-solution-phone-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
   .search-solution-phone {
-    width: auto;
-    max-width: 200px;
-    height: auto;
-    aspect-ratio: 212.303 / 471.827;
-    margin: 0 auto;
-    flex-shrink: 0;
+    position: absolute;
+    top: 1.88%;
+    bottom: 1.88%;
+    left: 4.4%;
+    right: 4.48%;
+    overflow: hidden;
+    border-radius: 25px;
   }
   
   .search-solution-phone img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .search-intent-section,
@@ -2015,26 +2043,37 @@
   
   .search-solution-right {
     width: 100%;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 301.118 / 618.06;
+    margin: 0 auto;
+  }
+  
+  .search-solution-phone-frame {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .search-solution-phone-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
   .search-solution-phone {
-    width: auto;
-    max-width: 160px;
-    height: auto;
-    aspect-ratio: 212.303 / 471.827;
-    margin: 0 auto;
-    flex-shrink: 0;
+    position: absolute;
+    top: 1.88%;
+    bottom: 1.88%;
+    left: 4.4%;
+    right: 4.48%;
+    overflow: hidden;
+    border-radius: 25px;
   }
   
   .search-solution-phone img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .search-intent-section,
@@ -2346,26 +2385,38 @@
   }
   
   .search-solution-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    box-sizing: border-box;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    aspect-ratio: 301.118 / 618.06;
+    margin: 0 auto;
+  }
+  
+  .search-solution-phone-frame {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .search-solution-phone-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
   .search-solution-phone {
-    width: auto;
-    max-width: 120px;
-    height: auto;
-    aspect-ratio: 212.303 / 471.827;
-    margin: 0 auto;
-    flex-shrink: 0;
+    position: absolute;
+    top: 1.88%;
+    bottom: 1.88%;
+    left: 4.4%;
+    right: 4.48%;
+    overflow: hidden;
+    border-radius: 25px;
   }
   
   .search-solution-phone img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .search-intent-section,

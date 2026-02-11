@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Search.css';
 import Menu from './Menu';
 import searchGif from '../video/search_gif.gif';
+import imgIPhone15ProWhiteFinal from '../images/delivery-checkout/iphone-15-pro-white-final.png';
 
 // Figma image URLs (valid for 7 days)
 const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
@@ -12,7 +13,6 @@ const imgRectangle12 = "https://www.figma.com/api/mcp/asset/0be4b93d-6b94-4293-b
 const imgRectangle13 = "https://www.figma.com/api/mcp/asset/80749140-21fa-404c-ab05-7307960ab2a6";
 const imgVersion1 = "https://www.figma.com/api/mcp/asset/f87587f4-e1eb-44db-85c8-5f37aa341ddb";
 const imgVersion21 = "https://www.figma.com/api/mcp/asset/e8055af2-21ea-49bc-b319-69fbf053847a";
-const imgScreenInsertDesignsHere = "https://www.figma.com/api/mcp/asset/b88b3418-dc7a-40fe-8c9a-9a73c41957b2";
 const imgSearchFinal1 = "https://www.figma.com/api/mcp/asset/4264346b-ae18-497b-8794-92945021ecd2";
 const imgFineDine = "https://www.figma.com/api/mcp/asset/12d7b24a-346e-4528-ae41-00f003217f11";
 const imgLine33 = "https://www.figma.com/api/mcp/asset/c83d9747-2423-458a-b200-f5e0d32af65f";
@@ -363,6 +363,9 @@ const Search = () => {
                   </div>
                 </div>
                 <div className="search-solution-right" data-name="iPhone 15 Pro - White" data-node-id="2351:147">
+                  <div className="search-solution-phone-frame">
+                    <img src={imgIPhone15ProWhiteFinal} alt="iPhone 15 Pro White" className="search-solution-phone-bg" />
+                  </div>
                   <div className="search-solution-phone" data-name="Screen **Insert Designs here**" data-node-id="2351:148">
                     <img alt="" src={searchGif} />
                   </div>

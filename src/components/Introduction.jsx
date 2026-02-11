@@ -102,8 +102,6 @@ const Introduction = () => {
       testimonialsRef.current.style.cursor = 'grab';
       
       // Snap to next/previous item based on drag distance
-      const cardWidth = 384;
-      const gap = 24;
       const threshold = 50; // Minimum drag distance to trigger item change
       
       if (Math.abs(testimonialsDragDistance) > threshold) {
@@ -159,8 +157,6 @@ const Introduction = () => {
     if (!testimonialsRef.current) return;
     
     // Snap to next/previous item based on drag distance
-    const cardWidth = 384;
-    const gap = 24;
     const threshold = 50; // Minimum drag distance to trigger item change
     
     if (Math.abs(testimonialsDragDistance) > threshold) {
