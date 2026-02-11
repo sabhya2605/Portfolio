@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
+import Menu from './Menu';
 import imgMvpAwardJuly2024 from '../images/mvp-award-july-2024.png';
 import imgProject1Skweez from '../images/project-1-squeez.png';
 
@@ -27,6 +28,16 @@ const img11 = "https://www.figma.com/api/mcp/asset/1a783e53-0e35-4bf8-895d-48266
 const imgLine1 = "https://www.figma.com/api/mcp/asset/69f707cf-b683-4073-a817-73bb498de360";
 
 const Introduction = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const introductionSections = [
+    { id: 'projects', title: 'Projects' },
+    { id: 'about-me', title: 'About me' },
+    { id: 'recognitions', title: 'Recognitions' },
+    { id: 'testimonials', title: 'Testimonials' },
+    { id: 'projects', title: 'Explorations' },
+  ];
+
   // Carousel functionality for testimonials
   const testimonialsRef = useRef(null);
   const [isTestimonialsDragging, setIsTestimonialsDragging] = useState(false);
@@ -221,11 +232,12 @@ const Introduction = () => {
 
   return (
     <div className="introduction-container">
+      {isMenuOpen && <Menu sections={introductionSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="introduction-content">
         {/* Header Section */}
         <div className="header-section">
           <p className="name-text">Sabhya Singhal</p>
-          <div className="menu-button">
+          <div className="menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
             <img src={imgMenu} alt="Menu" className="menu-icon" />
             <p className="menu-text">Menu</p>
           </div>
@@ -387,7 +399,7 @@ const Introduction = () => {
         </div>
 
         {/* About Me Section */}
-        <div className="about-section">
+        <div id="about-me" className="about-section">
           <div className="section-header">
             <p className="section-title">About me</p>
           </div>
@@ -430,7 +442,7 @@ const Introduction = () => {
         </div>
 
         {/* Recognitions Section */}
-        <div className="recognitions-section">
+        <div id="recognitions" className="recognitions-section">
           <div className="section-header">
             <p className="section-title">Recognitions and participations</p>
           </div>
@@ -494,7 +506,7 @@ const Introduction = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="testimonials-section">
+        <div id="testimonials" className="testimonials-section">
           <div className="section-header">
             <p className="section-title">See what people say about their experience working with me</p>
           </div>
@@ -580,7 +592,7 @@ const Introduction = () => {
         </div>
 
         {/* Projects Section */}
-        <div className="projects-section">
+        <div id="projects" className="projects-section">
           <div className="section-header">
             <p className="section-title">Graduating from NIFT, I tried my hands on a lot of different things. Check some of them out</p>
           </div>
