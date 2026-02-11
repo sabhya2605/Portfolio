@@ -7,10 +7,9 @@ import DeliveryCheckout from './components/DeliveryCheckout';
 import './App.css';
 
 function App() {
-  // Get basename from PUBLIC_URL (set by react-scripts based on homepage in package.json)
-  // For GitHub Pages: /Portfolio
-  // process.env.PUBLIC_URL is replaced at build time by react-scripts
-  const basename = process.env.PUBLIC_URL || '/Portfolio';
+  // For custom domain at root, basename should be empty
+  // process.env.PUBLIC_URL will be empty for root domain
+  const basename = process.env.PUBLIC_URL || '';
   
   return (
     <Router basename={basename}>
