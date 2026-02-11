@@ -625,7 +625,7 @@
   padding: 24px;
 }
 
-.recognition-card-left {
+.recognition-card.recognition-card-left {
   background: #F7F7F7;
   width: 487px;
   flex-shrink: 0;
@@ -633,6 +633,39 @@
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transform-origin: center center;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+.recognition-card.recognition-card-left:hover,
+.recognition-card.recognition-card-left:focus {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+  outline: none;
+  z-index: 10;
+}
+
+/* Mobile touch support */
+.recognition-card.recognition-card-left:active {
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Smooth animation for images inside */
+.recognition-card-left:hover .recognition-image,
+.recognition-card-left:focus .recognition-image {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.recognition-card-left .recognition-image {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
 }
 
 .recognition-card-green {
@@ -678,7 +711,7 @@
   margin-bottom: 16px;
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible; /* Changed to visible to allow rounded corners to show */
   border-radius: 0;
 }
 
@@ -692,17 +725,20 @@
   grid-column: 1;
   grid-row: 1;
   z-index: 1;
+  border-radius: 16px 0 0 16px !important; /* Rounded left corners only (top-left and bottom-left) */
 }
 
 .recognition-image-mask-right {
   height: 237.352px;
   width: 281.397px;
+  overflow: hidden;
   margin-left: 156.6px;
   margin-top: 0;
   position: relative;
   grid-column: 1;
   grid-row: 1;
   z-index: 2;
+  border-radius: 0 16px 16px 0 !important; /* Rounded right corners only (top-right and bottom-right) */
 }
 
 .recognition-image {
@@ -1419,8 +1455,41 @@
     flex-direction: column;
   }
   
-  .recognition-card-left {
+  .recognition-card.recognition-card-left {
     width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transform-origin: center center;
+    will-change: transform;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .recognition-card.recognition-card-left:hover,
+  .recognition-card.recognition-card-left:focus {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+    outline: none;
+    z-index: 10;
+  }
+  
+  /* Mobile touch support */
+  .recognition-card.recognition-card-left:active {
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  /* Smooth animation for images inside */
+  .recognition-card.recognition-card-left:hover .recognition-image,
+  .recognition-card.recognition-card-left:focus .recognition-image {
+    transform: scale(1.05) !important;
+    transition: transform 0.3s ease;
+  }
+  
+  .recognition-card.recognition-card-left .recognition-image {
+    transition: transform 0.3s ease;
+    transform-origin: center center;
   }
   
   .recognition-card-green {
@@ -1452,12 +1521,17 @@
   }
   
   .recognition-images-grid {
-    overflow: hidden;
+    overflow: hidden; /* Keep hidden on mobile to prevent overflow */
   }
   
-  .recognition-image-mask,
+  .recognition-image-mask {
+    overflow: hidden;
+    border-radius: 16px 0 0 16px !important; /* Rounded left corners only (top-left and bottom-left) */
+  }
+  
   .recognition-image-mask-right {
     overflow: hidden;
+    border-radius: 0 16px 16px 0 !important; /* Rounded right corners only (top-right and bottom-right) */
   }
   
   .recognition-image {
@@ -1838,12 +1912,17 @@
   }
   
   .recognition-images-grid {
-    overflow: hidden;
+    overflow: hidden; /* Keep hidden on mobile to prevent overflow */
   }
   
-  .recognition-image-mask,
+  .recognition-image-mask {
+    overflow: hidden;
+    border-radius: 16px 0 0 16px !important; /* Rounded left corners only (top-left and bottom-left) */
+  }
+  
   .recognition-image-mask-right {
     overflow: hidden;
+    border-radius: 0 16px 16px 0 !important; /* Rounded right corners only (top-right and bottom-right) */
   }
   
   .recognition-image {

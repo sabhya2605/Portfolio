@@ -415,7 +415,7 @@ const Introduction = () => {
                 <div className="recognition-image-mask">
                   <img src={imgWhatsAppImage20241219At111349Pm2} alt="UXINDIA" className="recognition-image" />
                 </div>
-                <div className="recognition-image-mask recognition-image-mask-right">
+                <div className="recognition-image-mask-right">
                   <img src={imgWhatsAppImage20241219At111349Pm11} alt="UXINDIA" className="recognition-image" />
                 </div>
               </div>
