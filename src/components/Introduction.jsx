@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
 import imgMvpAwardJuly2024 from '../images/mvp-award-july-2024.png';
@@ -106,6 +106,27 @@ const Introduction = () => {
   const handleTestimonialsTouchEnd = () => {
     setIsTestimonialsDragging(false);
   };
+
+  // Refs for matching case image height to text content
+  const searchCaseImageRef = useRef(null);
+  const searchCaseTextRef = useRef(null);
+
+  // Match search case image height to text content height
+  useEffect(() => {
+    const matchSearchCaseImageHeight = () => {
+      if (searchCaseImageRef.current && searchCaseTextRef.current) {
+        const textHeight = searchCaseTextRef.current.offsetHeight;
+        searchCaseImageRef.current.style.height = `${textHeight}px`;
+      }
+    };
+
+    matchSearchCaseImageHeight();
+    window.addEventListener('resize', matchSearchCaseImageHeight);
+    
+    return () => {
+      window.removeEventListener('resize', matchSearchCaseImageHeight);
+    };
+  }, []);
 
   // Carousel functionality for projects
   const projectsRef = useRef(null);
@@ -252,10 +273,10 @@ const Introduction = () => {
             >
               <div className="case-card case-card-large">
                 <div className="case-content">
-                  <div className="case-image-container">
+                  <div className="case-image-container" ref={searchCaseImageRef}>
                     <img src={imgRectangle3} alt="Case 1" className="case-image" />
                   </div>
-                  <div className="case-text-container">
+                  <div className="case-text-container" ref={searchCaseTextRef}>
                     <p className="case-category">Multi functional experience</p>
                     <p className="case-title">
                       Worked on how search experience should work across a multi-service ecosystem
@@ -275,72 +296,88 @@ const Introduction = () => {
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
-              <div className="case-card case-card-green">
-                <div className="case-image-top">
-                  <img src={imgRectangle4} alt="Case 2" className="case-image-full" />
-                </div>
-                <div className="case-text-container">
-                  <p className="case-category">Multi functional experience</p>
-                  <p className="case-title">
-                    A multi service checkout experience re-designed; this project focuses on food delivery checkout
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
-                  </p>
-                  <div className="case-tags-vertical">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tags-row">
-                      <div className="case-tag">Product thinking</div>
-                      <div className="case-tag">Solution</div>
+              <Link to="/delivery-checkout" className="case-card-link">
+                <div className="case-card case-card-green">
+                  <div className="case-image-top">
+                    <img src={imgRectangle4} alt="Case 2" className="case-image-full" />
+                  </div>
+                  <div className="case-text-container">
+                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-title">
+                      A multi service checkout experience re-designed; this project focuses on food delivery checkout
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                    </p>
+                    <div className="case-tags-vertical">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tags-row">
+                        <div className="case-tag">Product thinking</div>
+                        <div className="case-tag">Solution</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              <div className="case-card case-card-grey">
-                <div className="case-image-top">
-                  <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
-                </div>
-                <div className="case-text-container">
-                  <p className="case-category">Multi functional experience</p>
-                  <p className="case-title">
-                    magicPay, a payment method provided by Magicpin for users to save more during offline shopping
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
-                  </p>
-                  <div className="case-tags-vertical">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tags-row">
-                      <div className="case-tag">Product thinking</div>
-                      <div className="case-tag">Solution</div>
+              <a 
+                href="https://medium.com/@sabhya.jvm/magicpay-54cd59bb1e1b" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="case-card-link"
+              >
+                <div className="case-card case-card-grey">
+                  <div className="case-image-top">
+                    <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
+                  </div>
+                  <div className="case-text-container">
+                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-title">
+                      magicPay, a payment method provided by Magicpin for users to save more during offline shopping
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                    </p>
+                    <div className="case-tags-vertical">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tags-row">
+                        <div className="case-tag">Product thinking</div>
+                        <div className="case-tag">Solution</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Case 4 */}
-            <div className="case-card case-card-large">
-              <div className="case-content case-content-reverse">
-                <div className="case-text-container">
-                  <p className="case-category case-category-large">Multi functional experience</p>
-                  <p className="case-title case-title-large">
-                    Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
-                  </p>
-                  <p className="case-description">
-                    Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing
-                  </p>
-                  <div className="case-tags">
-                    <div className="case-tag">Problem identification</div>
-                    <div className="case-tag">Product thinking</div>
+            <a 
+              href="https://medium.com/@sabhya.jvm/order-here-app-order-acceptance-flow-revamp-eaad7571e760" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="case-card-link"
+            >
+              <div className="case-card case-card-large">
+                <div className="case-content case-content-reverse">
+                  <div className="case-text-container">
+                    <p className="case-category case-category-large">Multi functional experience</p>
+                    <p className="case-title case-title-large">
+                      Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
+                    </p>
+                    <p className="case-description">
+                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing
+                    </p>
+                    <div className="case-tags">
+                      <div className="case-tag">Problem identification</div>
+                      <div className="case-tag">Product thinking</div>
+                    </div>
+                  </div>
+                  <div className="case-image-container">
+                    <img src={imgRectangle6} alt="Case 4" className="case-image" />
                   </div>
                 </div>
-                <div className="case-image-container">
-                  <img src={imgRectangle6} alt="Case 4" className="case-image" />
-                </div>
               </div>
-            </div>
+            </a>
 
             {/* View All Cases Button */}
             <div className="view-all-button">
