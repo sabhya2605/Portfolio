@@ -2,7 +2,7 @@
   "name": "sabhya-portfolio",
   "version": "1.0.0",
   "private": true,
-  "homepage": "/Portfolio",
+  "homepage": "https://sabhyasinghal.in",
   "dependencies": {
     "cookie": "^0.6.0",
     "react": "^18.2.0",
