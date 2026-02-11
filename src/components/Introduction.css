@@ -1308,6 +1308,85 @@
   border-radius: 32px;
   overflow: hidden;
   flex-shrink: 0;
+  position: relative;
+}
+
+.project-image-wrapper-first,
+.project-image-wrapper-second,
+.project-image-wrapper-third,
+.project-image-wrapper-fourth,
+.project-image-wrapper-fifth {
+  transition: all 0.3s ease;
+}
+
+.project-image-wrapper-first:hover .project-image,
+.project-image-wrapper-second:hover .project-image,
+.project-image-wrapper-third:hover .project-image,
+.project-image-wrapper-fourth:hover .project-image,
+.project-image-wrapper-fifth:hover .project-image {
+  filter: blur(8px);
+  transform: scale(1.05);
+}
+
+.project-image-wrapper-first .project-image,
+.project-image-wrapper-second .project-image,
+.project-image-wrapper-third .project-image,
+.project-image-wrapper-fourth .project-image,
+.project-image-wrapper-fifth .project-image {
+  transition: all 0.3s ease;
+}
+
+.project-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-image-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.project-image-overlay-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.48px;
+}
+
+.project-image-overlay-description {
+  font-family: 'Lucida Bright', serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.36px;
 }
 
 .project-image-wrapper:nth-child(3) {

@@ -30,6 +30,11 @@ const imgLine1 = "https://www.figma.com/api/mcp/asset/69f707cf-b683-4073-a817-73
 
 const Introduction = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFirstProjectHovered, setIsFirstProjectHovered] = useState(false);
+  const [isSecondProjectHovered, setIsSecondProjectHovered] = useState(false);
+  const [isThirdProjectHovered, setIsThirdProjectHovered] = useState(false);
+  const [isFourthProjectHovered, setIsFourthProjectHovered] = useState(false);
+  const [isFifthProjectHovered, setIsFifthProjectHovered] = useState(false);
 
   const introductionSections = [
     { id: 'projects', title: 'Projects' },
@@ -415,7 +420,7 @@ const Introduction = () => {
 
           <div className="work-cases">
             {/* Case 1 - Search */}
-            <Link to="/search" className="case-card-link">
+            <a href="https://www.figma.com/deck/QrGmLRinM3sdFA99CevFeF/Untitled?node-id=1-354&viewport=-101%2C-95%2C0.49&t=4ExDtFVThhKcrqpX-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" target="_blank" rel="noopener noreferrer" className="case-card-link">
               <div className="case-card case-card-large">
                 <div className="case-content">
                   <div className="case-image-container" ref={caseImageRef}>
@@ -437,7 +442,7 @@ const Introduction = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </a>
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
@@ -733,20 +738,105 @@ const Introduction = () => {
               onTouchEnd={handleProjectsTouchEnd}
               onScroll={handleProjectsScroll}
             >
-              <div className="project-image-wrapper">
+              <div 
+                className="project-image-wrapper project-image-wrapper-first"
+                onMouseEnter={() => setIsFirstProjectHovered(true)}
+                onMouseLeave={() => setIsFirstProjectHovered(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open('https://www.behance.net/gallery/136344091/Self-project-PACKAGING-DESIGN', '_blank', 'noopener,noreferrer');
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={imgScreenshot41} alt="Project 1" className="project-image" />
+                {isFirstProjectHovered && (
+                  <div className="project-image-overlay">
+                    <div className="project-image-overlay-content">
+                      <p className="project-image-overlay-title">Quirky branding and packaging design</p>
+                      <p className="project-image-overlay-description">Designer for a juice tetra-pack brand to attract children.</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="project-image-wrapper">
+              <div 
+                className="project-image-wrapper project-image-wrapper-second"
+                onMouseEnter={() => setIsSecondProjectHovered(true)}
+                onMouseLeave={() => setIsSecondProjectHovered(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open('https://www.behance.net/gallery/167455935/Website-Design-Project', '_blank', 'noopener,noreferrer');
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={imgSimpleMockupFreeScene11} alt="Project 2" className="project-image" />
+                {isSecondProjectHovered && (
+                  <div className="project-image-overlay">
+                    <div className="project-image-overlay-content">
+                      <p className="project-image-overlay-title">Website Design Project</p>
+                      <p className="project-image-overlay-description">UI/UX design for landing page with mobile responsive design and progressive disclosure.</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="project-image-wrapper">
+              <div 
+                className="project-image-wrapper project-image-wrapper-third"
+                onMouseEnter={() => setIsThirdProjectHovered(true)}
+                onMouseLeave={() => setIsThirdProjectHovered(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open('https://www.behance.net/gallery/117719167/Food-Styling-and-Photography', '_blank', 'noopener,noreferrer');
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={imgF32C13117719167629462De4680C1} alt="Project 3" className="project-image" />
+                {isThirdProjectHovered && (
+                  <div className="project-image-overlay">
+                    <div className="project-image-overlay-content">
+                      <p className="project-image-overlay-title">Coffee table book design</p>
+                      <p className="project-image-overlay-description">An interactive photography and illustrative flip boo experience.</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="project-image-wrapper project-image-green">
+              <div 
+                className="project-image-wrapper project-image-green project-image-wrapper-fourth"
+                onMouseEnter={() => setIsFourthProjectHovered(true)}
+                onMouseLeave={() => setIsFourthProjectHovered(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open('https://www.behance.net/gallery/143395399/SWIGGY-UIUX-Project', '_blank', 'noopener,noreferrer');
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={imgFrame4851} alt="Project 4" className="project-image" />
+                {isFourthProjectHovered && (
+                  <div className="project-image-overlay">
+                    <div className="project-image-overlay-content">
+                      <p className="project-image-overlay-title">Swiggy group ordering feature</p>
+                      <p className="project-image-overlay-description">Designed and pitched in 2022 summer. An experience designed to bring people together.</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="project-image-wrapper">
+              <div 
+                className="project-image-wrapper project-image-wrapper-fifth"
+                onMouseEnter={() => setIsFifthProjectHovered(true)}
+                onMouseLeave={() => setIsFifthProjectHovered(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open('https://www.behance.net/gallery/123455395/CALENDAR-DESIGN-2022', '_blank', 'noopener,noreferrer');
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={img11} alt="Project 5" className="project-image" />
+                {isFifthProjectHovered && (
+                  <div className="project-image-overlay">
+                    <div className="project-image-overlay-content">
+                      <p className="project-image-overlay-title">Calendar design</p>
+                      <p className="project-image-overlay-description">Evoking different emotions through themed visuals.</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <button 
