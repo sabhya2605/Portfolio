@@ -279,15 +279,15 @@ const Introduction = () => {
                   <div className="case-text-container" ref={searchCaseTextRef}>
                     <p className="case-category">Multi functional experience</p>
                     <p className="case-title">
-                      Worked on how search experience should work across a multi-service ecosystem
+                      Solved for "how search experience should work across a multi-service ecosystem".
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                      Optimized search suggesters and results by making them intent-aware, <strong>reducing drop-offs by 39%</strong> and significantly increasing conversions
                     </p>
                     <div className="case-tags">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tag">Product thinking</div>
-                      <div className="case-tag">Solution</div>
+                      <div className="case-tag">User Pain Points</div>
+                      <div className="case-tag">Product Flow Iterations</div>
+                      <div className="case-tag">Process Design</div>
                     </div>
                   </div>
                 </div>
@@ -307,14 +307,12 @@ const Introduction = () => {
                       A multi service checkout experience re-designed; this project focuses on food delivery checkout
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                      Led end-to-end design for food and fashion delivery products, driving revenue growth by improving brand positioning and optimizing item widget content.
                     </p>
-                    <div className="case-tags-vertical">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tags-row">
-                        <div className="case-tag">Product thinking</div>
-                        <div className="case-tag">Solution</div>
-                      </div>
+                    <div className="case-tags">
+                      <div className="case-tag">Problem Identification</div>
+                      <div className="case-tag">Space Optimization</div>
+                      <div className="case-tag">Iteration</div>
                     </div>
                   </div>
                 </div>
@@ -331,19 +329,17 @@ const Introduction = () => {
                     <img src={imgRectangle5} alt="Case 3" className="case-image-full" />
                   </div>
                   <div className="case-text-container">
-                    <p className="case-category">Multi functional experience</p>
+                    <p className="case-category">Payment method experience</p>
                     <p className="case-title">
                       magicPay, a payment method provided by Magicpin for users to save more during offline shopping
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions
+                      Identified the problem of information overload and redesigned magicPay flow, <strong>increasing daily average users by 24%</strong> and <strong>reducing transaction time by 27%</strong>.
                     </p>
-                    <div className="case-tags-vertical">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tags-row">
-                        <div className="case-tag">Product thinking</div>
-                        <div className="case-tag">Solution</div>
-                      </div>
+                    <div className="case-tags">
+                      <div className="case-tag">Product Scope</div>
+                      <div className="case-tag">Product Thinking</div>
+                      <div className="case-tag">Design Solution</div>
                     </div>
                   </div>
                 </div>
@@ -360,16 +356,17 @@ const Introduction = () => {
               <div className="case-card case-card-large">
                 <div className="case-content case-content-reverse">
                   <div className="case-text-container">
-                    <p className="case-category case-category-large">Multi functional experience</p>
+                    <p className="case-category case-category-large">Partner app/ web portal experience</p>
                     <p className="case-title case-title-large">
                       Enhanced Magicpin's partner platform that required problem solving in food delivery order & complaints management flow
                     </p>
                     <p className="case-description">
-                      Optimized search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing
+                      Conducted user research and usability testing to incorporate those insights for better delivery experience for merchants. <strong>Result: Reduced support tickets by 48%.</strong>
                     </p>
                     <div className="case-tags">
-                      <div className="case-tag">Problem identification</div>
-                      <div className="case-tag">Product thinking</div>
+                      <div className="case-tag">User Research</div>
+                      <div className="case-tag">User Journey Mapping</div>
+                      <div className="case-tag">Problem Solving</div>
                     </div>
                   </div>
                   <div className="case-image-container">

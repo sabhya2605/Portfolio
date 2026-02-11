@@ -408,6 +408,11 @@
   overflow: visible;
 }
 
+.case-tags-row .case-tag {
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .case-tag {
   background: #FCFCFC;
   border: 1px solid #F7F7F7;
@@ -415,8 +420,8 @@
   border-radius: 12px;
   font-family: 'Libre Franklin', 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 26px;
   text-transform: capitalize;
   color: #547F6A;
   white-space: nowrap;
@@ -2047,8 +2052,8 @@
   }
   
   .case-tag {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 26px;
     white-space: nowrap;
     flex-shrink: 0;
     min-width: fit-content;
@@ -2057,14 +2062,14 @@
   }
   
   .case-tags-row .case-tag {
-    flex-shrink: 1;
+    flex-shrink: 0;
     flex-grow: 0;
-    min-width: 0;
+    min-width: fit-content;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
   }
   
   .case-tags-vertical > .case-tag {
@@ -2333,8 +2338,8 @@
   }
   
   .case-tag {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 26px;
     padding: 12px;
     border-radius: 12px;
     white-space: nowrap;
@@ -2345,14 +2350,14 @@
   }
   
   .case-tags-row .case-tag {
-    flex-shrink: 1;
+    flex-shrink: 0;
     flex-grow: 0;
-    min-width: 0;
+    min-width: fit-content;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
   }
   
   .case-tags-vertical > .case-tag {
