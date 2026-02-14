@@ -14,7 +14,11 @@ const fs = require('fs');
 const path = require('path');
 
 const FILE_KEY = 're5Fauw1m9dJxYlIdR8Btn';
-const TOKEN = process.env.FIGMA_ACCESS_TOKEN || '[REDACTED]';
+const TOKEN = process.env.FIGMA_ACCESS_TOKEN;
+if (!TOKEN) {
+  console.error('FIGMA_ACCESS_TOKEN is required. Usage: FIGMA_ACCESS_TOKEN=your_token node scripts/export-figma-delivery-checkout-v1-images.js');
+  process.exit(1);
+}
 
 // Node IDs (Figma API accepts hyphen in request; response keys use colon)
 // outSubdir: optional; default 'delivery-checkout-v1'. Use 'delivery-checkout' for DeliveryCheckout page assets.

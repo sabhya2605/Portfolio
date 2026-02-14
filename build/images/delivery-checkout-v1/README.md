@@ -5,7 +5,7 @@ Export the following images from Figma and place them here so they appear on the
 **Figma file:** [Saurabh Sabhya Shared file](https://www.figma.com/design/re5Fauw1m9dJxYlIdR8Btn/Saurabh-Sabhya-Shared-file?node-id=2362-17144)
 
 **File key (for API/export):** `re5Fauw1m9dJxYlIdR8Btn`  
-**Figma key (if using export script):** `[REDACTED]`
+**Export script:** Run with `FIGMA_ACCESS_TOKEN=your_token node scripts/export-figma-delivery-checkout-v1-images.js` (token from Figma → Settings → Personal access tokens).
 
 **Required assets (from Selection 4, node 2362:17144):**
 - `mockup-cognition.png` – cognition at checkout decision making
