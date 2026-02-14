@@ -41,6 +41,12 @@ const DeliveryCheckoutV1 = () => {
     { id: 'phase-02', title: 'Phase: 02 Checkout landing' },
     { id: 'phase-02-details', title: 'Phase: 02 Checkout landing (details)' },
     { id: 'product-benefits', title: 'Product benefits' },
+    { id: 'phase-03', title: 'Phase: 03 Highlighting takeaway' },
+    { id: 'phase-03-detail', title: 'Phase: 03 Detail (Delivery / Takeaway)' },
+    { id: 'learning', title: 'Learning' },
+    { id: 'payment-screens', title: 'Payment screens' },
+    { id: 'impact', title: 'Impact' },
+    { id: 'final-comparison', title: 'Final Comparison' },
   ];
 
   return (
@@ -302,6 +308,75 @@ const DeliveryCheckoutV1 = () => {
               alt="Product benefits – magic9 and magicNow"
               className="dc-v1-selection-17300-img"
             />
+          </div>
+        </section>
+
+        {/* Selection 2362:17325 – Phase 03 Highlighting takeaway: flex, space-between, align center, align-self stretch */}
+        <section id="phase-03" className="dc-v1-selection-17325 dc-v1-gap" data-node-id="2362:17325">
+          <div className="dc-v1-selection-17325-inner">
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/phase03-selection.png`}
+              alt="Phase 03 Highlighting takeaway – MX page, checkout, important points"
+              className="dc-v1-selection-17325-img"
+            />
+          </div>
+        </section>
+
+        {/* Selection 2362:17339 – Phase 03 Detail: flex, 1440×768, padding 63.617 126 64.423 126, justify center, align center */}
+        <section id="phase-03-detail" className="dc-v1-selection-17339 dc-v1-gap" data-node-id="2362:17339">
+          <div className="dc-v1-selection-17339-inner">
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/phase03-detail-selection.png`}
+              alt="Phase 03 Detail – Delivery, Takeaway, From checkout to PG page"
+              className="dc-v1-selection-17339-img"
+            />
+          </div>
+        </section>
+
+        {/* Selection 2362:17369 – Learning: flex column, align flex-start, gap 24px, align-self stretch */}
+        <section id="learning" className="dc-v1-selection-17369 dc-v1-gap" data-node-id="2362:17369">
+          <div className="dc-v1-selection-17369-inner">
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/learning-selection.png`}
+              alt="Learning – Re-introducing pre-selected payments"
+              className="dc-v1-selection-17369-img"
+            />
+          </div>
+        </section>
+
+        {/* Selection 2362:17374 – Payment screens: flex, align-items center, gap 56px; images from Figma */}
+        <section id="payment-screens" className="dc-v1-selection-17374 dc-v1-gap" data-node-id="2362:17374">
+          <div className="dc-v1-selection-17374-inner">
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/payment-screens-selection.png`}
+              alt="Payment screens – Error prevention, Changed payment mode, Payment offers visible, Breakdown of offers"
+              className="dc-v1-selection-17374-img"
+            />
+          </div>
+        </section>
+
+        {/* Selection 2362:18771 – Impact: flex, width 1200px, space-between, align center */}
+        <section id="impact" className="dc-v1-selection-18771 dc-v1-gap" data-node-id="2362:18771">
+          <div className="dc-v1-selection-18771-inner">
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/impact-selection.png`}
+              alt="Impact – Within less than 2 months: 30% reduction, higher conversion"
+              className="dc-v1-selection-18771-img"
+            />
+          </div>
+        </section>
+
+        {/* Rectangle 16 – Full-width green band #094020; selection 2362:18788 flex, align-items flex-start, gap 50.922px */}
+        <section id="final-comparison" className="dc-v1-final-comparison dc-v1-gap" data-node-id="2362:18788">
+          <div className="dc-v1-final-comparison-inner">
+            <div className="dc-v1-selection-18788-inner">
+              <img
+                src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/final-comparison-selection.png`}
+                alt="Final Comparison – Delivery checkout previously and now"
+                className="dc-v1-final-comparison-img"
+              />
+            </div>
+            <p className="dc-v1-connect-text">Let&apos;s connect to discuss what can be done differently today!</p>
           </div>
         </section>
       </main>

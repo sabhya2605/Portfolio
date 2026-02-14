@@ -862,6 +862,209 @@
   object-fit: contain;
 }
 
+/* Selection 2362:17325 – Phase 03 Highlighting takeaway: flex, space-between, align center, align-self stretch */
+.dc-v1-selection-17325 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.dc-v1-selection-17325-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.dc-v1-selection-17325-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Selection 2362:17339 – Phase 03 Detail: flex, 1440×768, padding 63.617 126 64.423 126, justify center, align center */
+.dc-v1-selection-17339 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.dc-v1-selection-17339-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 768px;
+  padding: 63.617px 126px 64.423px 126px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F3FAF3;
+}
+
+.dc-v1-selection-17339-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Selection 2362:17369 – Learning: flex column, align flex-start, gap 24px, align-self stretch */
+.dc-v1-selection-17369 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.dc-v1-selection-17369-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.dc-v1-selection-17369-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Selection 2362:17374 – Payment screens: flex, align-items center, gap 56px */
+.dc-v1-selection-17374 {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.dc-v1-selection-17374-inner {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.dc-v1-selection-17374-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Selection 2362:18771 – Impact: flex, width 1200px, justify-content space-between, align-items center */
+.dc-v1-selection-18771 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.dc-v1-selection-18771-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.dc-v1-selection-18771-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Rectangle 16 – full-width green band #094020 (same pattern as phase02-layer) */
+/* Selection 2362:18788 – flex, align-items flex-start, gap 50.922px */
+.dc-v1-final-comparison {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: #094020;
+  min-height: 1068px;
+  padding: 80px 0 100px;
+  box-sizing: border-box;
+}
+
+.dc-v1-final-comparison-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dc-v1-selection-18788-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 50.922px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.dc-v1-final-comparison-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Connect text – width 884px, height 116px, color #FFF, Libre Franklin 48px, center */
+.dc-v1-connect-text {
+  width: 884px;
+  max-width: 100%;
+  min-height: 116px;
+  margin: 120px 0 0;
+  padding: 0 24px;
+  color: #FFF;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.96px;
+  box-sizing: border-box;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .dc-v1-selection-1-inner,
@@ -905,6 +1108,44 @@
   .dc-v1-selection-17300-inner {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .dc-v1-selection-17325-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dc-v1-selection-17339-inner {
+    padding-left: 24px;
+    padding-right: 24px;
+    min-height: 640px;
+  }
+
+  .dc-v1-selection-17369-inner,
+  .dc-v1-selection-17374-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dc-v1-selection-17374-inner {
+    gap: 32px;
+  }
+
+  .dc-v1-selection-18771-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dc-v1-final-comparison-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dc-v1-connect-text {
+    font-size: 32px;
+    letter-spacing: -0.64px;
+    padding: 0 16px;
+    margin-top: 80px;
   }
 
   .dc-v1-phase02-layer-inner {
@@ -1008,6 +1249,51 @@
   .dc-v1-selection-17300-inner {
     padding-left: 12px;
     padding-right: 12px;
+  }
+
+  .dc-v1-selection-17325-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .dc-v1-selection-17339-inner {
+    padding: 40px 16px;
+    min-height: 520px;
+  }
+
+  .dc-v1-selection-17369-inner,
+  .dc-v1-selection-17374-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .dc-v1-selection-17374-inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .dc-v1-selection-18771-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .dc-v1-final-comparison {
+    padding: 48px 0 64px;
+    min-height: auto;
+  }
+
+  .dc-v1-final-comparison-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .dc-v1-connect-text {
+    margin-top: 48px;
+    padding: 0 12px;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.48px;
+    min-height: auto;
   }
 
   .dc-v1-phase02-layer-inner {

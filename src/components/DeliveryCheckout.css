@@ -1499,6 +1499,14 @@
   width: 100%;
 }
 
+.delivery-checkout-phase03-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .delivery-checkout-phase03-left {
   display: flex;
   flex-direction: column;
@@ -1660,26 +1668,26 @@
   top: 0;
 }
 
-/* Phase 03 Detail Section - node 2362:17339 */
+/* Phase 03 Detail Section - node 2362:17339 (Figma export: flex, 1440×768, padding 63.617 126 64.423 126, center) */
 .delivery-checkout-phase03-detail-section {
   display: flex;
-  width: 1440px;
-  height: 768px;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 768px;
   padding: 63.617px 126px 64.423px 126px;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  margin: 0 auto;
   background: #F3FAF3;
-  margin-left: -120px;
-  position: relative;
-  overflow: visible;
 }
 
-.delivery-checkout-phase03-detail-content {
-  position: absolute;
-  left: 126px;
-  top: 63.62px;
-  width: 1188px;
-  height: 639.96px;
+.delivery-checkout-phase03-detail-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .delivery-checkout-phase03-detail-phone {
@@ -1929,15 +1937,26 @@
   transform: translateX(-50%);
 }
 
-/* Impact Section - node 2362:18771 */
+/* Impact Section - node 2362:18771 (flex, width 1200px, space-between, align center) */
 .delivery-checkout-impact-section {
   display: flex;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   align-self: stretch;
   padding: 24px 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.delivery-checkout-impact-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .delivery-checkout-impact-text-block {
@@ -2183,6 +2202,14 @@
   width: 100%;
 }
 
+.delivery-checkout-payment-screens-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .delivery-checkout-payment-screen-item {
   display: flex;
   flex-direction: column;
@@ -2233,18 +2260,18 @@
   overflow: hidden;
 }
 
+/* Rectangle 16 – width 1440px, height 1068px, position absolute, left -120px, bottom -86.151px, background #094020 */
 .delivery-checkout-bg-rectangle-16 {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  width: 1440px;
+  height: 1068px;
+  left: -120px;
+  bottom: -86.151px;
   background: #094020;
   z-index: 0;
 }
 
+/* Selection 2362:18788 – display flex, align-items flex-start, gap 50.922px */
 .delivery-checkout-final-comparison-content {
   display: flex;
   align-items: flex-start;
@@ -2286,14 +2313,15 @@
 }
 
 .delivery-checkout-final-comparison-subtitle {
-  font-family: 'Lucida Bright', sans-serif;
-  font-weight: 600;
+  color: #FFF;
+  font-family: "Lucida Bright", serif;
   font-size: 20px;
-  line-height: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
   letter-spacing: 0.4px;
-  width: 100%;
+  width: 314px;
   margin: 0;
-  color: white;
   text-align: left;
 }
 
@@ -2438,8 +2466,10 @@
   border-radius: 21.017px;
 }
 
+/* Let's connect layer – width 884px, height 116px, color #FFF, Libre Franklin 48px, center */
 .delivery-checkout-connect-text {
-  width: 100%;
+  width: 884px;
+  max-width: 100%;
   height: 116px;
   margin-top: 160px;
   position: relative;
@@ -2447,9 +2477,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
 .delivery-checkout-connect-text p {
+  width: 100%;
+  height: 116px;
   color: #FFF;
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
@@ -2460,8 +2495,9 @@
   line-height: normal;
   letter-spacing: -0.96px;
   margin: 0;
-  width: 100%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Learning Section - node 2362:17369 */
@@ -2473,6 +2509,14 @@
   align-self: stretch;
   width: 100%;
   margin-top: 8px;
+}
+
+.delivery-checkout-learning-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .delivery-checkout-learning-title {
@@ -2971,19 +3015,6 @@
   box-sizing: border-box;
 }
 
-/* Background Rectangle 16 - node 2362:18771 */
-.delivery-checkout-bg-rectangle-16 {
-  position: absolute;
-  width: 100vw;
-  max-width: 1440px;
-  height: 1068px;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -86.151px;
-  background: #094020;
-  z-index: 0;
-  pointer-events: none;
-}
 
 /* My Learning Section Wrapper - node 2362:17275 */
 .delivery-checkout-learning-wrapper {

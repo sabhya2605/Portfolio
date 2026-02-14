@@ -30,6 +30,12 @@ const NODES = [
   { id: '2362-17298', idKey: '2362:17298', file: 'magic9-1.png', outSubdir: 'delivery-checkout' },
   { id: '2362-17291', idKey: '2362:17291', file: 'phase02-details-selection.png', outSubdir: 'delivery-checkout' },
   { id: '2362-17300', idKey: '2362:17300', file: 'product-benefits-selection.png', outSubdir: 'delivery-checkout' },
+  { id: '2362-17325', idKey: '2362:17325', file: 'phase03-selection.png', outSubdir: 'delivery-checkout' },
+  { id: '2362-17339', idKey: '2362:17339', file: 'phase03-detail-selection.png', outSubdir: 'delivery-checkout' },
+  { id: '2362-17369', idKey: '2362:17369', file: 'learning-selection.png', outSubdir: 'delivery-checkout' },
+  { id: '2362-17374', idKey: '2362:17374', file: 'payment-screens-selection.png', outSubdir: 'delivery-checkout' },
+  { id: '2362-18771', idKey: '2362:18771', file: 'impact-selection.png', outSubdir: 'delivery-checkout' },
+  { id: '2362-18788', idKey: '2362:18788', file: 'final-comparison-selection.png', outSubdir: 'delivery-checkout' },
 ];
 
 const DEFAULT_OUT_SUBDIR = 'delivery-checkout-v1';
