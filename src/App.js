@@ -4,7 +4,7 @@ import Introduction from './components/Introduction';
 import Search from './components/Search';
 import Resume from './components/Resume';
 import DeliveryCheckout from './components/DeliveryCheckout';
-import DeliveryCheckoutV1 from './pages/DeliveryCheckoutV1/DeliveryCheckoutV1';
+import DeliveryCheckoutV1 from './components/DeliveryCheckoutV1';
 import './App.css';
 
 function App() {

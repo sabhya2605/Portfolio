@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.28cb7f75.css",
-    "main.js": "/static/js/main.f0b89f61.js",
+    "main.css": "/static/css/main.cb07843a.css",
+    "main.js": "/static/js/main.9cc3882b.js",
     "static/media/search_gif.gif": "/static/media/search_gif.5080dbf7ee085fee2516.gif",
     "static/media/Check_out.gif": "/static/media/Check_out.1da7679c2e0e17a2ee20.gif",
     "static/media/mx-page-takeaway.png": "/static/media/mx-page-takeaway.b4f392fbc46f2450e074.png",
@@ -10,12 +10,9 @@
     "static/media/magic9-benefits.png": "/static/media/magic9-benefits.bd78dfdefef28e525e09.png",
     "static/media/phase02-phone-2.png": "/static/media/phase02-phone-2.7cb10a252975cfa9b941.png",
     "static/media/opportunity-mockup2.png": "/static/media/opportunity-mockup2.1c0248ae796d69e74eca.png",
-    "static/media/mockup-cognition.png": "/static/media/mockup-cognition.d59a476179cfbb4c0b70.png",
     "static/media/iphone-15-pro-white-final.png": "/static/media/iphone-15-pro-white-final.8029aef072cf5013bfc7.png",
     "static/media/opportunity-mockup.png": "/static/media/opportunity-mockup.b29483a8910dec2cdadf.png",
-    "static/media/mockup-discount.png": "/static/media/mockup-discount.a9a2231f1933be6f19cd.png",
     "static/media/checkout-takeaway.png": "/static/media/checkout-takeaway.b674d33c64c2c8234481.png",
-    "static/media/mockup-progressive.png": "/static/media/mockup-progressive.4a63f3c36e1bb7652c5b.png",
     "static/media/opportunity-mockup1.png": "/static/media/opportunity-mockup1.13210f1f44e0625356f2.png",
     "static/media/whatsapp-image-final.png": "/static/media/whatsapp-image-final.d102974a63496d949206.png",
     "static/media/coupon-applied.png": "/static/media/coupon-applied.f01d3ddc5d9e25bb7cc9.png",
@@ -60,11 +57,11 @@
     "static/media/android-silver-final-bg.png": "/static/media/android-silver-final-bg.5db3245319fd003a727e.png",
     "static/media/screen-insert-designs-here-iphone.png": "/static/media/screen-insert-designs-here-iphone.63c4050b8e2b6e0c0ce9.png",
     "index.html": "/index.html",
-    "main.28cb7f75.css.map": "/static/css/main.28cb7f75.css.map",
-    "main.f0b89f61.js.map": "/static/js/main.f0b89f61.js.map"
+    "main.cb07843a.css.map": "/static/css/main.cb07843a.css.map",
+    "main.9cc3882b.js.map": "/static/js/main.9cc3882b.js.map"
   },
   "entrypoints": [
-    "static/css/main.28cb7f75.css",
-    "static/js/main.f0b89f61.js"
+    "static/css/main.cb07843a.css",
+    "static/js/main.9cc3882b.js"
   ]
 }
