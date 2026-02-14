@@ -1499,7 +1499,7 @@
 .project-image-overlay-first {
   background: rgba(0, 0, 0, 0.6);
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1509,6 +1509,14 @@
 .project-image-wrapper-first:hover .project-image-overlay-first {
   opacity: 1;
   pointer-events: auto;
+}
+
+.project-image-overlay-first .project-image-overlay-content {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 0;
 }
 
 @keyframes fadeIn {
