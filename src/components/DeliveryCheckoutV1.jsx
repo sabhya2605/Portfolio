@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DeliveryCheckoutV1.css';
 import Menu from './Menu';
@@ -27,6 +27,10 @@ const expandArrowSvg = (
 const DeliveryCheckoutV1 = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const sections = [
     { id: 'delivery-title', title: 'Delivery checkout | Magicpin' },
