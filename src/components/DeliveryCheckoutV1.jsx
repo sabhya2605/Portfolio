@@ -36,6 +36,11 @@ const DeliveryCheckoutV1 = () => {
     { id: 'things-working', title: 'Things that have been working for us' },
     { id: 'competitor-analysis', title: 'Competitor analysis' },
     { id: 'one-clicks', title: 'One clicks' },
+    { id: 'design-solution', title: 'Design Solution' },
+    { id: 'phase-01', title: 'Phase: 01 Payment details' },
+    { id: 'phase-02', title: 'Phase: 02 Checkout landing' },
+    { id: 'phase-02-details', title: 'Phase: 02 Checkout landing (details)' },
+    { id: 'product-benefits', title: 'Product benefits' },
   ];
 
   return (
@@ -179,6 +184,126 @@ const DeliveryCheckoutV1 = () => {
             </div>
           </div>
         </div>
+
+        {/* Selection 2362:17243 – DESIGN SOLUTION + phases */}
+        <section id="design-solution" className="dc-v1-design-solution dc-v1-gap" data-node-id="2362:17243">
+          <div className="dc-v1-design-solution-inner">
+            <div className="dc-v1-design-solution-title">
+              <div className="dc-v1-design-word">
+                <span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span>
+              </div>
+              <div className="dc-v1-solution-word">
+                <span>S</span><span>O</span><span>L</span><span>U</span><span>T</span><span>I</span><span>O</span><span>N</span>
+              </div>
+            </div>
+            <div className="dc-v1-phases-list">
+              <div className="dc-v1-phase-item">
+                <p className="dc-v1-phase-number">Phase: 01</p>
+                <p className="dc-v1-phase-name">Payment Details</p>
+                <p className="dc-v1-phase-desc">This was <strong>prioritized</strong> in order to incorporate it across all the verticals in the customer app.</p>
+              </div>
+              <div className="dc-v1-phase-item">
+                <p className="dc-v1-phase-number">Phase: 02</p>
+                <p className="dc-v1-phase-name">Checkout landing</p>
+                <p className="dc-v1-phase-desc">This included everything: Items cards, Address selection, Upselling different products, Cross sell widgets, Instructions, Offers and other policies.</p>
+              </div>
+              <div className="dc-v1-phase-item">
+                <p className="dc-v1-phase-number">Phase: 03</p>
+                <p className="dc-v1-phase-name">Highlighting Takeaway</p>
+                <p className="dc-v1-phase-desc">With changing business requirement, order takeaway was supposed to be given attention in order to tackle different delivery flaws and also to enhance business.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Selection 2362:17258 – Phase 01: flex column, align-items flex-start, gap 16px */}
+        <section id="phase-01" className="dc-v1-phase01 dc-v1-gap" data-node-id="2362:17258">
+          <div className="dc-v1-phase01-inner">
+            <div className="dc-v1-phase01-header">
+              <h2 className="dc-v1-phase01-title">Phase: 01</h2>
+              <p className="dc-v1-phase01-subtitle">Payment details</p>
+            </div>
+            {/* Layer 2362:17261 – full width bg, left to right, height 569px */}
+            <div className="dc-v1-phase01-layer" data-node-id="2362:17261">
+              <div className="dc-v1-phase01-layer-inner">
+                <img
+                  src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout-v1/phase01-layer.png`}
+                  alt="Phase 01 Payment details"
+                  className="dc-v1-phase01-layer-image"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextElementSibling?.classList.add('dc-v1-mockup-placeholder-visible');
+                  }}
+                />
+                <div className="dc-v1-mockup-placeholder">Export from Figma (node 2362:17261)</div>
+              </div>
+            </div>
+            {/* Text layer – two bullet points with bold phrases per design */}
+            <ul className="dc-v1-phase01-intro">
+              <li>Inspired by competitor patterns, we highlighted <strong>discount coupons</strong> upfront to ensure quick visibility within users' limited attention span, aiming to increase delight.</li>
+              <li>To <strong>reduce cognitive load</strong> from multiple calculations, <strong>payment details</strong> were moved to a <strong>bottom-sheet</strong> interaction, making the action <strong>more focused</strong> and <strong>intentional</strong>.</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Selection 2362:17275 – Phase 02: flex column, align-items flex-start, gap 16px */}
+        <section id="phase-02" className="dc-v1-phase02 dc-v1-gap" data-node-id="2362:17275">
+          <div className="dc-v1-phase02-inner">
+            <div className="dc-v1-phase02-header">
+              <h2 className="dc-v1-phase02-title">Phase : 02</h2>
+              <p className="dc-v1-phase02-subtitle">Checkout landing</p>
+            </div>
+            {/* Layer 2362:17278 – full width #094020, padding, flex-end, center */}
+            <div className="dc-v1-phase02-layer" data-node-id="2362:17278">
+              <div className="dc-v1-phase02-layer-inner">
+                {/* Selection 2362:17279 – flex, padding 0 16px, space-between, align flex-start */}
+                <div className="dc-v1-phase02-frame" data-node-id="2362:17279">
+                  <img
+                    src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout-v1/phase02-frame.png`}
+                    alt="Phase 02 Checkout landing"
+                    className="dc-v1-phase02-frame-image"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling?.classList.add('dc-v1-mockup-placeholder-visible');
+                    }}
+                  />
+                  <div className="dc-v1-mockup-placeholder">Export from Figma (node 2362:17279)</div>
+                </div>
+              </div>
+            </div>
+            {/* Text layer below Phase 02 frame – Lucida Bright, 18px; link underlined */}
+            <p className="dc-v1-phase02-prototype">
+              Prototype link:{' '}
+              <a
+                href="https://www.figma.com/proto/BKrNUUj9m2FUqPwgbRvnXc/Mp?page-id=45%3A12882&node-id=685-30032&viewport=-2681%2C-4343%2C0.26&t=zdu9JnNudbZsqKtv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=685%3A30032"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dc-v1-phase02-prototype-link"
+              >
+                https://www.figma.com/proto/BKrNUUj9m2FUqPwgbRvnXc/Mp?page-id=45%3A12882&node-id=685-30032&viewport=-2681%2C-4343%2C0.26&t=zdu9JnNudbZsqKtv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=685%3A30032
+              </a>
+            </p>
+            {/* Selection 2362:17291 – full Figma export to match design (left text + right mockups) */}
+            <div id="phase-02-details" className="dc-v1-selection-17291" data-node-id="2362:17291">
+              <img
+                src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/phase02-details-selection.png`}
+                alt="Phase 02 Checkout landing – micro animations, offers, toggle, adaptive filter, upsell shimmer"
+                className="dc-v1-selection-17291-full-img"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Selection 2362:17300 – Product benefits: flex column, align center, gap 24px, align-self stretch */}
+        <section id="product-benefits" className="dc-v1-selection-17300 dc-v1-gap" data-node-id="2362:17300">
+          <div className="dc-v1-selection-17300-inner">
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/product-benefits-selection.png`}
+              alt="Product benefits – magic9 and magicNow"
+              className="dc-v1-selection-17300-img"
+            />
+          </div>
+        </section>
       </main>
     </div>
   );

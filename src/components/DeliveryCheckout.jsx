@@ -446,138 +446,22 @@ const DeliveryCheckout = () => {
             </p>
           </div>
 
-          {/* Phase 02 Details Section - node 2362:17291 */}
+          {/* Phase 02 Details Section - node 2362:17291 (single image from Figma to match selection exactly) */}
           <div className="delivery-checkout-phase02-details" data-node-id="2362:17291">
-            <div className="delivery-checkout-phase02-details-left" data-node-id="2362:17292">
-              <p className="delivery-checkout-phase02-details-title" data-node-id="2362:17293">Phase : 02</p>
-              <p className="delivery-checkout-phase02-details-subtitle" data-node-id="2362:17294">Checkout landing</p>
-              <ul className="delivery-checkout-phase02-details-list" data-node-id="2362:17295">
-                <li>
-                  Micro animation for "<span className="delivery-checkout-phase02-bold">exclusive gift</span>", intent is to attract user attention.
-                </li>
-                <li>
-                  Highlighted special offers and pricing with another micro-animation and gradient bg.
-                </li>
-                <li>
-                  Toggle to switch between services to make it more <span className="delivery-checkout-phase02-bold">accessible</span>.
-                </li>
-                <li>
-                  Adaptive filter response
-                </li>
-                <li>
-                  Upsell offer shimmer highlighted
-                </li>
-              </ul>
-            </div>
-            <div className="delivery-checkout-phase02-details-right" data-node-id="2362:17296">
-              <div className="delivery-checkout-phase02-android-frame">
-                <img src={imgAndroidSilver} alt="Android Silver" className="delivery-checkout-phase02-android-img" />
-                <div className="delivery-checkout-phase02-magic9" data-node-id="2362:17298">
-                  <img src={gifCheckOut} alt="Checkout Animation" className="delivery-checkout-phase02-magic9-img" />
-                </div>
-                <div className="delivery-checkout-phase02-reviewed-file" data-node-id="2362:17299">
-                  <div className="delivery-checkout-phase02-reviewed-file-wrapper">
-                    <img src={imgReviewedFileS11} alt="Reviewed file S1" className="delivery-checkout-phase02-reviewed-file-img" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/phase02-details-selection.png`}
+              alt="Phase 02 Checkout landing – micro animations, offers, toggle, adaptive filter, upsell shimmer"
+              className="delivery-checkout-phase02-details-selection-img"
+            />
           </div>
 
-          {/* Product Benefits Section - node 2362:17300 */}
+          {/* Product Benefits Section - node 2362:17300 (Figma export: flex column, align center, gap 24px, align-self stretch) */}
           <div className="delivery-checkout-product-benefits-section" data-node-id="2362:17300">
-            {/* Header - node 2362:17301 */}
-            <div className="delivery-checkout-product-benefits-header" data-node-id="2362:17301">
-              <p className="delivery-checkout-product-benefits-title" data-node-id="2362:17302">Product benefits</p>
-              <p className="delivery-checkout-product-benefits-subtitle" data-node-id="2362:17303">magic9 and magicNow</p>
-            </div>
-
-            {/* Phone Mockups Grid - node 2362:17304 */}
-            <div className="delivery-checkout-product-benefits-grid" data-node-id="2362:17304">
-              {/* Left Phone - magic9 */}
-              <div className="delivery-checkout-product-benefits-phone delivery-checkout-product-benefits-phone-left" data-node-id="2362:17305">
-                <img src={imgAndroidSilverBenefits} alt="Android Silver" className="delivery-checkout-product-benefits-phone-frame" />
-                <div className="delivery-checkout-product-benefits-magic9-screen" data-node-id="2362:17307">
-                  <img src={imgMagic9Benefits} alt="magic9" className="delivery-checkout-product-benefits-screen-img" />
-                </div>
-                <div className="delivery-checkout-product-benefits-line-179" data-node-id="2362:17308">
-                  <div className="delivery-checkout-product-benefits-line-wrapper">
-                    <img src={imgLine179} alt="Line" className="delivery-checkout-product-benefits-line-img" />
-                  </div>
-                </div>
-                <div className="delivery-checkout-product-benefits-line-180" data-node-id="2362:17309">
-                  <div className="delivery-checkout-product-benefits-line-wrapper">
-                    <img src={imgLine180} alt="Line" className="delivery-checkout-product-benefits-line-img" />
-                  </div>
-                </div>
-                <div className="delivery-checkout-product-benefits-reviewed-overlay" data-node-id="2362:17310">
-                  <div className="delivery-checkout-product-benefits-reviewed-wrapper">
-                    <img src={imgReviewedFileBenefits} alt="Reviewed file" className="delivery-checkout-product-benefits-reviewed-img" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Phone - magicNow */}
-              <div className="delivery-checkout-product-benefits-phone delivery-checkout-product-benefits-phone-right" data-node-id="2362:17311">
-                <img src={imgAndroidSilverBenefits} alt="Android Silver" className="delivery-checkout-product-benefits-phone-frame" />
-                <div className="delivery-checkout-product-benefits-magicnow-screen" data-node-id="2362:17313">
-                  <img src={imgMagicNow} alt="magicNow" className="delivery-checkout-product-benefits-screen-img" />
-                </div>
-                <div className="delivery-checkout-product-benefits-line-181" data-node-id="2362:17314">
-                  <div className="delivery-checkout-product-benefits-line-wrapper">
-                    <img src={imgLine181} alt="Line" className="delivery-checkout-product-benefits-line-img" />
-                  </div>
-                </div>
-                <div className="delivery-checkout-product-benefits-reviewed-overlay" data-node-id="2362:17315">
-                  <div className="delivery-checkout-product-benefits-reviewed-wrapper">
-                    <img src={imgReviewedFileBenefits} alt="Reviewed file" className="delivery-checkout-product-benefits-reviewed-img" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Horizontal Line */}
-              <div className="delivery-checkout-product-benefits-line-182" data-node-id="2362:17316">
-                <div className="delivery-checkout-product-benefits-line-wrapper">
-                  <img src={imgLine182} alt="Line" className="delivery-checkout-product-benefits-line-img" />
-                </div>
-              </div>
-
-              {/* Annotations */}
-              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-magic9" data-node-id="2362:17317">
-                magic9 deal
-              </p>
-              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-best-coupon" data-node-id="2362:17318">
-                <span className="delivery-checkout-product-benefits-bold">"Best coupon applied" </span>
-                Could be magic9 or a better coupon on overall cart value.
-              </p>
-              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-priority" data-node-id="2362:17319">
-                Priority: magicNow
-              </p>
-              <p className="delivery-checkout-product-benefits-label delivery-checkout-product-benefits-label-maintains" data-node-id="2362:17320">
-                magic9 maintains its mention
-              </p>
-
-              {/* Vertical Lines */}
-              <div className="delivery-checkout-product-benefits-line-190" data-node-id="2362:17321">
-                <div className="delivery-checkout-product-benefits-line-rotate">
-                  <div className="delivery-checkout-product-benefits-line-wrapper">
-                    <img src={imgLine190} alt="Line" className="delivery-checkout-product-benefits-line-img" />
-                  </div>
-                </div>
-              </div>
-              <div className="delivery-checkout-product-benefits-line-191" data-node-id="2362:17322">
-                <div className="delivery-checkout-product-benefits-line-rotate">
-                  <div className="delivery-checkout-product-benefits-line-wrapper">
-                    <img src={imgLine191} alt="Line" className="delivery-checkout-product-benefits-line-img" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Text */}
-            <p className="delivery-checkout-product-benefits-bottom-text" data-node-id="2362:17323">
-              It is important for user delight. Principal: Recognition over recall. 
-            </p>
+            <img
+              src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/product-benefits-selection.png`}
+              alt="Product benefits – magic9 and magicNow"
+              className="delivery-checkout-product-benefits-selection-img"
+            />
           </div>
 
           {/* Phase 03 Highlighting Takeaway Section - node 2362:17325 */}

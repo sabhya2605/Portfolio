@@ -1027,13 +1027,21 @@
   color: #547F6A;
 }
 
-/* Phase 02 Details Section - node 2362:17291 */
+/* Phase 02 Details Section - node 2362:17291 (single image from Figma selection) */
 .delivery-checkout-phase02-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
   width: 100%;
+}
+
+.delivery-checkout-phase02-details-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .delivery-checkout-phase02-details-left {
@@ -1169,7 +1177,7 @@
   display: block;
 }
 
-/* Product Benefits Section - node 2362:17300 */
+/* Product Benefits Section - node 2362:17300 (Figma export image) */
 .delivery-checkout-product-benefits-section {
   display: flex;
   flex-direction: column;
@@ -1177,6 +1185,14 @@
   gap: 24px;
   align-self: stretch;
   width: 100%;
+}
+
+.delivery-checkout-product-benefits-selection-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .delivery-checkout-product-benefits-header {

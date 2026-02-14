@@ -9,6 +9,8 @@ Images for `/delivery-checkout-v1` are stored here.
 - `things-working-for-us.png` – node 2362:17175 (Things that have been working for us)
 - `competitor-analysis.png` – node 2362:17205 (Competitor analysis)
 - `one-clicks.png` – node 2362:17233 (One clicks)
+- `phase01-layer.png` – node 2362:17261 (Phase 01 Payment details layer)
+- `phase02-frame.png` – node 2362:17279 (Phase 02 Checkout landing frame)
 
 **To re-export from Figma** (e.g. after design updates), run from the project root:
 
