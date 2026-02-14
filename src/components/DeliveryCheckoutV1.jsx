@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DeliveryCheckoutV1.css';
 import Menu from './Menu';
+import checkOutGif from '../video/Check_out.gif';
 
 /**
  * Delivery Checkout V1 – Figma-driven sections.
@@ -289,13 +290,30 @@ const DeliveryCheckoutV1 = () => {
                 https://www.figma.com/proto/BKrNUUj9m2FUqPwgbRvnXc/Mp?page-id=45%3A12882&node-id=685-30032&viewport=-2681%2C-4343%2C0.26&t=zdu9JnNudbZsqKtv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=685%3A30032
               </a>
             </p>
-            {/* Selection 2362:17291 – full Figma export to match design (left text + right mockups) */}
+            {/* Selection 2362:17291 – text from 2362:17292, image section uses Check_out.gif */}
             <div id="phase-02-details" className="dc-v1-selection-17291" data-node-id="2362:17291">
-              <img
-                src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/phase02-details-selection.png`}
-                alt="Phase 02 Checkout landing – micro animations, offers, toggle, adaptive filter, upsell shimmer"
-                className="dc-v1-selection-17291-full-img"
-              />
+              <div className="dc-v1-selection-17291-inner">
+                <div className="dc-v1-selection-17291-left" data-node-id="2362:17292">
+                  <h3 className="dc-v1-selection-17291-title">Phase: 02</h3>
+                  <p className="dc-v1-selection-17291-subtitle">Checkout landing</p>
+                  <ul className="dc-v1-selection-17291-bullets">
+                    <li>Micro animation for &quot;exclusive gift&quot;, intent is to attract user attention.</li>
+                    <li>Highlighted special offers and pricing with another micro-animation and gradient bg.</li>
+                    <li>Toggle to switch between services to make it more accessible.</li>
+                    <li>Adaptive filter response</li>
+                    <li>Upsell offer shimmer highlighted</li>
+                  </ul>
+                </div>
+                <div className="dc-v1-selection-17291-right">
+                  <div className="dc-v1-selection-17291-image-wrap">
+                    <img
+                      src={checkOutGif}
+                      alt="Phase 02 Checkout landing – checkout flow"
+                      className="dc-v1-selection-17291-image"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
