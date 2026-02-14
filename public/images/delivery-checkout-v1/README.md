@@ -1,15 +1,20 @@
 # Delivery Checkout V1 – images
 
-Export the following images from Figma and place them here so they appear on the `/delivery-checkout-v1` page.
+Images for `/delivery-checkout-v1` are stored here.
 
-**Figma file:** [Saurabh Sabhya Shared file](https://www.figma.com/design/re5Fauw1m9dJxYlIdR8Btn/Saurabh-Sabhya-Shared-file?node-id=2362-17144)
+**Current assets (exported from Figma):**
+- `mockup-cognition.png` – node 2362:17162 (Cognition at checkout)
+- `mockup-discount.png` – node 2362:17170 (Discount highlight / EatFit)
+- `mockup-progressive.png` – node 2362:17154 (Progressive disclosure / MOJO Pizza)
+- `things-working-for-us.png` – node 2362:17175 (Things that have been working for us)
+- `competitor-analysis.png` – node 2362:17205 (Competitor analysis)
+- `one-clicks.png` – node 2362:17233 (One clicks)
 
-**File key (for API/export):** `re5Fauw1m9dJxYlIdR8Btn`  
-**Figma key (if using export script):** `[REDACTED]`
+**To re-export from Figma** (e.g. after design updates), run from the project root:
 
-**Required assets (from Selection 4, node 2362:17144):**
-- `mockup-cognition.png` – cognition at checkout decision making
-- `mockup-discount.png` – discount highlight
-- `mockup-progressive.png` – progressive disclosure of payment details
+```bash
+FIGMA_ACCESS_TOKEN=your_token node scripts/export-figma-delivery-checkout-v1-images.js
+```
 
-Export the three phone mockup frames from the Opportunity section and name them as above.
+**Figma file:** [Saurabh Sabhya Shared file](https://www.figma.com/design/re5Fauw1m9dJxYlIdR8Btn/Saurabh-Sabhya-Shared-file?node-id=2362-17144)  
+**File key:** `re5Fauw1m9dJxYlIdR8Btn`

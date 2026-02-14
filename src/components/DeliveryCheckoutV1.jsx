@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import './DeliveryCheckoutV1.css';
 import Menu from './Menu';
 
+/**
+ * Delivery Checkout V1 – Figma-driven sections.
+ * Section order (by node ID): 17118(header) → 17126 → 17133 → [17136,17139 in bg] → 17144 → 17175 → 17205,17233 (Rect 17) → …
+ * When adding a new Figma selection, insert by node ID order and update this comment.
+ * See .cursor/rules/figma-selection-delivery-checkout-v1.mdc for the import workflow.
+ */
+
 // Menu icon: inline SVG (or add src/images/delivery-checkout/menu.png and use img)
 const MenuIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
@@ -26,6 +33,9 @@ const DeliveryCheckoutV1 = () => {
     { id: 'why-problem', title: 'Why is it a problem?' },
     { id: 'breaking-down', title: 'Breaking down the need to solve this' },
     { id: 'opportunity', title: 'Opportunity' },
+    { id: 'things-working', title: 'Things that have been working for us' },
+    { id: 'competitor-analysis', title: 'Competitor analysis' },
+    { id: 'one-clicks', title: 'One clicks' },
   ];
 
   return (
@@ -115,6 +125,60 @@ const DeliveryCheckoutV1 = () => {
             </div>
           </div>
         </section>
+
+        {/* Selection 2362:17175 - Things that have been working for us (title in image) */}
+        <section id="things-working" className="dc-v1-things-working dc-v1-gap" data-node-id="2362:17175">
+          <div className="dc-v1-things-working-inner">
+            <div className="dc-v1-things-working-content">
+              <img
+                src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout-v1/things-working-for-us.png`}
+                alt="Things that have been working for us"
+                className="dc-v1-things-working-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling?.classList.add('dc-v1-mockup-placeholder-visible');
+                }}
+              />
+              <div className="dc-v1-things-working-placeholder">
+                Export from Figma (node 2362:17175)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Rectangle 17 – full width #094020, left to right of screen; contains 17205 + 17233 */}
+        <div id="competitor-analysis" className="dc-v1-rect-17 dc-v1-gap" data-name="Rectangle 17">
+          <div className="dc-v1-rect-17-inner">
+            {/* Selection 2362:17205 – flex column, align-items center, gap 41px (title/subtitle in image) */}
+            <div className="dc-v1-selection-17205" data-node-id="2362:17205">
+              <div className="dc-v1-competitor-visual">
+                <img
+                  src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout-v1/competitor-analysis.png`}
+                  alt="Competitor analysis"
+                  className="dc-v1-competitor-analysis-image"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextElementSibling?.classList.add('dc-v1-mockup-placeholder-visible');
+                  }}
+                />
+                <div className="dc-v1-mockup-placeholder">Export from Figma (node 2362:17205)</div>
+              </div>
+            </div>
+            {/* Selection 2362:17233 – flex, justify-content center, align-items flex-start, gap 71px */}
+            <div id="one-clicks" className="dc-v1-selection-17233" data-node-id="2362:17233">
+              <img
+                src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout-v1/one-clicks.png`}
+                alt="One clicks - Same content with different positioning"
+                className="dc-v1-one-clicks-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling?.classList.add('dc-v1-mockup-placeholder-visible');
+                }}
+              />
+              <div className="dc-v1-mockup-placeholder">Export from Figma (node 2362:17233)</div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
