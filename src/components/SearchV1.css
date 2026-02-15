@@ -1127,3 +1127,267 @@
   justify-content: center;
   align-self: center;
 }
+
+/* ========== Responsive: tablet and phone (overrides only – desktop unchanged) ========== */
+@media (max-width: 768px) {
+  .sv1-page {
+    padding-top: 48px;
+    overflow-x: hidden;
+  }
+
+  .sv1-header-inner {
+    padding: 12px 16px;
+  }
+
+  .sv1-name {
+    font-size: 18px;
+  }
+
+  .sv1-menu-btn {
+    padding: 10px 14px 10px 12px;
+    font-size: 18px;
+  }
+
+  .sv1-main {
+    padding: 40px 16px 48px;
+    gap: 48px;
+  }
+
+  .sv1-main-title {
+    font-size: clamp(28px, 6vw, 48px);
+    line-height: 1.25;
+  }
+
+  .sv1-description {
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.5;
+  }
+
+  .sv1-previous-title-wrapper {
+    max-width: 100%;
+  }
+
+  .sv1-previous-title {
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+  }
+
+  .sv1-previous-captions {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .sv1-section-heading {
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+  }
+
+  .sv1-section-text,
+  .sv1-fulfilling-content .sv1-section-text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-rect14-inner,
+  .sv1-rect15-inner,
+  .sv1-rect16-inner {
+    padding: 32px 16px;
+  }
+
+  .sv1-touchpoints-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .sv1-touchpoints-body {
+    padding: 0 16px;
+    flex-direction: column;
+  }
+
+  .sv1-touchpoints-header-text {
+    font-size: clamp(22px, 4vw, 32px);
+  }
+
+  .sv1-tackle {
+    width: 100%;
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sv1-tackle-steps {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sv1-tackle-motivation-speak-row {
+    flex-wrap: wrap;
+  }
+
+  .sv1-tackle-step-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .sv1-tackle-step-content {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-tackle-quote {
+    width: 100%;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .sv1-tackle-quote-text {
+    font-size: clamp(24px, 5.5vw, 48px);
+    line-height: 1.2;
+  }
+
+  .sv1-tackle-quote-subtext {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .sv1-principles {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sv1-principles-row {
+    gap: 16px;
+  }
+
+  .sv1-principles-item {
+    flex: 1 1 100%;
+  }
+
+  .sv1-fulfilling-content {
+    padding: 0 16px;
+  }
+
+  .sv1-fulfilling-image-wrap {
+    padding: 20px 0 32px;
+    min-height: 400px;
+  }
+
+  .sv1-version2,
+  .sv1-decisions {
+    padding: 0 16px;
+  }
+
+  .sv1-version2-text,
+  .sv1-decision-list {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-decision-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .sv1-rect15-inner {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 24px;
+  }
+
+  .sv1-solution-left {
+    flex: 1 1 100%;
+  }
+
+  .sv1-solution-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .sv1-solution-list {
+    font-size: clamp(20px, 4vw, 32px);
+    line-height: 1.3;
+    padding-left: 28px;
+  }
+
+  .sv1-solution-right {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .sv1-solution-text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-intent-list {
+    font-size: clamp(24px, 5vw, 32px);
+    padding-left: 24px;
+  }
+
+  .sv1-intent-clear .sv1-section-heading {
+    font-size: clamp(20px, 4vw, 32px);
+  }
+
+  .sv1-learning-label,
+  .sv1-learning-title {
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+  }
+
+  .sv1-learning-para {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-learning-cta {
+    font-size: clamp(22px, 5vw, 48px);
+    line-height: 1.2;
+    min-height: 80px;
+    margin-top: 40px;
+  }
+
+  .sv1-learning-line {
+    margin-top: 40px;
+  }
+
+  .sv1-block {
+    gap: 16px;
+  }
+
+  .sv1-caption {
+    max-width: 100%;
+  }
+}
+
+/* ========== Responsive: small phones ========== */
+@media (max-width: 480px) {
+  .sv1-main {
+    padding: 32px 12px 40px;
+    gap: 40px;
+  }
+
+  .sv1-header-inner {
+    padding: 10px 12px;
+  }
+
+  .sv1-main-title {
+    font-size: 26px;
+  }
+
+  .sv1-tackle-quote-text {
+    font-size: 22px;
+  }
+
+  .sv1-learning-cta {
+    font-size: 20px;
+    min-height: 72px;
+  }
+
+  .sv1-rect14-inner,
+  .sv1-rect15-inner,
+  .sv1-rect16-inner {
+    padding: 24px 12px;
+  }
+
+  .sv1-solution-right {
+    max-width: 100%;
+  }
+}
