@@ -1,0 +1,1393 @@
+/* Search V1 – Frame 2351:19 (1440×10629), sections 2351:32, 2351:36 */
+
+.sv1-page {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 64px 0 0;
+  background: #FFF;
+  box-sizing: border-box;
+}
+
+.sv1-header {
+  width: 100%;
+  background: #FFF;
+}
+
+.sv1-header-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sv1-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sv1-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 40px;
+  background: #DFFCA1;
+  cursor: pointer;
+  color: #094020;
+}
+
+.sv1-back-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+}
+
+.sv1-name {
+  color: #1C1C1C;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.sv1-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 16px;
+  border: none;
+  border-radius: 36px;
+  background: #DFFCA1;
+  color: #094020;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.sv1-menu-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sv1-menu-text {
+  margin: 0;
+}
+
+.sv1-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 80px;
+  padding: 80px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Section 2351:32 & 2351:36 – display: flex; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+.sv1-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+/* Title section 2351:32 – center aligned only */
+.sv1-section-title {
+  align-items: center;
+}
+
+.sv1-section-title .sv1-main-title,
+.sv1-section-title .sv1-description-wrapper,
+.sv1-section-title .sv1-description {
+  text-align: center;
+}
+
+.sv1-main-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.96px;
+  color: #1C1C1C;
+  margin: 0;
+  width: 100%;
+}
+
+.sv1-description-wrapper {
+  width: 100%;
+}
+
+.sv1-description {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+/* Previous search section 2351:36 */
+.sv1-previous-title-wrapper {
+  width: 100%;
+  max-width: 657px;
+}
+
+/* Previous search experience – subheading spec */
+.sv1-previous-title {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #094020;
+  margin: 0;
+  align-self: stretch;
+}
+
+.sv1-previous-image-container {
+  width: 100%;
+  aspect-ratio: 1205 / 617;
+  border: 1px solid #F5F5F5;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-previous-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sv1-previous-captions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+.sv1-caption {
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 280px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Rectangle 14 – full-width bg #F3FAF3, covers screen left to right (1440×469 in Figma) */
+.sv1-rect14 {
+  width: 100vw;
+  min-height: 469px;
+  margin-left: calc(-50vw + 50%);
+  background: #F3FAF3;
+  box-sizing: border-box;
+}
+
+.sv1-rect14-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: stretch;
+}
+
+/* Sections 2351:48, 2351:51 – flex column, gap 24px, align-items flex-start, align-self stretch */
+.sv1-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+/* Subheading – Libre Franklin 32px, weight 400, line-height 40px, letter-spacing -0.64px */
+.sv1-section-heading {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-section-text {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+/* Section 2351:54 – display: flex; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+.sv1-touchpoints {
+  width: 100%;
+}
+
+.sv1-touchpoints-title {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #1C1C1C;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.sv1-touchpoints-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+
+.sv1-touchpoints-header-text {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-touchpoints-line {
+  width: 100%;
+  max-width: 1168px;
+  height: 1px;
+  background: #E5E5E5;
+}
+
+/* 2351:60 – display: flex; padding: 0 24px; align-items: flex-start; gap: 10px; align-self: stretch */
+.sv1-touchpoints-body {
+  display: flex;
+  padding: 0 24px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sv1-touchpoints-question {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sv1-touchpoints-question-text {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.sv1-touchpoints-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sv1-touchpoints-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.sv1-touchpoints-badge {
+  background: #F3FAF3;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.sv1-touchpoints-badge-text {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #094020;
+}
+
+.sv1-touchpoints-list {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  list-style: disc;
+  margin: 0;
+  padding-left: 27px;
+}
+
+.sv1-touchpoints-list li {
+  margin-bottom: 4px;
+}
+
+.sv1-touchpoints-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Section 2351:72 – display: flex; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+.sv1-lifecycle {
+  width: 100%;
+}
+
+.sv1-lifecycle-image {
+  width: 100%;
+  max-width: 1164px;
+  aspect-ratio: 1164 / 1310;
+  border: 1px solid #F5F5F5;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-lifecycle-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Section 2351:77 – display: flex; flex-direction: column; align-items: center; gap: 24px; align-self: stretch */
+.sv1-brainstorming {
+  width: 100%;
+  align-items: center;
+}
+
+.sv1-brainstorming-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+.sv1-brainstorming-text {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+}
+
+.sv1-brainstorming-text p {
+  margin: 0 0 8px 0;
+}
+
+.sv1-brainstorming-text p:last-child {
+  margin-bottom: 0;
+}
+
+.sv1-brainstorming-image-container {
+  width: 100%;
+  max-width: 1630px;
+  aspect-ratio: 1630 / 718;
+  border: 1px solid #F5F5F5;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-brainstorming-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+}
+
+/* Section 2351:82 – display: flex; width: 1200px; padding-left: 16px; flex-direction: column; align-items: flex-start; gap: 24px */
+.sv1-principles {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.sv1-principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+}
+
+.sv1-principles-row {
+  display: flex;
+  gap: 248px;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sv1-principles-item {
+  flex: 1 1 280px;
+  min-width: 0;
+  list-style: disc;
+  margin: 0;
+  padding-left: 27px;
+  line-height: 28px;
+}
+
+.sv1-principles-item li {
+  margin-bottom: 4px;
+}
+
+.sv1-principles-item li:last-child {
+  margin-bottom: 0;
+}
+
+/* 2351:92 – aligned left with rest of page (max-width 1200px, padding 0 24px like .sv1-main) */
+.sv1-fulfilling {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.sv1-fulfilling-content {
+  display: flex;
+  padding: 0 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Fulfilling all product requirements – heading: #1C1C1C, Libre Franklin 32px, align-self stretch */
+.sv1-fulfilling-content .sv1-section-heading {
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #1C1C1C;
+  align-self: stretch;
+}
+
+/* This is how the V1 looked... – paragraph: #1C1C1C, Lucida Bright 18px, letter-spacing 0.36px, align-self stretch */
+.sv1-fulfilling-content .sv1-section-text {
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.36px;
+  color: #1C1C1C;
+  align-self: stretch;
+}
+
+/* 2539:1574 – full-width bg #F7F7F7 (like rect14/rect15); flex column, justify-content center, align-items center, gap 10px; padding 24px 0 44px; min-height 562px */
+.sv1-fulfilling-image-wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #F7F7F7;
+  min-height: 562px;
+  padding: 24px 0 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.sv1-fulfilling-image {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: visible;
+}
+
+.sv1-fulfilling-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  vertical-align: middle;
+  border-radius: 12px;
+}
+
+/* Section 2351:97 – display: flex; width: 1200px; padding: 0 16px; align-items: center; gap: 24px */
+.sv1-tackle {
+  display: flex;
+  width: 1200px;
+  max-width: 100%;
+  padding: 0 16px;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.sv1-tackle-left {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.sv1-tackle-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.sv1-tackle-content .sv1-section-heading {
+  font-weight: 400;
+}
+
+/* One row: Listen | Understand | Align. Each column constrained so no overlap. Motivation + Speak on same line inside Understand */
+.sv1-tackle-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+  align-items: start;
+  min-width: 0;
+}
+
+.sv1-tackle-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.sv1-tackle-motivation-speak-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.sv1-tackle-body-text {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.sv1-tackle-step-speak-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.sv1-tackle-step-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.48px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-tackle-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.sv1-tackle-step-content p {
+  margin: 0;
+}
+
+.sv1-tackle-arrow {
+  flex-shrink: 0;
+}
+
+.sv1-tackle-arrow svg {
+  display: block;
+}
+
+.sv1-tackle-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Quote box – 486px, padding 24px, flex column, align-items flex-start, gap 24px, flex-shrink 0, align-self stretch */
+.sv1-tackle-quote {
+  display: flex;
+  width: 486px;
+  max-width: 100%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 32px;
+  background: #F3FAF3;
+  box-sizing: border-box;
+}
+
+/* "Discovery can afford business bias..." – 48px Libre Franklin, #094020, line-height normal, letter-spacing -0.96px */
+.sv1-tackle-quote-text {
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.96px;
+  color: #094020;
+  margin: 0;
+  align-self: stretch;
+}
+
+/* "This is exactly what I spoke..." – 16px Lucida Bright, #1C1C1C, line-height 24px, letter-spacing 0.32px */
+.sv1-tackle-quote-subtext {
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'Lucida Bright', serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  color: #1C1C1C;
+  margin: 0;
+  align-self: stretch;
+}
+
+/* Section 2351:123 – display: flex; width: 1200px; padding: 0 16px; flex-direction: column; align-items: flex-start; gap: 24px */
+.sv1-version2 {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.sv1-version2-text {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  width: 100%;
+}
+
+.sv1-version2-text p {
+  margin: 0 0 12px 0;
+}
+
+.sv1-version2-text p:last-child {
+  margin-bottom: 0;
+}
+
+.sv1-version2-image {
+  width: 100%;
+  aspect-ratio: 1404 / 645;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-version2-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.sv1-version2-note {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+/* Section 2351:129 – display: flex; width: 1200px; padding: 0 16px; flex-direction: column; align-items: flex-start; gap: 24px */
+.sv1-decisions {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.sv1-decision-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.sv1-decision-title {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.sv1-decision-list {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+  padding-left: 27px;
+  list-style: decimal;
+}
+
+.sv1-decision-list li {
+  margin-bottom: 4px;
+}
+
+.sv1-decision-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Rectangle 15 – full-width #F3FAF3 (like rect14), min-height 567px, covers screen left to right */
+.sv1-rect15 {
+  width: 100vw;
+  min-height: 567px;
+  margin-left: calc(-50vw + 50%);
+  background: #F3FAF3;
+  box-sizing: border-box;
+}
+
+.sv1-rect15-inner {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.sv1-solution-left {
+  flex: 1 1 400px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.sv1-solution-title {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-solution-list {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #000;
+  margin: 0;
+  padding-left: 48px;
+  list-style: decimal;
+}
+
+.sv1-solution-list li {
+  margin-bottom: 4px;
+}
+
+.sv1-solution-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+}
+
+.sv1-solution-text p {
+  margin: 0;
+}
+
+.sv1-solution-right {
+  flex: 0 0 auto;
+  width: 301px;
+  max-width: 100%;
+}
+
+.sv1-solution-phone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 301 / 618;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.sv1-solution-screen-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+/* Section 2351:150 – display: flex; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+.sv1-intent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.sv1-intent-list {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #000;
+  margin: 0;
+  padding-left: 27px;
+  list-style: decimal;
+}
+
+.sv1-intent-list li {
+  margin-bottom: 4px;
+}
+
+.sv1-intent-image {
+  width: 100%;
+  aspect-ratio: 1150 / 662;
+  border-radius: 23px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-intent-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 23px;
+}
+
+/* Section 2351:154 – Keeping the intent clear and the results consistent; flex column, gap 24px */
+.sv1-intent-clear {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.sv1-intent-clear-image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-intent-clear-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: middle;
+  border-radius: 12px;
+}
+
+/* Rectangle 16 – full-width #F3FAF3 (like rect14/rect15), min-height 579px; inner: flex column, align-items flex-start, gap 24px – 2351:158 */
+.sv1-rect16 {
+  width: 100vw;
+  min-height: 579px;
+  margin-left: calc(-50vw + 50%);
+  background: #F3FAF3;
+  box-sizing: border-box;
+}
+
+.sv1-rect16-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+/* My learning – subheading spec */
+.sv1-learning-label {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #1C1C1C;
+  margin: 0;
+  align-self: stretch;
+}
+
+/* Balancing product and business needs – subheading spec */
+.sv1-learning-title {
+  font-variant-numeric: proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #000;
+  margin: 0;
+  align-self: stretch;
+}
+
+.sv1-learning-paras {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Body paragraphs – Lucida Bright 18px, #3E3D3B, line-height 28px, 2% letter-spacing */
+.sv1-learning-para {
+  color: #3E3D3B;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  margin: 0;
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.sv1-learning-line {
+  width: 100%;
+  height: 1px;
+  background: #E5E5E5;
+  margin: 0;
+  margin-top: 56px; /* 24px gap + 56px = 80px from paragraphs above */
+}
+
+/* Let's connect CTA – 48px Libre Franklin, #000, center, width 884px height 116px; 80px from line above */
+.sv1-learning-cta {
+  margin: 56px 0 0 0; /* 24px gap + 56px = 80px from line above */
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.96px;
+  color: #000;
+  text-align: center;
+  width: 100%;
+  max-width: 884px;
+  min-height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+/* ========== Responsive: tablet and phone (overrides only – desktop unchanged) ========== */
+@media (max-width: 768px) {
+  .sv1-page {
+    padding-top: 48px;
+    overflow-x: hidden;
+  }
+
+  .sv1-header-inner {
+    padding: 12px 16px;
+  }
+
+  .sv1-name {
+    font-size: 18px;
+  }
+
+  .sv1-menu-btn {
+    padding: 10px 14px 10px 12px;
+    font-size: 18px;
+  }
+
+  .sv1-main {
+    padding: 40px 16px 48px;
+    gap: 48px;
+  }
+
+  .sv1-main-title {
+    font-size: clamp(28px, 6vw, 48px);
+    line-height: 1.25;
+  }
+
+  .sv1-description {
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.5;
+  }
+
+  .sv1-previous-title-wrapper {
+    max-width: 100%;
+  }
+
+  .sv1-previous-title {
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+  }
+
+  .sv1-previous-captions {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .sv1-section-heading {
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+  }
+
+  .sv1-section-text,
+  .sv1-fulfilling-content .sv1-section-text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-rect14-inner,
+  .sv1-rect15-inner,
+  .sv1-rect16-inner {
+    padding: 32px 16px;
+  }
+
+  .sv1-touchpoints-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .sv1-touchpoints-body {
+    padding: 0 16px;
+    flex-direction: column;
+  }
+
+  .sv1-touchpoints-header-text {
+    font-size: clamp(22px, 4vw, 32px);
+  }
+
+  .sv1-tackle {
+    width: 100%;
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sv1-tackle-steps {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sv1-tackle-motivation-speak-row {
+    flex-wrap: wrap;
+  }
+
+  .sv1-tackle-step-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .sv1-tackle-step-content {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-tackle-quote {
+    width: 100%;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .sv1-tackle-quote-text {
+    font-size: clamp(24px, 5.5vw, 48px);
+    line-height: 1.2;
+  }
+
+  .sv1-tackle-quote-subtext {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .sv1-principles {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sv1-principles-row {
+    gap: 16px;
+  }
+
+  .sv1-principles-item {
+    flex: 1 1 100%;
+  }
+
+  .sv1-fulfilling-content {
+    padding: 0 16px;
+  }
+
+  .sv1-fulfilling-image-wrap {
+    padding: 20px 0 32px;
+    min-height: 400px;
+  }
+
+  .sv1-version2,
+  .sv1-decisions {
+    padding: 0 16px;
+  }
+
+  .sv1-version2-text,
+  .sv1-decision-list {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-decision-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .sv1-rect15-inner {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 24px;
+  }
+
+  .sv1-solution-left {
+    flex: 1 1 100%;
+  }
+
+  .sv1-solution-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .sv1-solution-list {
+    font-size: clamp(20px, 4vw, 32px);
+    line-height: 1.3;
+    padding-left: 28px;
+  }
+
+  .sv1-solution-right {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .sv1-solution-text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-intent-list {
+    font-size: clamp(24px, 5vw, 32px);
+    padding-left: 24px;
+  }
+
+  .sv1-intent-clear .sv1-section-heading {
+    font-size: clamp(20px, 4vw, 32px);
+  }
+
+  .sv1-learning-label,
+  .sv1-learning-title {
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+  }
+
+  .sv1-learning-para {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sv1-learning-cta {
+    font-size: clamp(22px, 5vw, 48px);
+    line-height: 1.2;
+    min-height: 80px;
+    margin-top: 40px;
+  }
+
+  .sv1-learning-line {
+    margin-top: 40px;
+  }
+
+  .sv1-block {
+    gap: 16px;
+  }
+
+  .sv1-caption {
+    max-width: 100%;
+  }
+}
+
+/* ========== Responsive: small phones ========== */
+@media (max-width: 480px) {
+  .sv1-main {
+    padding: 32px 12px 40px;
+    gap: 40px;
+  }
+
+  .sv1-header-inner {
+    padding: 10px 12px;
+  }
+
+  .sv1-main-title {
+    font-size: 26px;
+  }
+
+  .sv1-tackle-quote-text {
+    font-size: 22px;
+  }
+
+  .sv1-learning-cta {
+    font-size: 20px;
+    min-height: 72px;
+  }
+
+  .sv1-rect14-inner,
+  .sv1-rect15-inner,
+  .sv1-rect16-inner {
+    padding: 24px 12px;
+  }
+
+  .sv1-solution-right {
+    max-width: 100%;
+  }
+}

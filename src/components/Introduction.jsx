@@ -276,13 +276,8 @@ const Introduction = () => {
           </div>
 
           <div className="work-cases">
-            {/* Case 1 - Search */}
-            <a 
-              href="https://www.figma.com/deck/QrGmLRinM3sdFA99CevFeF/Untitled?node-id=1-354&viewport=-101%2C-95%2C0.49&t=4ExDtFVThhKcrqpX-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="case-card-link"
-            >
+            {/* Case 1 - Search → Search V1 page */}
+            <Link to="/search-v1" className="case-card-link">
               <div className="case-card case-card-large">
                 <div className="case-content">
                   <div className="case-image-container" ref={searchCaseImageRef}>
@@ -304,7 +299,7 @@ const Introduction = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
