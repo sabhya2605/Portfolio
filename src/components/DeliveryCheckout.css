@@ -247,7 +247,7 @@
   line-height: 28px;
   color: #1C1C1C;
   margin: 0;
-  letter-spacing: 0.36px;
+  letter-spacing: 0.02em; /* 2% for body text */
 }
 
 .delivery-checkout-text-bold {
