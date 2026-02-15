@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SearchV1.css';
 import Menu from './Menu';
+import searchGif from '../video/search_gif.gif';
 
 /**
  * Search V1 – Figma frame 2351:19 (1440×10629), sections 2351:32 and 2351:36 only.
@@ -348,7 +349,7 @@ const SearchV1 = () => {
             <div className="sv1-solution-right" data-node-id="2351:147">
               <div className="sv1-solution-phone">
                 <img
-                  src={`${process.env.PUBLIC_URL || ''}/images/search-v1/solution-screen.png`}
+                  src={searchGif}
                   alt="Solution screen"
                   className="sv1-solution-screen-img"
                 />

@@ -502,10 +502,9 @@
   margin-bottom: 0;
 }
 
-/* 2351:92 – display: flex; padding: 0 120px; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+/* 2351:92 – aligned left with rest of page (max-width 1200px, padding 0 24px like .sv1-main) */
 .sv1-fulfilling {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -515,13 +514,13 @@
 
 .sv1-fulfilling-content {
   display: flex;
-  padding: 0 120px;
+  padding: 0 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   align-self: stretch;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
 }
