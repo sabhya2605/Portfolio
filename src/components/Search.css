@@ -352,7 +352,7 @@
   line-height: 28px;
   font-style: normal;
   font-size: 18px;
-  letter-spacing: 0.36px;
+  letter-spacing: 0.02em; /* 2% for body text */
   width: 100%;
   margin: 0;
   font-feature-settings: 'lnum' 1, 'pnum' 1;

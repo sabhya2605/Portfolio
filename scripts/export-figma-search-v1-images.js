@@ -25,6 +25,15 @@ const DEFAULT_OUT_SUBDIR = 'search-v1';
 // Node IDs for Search V1 (till selections 2351:32, 2351:36)
 const NODES = [
   { id: '2351-39', idKey: '2351:39', file: 'previous-search-image.png' },
+  { id: '2351-75', idKey: '2351:75', file: 'product-lifecycle.png' },
+  { id: '2351-81', idKey: '2351:81', file: 'brainstorming.png' },
+  /* 2351:91 = full section (title + text + image); export only image part (2539:1574 = gray box with mockup, no text) */
+  { id: '2539-1574', idKey: '2539:1574', file: 'fulfilling-requirements-version1.png' },
+  { id: '2351-126', idKey: '2351:126', file: 'version2.png' },
+  { id: '2351-148', idKey: '2351:148', file: 'solution-screen.png' },
+  { id: '2351-153', idKey: '2351:153', file: 'intent-suggesters-search-final.png' },
+  /* 2351:154 = full section (title + text + image); export only the image part (screens, no text) */
+  { id: '2351-157', idKey: '2351:157', file: 'intent-clear-results-consistent.png' },
 ];
 
 function get(url, headers = {}) {

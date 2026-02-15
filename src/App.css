@@ -7,6 +7,8 @@
 body {
   margin: 0;
   font-family: 'Lucida Bright', Georgia, serif;
+  font-size: 18px;
+  letter-spacing: 0.02em; /* 2% for body text */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #FFF;
