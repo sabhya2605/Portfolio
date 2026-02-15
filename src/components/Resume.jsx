@@ -18,7 +18,11 @@ const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b
 const Resume = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Refs for matching image height to text content
   const aboutImageRef = useRef(null);
   const aboutTextRef = useRef(null);

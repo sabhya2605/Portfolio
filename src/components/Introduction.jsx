@@ -308,7 +308,7 @@ const Introduction = () => {
 
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
-              <Link to="/delivery-checkout" className="case-card-link">
+              <Link to="/delivery-checkout-v1" className="case-card-link">
                 <div className="case-card case-card-green">
                   <div className="case-image-top">
                     <img src={imgRectangle4} alt="Case 2" className="case-image-full" />

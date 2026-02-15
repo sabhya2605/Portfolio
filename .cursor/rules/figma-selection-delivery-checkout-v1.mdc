@@ -1,0 +1,51 @@
+---
+description: Import Figma selections into Delivery Checkout V1 and place them in the right order
+globs: src/components/DeliveryCheckoutV1.jsx, src/components/DeliveryCheckoutV1.css
+alwaysApply: false
+---
+
+# Figma selection → Delivery Checkout V1
+
+When the user provides a **Figma selection** (URL + optional CSS) for the delivery-checkout-v1 page:
+
+## 1. Parse the selection
+
+- **URL**: `https://www.figma.com/design/re5Fauw1m9dJxYlIdR8Btn/...?node-id=2362-XXXXX`
+- **fileKey**: `re5Fauw1m9dJxYlIdR8Btn`
+- **nodeId**: From `node-id=2362-XXXXX` → use `2362:XXXXX` (colon) for Figma MCP
+
+## 2. Fetch design
+
+- Call `mcp_Figma_get_design_context` and `mcp_Figma_get_screenshot` for that `fileKey` and `nodeId` to get structure and visuals.
+
+## 3. Place in the right order
+
+Sections are ordered by **ascending Figma node ID**. Current order (see comment in `DeliveryCheckoutV1.jsx`):
+
+| Order | Node ID   | Section id / slug        |
+|-------|-----------|---------------------------|
+| 1     | 2362:17118 | (header)                  |
+| 2     | 2362:17126 | delivery-title           |
+| 3     | 2362:17133 | problem                  |
+| 4     | 2362:17136 | why-problem (in bg layer) |
+| 5     | 2362:17139 | breaking-down (in bg)     |
+| 6     | 2362:17144 | opportunity              |
+| 7     | 2362:17175 | things-working            |
+
+- **Insert** the new section between the two existing sections whose node IDs it falls between. If the user says "after X" or "before Y", use that; otherwise use node ID order.
+- Use class `dc-v1-gap` on the section so the 80px gap between sections is applied.
+
+## 4. Implement
+
+- Add the section in `DeliveryCheckoutV1.jsx`: wrapper with `data-node-id="2362:XXXXX"`, semantic HTML, and apply any user-given CSS (e.g. `display: flex; flex-direction: column; align-items: flex-start; gap: 32px`) on the **inner** container (e.g. `.dc-v1-<slug>-inner`).
+- Add styles in `DeliveryCheckoutV1.css` with prefix `dc-v1-` and a slug derived from the section (e.g. `dc-v1-things-working`). Include responsive padding in existing media queries where appropriate.
+- Add `{ id: '<section-id>', title: '<Menu title>' }` to the `sections` array so the section appears in the Menu.
+
+## 5. Images
+
+- If the selection contains exportable images: add the node to `scripts/export-figma-delivery-checkout-v1-images.js` (id, idKey, file name in `public/images/delivery-checkout-v1/`). Use `process.env.PUBLIC_URL + '/images/delivery-checkout-v1/<file>.png'` and an `onError` placeholder in the component.
+
+## 6. Page layout rules (unchanged)
+
+- Page: full width, no outer padding; inner content uses `max-width: 1200px` (or 1176px where specified), `margin: 0 auto`, `padding: 0 24px` (or 16px/12px in media queries).
+- Between sections: 80px gap (`.dc-v1-gap`).

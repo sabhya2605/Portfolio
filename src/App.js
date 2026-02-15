@@ -4,6 +4,7 @@ import Introduction from './components/Introduction';
 import Search from './components/Search';
 import Resume from './components/Resume';
 import DeliveryCheckout from './components/DeliveryCheckout';
+import DeliveryCheckoutV1 from './components/DeliveryCheckoutV1';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/delivery-checkout" element={<DeliveryCheckout />} />
+          <Route path="/delivery-checkout-v1" element={<DeliveryCheckoutV1 />} />
         </Routes>
       </div>
     </Router>
