@@ -1671,21 +1671,21 @@
   margin: 0;
 }
 
-/* Responsive Styles */
+/* ========== Responsive: overrides only – desktop (base) layout unchanged ========== */
 @media (max-width: 1440px) {
   .introduction-container {
     padding: 93px 80px 63.318px 80px;
   }
-  
+
   .introduction-content {
     width: 100%;
     max-width: 1200px;
   }
-  
+
   .header-section {
     width: 100%;
   }
-  
+
   .footer-section {
     width: 100%;
   }
@@ -1988,8 +1988,9 @@
 @media (max-width: 768px) {
   .introduction-container {
     padding: 40px 24px 32px 24px;
+    overflow-x: hidden;
   }
-  
+
   .testimonials-carousel-button,
   .projects-carousel-button {
     display: none;
