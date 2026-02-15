@@ -201,10 +201,10 @@ const DeliveryCheckoutV1 = () => {
           <div className="dc-v1-design-solution-inner">
             <div className="dc-v1-design-solution-title">
               <div className="dc-v1-design-word">
-                <span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span>
+                <span>D</span><span>E</span><span>S</span><span className="dc-v1-letter-i">I</span><span>G</span><span>N</span>
               </div>
               <div className="dc-v1-solution-word">
-                <span>S</span><span>O</span><span>L</span><span>U</span><span>T</span><span>I</span><span>O</span><span>N</span>
+                <span>S</span><span>O</span><span>L</span><span>U</span><span>T</span><span className="dc-v1-letter-i">I</span><span>O</span><span>N</span>
               </div>
             </div>
             <div className="dc-v1-phases-list">

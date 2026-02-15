@@ -452,7 +452,7 @@
   margin: 0 auto;
   padding: 32px 40px 40px;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   box-sizing: border-box;
   gap: 48px;
 }
@@ -473,8 +473,8 @@
   align-items: flex-start;
   gap: 6px;
   line-height: 1;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
   font-size: clamp(24px, 3vw, 40px);
   color: #094020;
   letter-spacing: 0.02em;
@@ -483,6 +483,11 @@
 .dc-v1-design-word span,
 .dc-v1-solution-word span {
   display: block;
+}
+
+/* Align narrow "I" with S and T – shift slightly right */
+.dc-v1-letter-i {
+  margin-left: 0.16em;
 }
 
 .dc-v1-phases-list {
