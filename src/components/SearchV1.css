@@ -1,0 +1,363 @@
+/* Search V1 – Frame 2351:19 (1440×10629), sections 2351:32, 2351:36 */
+
+.sv1-page {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 64px 0 0;
+  background: #FFF;
+  box-sizing: border-box;
+}
+
+.sv1-header {
+  width: 100%;
+  background: #FFF;
+}
+
+.sv1-header-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sv1-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sv1-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 40px;
+  background: #DFFCA1;
+  cursor: pointer;
+  color: #094020;
+}
+
+.sv1-back-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+}
+
+.sv1-name {
+  color: #1C1C1C;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.sv1-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 16px;
+  border: none;
+  border-radius: 36px;
+  background: #DFFCA1;
+  color: #094020;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.sv1-menu-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sv1-menu-text {
+  margin: 0;
+}
+
+.sv1-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 80px;
+  padding: 80px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Section 2351:32 & 2351:36 – display: flex; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+.sv1-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+/* Title section 2351:32 – center aligned only */
+.sv1-section-title {
+  align-items: center;
+}
+
+.sv1-section-title .sv1-main-title,
+.sv1-section-title .sv1-description-wrapper,
+.sv1-section-title .sv1-description {
+  text-align: center;
+}
+
+.sv1-main-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.96px;
+  color: #1C1C1C;
+  margin: 0;
+  width: 100%;
+}
+
+.sv1-description-wrapper {
+  width: 100%;
+}
+
+.sv1-description {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+/* Previous search section 2351:36 */
+.sv1-previous-title-wrapper {
+  width: 100%;
+  max-width: 657px;
+}
+
+.sv1-previous-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-previous-image-container {
+  width: 100%;
+  aspect-ratio: 1205 / 617;
+  border: 1px solid #F5F5F5;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.sv1-previous-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sv1-previous-captions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+.sv1-caption {
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 280px;
+  margin: 0;
+}
+
+/* Rectangle 14 – full-width bg #F3FAF3, covers screen left to right (1440×469 in Figma) */
+.sv1-rect14 {
+  width: 100vw;
+  min-height: 469px;
+  margin-left: calc(-50vw + 50%);
+  background: #F3FAF3;
+  box-sizing: border-box;
+}
+
+.sv1-rect14-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: stretch;
+}
+
+/* Sections 2351:48, 2351:51 – flex column, gap 24px, align-items flex-start, align-self stretch */
+.sv1-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.sv1-section-heading {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-section-text {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+/* Section 2351:54 – display: flex; flex-direction: column; align-items: flex-start; gap: 24px; align-self: stretch */
+.sv1-touchpoints {
+  width: 100%;
+}
+
+.sv1-touchpoints-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  color: #1C1C1C;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.sv1-touchpoints-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+}
+
+.sv1-touchpoints-header-text {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
+  color: #094020;
+  margin: 0;
+}
+
+.sv1-touchpoints-line {
+  width: 100%;
+  max-width: 1168px;
+  height: 1px;
+  background: #E5E5E5;
+}
+
+/* 2351:60 – display: flex; padding: 0 24px; align-items: flex-start; gap: 10px; align-self: stretch */
+.sv1-touchpoints-body {
+  display: flex;
+  padding: 0 24px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sv1-touchpoints-question {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sv1-touchpoints-question-text {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.sv1-touchpoints-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sv1-touchpoints-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.sv1-touchpoints-badge {
+  background: #F3FAF3;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.sv1-touchpoints-badge-text {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #094020;
+}
+
+.sv1-touchpoints-list {
+  font-family: 'Lucida Bright', serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #1C1C1C;
+  list-style: disc;
+  margin: 0;
+  padding-left: 27px;
+}
+
+.sv1-touchpoints-list li {
+  margin-bottom: 4px;
+}
+
+.sv1-touchpoints-list li:last-child {
+  margin-bottom: 0;
+}

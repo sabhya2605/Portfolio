@@ -5,6 +5,7 @@ import Search from './components/Search';
 import Resume from './components/Resume';
 import DeliveryCheckout from './components/DeliveryCheckout';
 import DeliveryCheckoutV1 from './components/DeliveryCheckoutV1';
+import SearchV1 from './components/SearchV1';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/delivery-checkout" element={<DeliveryCheckout />} />
           <Route path="/delivery-checkout-v1" element={<DeliveryCheckoutV1 />} />
+          <Route path="/search-v1" element={<SearchV1 />} />
         </Routes>
       </div>
     </Router>
