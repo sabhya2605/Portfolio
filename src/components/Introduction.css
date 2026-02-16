@@ -5,6 +5,7 @@
   display: block;
   cursor: pointer;
   width: 100%;
+  box-shadow: none;
 }
 
 /* Main Container - matches Figma node 2314-2 */
@@ -232,20 +233,24 @@
   padding: 24px;
   overflow: hidden;
   min-width: 0;
+  box-shadow: none;
 }
 
 .case-card-large {
   padding: 24px;
   border-radius: 36px;
   background: #F7F7F7;
+  box-shadow: none;
 }
 
 .case-card-green {
   background: #F3FAF3;
+  box-shadow: none;
 }
 
 .case-card-grey {
   background: #F7F7F7;
+  box-shadow: none;
 }
 
 .case-content {
@@ -253,10 +258,12 @@
   gap: 24px;
   align-items: flex-start;
   width: 100%;
+  box-shadow: none;
 }
 
 .case-content-reverse {
   flex-direction: row-reverse;
+  box-shadow: none;
 }
 
 .case-image-container {
@@ -265,6 +272,7 @@
   overflow: hidden;
   border-radius: 32px;
   align-self: flex-start;
+  box-shadow: none;
 }
 
 .case-content .case-image-container {
@@ -283,6 +291,7 @@
   border-radius: 32px;
   background: lightgray 50% / cover no-repeat;
   display: block;
+  box-shadow: none;
 }
 
 .case-image-top {
@@ -292,6 +301,7 @@
   border-radius: 32px;
   overflow: hidden;
   margin-bottom: 24px;
+  box-shadow: none;
 }
 
 .case-image-full {
@@ -302,6 +312,7 @@
   object-position: center;
   border-radius: 32px;
   display: block;
+  box-shadow: none;
 }
 
 .case-text-container {
@@ -1817,12 +1828,16 @@
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
   }
   
   .case-content-reverse {
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
   }
   
   .case-card,
@@ -1831,18 +1846,48 @@
   .case-card-grey {
     width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
+    box-shadow: none;
+  }
+  
+  .case-card-link {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-shadow: none;
+  }
+  
+  .work-section,
+  .work-cases {
+    overflow-x: hidden;
+    max-width: 100%;
   }
   
   .case-image-container {
     width: 100%;
-    aspect-ratio: auto;
-    height: auto;
+    aspect-ratio: 487 / 360;
+    height: auto !important;
+    min-height: 0;
     overflow: hidden;
     border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+  }
+  
+  .case-content .case-image-container .case-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 32px;
+    box-shadow: none;
   }
   
   .case-image {
     border-radius: 32px;
+    box-shadow: none;
   }
   
   .case-image-top {
@@ -1850,10 +1895,12 @@
     aspect-ratio: 487 / 360;
     border-radius: 32px;
     overflow: hidden;
+    box-shadow: none;
   }
   
   .case-image-full {
     border-radius: 32px;
+    box-shadow: none;
   }
   
   .case-cards-row {
@@ -2095,6 +2142,37 @@
   
   .introduction-content {
     gap: 40px;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  .work-section,
+  .work-cases {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  .case-card-link,
+  .case-card,
+  .case-content,
+  .case-content-reverse {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-shadow: none;
+  }
+  
+  .case-card-link:focus {
+    outline: none;
+  }
+  
+  .case-card-link:focus-visible {
+    outline: 2px solid #094020;
+    outline-offset: 2px;
+  }
+  
+  .case-image-container {
+    max-width: 100%;
+    box-shadow: none;
   }
   
   .name-text,
@@ -2145,6 +2223,12 @@
     flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
+    overflow: visible;
+  }
+  
+  .case-cards-row .case-tags {
+    flex-wrap: wrap;
+    overflow: visible;
   }
   
   .case-tags-vertical {
@@ -2153,7 +2237,7 @@
   }
   
   .case-tags-row {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
   }
@@ -2384,6 +2468,7 @@
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: none;
   }
   
   .case-content,
@@ -2401,12 +2486,14 @@
   .case-image-container {
     border-radius: 32px;
     overflow: hidden;
+    box-shadow: none;
   }
   
   .case-image,
   .case-image-top,
   .case-image-full {
     border-radius: 32px;
+    box-shadow: none;
   }
   
   .case-title,
@@ -2435,6 +2522,12 @@
     flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
+    overflow: visible;
+  }
+  
+  .case-cards-row .case-tags {
+    flex-wrap: wrap;
+    overflow: visible;
   }
   
   .case-tags-vertical {
@@ -2443,7 +2536,7 @@
   }
   
   .case-tags-row {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
   }
@@ -2454,10 +2547,9 @@
     padding: 10px 12px;
     border-radius: 12px;
     white-space: nowrap;
-    flex-shrink: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex-shrink: 0;
+    min-width: fit-content;
+    overflow: visible;
   }
 
   .case-tags-row .case-tag {

@@ -120,13 +120,16 @@ const Introduction = () => {
   const searchCaseImageRef = useRef(null);
   const searchCaseTextRef = useRef(null);
 
-  // Match search case image height to text content height
+  // Match search case image height to text content height (desktop only; mobile uses CSS aspect-ratio)
   useEffect(() => {
     const matchSearchCaseImageHeight = () => {
-      if (searchCaseImageRef.current && searchCaseTextRef.current) {
-        const textHeight = searchCaseTextRef.current.offsetHeight;
-        searchCaseImageRef.current.style.height = `${textHeight}px`;
+      if (!searchCaseImageRef.current || !searchCaseTextRef.current) return;
+      if (window.innerWidth <= 1024) {
+        searchCaseImageRef.current.style.height = '';
+        return;
       }
+      const textHeight = searchCaseTextRef.current.offsetHeight;
+      searchCaseImageRef.current.style.height = `${textHeight}px`;
     };
 
     matchSearchCaseImageHeight();
