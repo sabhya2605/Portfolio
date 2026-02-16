@@ -1260,7 +1260,7 @@
   .dc-v1-bg-layer-inner,
   .dc-v1-design-solution-inner,
   .dc-v1-phase01-inner {
-    padding: 20px 12px 28px;
+    padding: 20px 16px 28px;
   }
 
   .dc-v1-phase01-layer {
@@ -1268,18 +1268,18 @@
   }
 
   .dc-v1-phase02-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .dc-v1-selection-17300-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .dc-v1-selection-17325-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .dc-v1-selection-17339-inner {
@@ -1289,8 +1289,8 @@
 
   .dc-v1-selection-17369-inner,
   .dc-v1-selection-17374-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .dc-v1-selection-17374-inner {
@@ -1299,8 +1299,8 @@
   }
 
   .dc-v1-selection-18771-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .dc-v1-final-comparison {
@@ -1309,21 +1309,21 @@
   }
 
   .dc-v1-final-comparison-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .dc-v1-connect-text {
     margin-top: 48px;
-    padding: 0 12px;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.48px;
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.32px;
     min-height: auto;
   }
 
   .dc-v1-phase02-layer-inner {
-    padding: 32px 16px 32px 20px;
+    padding: 32px 16px 32px 16px;
   }
 
   .dc-v1-selection-17291 {
@@ -1331,18 +1331,45 @@
   }
 
   .dc-v1-selection-17291-inner {
-    padding: 0 12px;
+    padding: 0 16px;
     gap: 20px;
   }
 
   .dc-v1-selection-4-inner {
-    padding: 24px 12px 0;
+    padding: 24px 16px 0;
   }
 
   .dc-v1-rect-17-inner {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
     padding-top: 48px;
     padding-bottom: 48px;
+  }
+
+  /* Body text - 12px */
+  .dc-v1-description,
+  .dc-v1-section-text,
+  .dc-v1-tagline,
+  .dc-v1-rect-17-text,
+  .dc-v1-phase01-subtitle,
+  .dc-v1-phase02-subtitle,
+  .dc-v1-selection-17291-subtitle,
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* Heading text - 16px */
+  .dc-v1-main-title,
+  .dc-v1-section-title,
+  .dc-v1-opportunity-title,
+  .dc-v1-rect-17-title,
+  .dc-v1-design-solution-title,
+  .dc-v1-phase01-title,
+  .dc-v1-phase02-title,
+  .dc-v1-selection-17291-title,
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }

@@ -1360,34 +1360,68 @@
 /* ========== Responsive: small phones ========== */
 @media (max-width: 480px) {
   .sv1-main {
-    padding: 32px 12px 40px;
+    padding: 32px 16px 40px;
     gap: 40px;
   }
 
   .sv1-header-inner {
-    padding: 10px 12px;
+    padding: 10px 16px;
   }
 
   .sv1-main-title {
-    font-size: 26px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .sv1-tackle-quote-text {
-    font-size: 22px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .sv1-learning-cta {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 24px;
     min-height: 72px;
   }
 
   .sv1-rect14-inner,
   .sv1-rect15-inner,
   .sv1-rect16-inner {
-    padding: 24px 12px;
+    padding: 24px 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .sv1-solution-right {
     max-width: 100%;
+  }
+
+  /* Body text - 12px */
+  .sv1-description,
+  .sv1-section-text,
+  .sv1-touchpoints-body-text,
+  .sv1-touchpoints-question-text,
+  .sv1-touchpoints-badge-text,
+  .sv1-brainstorming-text,
+  .sv1-tackle-body-text,
+  .sv1-tackle-quote-subtext,
+  .sv1-version2-text,
+  .sv1-decision-list,
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* Heading text - 16px */
+  .sv1-previous-title,
+  .sv1-section-heading,
+  .sv1-touchpoints-title,
+  .sv1-touchpoints-header-text,
+  .sv1-tackle-step-title,
+  .sv1-decision-title,
+  .sv1-solution-title,
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
