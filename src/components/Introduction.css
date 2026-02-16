@@ -1476,8 +1476,8 @@
 
 .project-image-overlay-second {
   background: rgba(0, 0, 0, 0.6);
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1490,9 +1490,9 @@
 }
 
 .project-image-overlay-second .project-image-overlay-content {
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
   padding: 0;
 }
@@ -1504,8 +1504,8 @@
 
 .project-image-overlay-third {
   background: rgba(0, 0, 0, 0.6);
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1518,9 +1518,9 @@
 }
 
 .project-image-overlay-third .project-image-overlay-content {
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
   padding: 0;
 }
@@ -1532,8 +1532,8 @@
 
 .project-image-overlay-fourth {
   background: rgba(0, 0, 0, 0.6);
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1546,9 +1546,9 @@
 }
 
 .project-image-overlay-fourth .project-image-overlay-content {
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
   padding: 0;
 }
@@ -1560,8 +1560,8 @@
 
 .project-image-overlay-fifth {
   background: rgba(0, 0, 0, 0.6);
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1574,9 +1574,9 @@
 }
 
 .project-image-overlay-fifth .project-image-overlay-content {
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
   padding: 0;
 }
@@ -1606,7 +1606,7 @@
 .project-image-overlay-first {
   background: rgba(0, 0, 0, 0.6);
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1619,9 +1619,9 @@
 }
 
 .project-image-overlay-first .project-image-overlay-content {
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
   padding: 0;
 }
@@ -2005,6 +2005,14 @@
   
   .recognition-card-green .recognition-collage {
     order: 1;
+    align-self: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 259.392 / 188;
+    position: relative;
   }
   
   .recognition-card-grey {
@@ -2026,6 +2034,32 @@
   .recognition-images-grid {
     overflow: visible; /* Changed to visible to allow rounded corners to show */
     border-radius: 0; /* Remove grid border-radius, let masks handle it */
+    margin-left: 0;
+    width: 100%;
+    align-self: flex-start;
+  }
+  
+  .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .recognition-card-left .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .recognition-card-green .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .recognition-card-grey .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
   }
   
   .recognition-image-mask {
@@ -2067,6 +2101,55 @@
   .recognition-collage {
     border-radius: 12px;
     overflow: hidden;
+  }
+  
+  .recognition-card-green .recognition-collage::before {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 259.392 / 188;
+  }
+  
+  .recognition-card-green .recognition-collage-tl {
+    height: 51.9%;
+    width: 38.5%;
+    left: 0;
+    top: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-tr {
+    height: 51.9%;
+    width: 61.5%;
+    left: 38.5%;
+    top: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-br {
+    height: 48.1%;
+    width: 36.2%;
+    left: 63.8%;
+    top: 51.9%;
+  }
+  
+  .recognition-card-green .recognition-collage-bl {
+    height: 48.1%;
+    width: 63.8%;
+    left: 0;
+    top: 51.9%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-bl .recognition-collage-img-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-bl .recognition-collage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .recognition-award-image {
@@ -2604,6 +2687,63 @@
   
   .recognition-card-green .recognition-collage {
     order: 1;
+    align-self: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 259.392 / 188;
+    position: relative;
+  }
+  
+  .recognition-card-green .recognition-collage::before {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 259.392 / 188;
+  }
+  
+  .recognition-card-green .recognition-collage-tl {
+    height: 51.9%;
+    width: 38.5%;
+    left: 0;
+    top: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-tr {
+    height: 51.9%;
+    width: 61.5%;
+    left: 38.5%;
+    top: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-br {
+    height: 48.1%;
+    width: 36.2%;
+    left: 63.8%;
+    top: 51.9%;
+  }
+  
+  .recognition-card-green .recognition-collage-bl {
+    height: 48.1%;
+    width: 63.8%;
+    left: 0;
+    top: 51.9%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-bl .recognition-collage-img-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recognition-card-green .recognition-collage-bl .recognition-collage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .recognition-card-grey {
@@ -2625,6 +2765,32 @@
   .recognition-images-grid {
     overflow: visible; /* Changed to visible to allow rounded corners to show */
     border-radius: 0; /* Remove grid border-radius, let masks handle it */
+    margin-left: 0;
+    width: 100%;
+    align-self: flex-start;
+  }
+  
+  .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .recognition-card-left .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .recognition-card-green .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .recognition-card-grey .recognition-text-content {
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
   }
   
   .recognition-image-mask {
