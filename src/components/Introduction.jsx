@@ -4,28 +4,26 @@ import './Introduction.css';
 import Menu from './Menu';
 import imgMvpAwardJuly2024 from '../images/mvp-award-july-2024.png';
 import imgProject1Skweez from '../images/project-1-squeez.png';
-
-// Figma image URLs (valid for 7 days)
-const imgMenu = "https://www.figma.com/api/mcp/asset/acd85a33-c6fc-4c7f-a397-754b252f51aa";
-const imgRectangle1 = "https://www.figma.com/api/mcp/asset/82abcdc4-9475-482b-97c4-7a74b7b7db84";
-const imgImage1 = "https://www.figma.com/api/mcp/asset/6a034b35-5db4-472f-9eec-4f33129d6ca9";
-const imgRectangle3 = "https://www.figma.com/api/mcp/asset/f7b8a106-4f2c-4489-badd-73abd968f002";
-const imgRectangle4 = "https://www.figma.com/api/mcp/asset/a9ffa723-4ea1-4ed8-8a80-d52d021f759d";
-const imgRectangle5 = "https://www.figma.com/api/mcp/asset/ac57eec5-55b0-4d60-bd3a-138e148f408d";
-const imgRectangle6 = "https://www.figma.com/api/mcp/asset/32cbde40-5fdb-4345-b6e8-06d1388288ae";
-const imgAdvance = "https://www.figma.com/api/mcp/asset/178a31ab-87bf-4910-8079-8897f0021de5";
-const imgRectangle7 = "https://www.figma.com/api/mcp/asset/4e896079-51a5-47ec-956e-f44c8fc1d6b1";
-const imgWhatsAppImage20241219At111349Pm2 = "https://www.figma.com/api/mcp/asset/327695f4-ca30-4188-a7a0-d37430f670f3";
-const imgWhatsAppImage20241219At111349Pm11 = "https://www.figma.com/api/mcp/asset/c3c912ce-e37c-4a82-8ff3-032caee00a29";
-const imgWhatsAppImage20241211At45326Pm11 = "https://www.figma.com/api/mcp/asset/d1baca64-15a3-411e-aaf7-b381aba2b731";
-const imgWhatsAppImage20241211At45326Pm21 = "https://www.figma.com/api/mcp/asset/1cfbceab-520e-4b31-8be7-f8a8e757b501";
-const imgScreenshot20241217At104908Pm1 = "https://www.figma.com/api/mcp/asset/6e535bf3-4327-42c6-8fa1-e499ee024545";
-const imgScreenshot20241217At104805Pm1 = "https://www.figma.com/api/mcp/asset/56bb8cbc-5391-4fe0-85ff-51d68eb724c6";
-const imgSimpleMockupFreeScene11 = "https://www.figma.com/api/mcp/asset/869a6aaa-780c-4667-8766-71e27e396f2e";
-const imgF32C13117719167629462De4680C1 = "https://www.figma.com/api/mcp/asset/0f1cb84d-91cb-4f5d-8f5a-eb8a72a33019";
-const imgFrame4851 = "https://www.figma.com/api/mcp/asset/fdc81015-ff19-4632-befd-5bd3b653260b";
-const img11 = "https://www.figma.com/api/mcp/asset/1a783e53-0e35-4bf8-895d-48266ad82338";
-const imgLine1 = "https://www.figma.com/api/mcp/asset/69f707cf-b683-4073-a817-73bb498de360";
+import imgMenu from '../images/menu.png';
+import imgRectangle1 from '../images/rectangle1.png';
+import imgImage1 from '../images/image1.png';
+import imgRectangle3 from '../images/rectangle3.png';
+import imgRectangle4 from '../images/rectangle4.png';
+import imgRectangle5 from '../images/rectangle5.png';
+import imgRectangle6 from '../images/rectangle6.png';
+import imgAdvance from '../images/advance.png';
+import imgRectangle7 from '../images/rectangle7.png';
+import imgWhatsAppImage20241219At111349Pm2 from '../images/whatsapp1.png';
+import imgWhatsAppImage20241219At111349Pm11 from '../images/whatsapp2.png';
+import imgWhatsAppImage20241211At45326Pm11 from '../images/whatsapp3.png';
+import imgWhatsAppImage20241211At45326Pm21 from '../images/whatsapp4.png';
+import imgScreenshot20241217At104908Pm1 from '../images/screenshot1.png';
+import imgScreenshot20241217At104805Pm1 from '../images/screenshot2.png';
+import imgSimpleMockupFreeScene11 from '../images/mockup.png';
+import imgF32C13117719167629462De4680C1 from '../images/f32c.png';
+import imgFrame4851 from '../images/frame485.png';
+import img11 from '../images/img11.png';
+import imgLine1 from '../images/line1.png';
 
 const Introduction = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
