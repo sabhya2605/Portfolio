@@ -9,11 +9,8 @@ import imgStyleClick from '../images/interests/style-click.png';
 import imgFilming from '../images/interests/filming.png';
 import imgNaturePhotography from '../images/interests/nature-photography.png';
 import imgMusic from '../images/interests/music.png';
-
-// Use the same menu icon as other pages
-const imgMenu = "https://www.figma.com/api/mcp/asset/acd85a33-c6fc-4c7f-a397-754b252f51aa";
-// Use the same expand arrow icon as Search page
-const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
+import imgMenu from '../images/menu.png';
+import imgExpandArrow from '../images/search/expand-arrow.png';
 
 const Resume = () => {
   const navigate = useNavigate();
