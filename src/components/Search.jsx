@@ -5,20 +5,19 @@ import Menu from './Menu';
 import searchGif from '../video/search_gif.gif';
 import imgIPhone15ProWhiteFinal from '../images/delivery-checkout/iphone-15-pro-white-final.png';
 
-// Figma image URLs (valid for 7 days)
-const imgExpandArrow = "https://www.figma.com/api/mcp/asset/e7b4aaa2-c1b6-44a7-b8b3-5f3e28cfa3ec";
-const imgMenu = "https://www.figma.com/api/mcp/asset/25ffddd6-4294-4d8f-b990-cb3892694359";
-const imgRectangle11 = "https://www.figma.com/api/mcp/asset/7b9e1ed5-a4c5-4792-bb44-6c1705538161";
-const imgRectangle12 = "https://www.figma.com/api/mcp/asset/0be4b93d-6b94-4293-b8fa-e11a1111e3d5";
-const imgRectangle13 = "https://www.figma.com/api/mcp/asset/80749140-21fa-404c-ab05-7307960ab2a6";
-const imgVersion1 = "https://www.figma.com/api/mcp/asset/f87587f4-e1eb-44db-85c8-5f37aa341ddb";
-const imgVersion21 = "https://www.figma.com/api/mcp/asset/e8055af2-21ea-49bc-b319-69fbf053847a";
-const imgSearchFinal1 = "https://www.figma.com/api/mcp/asset/4264346b-ae18-497b-8794-92945021ecd2";
-const imgFineDine = "https://www.figma.com/api/mcp/asset/12d7b24a-346e-4528-ae41-00f003217f11";
-const imgLine33 = "https://www.figma.com/api/mcp/asset/c83d9747-2423-458a-b200-f5e0d32af65f";
-const imgLine34 = "https://www.figma.com/api/mcp/asset/4205c629-60f6-4fcc-9184-e1841666f3b6";
-const imgArrow1 = "https://www.figma.com/api/mcp/asset/7efe6360-01fb-42e3-996f-fb6b6ffbbbd8";
-const imgLine36 = "https://www.figma.com/api/mcp/asset/600e5fdd-dd0b-4344-8bda-4f04582ce07d";
+import imgExpandArrow from '../images/search/expand-arrow.png';
+import imgMenu from '../images/search/menu.png';
+import imgRectangle11 from '../images/search/rectangle11.png';
+import imgRectangle12 from '../images/search/rectangle12.png';
+import imgRectangle13 from '../images/search/rectangle13.png';
+import imgVersion1 from '../images/search/version1.png';
+import imgVersion21 from '../images/search/version21.png';
+import imgSearchFinal1 from '../images/search/search-final1.png';
+import imgFineDine from '../images/search/fine-dine.png';
+import imgLine33 from '../images/search/line33.png';
+import imgLine34 from '../images/search/line34.png';
+import imgArrow1 from '../images/search/arrow1.png';
+import imgLine36 from '../images/search/line36.png';
 
 const Search = () => {
   const navigate = useNavigate();

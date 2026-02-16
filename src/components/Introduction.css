@@ -131,6 +131,9 @@
   text-align: center;
   margin: 0;
   width: 100%;
+  white-space: nowrap;
+  display: block;
+  overflow: visible;
 }
 
 .hero-tagline {
@@ -809,6 +812,49 @@
   align-self: stretch;
 }
 
+/* Single full image from Figma export (UX INDIA, MDI) */
+.recognition-images-grid.recognition-images-single {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-left: 0;
+}
+
+.recognition-images-single .recognition-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.recognition-collage.recognition-collage-single {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  flex: 0 0 400px;
+  width: 400px;
+  min-width: 260px;
+  border: none;
+  background: transparent;
+  display: block;
+  line-height: 0;
+}
+
+.recognition-collage-single::before {
+  display: none;
+}
+
+.recognition-collage-single .recognition-collage-img {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
 .recognition-images-grid {
   display: inline-grid;
   grid-template-columns: max-content;
@@ -1022,26 +1068,35 @@
 }
 
 .recognition-collage-br .recognition-collage-img-wrapper {
-  height: 176.46%;
-  width: 268.26%;
-  left: -50.32%;
-  top: -38.39%;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
   border-bottom-right-radius: 14.278px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .recognition-collage-bl .recognition-collage-img-wrapper {
-  height: 374.92%;
-  width: 304.23%;
-  left: -74.12%;
-  top: -110.35%;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
   border-bottom-left-radius: 14.278px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .recognition-collage-br .recognition-collage-img,
 .recognition-collage-bl .recognition-collage-img {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: contain;
   border-radius: inherit;
 }
 
@@ -1750,6 +1805,7 @@
   .hero-subtitle {
     font-size: clamp(24px, 4vw, 48px);
     line-height: clamp(32px, 5vw, 62px);
+    white-space: nowrap;
   }
   
   .hero-tagline {
@@ -2050,6 +2106,7 @@
   .hero-subtitle {
     font-size: 28px;
     line-height: 36px;
+    white-space: nowrap;
   }
   
   .hero-tagline {
@@ -2291,6 +2348,7 @@
   .hero-subtitle {
     font-size: 24px;
     line-height: 32px;
+    white-space: nowrap;
   }
   
   .hero-tagline {

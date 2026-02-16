@@ -13,12 +13,12 @@ import imgRectangle5 from '../images/rectangle5.png';
 import imgRectangle6 from '../images/rectangle6.png';
 import imgAdvance from '../images/advance.png';
 import imgRectangle7 from '../images/rectangle7.png';
-import imgWhatsAppImage20241219At111349Pm2 from '../images/whatsapp1.png';
-import imgWhatsAppImage20241219At111349Pm11 from '../images/whatsapp2.png';
-import imgWhatsAppImage20241211At45326Pm11 from '../images/whatsapp3.png';
-import imgWhatsAppImage20241211At45326Pm21 from '../images/whatsapp4.png';
-import imgScreenshot20241217At104908Pm1 from '../images/screenshot1.png';
-import imgScreenshot20241217At104805Pm1 from '../images/screenshot2.png';
+import imgUxindia2024 from '../images/uxindia-2024.png';
+import imgMdiGurgaon from '../images/mdi-gurgaon.png';
+import imgMdiWhatsapp1 from '../images/mdi-whatsapp1.png';
+import imgMdiWhatsapp2 from '../images/mdi-whatsapp2.png';
+import imgMdiScreenshot1 from '../images/mdi-screenshot1.png';
+import imgMdiScreenshot2 from '../images/mdi-screenshot2.png';
 import imgSimpleMockupFreeScene11 from '../images/mockup.png';
 import imgF32C13117719167629462De4680C1 from '../images/f32c.png';
 import imgFrame4851 from '../images/frame485.png';
@@ -251,7 +251,7 @@ const Introduction = () => {
               </div>
               <p className="hero-title">designer </p>
             </div>
-            <p className="hero-subtitle">crafting digital experiences</p>
+            <p className="hero-subtitle">crafting&nbsp;digital&nbsp;experiences</p>
           </div>
           <p className="hero-tagline">
             I am no constructor but I surely know how to "bridge" the gap between business and user needs!
@@ -441,13 +441,8 @@ const Introduction = () => {
           </div>
           <div className="recognitions-content">
             <div className="recognition-card recognition-card-left">
-              <div className="recognition-images-grid">
-                <div className="recognition-image-mask">
-                  <img src={imgWhatsAppImage20241219At111349Pm2} alt="UXINDIA" className="recognition-image" />
-                </div>
-                <div className="recognition-image-mask recognition-image-mask-right">
-                  <img src={imgWhatsAppImage20241219At111349Pm11} alt="UXINDIA" className="recognition-image" />
-                </div>
+              <div className="recognition-images-grid recognition-images-single">
+                <img src={imgUxindia2024} alt="Volunteer at UXINDIA2024" className="recognition-image" />
               </div>
               <div className="recognition-text-content">
                 <p className="recognition-title">Volunteer at UXINDIA2024</p>
@@ -466,19 +461,19 @@ const Introduction = () => {
                 </div>
                 <div className="recognition-collage">
                   <div className="recognition-collage-image recognition-collage-tl">
-                    <img src={imgWhatsAppImage20241211At45326Pm11} alt="MDI" className="recognition-collage-img" />
+                    <img src={imgMdiWhatsapp1} alt="MDI workshop" className="recognition-collage-img" />
                   </div>
                   <div className="recognition-collage-image recognition-collage-tr">
-                    <img src={imgWhatsAppImage20241211At45326Pm21} alt="MDI" className="recognition-collage-img" />
+                    <img src={imgMdiWhatsapp2} alt="MDI workshop" className="recognition-collage-img" />
                   </div>
                   <div className="recognition-collage-image recognition-collage-br">
                     <div className="recognition-collage-img-wrapper">
-                      <img src={imgScreenshot20241217At104908Pm1} alt="MDI" className="recognition-collage-img" />
+                      <img src={imgMdiScreenshot1} alt="MDI workshop" className="recognition-collage-img" />
                     </div>
                   </div>
                   <div className="recognition-collage-image recognition-collage-bl">
                     <div className="recognition-collage-img-wrapper">
-                      <img src={imgScreenshot20241217At104805Pm1} alt="MDI" className="recognition-collage-img" />
+                      <img src={imgMdiScreenshot2} alt="MDI workshop" className="recognition-collage-img" />
                     </div>
                   </div>
                 </div>
