@@ -27,6 +27,8 @@ const expandArrowSvg = (
 const DeliveryCheckoutV1 = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [finalDownloadImgError, setFinalDownloadImgError] = useState(false);
+  const [finalComparisonImgError, setFinalComparisonImgError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -388,15 +390,34 @@ const DeliveryCheckoutV1 = () => {
           </div>
         </section>
 
-        {/* Rectangle 16 – Full-width green band #094020; selection 2362:18788 flex, align-items flex-start, gap 50.922px */}
+        {/* Rectangle 16 – Full-width green band #094020; selection 2362:18788. Top: final download; below: correct export 2362:18788 */}
         <section id="final-comparison" className="dc-v1-final-comparison dc-v1-gap" data-node-id="2362:18788">
           <div className="dc-v1-final-comparison-inner">
             <div className="dc-v1-selection-18788-inner">
-              <img
-                src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/final-comparison-selection.png`}
-                alt="Final Comparison – Delivery checkout previously and now"
-                className="dc-v1-final-comparison-img"
-              />
+              {!finalDownloadImgError && (
+                <img
+                  src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/final-download.png`}
+                  alt="Final download – Delivery checkout"
+                  className="dc-v1-final-comparison-img"
+                  onError={() => setFinalDownloadImgError(true)}
+                />
+              )}
+              {!finalComparisonImgError && (
+                <img
+                  src={`${process.env.PUBLIC_URL || ''}/images/delivery-checkout/final-comparison-selection.png`}
+                  alt="Final Comparison – Delivery checkout previously and now"
+                  className="dc-v1-final-comparison-img"
+                  onError={() => {
+                    console.error('Failed to load final-comparison-selection.png');
+                    setFinalComparisonImgError(true);
+                  }}
+                />
+              )}
+              {finalComparisonImgError && (
+                <div className="dc-v1-image-error">
+                  <p>Image failed to load. Please re-export from Figma node 2362:18788.</p>
+                </div>
+              )}
             </div>
             <p className="dc-v1-connect-text">Let&apos;s connect to discuss what can be done differently today!</p>
           </div>

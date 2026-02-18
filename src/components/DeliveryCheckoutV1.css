@@ -1053,6 +1053,7 @@
 
 .dc-v1-selection-18788-inner {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 50.922px;
   width: 100%;
@@ -1066,6 +1067,18 @@
   height: auto;
   display: block;
   object-fit: contain;
+}
+
+.dc-v1-image-error {
+  width: 100%;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 /* Connect text – width 884px, height 116px, color #FFF, Libre Franklin 48px, center */
