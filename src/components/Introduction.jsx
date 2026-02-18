@@ -459,7 +459,7 @@ const Introduction = () => {
                 <div className="recognition-text-content">
                   <p className="recognition-title">Guest Speaker at MDI, Gurgaon</p>
                   <p className="recognition-description">
-                    Conducted a workshop at MDI Gurgaon for aspiring product managers on "<span className="recognition-bold">Design and Product collaboration</span> over Figma".
+                    Conducted a workshop at MDI Gurgaon for aspiring product managers on "<span className="recognition-bold">Design and Product collaboration</span>" over Figma.
                   </p>
                 </div>
                 <div className="recognition-collage">
