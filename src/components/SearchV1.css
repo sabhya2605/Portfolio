@@ -1212,15 +1212,25 @@
     padding: 0 16px;
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
 
   .sv1-tackle-steps {
     grid-template-columns: 1fr;
     gap: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
+  /* Reorder so Speak + arrow sit just above the green quote box: Listen, Align, then Understand */
+  .sv1-tackle-step:nth-child(1) { order: 0; }
+  .sv1-tackle-step:nth-child(2) { order: 2; }
+  .sv1-tackle-step:nth-child(3) { order: 1; }
+
   .sv1-tackle-motivation-speak-row {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   .sv1-tackle-step-title {
@@ -1237,6 +1247,10 @@
     width: 100%;
     padding: 20px 16px;
     gap: 16px;
+    border-radius: 16px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
   }
 
   .sv1-tackle-quote-text {
@@ -1392,22 +1406,41 @@
     padding-right: 16px;
   }
 
+  /* Align with other sections: same left/right padding as rect inners */
+  .sv1-lifecycle,
+  .sv1-brainstorming {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
   .sv1-solution-right {
     max-width: 100%;
   }
 
-  /* Body text - 12px */
+  /* Body text - all same size 12px in mobile */
   .sv1-description,
   .sv1-section-text,
   .sv1-touchpoints-body-text,
   .sv1-touchpoints-question-text,
   .sv1-touchpoints-badge-text,
+  .sv1-touchpoints-list,
   .sv1-brainstorming-text,
   .sv1-tackle-body-text,
   .sv1-tackle-quote-subtext,
+  .sv1-tackle-step-content,
   .sv1-version2-text,
+  .sv1-version2-note,
   .sv1-decision-list,
-  p {
+  .sv1-solution-text,
+  .sv1-learning-para,
+  .sv1-fulfilling-content .sv1-section-text,
+  .sv1-previous-captions,
+  .sv1-caption,
+  .sv1-principles-list,
+  .sv1-principles-item,
+  .sv1-main p,
+  .sv1-main li {
     font-size: 12px;
     line-height: 18px;
   }

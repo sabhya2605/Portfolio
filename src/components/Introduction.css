@@ -173,8 +173,9 @@
 }
 
 .work-image-wrapper {
+  width: 64px;
   height: 64px;
-  width: 64.897px;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1833,7 +1834,7 @@
   }
   
   .case-content-reverse {
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -2542,6 +2543,12 @@
     gap: 12px;
   }
   
+  .work-image-wrapper {
+    width: 64px;
+    height: 64px;
+    aspect-ratio: 1 / 1;
+  }
+  
   .case-card,
   .case-card-large,
   .case-card-green,
@@ -2603,9 +2610,32 @@
   
   .case-tags {
     flex-wrap: wrap;
+    gap: 12px;
     width: 100%;
     box-sizing: border-box;
     overflow: visible;
+  }
+  
+  /* Multi functional experience (first card only, not reverse): User Pain Points + Process Design on one line, Product Flow Iterations on next */
+  .case-card-large .case-content:not(.case-content-reverse) .case-text-container .case-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .case-card-large .case-content:not(.case-content-reverse) .case-text-container .case-tags .case-tag:nth-child(2) {
+    order: 2;
+  }
+  
+  /* Payment method experience (case-card-grey): Product Scope + Product Thinking on one line, Design Solution on next */
+  .case-cards-row .case-card-grey .case-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .case-cards-row .case-card-grey .case-tags .case-tag:nth-child(3) {
+    order: 2;
   }
   
   .case-cards-row .case-tags {
@@ -2615,11 +2645,13 @@
   
   .case-tags-vertical {
     width: 100%;
+    gap: 12px;
     box-sizing: border-box;
   }
   
   .case-tags-row {
     flex-wrap: wrap;
+    gap: 12px;
     width: 100%;
     box-sizing: border-box;
   }
