@@ -1,11 +1,11 @@
 /* Delivery Checkout V1 – Full width from screen edge, no outer padding. Inner padding from content reference. */
 
-/* Page: left to right no padding from screen; 64px from top of screen to start of header (2362:17118) */
+/* Page: header starts at top of screen */
 .dc-v1-page {
   width: 100%;
   max-width: 100vw;
   margin: 0;
-  padding: 64px 0 0;
+  padding: 0;
   overflow-x: hidden;
   background: #FFF;
   box-sizing: border-box;
@@ -24,6 +24,9 @@
   width: 100%;
   background: #FFF;
   padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .dc-v1-selection-1-inner {

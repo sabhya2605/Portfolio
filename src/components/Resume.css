@@ -2,7 +2,7 @@
 .resume-container {
   display: flex;
   width: 1440px;
-  padding: 118px 120px 0 120px;
+  padding: 0 120px 0 120px;
   flex-direction: column;
   align-items: center;
   background: #FFF;
@@ -27,6 +27,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFF;
+  padding: 24px 0;
+  box-sizing: border-box;
 }
 
 .resume-header-left {
@@ -794,7 +800,7 @@
 @media (max-width: 1440px) {
   .resume-container {
     width: 100%;
-    padding: 118px 80px 0 80px;
+    padding: 0 80px 0 80px;
   }
   
   .resume-content {
@@ -805,7 +811,7 @@
 
 @media (max-width: 1024px) {
   .resume-container {
-    padding: 80px 40px 0 40px;
+    padding: 0 40px 0 40px;
   }
   
   .resume-content {
@@ -912,7 +918,7 @@
 
 @media (max-width: 768px) {
   .resume-container {
-    padding: 60px 24px 0 24px;
+    padding: 0 24px 0 24px;
   }
   
   .resume-content {
@@ -1035,7 +1041,7 @@
 
 @media (max-width: 480px) {
   .resume-container {
-    padding: 40px 16px 0 16px;
+    padding: 0 16px 0 16px;
   }
   
   .resume-content {

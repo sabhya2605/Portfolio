@@ -5,7 +5,7 @@
   max-width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 64px 0 0;
+  padding: 0;
   background: #FFF;
   box-sizing: border-box;
 }
@@ -13,6 +13,9 @@
 .sv1-header {
   width: 100%;
   background: #FFF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .sv1-header-inner {
