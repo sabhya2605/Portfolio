@@ -4,7 +4,7 @@
   max-width: 1440px;
   width: 100%;
   min-height: 12213px;
-  padding: 64px 120px;
+  padding: 0 120px 64px 120px;
   align-items: flex-start;
   gap: 10px;
   margin: 0 auto;
@@ -42,8 +42,11 @@
   justify-content: space-between;
   align-items: center;
   background: #FFF;
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 24px 0;
+  box-sizing: border-box;
 }
 
 .delivery-checkout-header-left {
@@ -3138,13 +3141,13 @@
 /* Responsive Styles */
 @media (max-width: 1440px) {
   .delivery-checkout-container {
-    padding: 64px 80px;
+    padding: 0 80px 64px 80px;
   }
 }
 
 @media (max-width: 1024px) {
   .delivery-checkout-container {
-    padding: 48px 40px;
+    padding: 0 40px 48px 40px;
     overflow-x: visible;
   }
   
@@ -4516,7 +4519,7 @@
 
 @media (max-width: 768px) {
   .delivery-checkout-container {
-    padding: 32px 24px;
+    padding: 0 24px 32px 24px;
     overflow-x: visible;
   }
   
@@ -4810,7 +4813,7 @@
 
 @media (max-width: 480px) {
   .delivery-checkout-container {
-    padding: 24px 16px;
+    padding: 0 16px 24px 16px;
     overflow-x: visible;
   }
   
