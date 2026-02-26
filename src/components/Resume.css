@@ -598,13 +598,21 @@
 /* Footer Section */
 .resume-footer-section {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 50px;
+  margin-top: 52px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resume-footer-top {
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   gap: 24px;
-  margin-top: 52px;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .resume-footer-left {
@@ -669,6 +677,117 @@
   height: 1px;
   background: #E0E0E0;
   margin-top: 8px;
+}
+
+/* Social links – Figma 2641:161 (line 9.733px, buttons 82×82px, gap 49.2px, radius 12px) */
+.resume-footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 50px;
+  padding-bottom: 87.27px;
+}
+
+.resume-footer-social-line {
+  width: 100%;
+  max-width: 1019.59px;
+  height: 9.733px;
+  background: #DFFCA1;
+  flex-shrink: 0;
+  border-radius: 1px;
+}
+
+.resume-footer-social-buttons {
+  display: flex;
+  gap: 49.2px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resume-footer-social-btn {
+  display: block;
+  position: relative;
+  border-radius: 12px;
+  background: lightgray 50% / cover no-repeat;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.resume-footer-social-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* image 2 – LinkedIn: 82×82, 1/1, cover 50% */
+.resume-footer-social-btn[data-image-num="2"] {
+  width: 82px;
+  height: 82px;
+  min-width: 82px;
+  min-height: 82px;
+  aspect-ratio: 1 / 1;
+}
+
+/* image 3 – Medium: 82×82, 1/1, bg -26.039px -0.273px / 160% 100% (set inline) */
+.resume-footer-social-btn[data-image-num="3"] {
+  width: 82px;
+  height: 82px;
+  min-width: 82px;
+  min-height: 82px;
+  aspect-ratio: 1 / 1;
+}
+
+/* image 1 – Behance: 81.916×82, aspect 81.92/82, cover 50% */
+.resume-footer-social-btn[data-image-num="1"] {
+  width: 81.916px;
+  height: 82px;
+  min-width: 81.916px;
+  min-height: 82px;
+  aspect-ratio: 81.92 / 82;
+}
+
+/* image 4 – Dribbble: 82×82, 1/1, cover 50% */
+.resume-footer-social-btn[data-image-num="4"] {
+  width: 82px;
+  height: 82px;
+  min-width: 82px;
+  min-height: 82px;
+  aspect-ratio: 1 / 1;
+}
+
+/* image 5 – Instagram: 82×82, 1/1, cover 50% */
+.resume-footer-social-btn[data-image-num="5"] {
+  width: 82px;
+  height: 82px;
+  min-width: 82px;
+  min-height: 82px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Image layer: fill container, cover, center (image 1, 2, 4, 5) */
+.resume-footer-social-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 12px;
+  background: lightgray;
+}
+
+/* image 3 – background layer (position/size set inline) */
+.resume-footer-social-img--3 {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 82px;
+  border-radius: 12px;
+  background-color: lightgray;
+  background-repeat: no-repeat;
 }
 
 /* Responsive Styles */
@@ -745,6 +864,10 @@
   }
   
   .resume-footer-section {
+    gap: 32px;
+  }
+  
+  .resume-footer-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
@@ -762,6 +885,28 @@
   
   .resume-footer-line {
     max-width: 100%;
+  }
+  
+  .resume-footer-social {
+    gap: 32px;
+  }
+  
+  .resume-footer-social-buttons {
+    gap: 24px;
+  }
+  
+  .resume-footer-social-btn {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    min-height: 72px;
+  }
+  
+  .resume-footer-social-btn[data-image-num="1"] {
+    width: 71px;
+    height: 72px;
+    min-width: 71px;
+    min-height: 72px;
   }
 }
 
@@ -1030,9 +1175,40 @@
     gap: 20px;
   }
   
+  .resume-footer-top {
+    gap: 20px;
+  }
+  
   .resume-footer-left,
   .resume-footer-right {
     gap: 6px;
+  }
+  
+  .resume-footer-social {
+    gap: 24px;
+  }
+  
+  .resume-footer-social-buttons {
+    gap: 16px;
+  }
+  
+  .resume-footer-social-btn {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    border-radius: 10px;
+  }
+  
+  .resume-footer-social-btn[data-image-num="1"] {
+    width: 55px;
+    height: 56px;
+    min-width: 55px;
+    min-height: 56px;
+  }
+  
+  .resume-footer-social-img--3 {
+    min-height: 56px;
   }
   
   .resume-footer-connect,
