@@ -12,6 +12,17 @@ import imgMusic from '../images/interests/music.png';
 import imgMenu from '../images/menu.png';
 import imgExpandArrow from '../images/search/expand-arrow.png';
 
+const PUBLIC_URL = process.env.PUBLIC_URL || '';
+
+/** Figma 2641:163 – social layer config: image 2=LinkedIn, 3=Medium, 1=Behance, 4=Dribbble, 5=Instagram */
+const SOCIAL_LAYERS = [
+  { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/sabhya-singhal-715130207/', imageNum: 2, nodeId: '2641:165' },
+  { id: 'medium', label: 'Medium', href: 'https://medium.com/@sabhya.jvm', imageNum: 3, nodeId: '2641:166' },
+  { id: 'behance', label: 'Behance', href: 'https://www.behance.net/sabhyasinghal', imageNum: 1, nodeId: '2641:164' },
+  { id: 'dribbble', label: 'Dribbble', href: 'https://dribbble.com/sabhya26', imageNum: 4, nodeId: '2641:167' },
+  { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/sabhya.says/', imageNum: 5, nodeId: '2641:168' },
+];
+
 const Resume = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,6 +46,9 @@ const Resume = () => {
     { id: 'certification', title: 'Certification' },
     { id: 'interests', title: 'Interests' },
   ];
+
+  // Social links – replace href when ready; images from public/images/resume/ (run scripts/export-figma-resume-social.js)
+  const socialLinks = SOCIAL_LAYERS;
 
   // Auto-playing carousel for Interests
   const interestsRef = useRef(null);
@@ -366,16 +380,59 @@ const Resume = () => {
           </div>
         </div>
 
-        {/* Footer Section */}
+        {/* Footer Section – selection 2641:12; social buttons 2641:161 */}
         <div id="footer" className="resume-footer-section">
-          <div className="resume-footer-left">
-            <p className="resume-footer-connect">Let's connect. Drop me a 👋 hi!</p>
-            <p className="resume-footer-email">singhalsabhya05@gmail.com</p>
+          <div className="resume-footer-top">
+            <div className="resume-footer-left">
+              <p className="resume-footer-connect">Let's connect. Drop me a 👋 hi!</p>
+              <p className="resume-footer-email">singhalsabhya05@gmail.com</p>
+            </div>
+            <div className="resume-footer-right">
+              <p className="resume-footer-curated">Curated by <strong>Sabhya Singhal</strong></p>
+              <p className="resume-footer-powered">Powered by fun, food, and caffeine...</p>
+              <div className="resume-footer-line"></div>
+            </div>
           </div>
-          <div className="resume-footer-right">
-            <p className="resume-footer-curated">Curated by <strong>Sabhya Singhal</strong></p>
-            <p className="resume-footer-powered">Powered by fun, food, and caffeine...</p>
-            <div className="resume-footer-line"></div>
+          <div className="resume-footer-social" data-node-id="2641:161">
+            <div className="resume-footer-social-line" aria-hidden="true"></div>
+            <div className="resume-footer-social-buttons">
+              {socialLinks.map((item) => {
+                const imgSrc = `${PUBLIC_URL}/images/resume/social-image-${item.imageNum}.png`;
+                const isImage3 = item.imageNum === 3;
+                return (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target={item.href && item.href !== '#' ? '_blank' : undefined}
+                    rel={item.href && item.href !== '#' ? 'noopener noreferrer' : undefined}
+                    className="resume-footer-social-btn"
+                    aria-label={item.label}
+                    data-node-id={item.nodeId}
+                    data-image-num={item.imageNum}
+                    onClick={(e) => { if (!item.href || item.href === '#') e.preventDefault(); }}
+                  >
+                    {isImage3 ? (
+                      <span
+                        className="resume-footer-social-img resume-footer-social-img--3"
+                        style={{
+                          backgroundImage: `url(${imgSrc})`,
+                          backgroundSize: '160% 100%',
+                          backgroundPosition: '-26.039px -0.273px',
+                        }}
+                        role="img"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <img
+                        src={imgSrc}
+                        alt=""
+                        className={`resume-footer-social-img resume-footer-social-img--${item.imageNum}`}
+                      />
+                    )}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
