@@ -18,21 +18,31 @@
   align-items: flex-start;
   width: 1200px;
   padding: 0 16px;
+  padding-top: 104px;
 }
 
 /* Header Section */
 .resume-header-section {
   display: flex;
   width: 100%;
+  margin-bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #FFF;
+  padding: 24px clamp(16px, 8vw, 120px);
+  box-sizing: border-box;
+}
+
+.resume-header-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #FFF;
-  padding: 24px 0;
-  box-sizing: border-box;
 }
 
 .resume-header-left {
@@ -177,7 +187,7 @@
 .resume-about-text-container {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 12px;
   align-items: flex-start;
   width: 100%;
 }
@@ -683,6 +693,9 @@
   height: 1px;
   background: #E0E0E0;
   margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
 }
 
 /* Social links – Figma 2641:161 (line 9.733px, buttons 82×82px, gap 49.2px, radius 12px) */
@@ -698,8 +711,9 @@
 
 .resume-footer-social-line {
   width: 100%;
-  max-width: 1019.59px;
-  height: 9.733px;
+  max-width: none;
+  height: 2px;
+  align-self: stretch;
   background: #DFFCA1;
   flex-shrink: 0;
   border-radius: 1px;
@@ -923,7 +937,7 @@
   
   .resume-content {
     gap: 32px;
-    padding: 0 12px;
+    padding: 104px 12px 0;
   }
   
   .resume-section-title {
@@ -1046,7 +1060,7 @@
   
   .resume-content {
     gap: 24px;
-    padding: 0 8px;
+    padding: 104px 8px 0;
   }
   
   .resume-section-header {
