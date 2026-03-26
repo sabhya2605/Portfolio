@@ -665,6 +665,7 @@
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
+  margin-left: 108px;
 }
 
 .sv1-tackle-step-title {
@@ -1236,6 +1237,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .sv1-tackle-step-speak-inline {
+    margin-left: 0;
   }
 
   .sv1-tackle-step-title {
