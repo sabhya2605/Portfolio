@@ -18,21 +18,31 @@
   align-items: flex-start;
   width: 1200px;
   padding: 0 16px;
+  padding-top: 104px;
 }
 
 /* Header Section */
 .resume-header-section {
   display: flex;
   width: 100%;
+  margin-bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #FFF;
+  padding: 24px clamp(16px, 8vw, 120px);
+  box-sizing: border-box;
+}
+
+.resume-header-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #FFF;
-  padding: 24px 0;
-  box-sizing: border-box;
 }
 
 .resume-header-left {

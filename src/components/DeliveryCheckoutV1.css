@@ -24,9 +24,11 @@
   width: 100%;
   background: #FFF;
   padding: 0;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .dc-v1-selection-1-inner {

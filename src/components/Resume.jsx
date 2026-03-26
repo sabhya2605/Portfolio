@@ -203,21 +203,23 @@ const Resume = () => {
       <div className="resume-content" data-node-id="2409:572">
         {/* Header Section */}
         <div className="resume-header-section">
-          <div className="resume-header-left">
-            <div className="resume-back-button" onClick={handleBackClick} style={{ cursor: 'pointer' }}>
-              <div className="resume-back-icon-wrapper">
-                <div className="resume-back-icon-rotate">
-                  <div className="resume-back-icon">
-                    <img alt="" src={imgExpandArrow} />
+          <div className="resume-header-inner">
+            <div className="resume-header-left">
+              <div className="resume-back-button" onClick={handleBackClick} style={{ cursor: 'pointer' }}>
+                <div className="resume-back-icon-wrapper">
+                  <div className="resume-back-icon-rotate">
+                    <div className="resume-back-icon">
+                      <img alt="" src={imgExpandArrow} />
+                    </div>
                   </div>
                 </div>
               </div>
+              <p className="resume-name-text">Sabhya Singhal</p>
             </div>
-            <p className="resume-name-text">Sabhya Singhal</p>
-          </div>
-          <div className="resume-menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
-            <img src={imgMenu} alt="Menu" className="resume-menu-icon" />
-            <p className="resume-menu-text">Menu</p>
+            <div className="resume-menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
+              <img src={imgMenu} alt="Menu" className="resume-menu-icon" />
+              <p className="resume-menu-text">Menu</p>
+            </div>
           </div>
         </div>
         {/* About me Section */}
