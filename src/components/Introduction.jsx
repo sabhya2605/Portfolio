@@ -7,6 +7,7 @@ import imgProject1Skweez from '../images/project-1-squeez.png';
 import imgMenu from '../images/menu.png';
 import imgRectangle1 from '../images/rectangle1.png';
 import imgImage1 from '../images/image1.png';
+import imgAspora from '../images/aspora.jpg';
 import imgRectangle3 from '../images/rectangle3.png';
 import imgRectangle4 from '../images/rectangle4.png';
 import imgRectangle5 from '../images/rectangle5.png';
@@ -260,6 +261,29 @@ const Introduction = () => {
             I am no constructor but I surely know how to "bridge" the gap between business and user needs!
           </p>
         </div>
+
+        {/* Work Experience Section - Aspora */}
+        <a
+          href="https://www.figma.com/design/O52s0gyUGghNaD7uUjhOhG/Aspora-works-by-me?node-id=45-1850&t=QkrbraHXkM0SDNI5-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="case-card-link"
+        >
+          <div className="work-section">
+            <div className="work-header">
+              <div className="work-header-left">
+                <div className="work-image-wrapper">
+                  <img src={imgAspora} alt="Aspora" className="work-image" />
+                </div>
+                <div className="work-company-info">
+                  <p className="work-company-text">Projects I worked on at</p>
+                  <p className="work-company-name">Aspora (YC, S22)</p>
+                </div>
+              </div>
+              <p className="work-date">April 2026- July 2026</p>
+            </div>
+          </div>
+        </a>
 
         {/* Work Experience Section */}
         <div className="work-section">

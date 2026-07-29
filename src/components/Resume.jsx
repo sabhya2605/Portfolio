@@ -261,6 +261,20 @@ const Resume = () => {
             <p className="resume-section-title" data-node-id="2409:586">Experience</p>
           </div>
 
+          {/* Aspora Experience */}
+          <div className="resume-experience-card" data-node-id="121:52">
+            <div className="resume-experience-header" data-node-id="121:53">
+              <p className="resume-experience-company" data-node-id="121:54">Aspora (YC, S22) | April 26' - July 26'</p>
+              <p className="resume-experience-position" data-node-id="121:55">Product Designer</p>
+            </div>
+            <ul className="resume-experience-list" data-node-id="121:56">
+              <li><span>Designed the <strong>UAE Gold Investment</strong> experience by analyzing differences between UAE and UK products, enabling a localized investment journey for regional users.</span></li>
+              <li><span>Optimized the onboarding experience by introducing contextual exit nudges, <strong>reducing user drop-offs by 32%</strong> and capturing actionable abandonment insights.</span></li>
+              <li><span>Simplified post-onboarding flows, <strong>improving usability and increasing feature discoverability</strong> for newly onboarded users.</span></li>
+              <li><span><strong>Designed service downtime communication</strong> experiences to ensure transparency, keeping users informed while maintaining access to unaffected platform features.</span></li>
+            </ul>
+          </div>
+
           {/* Magicpin Experience */}
           <div className="resume-experience-card" data-node-id="2409:587">
             <div className="resume-experience-header" data-node-id="2409:588">
@@ -268,13 +282,13 @@ const Resume = () => {
               <p className="resume-experience-position" data-node-id="2409:590">Product Designer</p>
             </div>
             <ul className="resume-experience-list" data-node-id="2409:591">
-              <li><span>Enhanced search suggesters and results by making them intent-aware, reducing drop-offs by 57% and significantly increasing conversions </span></li>
+              <li><span>Enhanced search suggesters and results by making them intent-aware, <strong>reducing drop-offs by 57%</strong> and significantly increasing conversions </span></li>
               <li><span>Led end-to-end design for food and fashion delivery products (magicNow, magic9), driving revenue growth by improving brand positioning and optimizing item widget content hierarchy across the app. </span></li>
-              <li><span>Simplified magicPay checkout: Identified the problem of information overload and redesigned magicPay flow, increasing daily average users by 24% and reducing transaction time by 27%.  </span></li>
+              <li><span>Simplified magicPay checkout: Identified the problem of information overload and redesigned magicPay flow, <strong>increasing daily average users by 24%</strong> and reducing <strong>transaction time by 27%</strong>.  </span></li>
               <li><span>Revisited merchant portal food delivery: Conducted user research and usability testing and incorporated those insights leading to better delivery experience for merchants and reduced support tickets by 48%.  </span></li>
-              <li><span>Optimized voucher and delivery checkout flow by implementing progressive disclosure, reducing cognitive load and information overload, resulting in an average of 30% decrease in checkout completion time and significantly improving user experience. </span></li>
-              <li><span>Developed a comprehensive Design System, reducing design time by 20% and improving cross-functional collaboration between design and technology, further establishing consistency in UI. </span></li>
-              <li><span>Enhanced merchant portal dashboards, streamlining discount creation and incorporating 15+ actionable insights from user feedback. </span></li>
+              <li><span>Optimized voucher and delivery checkout flow by implementing progressive disclosure, reducing cognitive load and information overload, <strong>resulting in an average of 30% decrease in checkout completion time</strong> and significantly improving user experience. </span></li>
+              <li><span>Developed a comprehensive Design System, <strong>reducing design time by 20%</strong> and improving cross-functional collaboration between design and technology, further establishing consistency in UI. </span></li>
+              <li><span>Enhanced merchant portal dashboards, streamlining discount creation and <strong>incorporating 15+ actionable insights</strong> from user feedback. </span></li>
               <li><span>Redesigned Easy Rewards to boost user interaction, with increased redemptions.</span></li>
             </ul>
           </div>
