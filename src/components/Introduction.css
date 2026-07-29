@@ -220,7 +220,7 @@
 }
 
 .work-date {
-  display: none;
+  display: block;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 24px;
