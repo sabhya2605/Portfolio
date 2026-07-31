@@ -263,27 +263,20 @@ const Introduction = () => {
         </div>
 
         {/* Work Experience Section - Aspora */}
-        <a
-          href="https://www.figma.com/design/O52s0gyUGghNaD7uUjhOhG/Aspora-works-by-me?node-id=45-1850&t=QkrbraHXkM0SDNI5-1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="case-card-link"
-        >
-          <div className="work-section">
-            <div className="work-header">
-              <div className="work-header-left">
-                <div className="work-image-wrapper">
-                  <img src={imgAspora} alt="Aspora" className="work-image" />
-                </div>
-                <div className="work-company-info">
-                  <p className="work-company-text">Projects I worked on at</p>
-                  <p className="work-company-name">Aspora (YC, S22)</p>
-                </div>
+        <div className="work-section">
+          <div className="work-header">
+            <div className="work-header-left">
+              <div className="work-image-wrapper">
+                <img src={imgAspora} alt="Aspora" className="work-image" />
               </div>
-              <p className="work-date">April 2026- July 2026</p>
+              <div className="work-company-info">
+                <p className="work-company-text">Projects I worked on at</p>
+                <p className="work-company-name">Aspora (YC, S22)</p>
+              </div>
             </div>
+            <p className="work-date">April 2026- July 2026</p>
           </div>
-        </a>
+        </div>
 
         {/* Work Experience Section */}
         <div className="work-section">
