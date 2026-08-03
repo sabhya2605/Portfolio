@@ -1,0 +1,842 @@
+/* Aspora – Post-onboarding experience. Figma frame 128:3 (file "yaprr", node 128-2). */
+
+.apo-page {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  background: #FFF;
+  box-sizing: border-box;
+}
+
+/* Header */
+.apo-header {
+  width: 100%;
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.apo-header-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.apo-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apo-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 40px;
+  background: #DFFCA1;
+  cursor: pointer;
+  color: #094020;
+}
+
+.apo-back-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+}
+
+.apo-name {
+  color: #1C1C1C;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.apo-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 16px;
+  border: none;
+  border-radius: 36px;
+  background: #DFFCA1;
+  color: #094020;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.apo-menu-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.apo-menu-text {
+  margin: 0;
+}
+
+/* Main layout */
+.apo-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 120px;
+  padding: 160px 24px 96px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.apo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+}
+
+/* Shared typography */
+.apo-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #094020;
+  margin: 0;
+}
+
+.apo-subheading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.apo-headline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+/* Section 01 alone uses the Libre Franklin display face (for eyebrow, headline, and subtext) —
+   every other numbered section uses Inter. "Everything ahead, all at once." is also a larger
+   display headline than the other section headlines. */
+#existing-flow .apo-eyebrow,
+#existing-flow .apo-headline {
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+#existing-flow .apo-headline {
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.2;
+}
+
+.apo-subtext {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  color: #3E3D3B;
+  margin: 0;
+}
+
+/* "Every step was laid out..." is set in the sans display face, not the serif body face */
+#existing-flow .apo-subtext {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+#architecture .apo-numbered-body > .apo-block-heading:first-child .apo-subtext {
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 521px;
+}
+
+.apo-subtext-wide {
+  max-width: 720px;
+}
+
+.apo-label-caps {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #094020;
+  margin: 0;
+}
+
+.apo-block-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#existing-flow .apo-block-heading:first-child {
+  gap: 22px;
+}
+
+/* Cap text-column widths to match the design's line lengths (images stay full-width) */
+#existing-flow .apo-block-heading {
+  max-width: 780px;
+}
+
+#architecture .apo-block-heading {
+  max-width: 700px;
+}
+
+#rethinking .apo-block-heading {
+  max-width: 695px;
+}
+
+.apo-bullets,
+.apo-numbered-list {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #3E3D3B;
+  width: 100%;
+}
+
+.apo-numbered-list li::marker {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Overview section */
+.apo-overview {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.apo-overview-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.apo-overview-title-line1 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: clamp(36px, 7vw, 66px);
+  line-height: 1.2;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.apo-overview-title-line2 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 7vw, 66px);
+  line-height: 1.2;
+  color: #547F6A;
+  margin: 0;
+}
+
+.apo-overview-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.apo-overview-context {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3E3D3B;
+  margin: 0;
+}
+
+.apo-overview-problem {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3E3D3B;
+  margin: 0;
+}
+
+/* Meta bar – full-bleed dark green; inner column matches the page's normal 1200px content width */
+.apo-meta-bar {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #094020;
+  color: #FFF;
+  box-sizing: border-box;
+}
+
+.apo-meta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  padding: 42px 24px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.apo-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  min-width: 160px;
+}
+
+/* Proportional to the design's fixed-width first column (301px in its 1600px canvas) */
+.apo-meta-item-fixed {
+  flex: 0 0 auto;
+  width: 226px;
+}
+
+.apo-meta-item-flex {
+  flex: 1 1 0;
+}
+
+.apo-meta-label {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 24px);
+  line-height: 32px;
+  margin: 0;
+}
+
+.apo-meta-value {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 40px;
+  margin: 0;
+}
+
+/* Numbered sections (01–05) */
+.apo-numbered {
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.apo-numbered-nogap {
+  gap: 24px;
+}
+
+.apo-step-number {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #094020;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.apo-numbered-body {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Image frames */
+.apo-image-frame {
+  width: 100%;
+  border: 1px solid #F5F5F5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #F9F9F9;
+  aspect-ratio: 4 / 3;
+}
+
+.apo-image-frame-wide {
+  aspect-ratio: 1268 / 928;
+}
+
+#architecture .apo-image-frame {
+  aspect-ratio: 1221 / 361;
+}
+
+#structure .apo-image-frame {
+  aspect-ratio: 1280 / 956;
+}
+
+.apo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.apo-learned {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  text-align: right;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #094020;
+  margin: 0;
+  width: 100%;
+}
+
+.apo-learned-sub {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #3E3D3B;
+}
+
+/* Section 03 – tinted band */
+.apo-tinted-band {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Gray note band: bg spans full width, content re-centered to the same 1200px column as the green band below */
+.apo-tinted-note {
+  background: #F9F9F9;
+  padding: clamp(24px, 6vw, 57px) 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #1C1C1C;
+}
+
+.apo-tinted-note-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.apo-tinted-note p {
+  margin: 0;
+}
+
+.apo-tinted-note ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+/* Green band: bg spans full width (100vw via .apo-tinted-band), only vertical padding lives here.
+   Horizontal padding/max-width lives on .apo-tinted-inner so bg and column are decoupled. */
+.apo-tinted-green {
+  background: #E9F9ED;
+  padding: clamp(48px, 12vw, 183px) 0 clamp(48px, 12vw, 197px);
+}
+
+.apo-tinted-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.apo-rethink-row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.apo-rethink-text {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.apo-rethink-images {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.apo-phone-frame {
+  width: 224px;
+  aspect-ratio: 224 / 487;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.apo-learnings-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  text-align: right;
+  width: 100%;
+  max-width: 520px;
+  margin: 32px 0 0 auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #094020;
+  font-weight: 700;
+}
+
+.apo-learnings-callout span {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-weight: 400;
+  color: #3E3D3B;
+}
+
+.apo-learnings-nowrap {
+  white-space: nowrap;
+}
+
+/* Section 04 */
+.apo-structure-row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.apo-structure-row .apo-block-heading {
+  flex: 1 1 420px;
+  min-width: 0;
+  max-width: 749px;
+}
+
+.apo-callout-box {
+  background: rgba(33, 189, 69, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 399px;
+}
+
+.apo-followup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.apo-followup-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #094020;
+  margin: 0;
+}
+
+.apo-section-divider {
+  width: 100%;
+  height: 2px;
+  background: #094020;
+  flex-shrink: 0;
+}
+
+/* Section 05 – final direction */
+.apo-final-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+#final-direction .apo-eyebrow {
+  font-size: 14px;
+}
+
+.apo-final-title-line1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(36px, 7vw, 70px);
+  line-height: 1.2;
+  color: #094020;
+}
+
+.apo-final-title-line2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 7vw, 70px);
+  line-height: 1.2;
+  color: #547F6A;
+}
+
+.apo-screens-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.apo-screens-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.apo-screens-row-narrow {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 75%;
+}
+
+.apo-screen-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 45px;
+  border-radius: 32px;
+  min-width: 0;
+}
+
+.apo-screen-card-grey {
+  background: #F7F7F7;
+}
+
+.apo-screen-card-green {
+  background: #F3FAF3;
+}
+
+.apo-screen-number {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #094020;
+}
+
+.apo-screen-image {
+  width: 100%;
+  aspect-ratio: 200 / 422;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #EDEDED;
+}
+
+.apo-screen-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.apo-screen-status {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #547F6A;
+  margin: 0;
+}
+
+.apo-screen-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.3;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.apo-screen-desc {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #3E3D3B;
+  margin: 0;
+}
+
+/* Impact section */
+.apo-impact {
+  gap: 56px;
+}
+
+.apo-impact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Qualitative impact / Learnings copy is set in Inter, not the serif body face used elsewhere */
+.apo-impact-block .apo-numbered-list {
+  font-family: 'Inter', sans-serif;
+  color: #1C1C1C;
+}
+
+/* Footer */
+.apo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  padding-top: 32px;
+  border-top: 2px solid #DFFCA1;
+}
+
+.apo-footer-link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #007AFF;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.apo-footer-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #094020;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .apo-numbered {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .apo-screens-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .apo-screens-row-narrow {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+
+  .apo-rethink-images {
+    width: 100%;
+  }
+
+  .apo-phone-frame {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .apo-page {
+    padding-top: 0;
+    overflow-x: hidden;
+  }
+
+  .apo-header-inner {
+    padding: 12px 16px;
+  }
+
+  .apo-name {
+    font-size: 18px;
+  }
+
+  .apo-menu-btn {
+    padding: 10px 14px 10px 12px;
+    font-size: 18px;
+  }
+
+  .apo-main {
+    padding: 72px 16px 64px;
+    gap: 56px;
+  }
+
+  .apo-headline {
+    font-size: clamp(22px, 5vw, 32px);
+  }
+
+  .apo-subtext,
+  .apo-overview-context,
+  .apo-overview-problem {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .apo-meta-inner {
+    padding: 24px 16px;
+    gap: 20px;
+  }
+
+  .apo-meta-item-fixed {
+    width: auto;
+  }
+
+  .apo-tinted-note,
+  .apo-tinted-green {
+    padding: 24px 0;
+  }
+
+  .apo-tinted-note-inner,
+  .apo-tinted-inner {
+    padding: 0 16px;
+  }
+
+  .apo-callout-box {
+    max-width: 100%;
+  }
+
+  .apo-screen-card {
+    padding: 24px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apo-screens-row,
+  .apo-screens-row-narrow {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .apo-rethink-row {
+    flex-direction: column;
+  }
+
+  .apo-rethink-images {
+    flex-direction: row;
+  }
+}
