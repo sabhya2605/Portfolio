@@ -230,6 +230,106 @@
   margin: 0;
 }
 
+/* Aspora post-onboarding case card */
+.aspora-case-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  box-shadow: none;
+}
+
+.aspora-case-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 24px;
+  border-radius: 36px;
+  background: #FBFEFF;
+  border: 1px solid #E3EBFF;
+  box-sizing: border-box;
+}
+
+.aspora-case-image-container {
+  flex-shrink: 0;
+  width: 487px;
+  height: 326px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.aspora-case-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+}
+
+.aspora-case-text-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.aspora-case-category {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.aspora-case-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: 0.56px;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.aspora-case-description {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: #3E3D3B;
+  margin: 0;
+}
+
+.aspora-case-description strong {
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-weight: 700;
+}
+
+.aspora-case-tags {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.aspora-case-tag {
+  background: #F4F7FF;
+  padding: 12px;
+  border-radius: 12px;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: capitalize;
+  color: #547F6A;
+  white-space: nowrap;
+}
+
 /* Case Cards */
 .work-cases {
   display: flex;
@@ -1872,7 +1972,25 @@
     overflow-x: hidden;
     max-width: 100%;
   }
-  
+
+  .aspora-case-card {
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .aspora-case-image-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 487 / 326;
+  }
+
+  .aspora-case-text-container {
+    width: 100%;
+  }
+
   .case-image-container {
     width: 100%;
     aspect-ratio: 487 / 360;
@@ -2261,6 +2379,25 @@
   .case-card-link:focus-visible {
     outline: 2px solid #094020;
     outline-offset: 2px;
+  }
+
+  .aspora-case-card-link,
+  .aspora-case-card {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .aspora-case-title {
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: clamp(28px, 4vw, 42px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .aspora-case-description {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: clamp(24px, 3vw, 32px);
   }
   
   .case-image-container {

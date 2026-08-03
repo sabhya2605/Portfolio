@@ -8,6 +8,7 @@ import imgMenu from '../images/menu.png';
 import imgRectangle1 from '../images/rectangle1.png';
 import imgImage1 from '../images/image1.png';
 import imgAspora from '../images/aspora.jpg';
+import imgAsporaPostOnboardingCard from '../images/aspora-post-onboarding-card.jpg';
 import imgRectangle3 from '../images/rectangle3.png';
 import imgRectangle4 from '../images/rectangle4.png';
 import imgRectangle5 from '../images/rectangle5.png';
@@ -276,6 +277,26 @@ const Introduction = () => {
             </div>
             <p className="work-date">April 2026- July 2026</p>
           </div>
+
+          <Link to="/aspora-post-onboarding" className="aspora-case-card-link">
+            <div className="aspora-case-card">
+              <div className="aspora-case-image-container">
+                <img src={imgAsporaPostOnboardingCard} alt="Aspora post-onboarding case study" className="aspora-case-image" />
+              </div>
+              <div className="aspora-case-text-container">
+                <p className="aspora-case-category">Fintech onboarding experience</p>
+                <p className="aspora-case-title">Solved for "how post-onboarding verification should feel like"</p>
+                <p className="aspora-case-description">
+                  Reworked Aspora's post-onboarding flow from a single overwhelming checklist into <strong>a sequential system</strong> that surfaces only the current step, its status, and the next action
+                </p>
+                <div className="aspora-case-tags">
+                  <div className="aspora-case-tag">IA</div>
+                  <div className="aspora-case-tag">Hypothesis-Driven Design</div>
+                  <div className="aspora-case-tag">Qualitative Validation</div>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Work Experience Section */}
