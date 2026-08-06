@@ -4,8 +4,8 @@ import './AsporaPostOnboarding.css';
 import Menu from './Menu';
 
 /**
- * Aspora – Post-onboarding experience. Figma frame 136:250 (file "yaprr").
- * Source: https://www.figma.com/design/859OcVrbW6egRcOKPU1TTp/yaprr?node-id=136-250
+ * Aspora – Post-onboarding experience. Figma frame 145:2 (file "yaprr").
+ * Source: https://www.figma.com/design/859OcVrbW6egRcOKPU1TTp/yaprr?node-id=145-2
  * Section order follows the Figma canvas top-to-bottom (numbered 01–05 in the design).
  * Images sourced from this frame (136:xxx); layout/copy node-ids elsewhere in this file
  * still reference the earlier 128:xxx frame, which is structurally identical.
@@ -107,7 +107,7 @@ const AsporaPostOnboarding = () => {
               <p className="apo-subtext" data-node-id="128:45">Every step was laid out together, making the experience feel overwhelming.</p>
             </div>
             <div className="apo-block-heading">
-              <p className="apo-eyebrow" data-node-id="128:47">What we learned from the problems faced by users</p>
+              <p className="apo-subheading" data-node-id="128:47">What we learned from the problems faced by users</p>
               <ul className="apo-bullets" data-node-id="128:49">
                 <li>Users could see the whole process, but lacked the context to understand what mattered now and what they should do next.</li>
                 <li>In case of an error when user had to take some action for resolution, it left users extremely confused.</li>

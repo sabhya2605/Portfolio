@@ -1,4 +1,4 @@
-/* Aspora – Post-onboarding experience. Figma frame 128:3 (file "yaprr", node 128-2). */
+/* Aspora – Post-onboarding experience. Figma frame 145:2 (file "yaprr", node 128-2). */
 
 .apo-page {
   width: 100%;
@@ -149,17 +149,31 @@
    every other numbered section uses Inter. "Everything ahead, all at once." is also a larger
    display headline than the other section headlines. */
 #existing-flow .apo-eyebrow,
-#existing-flow .apo-headline {
+#existing-flow .apo-headline,
+#architecture .apo-headline {
   font-family: 'Libre Franklin', sans-serif;
 }
 
-#existing-flow .apo-headline {
+#existing-flow .apo-headline,
+#architecture .apo-headline {
   font-size: clamp(26px, 4vw, 38px);
   line-height: 1.2;
 }
 
+/* Section 03 headline is Inter Medium (Figma 145:100), not bold. */
+#rethinking .apo-headline {
+  font-weight: 500;
+}
+
+/* Section 04 headline is Libre Franklin Bold 24px, set in caps (Figma 145:128). */
+#structure .apo-headline {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .apo-subtext {
-  font-family: 'Lucida Bright', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
@@ -187,9 +201,9 @@
 .apo-label-caps {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.04em;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: normal;
   text-transform: uppercase;
   color: #094020;
   margin: 0;
@@ -203,8 +217,10 @@
   width: 100%;
 }
 
-#existing-flow .apo-block-heading:first-child {
-  gap: 22px;
+/* The design nests the headline+body as a group under the eyebrow, so only the gap
+   below the eyebrow is wider — the rest of the block keeps the standard 12px. */
+#existing-flow .apo-block-heading:first-child .apo-eyebrow {
+  margin-bottom: 10px;
 }
 
 /* Cap text-column widths to match the design's line lengths (images stay full-width) */
@@ -226,12 +242,19 @@
   padding-left: 22px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-family: 'Lucida Bright', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 16px;
   line-height: 1.2;
   color: #3E3D3B;
   width: 100%;
+}
+
+.apo-bullets {
+  gap: 8px;
+}
+
+.apo-numbered-list {
+  gap: 6px;
 }
 
 .apo-numbered-list li::marker {
@@ -287,7 +310,7 @@
 }
 
 .apo-overview-problem {
-  font-family: 'Lucida Bright', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 20px;
   line-height: 28px;
   color: #3E3D3B;
@@ -298,7 +321,7 @@
 .apo-meta-bar {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  background: #094020;
+  background: #547F6A;
   color: #FFF;
   box-sizing: border-box;
 }
@@ -316,7 +339,7 @@
 .apo-meta-item {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
   min-width: 160px;
 }
@@ -422,7 +445,7 @@
 }
 
 .apo-learned-sub {
-  font-family: 'Lucida Bright', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
   font-size: 16px;
   color: #3E3D3B;
@@ -464,7 +487,7 @@
    Horizontal padding/max-width lives on .apo-tinted-inner so bg and column are decoupled. */
 .apo-tinted-green {
   background: #E9F9ED;
-  padding: clamp(48px, 12vw, 183px) 0 clamp(48px, 12vw, 197px);
+  padding: clamp(48px, 9vw, 134px) 0 clamp(48px, 8vw, 123px);
 }
 
 .apo-tinted-inner {
@@ -520,7 +543,7 @@
 }
 
 .apo-learnings-callout span {
-  font-family: 'Lucida Bright', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
   color: #3E3D3B;
 }
@@ -545,6 +568,15 @@
   max-width: 749px;
 }
 
+/* Same nesting as section 01: 44px sits below the eyebrow only, not between every child. */
+#structure .apo-eyebrow {
+  margin-bottom: 32px;
+}
+
+#structure .apo-numbered-body {
+  gap: 56px;
+}
+
 .apo-callout-box {
   background: rgba(33, 189, 69, 0.1);
   border-radius: 16px;
@@ -554,6 +586,22 @@
   gap: 12px;
   width: 100%;
   max-width: 399px;
+}
+
+/* "Solution?" is Libre Franklin Bold 38px in near-black, not the green eyebrow (Figma 145:138) */
+.apo-callout-box .apo-eyebrow {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.2;
+  color: #1C1C1C;
+}
+
+/* Callout items are Libre Franklin Regular 24/32, not the serif body face (Figma 145:141) */
+.apo-callout-box .apo-bullets {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  gap: 4px;
 }
 
 .apo-followup {
@@ -589,6 +637,14 @@
   font-size: 14px;
 }
 
+#final-direction {
+  gap: 36px;
+}
+
+#final-direction .apo-numbered-body {
+  gap: 48px;
+}
+
 .apo-final-title-line1 {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -608,7 +664,7 @@
 .apo-screens-grid {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 64px;
   width: 100%;
 }
 
@@ -626,9 +682,9 @@
 .apo-screen-card {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 38px;
   align-items: flex-start;
-  padding: 45px;
+  padding: 40px;
   border-radius: 32px;
   min-width: 0;
 }
@@ -681,7 +737,7 @@
 }
 
 .apo-screen-desc {
-  font-family: 'Lucida Bright', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 14px;
   line-height: 20px;
   color: #3E3D3B;
@@ -691,6 +747,10 @@
 /* Impact section */
 .apo-impact {
   gap: 56px;
+}
+
+#impact {
+  margin-top: 50px;
 }
 
 .apo-impact-block {
