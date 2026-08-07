@@ -18,7 +18,7 @@ const NODES = {
   mdiWhatsapp1: '2498:1485',   // WhatsApp Image 2024-12-11 at 4.53.26 PM (1) 1 - top-left
   mdiWhatsapp2: '2498:1486',   // WhatsApp Image 2024-12-11 at 4.53.26 PM (2) 1 - top-right
   mdiScreenshot1: '2498:1487', // Screenshot 2024-12-17 at 10.49.08 PM 1 - bottom-right
-  mdiScreenshot2: '2498:1488', // Screenshot 2024-12-17 at 10.48.05 PM 1 - bottom-left dummt
+  mdiScreenshot2: '2498:1488', // Screenshot 2024-12-17 at 10.48.05 PM 1 - bottom-left
 };
 
 async function fetchFigmaExportUrls() {
