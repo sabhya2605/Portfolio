@@ -265,61 +265,79 @@ const AsporaPostOnboarding = () => {
                 Seven states, one continuous system. Each screen communicates the current step, its status and the next action; without previewing unnecessary work ahead.
               </p>
             </div>
+          </div>
 
-            <div className="apo-screens-grid">
-              <div className="apo-screens-row">
-                <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:164">
-                  <span className="apo-screen-number">01</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-01.png`} alt="Documents in review" /></div>
+          {/* Grid is a sibling of .apo-numbered-body (not nested in it): Figma 153:24 is wider
+              than the text column above it and bleeds past the "05" indent. Its width:100%
+              plus #final-direction's flex-wrap forces it onto its own full-width row instead
+              of sitting in the 05/heading flex row. */}
+          <div className="apo-screens-grid">
+            <div className="apo-screens-row">
+              <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:164">
+                <span className="apo-screen-number">01</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-01.png`} alt="Documents in review" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">Documents in review</p>
                   <p className="apo-screen-title">Make waiting legible.</p>
                   <p className="apo-screen-desc">Confirm receipt and tell users when no action is needed.</p>
-                </article>
-                <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:174">
-                  <span className="apo-screen-number">02</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-02.png`} alt="Attention required" /></div>
+                </div>
+              </article>
+              <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:174">
+                <span className="apo-screen-number">02</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-02.png`} alt="Attention required" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">Attention required</p>
                   <p className="apo-screen-title">Resolve the interruption.</p>
                   <p className="apo-screen-desc">Keep the problem and corrective action in one place.</p>
-                </article>
-                <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:186">
-                  <span className="apo-screen-number">03</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-03.png`} alt="First deposit" /></div>
+                </div>
+              </article>
+              <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:186">
+                <span className="apo-screen-number">03</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-03.png`} alt="First deposit" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">First deposit</p>
                   <p className="apo-screen-title">Make the requirement concrete.</p>
                   <p className="apo-screen-desc">Present the next unlock with a direct Add money action.</p>
-                </article>
-                <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:198">
-                  <span className="apo-screen-number">04</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-04.png`} alt="Welcome letter" /></div>
+                </div>
+              </article>
+              <article className="apo-screen-card apo-screen-card-grey" data-node-id="128:198">
+                <span className="apo-screen-number">04</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-04.png`} alt="Welcome letter" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">Welcome letter</p>
                   <p className="apo-screen-title">Show what the bank is doing.</p>
                   <p className="apo-screen-desc">Name final checks and provide something tangible to track.</p>
-                </article>
-              </div>
-              <div className="apo-screens-row apo-screens-row-narrow">
-                <article className="apo-screen-card apo-screen-card-green" data-node-id="128:211">
-                  <span className="apo-screen-number">05</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-05.png`} alt="Ready to transact" /></div>
+                </div>
+              </article>
+            </div>
+            <div className="apo-screens-row apo-screens-row-narrow">
+              <article className="apo-screen-card apo-screen-card-green" data-node-id="128:211">
+                <span className="apo-screen-number">05</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-05.png`} alt="Ready to transact" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">Ready to transact</p>
                   <p className="apo-screen-title">Enable value early.</p>
                   <p className="apo-screen-desc">Separate what is pending from what is already possible.</p>
-                </article>
-                <article className="apo-screen-card apo-screen-card-green" data-node-id="128:221">
-                  <span className="apo-screen-number">06</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-06.png`} alt="Account ready" /></div>
+                </div>
+              </article>
+              <article className="apo-screen-card apo-screen-card-green" data-node-id="128:221">
+                <span className="apo-screen-number">06</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-06.png`} alt="Account ready" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">Account ready</p>
                   <p className="apo-screen-title">Complete the arc.</p>
                   <p className="apo-screen-desc">Celebrate full access and return home to its long-term purpose.</p>
-                </article>
-                <article className="apo-screen-card apo-screen-card-green" data-node-id="128:230">
-                  <span className="apo-screen-number">07</span>
-                  <div className="apo-screen-image"><img src={`${imgBase}/screen-07.png`} alt="Contextual FAQ" /></div>
+                </div>
+              </article>
+              <article className="apo-screen-card apo-screen-card-green" data-node-id="128:230">
+                <span className="apo-screen-number">07</span>
+                <div className="apo-screen-image"><img src={`${imgBase}/screen-07.png`} alt="Contextual FAQ" /></div>
+                <div className="apo-screen-copy">
                   <p className="apo-screen-status">Contextual FAQ</p>
                   <p className="apo-screen-title">Help at the point of doubt.</p>
                   <p className="apo-screen-desc">Answer timing, safety, access and documents in context.</p>
-                </article>
-              </div>
+                </div>
+              </article>
             </div>
           </div>
         </section>
