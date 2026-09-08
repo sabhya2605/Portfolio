@@ -797,12 +797,16 @@
   font-size: 14px;
 }
 
+/* .apo-numbered is flex-direction:row (05 + .apo-numbered-body). column-gap keeps that
+   36px horizontal gap; row-gap is new — it's what used to live on .apo-numbered-body's
+   heading→grid gap (48px, Figma 153:24 y=808 minus its own start) before the grid moved
+   out to be flex-wrap's own line below, per the flex-wrap trick just below. */
 #final-direction {
-  gap: 36px;
-}
-
-#final-direction .apo-numbered-body {
-  gap: 48px;
+  column-gap: 36px;
+  row-gap: 48px;
+  flex-wrap: wrap;              /* forces .apo-screens-grid (width:100%, no room left on the
+                                    05/heading line) onto its own full-width line instead of
+                                    being squeezed into .apo-numbered-body's indent */
 }
 
 .apo-final-title-line1 {
@@ -821,32 +825,52 @@
   color: #547F6A;
 }
 
+/* The grid is inset 40px from the section's left edge, not flush with it: in Figma the "05"
+   step number sits at canvas x=0 and the grid (153:25 / 153:77) at x=40, while the heading
+   text column (153:15) is at x=55. So the card background lands 15px left of the heading
+   text and the card's own content — number, image, copy — lands 40px right of it, matching
+   Figma's 79.7px content edge against the 55px text edge. Right edge stays flush (Figma
+   grid and text column both end at 1280). */
 .apo-screens-grid {
   display: flex;
   flex-direction: column;
   gap: 64px;
-  width: 100%;
+  width: calc(100% - 40px);
+  margin-left: 40px;
 }
 
 .apo-screens-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 13.33px;              /* Figma 153:25 column pitch 313.33 on 300px cards */
 }
 
 .apo-screens-row-narrow {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 75%;
+  width: calc(75% + 10px);   /* row 2 (153:77) has a wider 20px gap than row 1's 13.33px;
+                                 this keeps card width identical between rows instead of the
+                                 plain 75% that made row-2 cards ~1.6px narrower */
+  max-width: none;
+  gap: 20px;
 }
 
 .apo-screen-card {
   display: flex;
   flex-direction: column;
-  gap: 38px;
+  gap: 38px;                 /* now only number / image / copy, matching Figma's image→copy gap */
   align-items: flex-start;
+  justify-content: center;   /* Figma centres the 651–679px content stack in the 744px card */
   padding: 40px;
   border-radius: 32px;
   min-width: 0;
+}
+
+.apo-screen-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;                 /* status→title→desc pitch (Figma 153:31/105/107) */
+  width: 100%;
 }
 
 .apo-screen-card-grey {
@@ -866,7 +890,6 @@
 
 .apo-screen-image {
   width: 100%;
-  aspect-ratio: 200 / 422;
   border-radius: 16px;
   overflow: hidden;
   background: #EDEDED;
@@ -874,8 +897,9 @@
 
 .apo-screen-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;             /* natural ratio — source PNGs (0.460) already sit close to
+                                Figma's per-card box ratio (0.442–0.491); forcing aspect-ratio
+                                + cover was cropping the phone mocks */
   display: block;
 }
 
@@ -891,7 +915,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 21px;
-  line-height: 1.3;
+  line-height: 25px;        /* Figma 153:105 wrapped node: 50px / 2 lines */
   color: #1C1C1C;
   margin: 0;
 }
@@ -899,7 +923,7 @@
 .apo-screen-desc {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18.5px;      /* Figma 153:87 / 153:107 wrapped nodes: 37px / 2 lines */
   color: #3E3D3B;
   margin: 0;
 }
@@ -920,10 +944,17 @@
   width: 100%;
 }
 
-/* Qualitative impact / Learnings copy is set in Inter, not the serif body face used elsewhere */
+/* Qualitative impact / Learnings copy is the same serif body face as the rest of the page —
+   it used to be overridden to Inter, which the redesign drops (Figma 153:7 / 153:10). Those
+   nodes are 72px tall over 3 lines, so the leading is looser than .apo-numbered-list's 1.2
+   and the items run contiguously instead of carrying the default 6px gap. */
 .apo-impact-block .apo-numbered-list {
-  font-family: 'Inter', sans-serif;
-  color: #1C1C1C;
+  line-height: 24px;
+  gap: 0;
+}
+
+.apo-impact-block .apo-numbered-list li::marker {
+  font-family: inherit;     /* markers are serif here too, not the Inter default */
 }
 
 /* Footer */
@@ -962,13 +993,22 @@
     gap: 12px;
   }
 
+  .apo-screens-grid {
+    width: 100%;            /* .apo-numbered stacks below 900px, so there is no step-number
+                               column left to inset the grid against */
+    margin-left: 0;
+  }
+
   .apo-screens-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;             /* normalise to row 2's gap once the equal-width trick isn't needed */
   }
 
   .apo-screens-row-narrow {
     grid-template-columns: repeat(2, 1fr);
+    width: 100%;            /* undo the calc(75% + 10px) equal-width trick below 900px */
     max-width: 100%;
+    gap: 20px;
   }
 
   /* Four phones across is too small here — stack the pairs, keeping before/after side by side
@@ -1076,6 +1116,10 @@
     margin-left: -16px;
     margin-right: -16px;
     width: auto;
+  }
+
+  .apo-screen-copy {
+    gap: 10px;
   }
 }
 
