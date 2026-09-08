@@ -223,9 +223,10 @@
   margin-bottom: 10px;
 }
 
-/* Cap text-column widths to match the design's line lengths (images stay full-width) */
+/* Cap text-column widths to match the design's line lengths (images stay full-width).
+   840px keeps "Every step was laid out together…" on a single line — it needs 796px. */
 #existing-flow .apo-block-heading {
-  max-width: 780px;
+  max-width: 840px;
 }
 
 #architecture .apo-block-heading {
@@ -259,6 +260,151 @@
 
 .apo-numbered-list li::marker {
   font-family: 'Inter', sans-serif;
+}
+
+.apo-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Comparison band + meta bar read as one continuous block of colour in the design, so no
+   gap between them; .apo-main's 120px section gap still applies above and below the pair. */
+.apo-comparison-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* Before/after comparison band (Figma 161:91) – centred typed heading over a full-bleed image */
+/* align-items stays stretch: centring the flex item would fight the figure's full-bleed
+   negative margin. The heading centres its own text instead. */
+.apo-comparison {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(20px, 3vw, 36px);
+  width: 100%;
+}
+
+/* Left-aligned, flush with the content column — matches the prototype's end state. */
+.apo-comparison-heading {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.2;
+  color: #1C1C1C;
+  margin: 0;
+  text-align: left;
+  /* Hold the full line's height from the first frame so the image below doesn't jump as it types */
+  min-height: 1.2em;
+}
+
+/* The indent is set inline per keystroke; easing it over one step turns the prototype's
+   per-variant jumps into a continuous leftward glide. */
+.apo-comparison-line {
+  display: block;
+  transition: padding-left var(--apo-type-step, 55ms) linear;
+}
+
+/* A "|" glyph in Libre Franklin Thin, not a drawn block — and it does not blink (Figma 1774:3218) */
+.apo-comparison-caret {
+  font-weight: 100;
+  color: #000088;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apo-comparison-line {
+    transition: none;
+  }
+}
+
+/* Full-bleed mint band. The ground is painted here rather than baked into a bitmap, so it
+   stays crisp at any size — #E9F9ED sampled from the design artwork. */
+.apo-comparison-figure {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #E9F9ED;
+  /* Measured off the design's mint frame (167:282): ~122px of clear space above the
+     Before/After labels and ~103px below the captions. */
+  padding: clamp(48px, 8.5vw, 120px) 0 clamp(40px, 7vw, 100px);
+}
+
+.apo-comparison-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  /* 124px between pairs in the design, against 29px inside one */
+  gap: clamp(32px, 8.5vw, 124px);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* flex-grow is set inline, in proportion to the screenshots each pair holds */
+.apo-comparison-pair {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(12px, 2.2vw, 30px);
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 0;
+}
+
+.apo-comparison-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.apo-comparison-label {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(11px, 1.05vw, 15px);
+  line-height: 1.2;
+  color: #1C1C1C;
+  margin: 0 0 clamp(18px, 3.2vw, 44px);
+}
+
+.apo-comparison-shot {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Captions sit under each screen; three of the four are numbered in the design */
+.apo-comparison-notes {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(9px, 0.85vw, 12px);
+  line-height: 1.45;
+  color: #3E3D3B;
+  margin: clamp(10px, 1.4vw, 20px) 0 0;
+  padding-left: 1.5em;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.apo-comparison-notes li::marker {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.apo-comparison-notes-plain {
+  padding-left: 0;
+  text-align: center;
 }
 
 /* Overview section */
@@ -331,7 +477,8 @@
   margin: 0 auto;
   display: flex;
   gap: 32px;
-  padding: 42px 24px;
+  /* 100px vertical in the design (bar is 288 tall around 88px of content) */
+  padding: clamp(40px, 7vw, 100px) 24px;
   text-align: center;
   flex-wrap: wrap;
 }
@@ -402,12 +549,28 @@
 
 /* Image frames */
 .apo-image-frame {
+  position: relative;
   width: 100%;
   border: 1px solid #F5F5F5;
   border-radius: 24px;
   overflow: hidden;
   background: #F9F9F9;
   aspect-ratio: 4 / 3;
+  container-type: inline-size;
+}
+
+/* Live annotation layer over the flow image (Figma 161:123). The frame has a fixed aspect
+   ratio, so percentage placement holds; cqw keeps the type scaling with the frame. */
+.apo-image-annotation {
+  position: absolute;
+  left: 48.4%;
+  top: 62.5%;
+  width: 24.7%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(9px, 1.15cqw, 14px);
+  line-height: 1.35;
+  color: #3E3D3B;
 }
 
 .apo-image-frame-wide {
@@ -430,12 +593,13 @@
   display: block;
 }
 
+/* Left-aligned in 161:2 (161:148 sits at x=40, flush with the image above it) — was right-aligned. */
 .apo-learned {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  align-items: flex-end;
-  text-align: right;
+  align-items: flex-start;
+  text-align: left;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -497,20 +661,23 @@
   box-sizing: border-box;
 }
 
-.apo-rethink-row {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
+/* 161:2 splits this section into two stacked bands: the text column on its own, then the
+   screens and the learnings side by side, bottom edges flush (both end at y≈904). */
 .apo-rethink-text {
   display: flex;
   flex-direction: column;
   gap: 44px;
-  flex: 1 1 420px;
+  width: 100%;
+  max-width: 738px;
   min-width: 0;
+}
+
+.apo-rethink-bottom {
+  display: flex;
+  gap: 51px;
+  align-items: flex-end;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .apo-rethink-images {
@@ -531,11 +698,13 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  align-items: flex-end;
-  text-align: right;
-  width: 100%;
-  max-width: 520px;
-  margin: 32px 0 0 auto;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1 1 340px;
+  /* The design's frame is 454px, but the two longest lines need 458px — nudged up so
+     "No need to stick with…" and "Introduce something new…" each hold one line. */
+  max-width: 500px;
+  margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   color: #094020;
@@ -548,23 +717,13 @@
   color: #3E3D3B;
 }
 
-.apo-learnings-nowrap {
-  white-space: nowrap;
+/* Section 03 – the design leaves 44px between the text column and the screens row */
+#rethinking .apo-numbered-body {
+  gap: 44px;
 }
 
 /* Section 04 */
-.apo-structure-row {
-  display: flex;
-  gap: 32px;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-.apo-structure-row .apo-block-heading {
-  flex: 1 1 420px;
-  min-width: 0;
+#structure .apo-block-heading {
   max-width: 749px;
 }
 
@@ -577,27 +736,28 @@
   gap: 56px;
 }
 
-.apo-callout-box {
-  background: rgba(33, 189, 69, 0.1);
-  border-radius: 16px;
-  padding: 24px;
+/* In 161:2 the solution drops below the heading and runs the full column left-aligned
+   (161:202, x=40 w=1250) — it is no longer the tinted card that sat off to the right. */
+.apo-solution-block {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: flex-start;
   width: 100%;
-  max-width: 399px;
 }
 
-/* "Solution?" is Libre Franklin Bold 38px in near-black, not the green eyebrow (Figma 145:138) */
-.apo-callout-box .apo-eyebrow {
+/* "Solution?" is Libre Franklin Bold 38px in near-black, not the green eyebrow (Figma 161:205) */
+.apo-solution-title {
   font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
   font-size: clamp(26px, 4vw, 38px);
   line-height: 1.2;
   color: #1C1C1C;
+  margin: 0;
 }
 
-/* Callout items are Libre Franklin Regular 24/32, not the serif body face (Figma 145:141) */
-.apo-callout-box .apo-bullets {
+/* Solution items are Libre Franklin Regular 24/32, not the serif body face (Figma 161:207) */
+.apo-solution-block .apo-bullets {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 24px;
   line-height: 32px;
@@ -851,6 +1011,27 @@
     gap: 20px;
   }
 
+  /* Four phones across is too small here — stack the pairs, keeping before/after side by side
+     since the comparison is the whole point. */
+  .apo-comparison-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(28px, 5vw, 48px);
+  }
+
+  .apo-comparison-pair {
+    width: 100%;
+    max-width: 600px;
+    flex-grow: 0;
+    flex-basis: auto;
+  }
+
+  /* Learnings stacks under the screens; the bottom-flush alignment no longer applies */
+  .apo-rethink-bottom {
+    align-items: flex-start;
+    gap: 32px;
+  }
+
   .apo-rethink-images {
     width: 100%;
   }
@@ -858,6 +1039,11 @@
   .apo-phone-frame {
     flex: 1;
     width: auto;
+  }
+
+  .apo-learnings-callout {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
@@ -915,13 +1101,21 @@
     padding: 0 16px;
   }
 
-  .apo-callout-box {
-    max-width: 100%;
+  .apo-solution-block .apo-bullets {
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .apo-screen-card {
     padding: 24px;
     gap: 20px;
+  }
+
+  /* .apo-main drops to 16px of side padding here, so the full-bleed offset has to follow */
+  .apo-comparison-figure {
+    margin-left: -16px;
+    margin-right: -16px;
+    width: auto;
   }
 
   .apo-screen-copy {
@@ -936,7 +1130,7 @@
     max-width: 100%;
   }
 
-  .apo-rethink-row {
+  .apo-rethink-bottom {
     flex-direction: column;
   }
 

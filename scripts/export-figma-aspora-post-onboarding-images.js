@@ -1,9 +1,13 @@
 /**
- * Export images from Figma for Aspora – Post-onboarding experience (file "yaprr", frame 136:250).
+ * Export images from Figma for Aspora – Post-onboarding experience (file "yaprr", frame 136:250;
+ * the before/after comparison comes from the newer 161:2 frame).
  * Saves to public/images/aspora-post-onboarding/
  *
  * Usage:
  *   FIGMA_ACCESS_TOKEN=your_token node scripts/export-figma-aspora-post-onboarding-images.js
+ *
+ * The comparison band renders ~1600 CSS px wide, so export it at SCALE=3 for a retina-safe asset:
+ *   FIGMA_ACCESS_TOKEN=your_token SCALE=3 node scripts/export-figma-aspora-post-onboarding-images.js
  *
  * Get token: Figma → Settings → Personal access tokens
  */
@@ -21,8 +25,12 @@ if (!TOKEN) {
 }
 
 const OUT_SUBDIR = 'aspora-post-onboarding';
+const SCALE = process.env.SCALE || '2';
 
 const NODES = [
+  // 161:94 clips the source rect (1600x1171 at y=-127) to the 917-tall band the design shows.
+  // Export 161:96 instead if you ever want the uncropped original.
+  { id: '161-94', idKey: '161:94', file: 'before-after-comparison.png' },
   { id: '136-298', idKey: '136:298', file: 'existing-flow.png' },
   { id: '136-321', idKey: '136:321', file: 'architecture-v1.png' },
   { id: '136-362', idKey: '136:362', file: 'account-home-1.png' },
@@ -71,9 +79,9 @@ function download(url) {
 
 async function main() {
   const ids = NODES.map((n) => n.id).join(',');
-  const figmaUrl = `https://api.figma.com/v1/images/${FILE_KEY}?ids=${ids}&format=png&scale=2`;
+  const figmaUrl = `https://api.figma.com/v1/images/${FILE_KEY}?ids=${ids}&format=png&scale=${SCALE}`;
 
-  console.log('Requesting image URLs from Figma...');
+  console.log(`Requesting image URLs from Figma (scale ${SCALE})...`);
   const res = await getJson(figmaUrl, { 'X-Figma-Token': TOKEN });
 
   if (res.err) {
