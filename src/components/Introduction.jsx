@@ -151,29 +151,33 @@ const CaseImage = ({ src, alt, className, containerClassName, tint, imageRef }) 
   );
 };
 
+// Scrolled distance past which a pointer gesture counts as a drag, not a click.
+const DRAG_CLICK_THRESHOLD = 6;
+
 // Drag-to-scroll for a horizontal carousel (mouse + touch).
 const useDragScroll = () => {
   const ref = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [startScrollLeft, setStartScrollLeft] = useState(0);
+  // Kept in a ref, not state: `moved` has to survive into the click event that
+  // follows mouse-up, and dragging shouldn't re-render on every pointer move.
+  const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
 
   const start = (pageX) => {
-    if (!ref.current) return;
-    setIsDragging(true);
-    setStartX(pageX - ref.current.offsetLeft);
-    setStartScrollLeft(ref.current.scrollLeft);
+    const el = ref.current;
+    if (!el) return;
+    drag.current = { active: true, startX: pageX - el.offsetLeft, scrollLeft: el.scrollLeft, moved: false };
   };
 
   const move = (e, pageX) => {
-    if (!isDragging || !ref.current) return;
+    const el = ref.current;
+    if (!drag.current.active || !el) return;
     e.preventDefault();
-    const x = pageX - ref.current.offsetLeft;
-    ref.current.scrollLeft = startScrollLeft - (x - startX) * 2; // Scroll speed multiplier
+    const walk = (pageX - el.offsetLeft - drag.current.startX) * 2; // Scroll speed multiplier
+    if (Math.abs(walk) > DRAG_CLICK_THRESHOLD) drag.current.moved = true;
+    el.scrollLeft = drag.current.scrollLeft - walk;
   };
 
   const stop = () => {
-    setIsDragging(false);
+    drag.current.active = false;
     if (ref.current) {
       ref.current.style.cursor = 'grab';
     }
@@ -189,10 +193,18 @@ const useDragScroll = () => {
     onMouseMove: (e) => move(e, e.pageX),
     onTouchStart: (e) => start(e.touches[0].pageX),
     onTouchMove: (e) => move(e, e.touches[0].pageX),
-    onTouchEnd: () => setIsDragging(false),
+    onTouchEnd: stop,
+    // A drag that ends over a card must not open its link, so swallow the
+    // click that follows. Capture phase runs before the anchor's own handling.
+    onClickCapture: (e) => {
+      if (!drag.current.moved) return;
+      e.preventDefault();
+      e.stopPropagation();
+      drag.current.moved = false;
+    },
   };
 
-  return { ref, isDragging, handlers };
+  return { ref, handlers };
 };
 
 const Introduction = () => {
@@ -207,13 +219,6 @@ const Introduction = () => {
 
   const testimonials = useDragScroll();
   const projects = useDragScroll();
-
-  const handleProjectLinkClick = (e) => {
-    // Prevent link navigation if user was dragging
-    if (projects.isDragging) {
-      e.preventDefault();
-    }
-  };
 
   // Refs for matching case image height to text content
   const searchCaseImageRef = useRef(null);
@@ -594,7 +599,6 @@ const Introduction = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-image-wrapper project-image-wrapper-first project-image-link"
-                onClick={handleProjectLinkClick}
               >
                 <img src={imgProject1Skweez} alt="Project 1" className="project-image" />
                 <div className="project-image-overlay project-image-overlay-first">
@@ -609,7 +613,6 @@ const Introduction = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-image-wrapper project-image-wrapper-third project-image-link"
-                onClick={handleProjectLinkClick}
               >
                 <img src={imgF32C13117719167629462De4680C1} alt="Project 3" className="project-image" />
                 <div className="project-image-overlay project-image-overlay-third">
@@ -624,7 +627,6 @@ const Introduction = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-image-wrapper project-image-wrapper-second project-image-link"
-                onClick={handleProjectLinkClick}
               >
                 <img src={imgSimpleMockupFreeScene11} alt="Project 2" className="project-image" />
                 <div className="project-image-overlay project-image-overlay-second">
@@ -639,7 +641,6 @@ const Introduction = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-image-wrapper project-image-wrapper-fourth project-image-green project-image-link"
-                onClick={handleProjectLinkClick}
               >
                 <img src={imgFrame4851} alt="Project 4" className="project-image" />
                 <div className="project-image-overlay project-image-overlay-fourth">
@@ -654,7 +655,6 @@ const Introduction = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-image-wrapper project-image-wrapper-fifth project-image-link"
-                onClick={handleProjectLinkClick}
               >
                 <img src={img11} alt="Project 5" className="project-image" />
                 <div className="project-image-overlay project-image-overlay-fifth">
