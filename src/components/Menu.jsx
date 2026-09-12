@@ -1,19 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Menu.css';
+
+export const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const offset = 100; // Offset for header
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
 
 const Menu = ({ sections, onClose }) => {
   const handleSectionClick = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 100; // Offset for header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    scrollToSection(sectionId);
     onClose();
   };
 
@@ -27,13 +32,19 @@ const Menu = ({ sections, onClose }) => {
         <nav className="menu-nav">
           <ul className="menu-list">
             {sections.map((section) => (
-              <li key={section.id} className="menu-item">
-                <button
-                  className="menu-link"
-                  onClick={() => handleSectionClick(section.id)}
-                >
-                  {section.title}
-                </button>
+              <li key={section.to || section.id} className="menu-item">
+                {section.to ? (
+                  <Link className="menu-link" to={section.to} onClick={onClose}>
+                    {section.title}
+                  </Link>
+                ) : (
+                  <button
+                    className="menu-link"
+                    onClick={() => handleSectionClick(section.id)}
+                  >
+                    {section.title}
+                  </button>
+                )}
               </li>
             ))}
           </ul>
