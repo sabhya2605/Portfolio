@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Resume.css';
 import Menu from './Menu';
-import imgRectangle5 from '../images/resume/rectangle5.png';
 import imgDance from '../images/interests/dance.png';
 import imgCook from '../images/interests/cook.png';
 import imgStyleClick from '../images/interests/style-click.png';
@@ -32,15 +31,12 @@ const Resume = () => {
   }, []);
 
   // Refs for matching image height to text content
-  const aboutImageRef = useRef(null);
-  const aboutTextRef = useRef(null);
 
   const handleBackClick = () => {
     navigate('/');
   };
 
   const resumeSections = [
-    { id: 'about-me', title: 'About me' },
     { id: 'experience', title: 'Experience' },
     { id: 'education', title: 'Education' },
     { id: 'certification', title: 'Certification' },
@@ -110,23 +106,6 @@ const Resume = () => {
       }
     };
   }, [startAutoPlay]);
-
-  // Match about image height to text content height
-  useEffect(() => {
-    const matchAboutImageHeight = () => {
-      if (aboutImageRef.current && aboutTextRef.current) {
-        const textHeight = aboutTextRef.current.offsetHeight;
-        aboutImageRef.current.style.height = `${textHeight}px`;
-      }
-    };
-
-    matchAboutImageHeight();
-    window.addEventListener('resize', matchAboutImageHeight);
-    
-    return () => {
-      window.removeEventListener('resize', matchAboutImageHeight);
-    };
-  }, []);
 
   // Mouse event handlers for dragging
   const handleInterestsMouseDown = (e) => {
@@ -222,39 +201,6 @@ const Resume = () => {
             </div>
           </div>
         </div>
-        {/* About me Section */}
-        <div id="about-me" className="resume-section-header" data-node-id="2409:573">
-          <p className="resume-section-title" data-node-id="2409:574">About me</p>
-        </div>
-
-        <div className="resume-about-card" data-node-id="2409:575">
-          <div className="resume-about-image-wrapper" ref={aboutImageRef} data-node-id="2409:576">
-            <img alt="" src={imgRectangle5} className="resume-about-image" />
-          </div>
-          <div className="resume-about-content" data-node-id="2409:577">
-            <div className="resume-about-text-container" ref={aboutTextRef} data-node-id="2409:578">
-              <div className="resume-name-card" data-node-id="2409:579">
-                <p className="resume-name" data-node-id="2409:580">Sabhya Singhal</p>
-                <p className="resume-role" data-node-id="2409:581">Product Designer | Living for experiences!</p>
-              </div>
-              <div className="resume-description-card" data-node-id="2409:582">
-                <div className="resume-description-text" data-node-id="2409:583">
-                  <p>
-                    <span className="resume-description-bold">UX Designer specializing in intuitive, high-impact experiences that drive customer retention and business growth</span>
-                    <br />
-                    <span className="resume-description-normal">I bring product thinking into every design decision and am always looking to actively collaborate across design, product, and business where I see a strong vision.</span>
-                  </p>
-                  <p className="resume-description-normal">
-                    Something "about me"
-                    <br />
-                    I treat my brain like software—always updating it. From tracking design trends to learning a new language to sharpen cognition, and experimenting to find faster, smarter ways to work and understand where I truly excel.  Basically, I enjoy building for a company, for users, and myself—everything in between.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Experience Section */}
         <div id="experience" className="resume-experience-section" data-node-id="2409:584">
           <div className="resume-section-header" data-node-id="2409:585">

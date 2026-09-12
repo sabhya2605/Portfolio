@@ -140,182 +140,6 @@
   margin: 0;
 }
 
-/* About me Card - node 2409:575 */
-.resume-about-card {
-  display: flex;
-  padding: 24px;
-  align-items: flex-start;
-  gap: 24px;
-  align-self: stretch;
-  border-radius: 32px;
-  background: #F7F7F7;
-}
-
-/* About Image - node 2409:576 */
-.resume-about-image-wrapper {
-  position: relative;
-  border-radius: 28px;
-  width: 511px;
-  flex-shrink: 0;
-  align-self: stretch;
-  overflow: hidden;
-  background: lightgray;
-  background-size: cover;
-  background-position: 50%;
-  background-repeat: no-repeat;
-}
-
-.resume-about-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 28px;
-  display: block;
-}
-
-/* About Content - node 2409:577 */
-.resume-about-content {
-  display: flex;
-  flex: 1 0 0;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 0;
-  min-width: 0;
-  align-self: stretch;
-}
-
-.resume-about-text-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.resume-name-card {
-  margin-bottom: 0;
-}
-
-.resume-description-card {
-  margin-top: 0;
-}
-
-/* Name Card - node 2409:579 */
-.resume-name-card {
-  background: #FFF;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-  padding: 16px;
-  border-radius: 24px;
-  color: #1C1C1C;
-  width: 100%;
-  white-space: pre-wrap;
-  margin-bottom: 0;
-}
-
-.resume-name {
-  font-family: 'Libre Franklin', sans-serif;
-  font-weight: 500;
-  line-height: 36px;
-  font-size: 28px;
-  width: 100%;
-  margin: 0;
-  color: #1C1C1C;
-}
-
-.resume-role {
-  font-family: 'Lucida Bright', serif;
-  line-height: 32px;
-  font-style: normal;
-  font-size: 20px;
-  width: 100%;
-  margin: 0;
-  color: #1C1C1C;
-}
-
-/* Description Card - node 2409:582 */
-.resume-description-card {
-  background: #FFF;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 16px;
-  gap: 8px;
-  border-radius: 24px;
-  width: 100%;
-  align-self: stretch;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.resume-description-card > *:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.resume-description-text {
-  margin: 0;
-  padding: 0;
-}
-
-.resume-description-text p:first-child {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.resume-description-text p:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.resume-description-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #1C1C1C;
-  width: 100%;
-  white-space: pre-wrap;
-  align-self: stretch;
-}
-
-.resume-description-text p {
-  margin: 0;
-}
-
-.resume-description-text p:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.resume-description-bold {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  line-height: 40px;
-  font-style: normal;
-  color: #547F6A;
-  font-size: 28px;
-  align-self: stretch;
-}
-
-.resume-description-normal {
-  font-family: 'Lucida Bright', serif;
-  line-height: 32px;
-  font-style: normal;
-  font-weight: 400;
-  color: #1C1C1C;
-  font-size: 20px;
-  align-self: stretch;
-}
-
-.resume-description-spacing {
-  line-height: 32px;
-  font-size: 20px;
-  margin: 0 0 16px 0;
-}
-
 /* Experience Section - node 2409:584 */
 .resume-experience-section {
   display: flex;
@@ -832,17 +656,6 @@
     gap: 40px;
   }
   
-  .resume-about-card {
-    flex-direction: column;
-  }
-  
-  .resume-about-image-wrapper {
-    width: 100%;
-    max-width: 511px;
-    aspect-ratio: 511 / auto;
-    height: auto;
-  }
-  
   .resume-experience-company,
   .resume-experience-position,
   .resume-experience-list {
@@ -942,30 +755,6 @@
   
   .resume-section-title {
     font-size: 20px;
-  }
-  
-  .resume-about-card {
-    padding: 20px;
-  }
-  
-  .resume-name {
-    font-size: clamp(20px, 3vw, 28px);
-    line-height: clamp(28px, 4vw, 36px);
-  }
-  
-  .resume-role {
-    font-size: clamp(16px, 2vw, 20px);
-    line-height: clamp(24px, 3vw, 32px);
-  }
-  
-  .resume-description-bold {
-    font-size: clamp(20px, 3vw, 28px);
-    line-height: clamp(28px, 4vw, 40px);
-  }
-  
-  .resume-description-normal {
-    font-size: clamp(16px, 2vw, 20px);
-    line-height: clamp(24px, 3vw, 32px);
   }
   
   .resume-experience-card {
@@ -1069,36 +858,6 @@
   
   .resume-section-title {
     font-size: 18px;
-  }
-  
-  .resume-about-card {
-    padding: 16px;
-    gap: 16px;
-  }
-  
-  .resume-name-card,
-  .resume-description-card {
-    padding: 12px;
-  }
-  
-  .resume-name {
-    font-size: 20px;
-    line-height: 28px;
-  }
-  
-  .resume-role {
-    font-size: 16px;
-    line-height: 24px;
-  }
-  
-  .resume-description-bold {
-    font-size: 20px;
-    line-height: 28px;
-  }
-  
-  .resume-description-normal {
-    font-size: 16px;
-    line-height: 24px;
   }
   
   .resume-experience-card {
