@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Introduction.css';
-import Menu, { scrollToSection } from './Menu';
+import { scrollToSection } from './Menu';
 import imgMvpAwardJuly2024 from '../images/mvp-award-july-2024.png';
 import imgProject1Skweez from '../images/project-1-squeez.png';
-import imgMenu from '../images/menu.png';
 import imgRectangle1 from '../images/rectangle1.png';
 import imgImage1 from '../images/image1.png';
 import imgAspora from '../images/aspora.jpg';
@@ -26,7 +25,37 @@ import imgFrame4851 from '../images/frame485.png';
 import img11 from '../images/img11.png';
 import imgHeroPhotoFrame from '../images/landing/hero-photo-frame.svg';
 import imgAboutPhotoFrame from '../images/landing/about-photo-frame.svg';
+import imgAboutPhotoFrameMobile from '../images/landing/about-photo-frame-mobile.svg';
 import imgEffortlessCaret from '../images/landing/hero-effortless-caret.svg';
+
+// True while the viewport matches the mobile design (Figma 1916:4638).
+const MOBILE_QUERY = '(max-width: 480px)';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia(MOBILE_QUERY).matches
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mql = window.matchMedia(MOBILE_QUERY);
+    const onChange = (e) => setIsMobile(e.matches);
+    mql.addEventListener('change', onChange);
+    setIsMobile(mql.matches);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+
+  return isMobile;
+};
+
+/* Copy that differs between the desktop and mobile designs. Both are rendered
+   and swapped in CSS so there is no flash while JS boots. */
+const Copy = ({ desktop, mobile }) => (
+  <>
+    <span className="copy-desktop">{desktop}</span>
+    <span className="copy-mobile">{mobile}</span>
+  </>
+);
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
@@ -34,7 +63,7 @@ const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Adds `inView` once the element has been scrolled into view (animations play a single time).
-const useInViewOnce = (rootMargin = '-10% 0px') => {
+const useInViewOnce = (rootMargin = '-10% 0px', fallbackMs = 2500) => {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -61,8 +90,17 @@ const useInViewOnce = (rootMargin = '-10% 0px') => {
       { rootMargin }
     );
     observer.observe(node);
-    return () => observer.disconnect();
-  }, [rootMargin]);
+    // Safety net: observer callbacks are throttled in background tabs, and the
+    // revealed content must never stay hidden just because they never ran.
+    const fallback = setTimeout(() => {
+      setInView(true);
+      observer.disconnect();
+    }, fallbackMs);
+    return () => {
+      clearTimeout(fallback);
+      observer.disconnect();
+    };
+  }, [rootMargin, fallbackMs]);
 
   return { ref, inView };
 };
@@ -78,19 +116,29 @@ const HERO_GAP_MS = 400;
 
 const HeroSubtitle = () => {
   const reduced = prefersReducedMotion();
+  const isMobile = useIsMobile();
   const [step, setStep] = useState(reduced ? HERO_WORD.length + 1 : 0);
 
   useEffect(() => {
-    if (reduced) return;
+    if (reduced || isMobile) return;
     const total = HERO_WORD.length + 1; // one step opens the gap, then a step per letter
     if (step > total) return;
     const delay = step === 0 ? HERO_GAP_MS : HERO_LETTER_MS;
     const timer = setTimeout(() => setStep((current) => current + 1), delay);
     return () => clearTimeout(timer);
-  }, [step, reduced]);
+  }, [step, reduced, isMobile]);
 
   const typed = step === 0 ? '' : HERO_WORD.slice(0, step - 1);
   const done = step > HERO_WORD.length;
+
+  // Figma 1916:4638 keeps the mobile subtitle as plain "crafting experiences"
+  if (isMobile) {
+    return (
+      <div className="hero-subtitle-wrapper">
+        <p className="hero-subtitle">Crafting Experiences</p>
+      </div>
+    );
+  }
 
   return (
     <div className="hero-subtitle-wrapper">
@@ -208,15 +256,11 @@ const useDragScroll = () => {
 };
 
 const Introduction = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const introductionSections = [
-    { id: 'about-me', title: 'About me' },
-    { to: '/resume', title: 'Resume' },
-    { id: 'testimonials', title: 'Testimonials' },
-    { id: 'contact', title: 'Contact' },
-  ];
-
+  // Figma 1916:4486 shows only the Aspora and search cases on mobile, the rest
+  // sit behind a "View more" pill. Desktop always shows everything.
+  const [showAllCases, setShowAllCases] = useState(false);
+  // the "bridge" line fades up when the About section scrolls into view
+  const aboutBridge = useInViewOnce('-10% 0px', 15000);
   const testimonials = useDragScroll();
   const projects = useDragScroll();
 
@@ -255,7 +299,6 @@ const Introduction = () => {
           </linearGradient>
         </defs>
       </svg>
-      {isMenuOpen && <Menu sections={introductionSections} onClose={() => setIsMenuOpen(false)} />}
       <div className="introduction-content">
         {/* Header Section */}
         <div className="header-section">
@@ -266,11 +309,20 @@ const Introduction = () => {
             <button type="button" className="header-nav-link" onClick={() => scrollToSection('testimonials')}>Testimonials</button>
             <button type="button" className="header-nav-link" onClick={() => scrollToSection('contact')}>Contact</button>
           </nav>
-          <div className="menu-button" onClick={() => setIsMenuOpen(true)} style={{ cursor: 'pointer' }}>
-            <img src={imgMenu} alt="Menu" className="menu-icon" />
-            <p className="menu-text">Menu</p>
-          </div>
+          <button type="button" className="header-contact" onClick={() => scrollToSection('contact')}>
+            Contact
+          </button>
         </div>
+
+        {/* Bottom nav - Figma 1916:4638 "Frame 1296720741" (frosted pill) */}
+        <nav className="mobile-nav" aria-label="Sections">
+          <div className="mobile-nav-inner">
+            <button type="button" className="mobile-nav-link" onClick={() => scrollToSection('about-me')}>About me</button>
+            <Link to="/resume" className="mobile-nav-link">Resume</Link>
+            <button type="button" className="mobile-nav-link" onClick={() => scrollToSection('testimonials')}>Testimonials</button>
+            <button type="button" className="mobile-nav-link" onClick={() => scrollToSection('explorations')}>Visuals</button>
+          </div>
+        </nav>
 
         {/* Hero Section */}
         <div className="hero-section">
@@ -285,10 +337,11 @@ const Introduction = () => {
             </div>
             <HeroSubtitle />
           </div>
+          {/* Desktop breaks after "meet." (Figma 1849:42621 has a newline);
+              the mobile frame (1916:4497) runs it as one flowing paragraph */}
           <p className="hero-tagline">
-            Designing where money, marketplaces, and everyday convenience meet.
-            <br />
-            ~3 years of experience building thoughtful, outcome-driven experiences across different platforms
+            <span className="hero-tagline-line">Designing where money, marketplaces, and everyday convenience meet.</span>{' '}
+            <span className="hero-tagline-line">~3 years of experience building thoughtful, outcome-driven experiences across different platforms</span>
           </p>
         </div>
 
@@ -301,10 +354,12 @@ const Introduction = () => {
               </div>
               <div className="work-company-info">
                 <p className="work-company-name">Aspora (YC, S22)</p>
-                <p className="work-company-text">Wealth and banking platform for diasporas</p>
+                <p className="work-company-text">
+                  <Copy desktop="Wealth and banking platform for diasporas" mobile="Wealth and banking" />
+                </p>
               </div>
             </div>
-            <p className="work-date">April 2026- July 2026</p>
+            <p className="work-date"><Copy desktop="April 2026- July 2026" mobile="April - July 2026" /></p>
           </div>
 
           <Link to="/aspora-post-onboarding" className="aspora-case-card-link">
@@ -342,7 +397,7 @@ const Introduction = () => {
                 <p className="work-company-text">Super-saving application</p>
               </div>
             </div>
-            <p className="work-date">Oct, 2023- Sept, 2025</p>
+            <p className="work-date"><Copy desktop="Oct, 2023- Sept, 2025" mobile="Oct, 2023 - Sept, 2025" /></p>
           </div>
 
           <div className="work-cases">
@@ -372,6 +427,19 @@ const Introduction = () => {
               </div>
             </Link>
 
+            {/* Mobile only - Figma "Frame 1296720751" */}
+            {!showAllCases && (
+              <button type="button" className="view-more-button" onClick={() => setShowAllCases(true)}>
+                <span className="view-more-text">View more</span>
+                <span className="view-more-icon">
+                  <svg width="10" height="5" viewBox="0 0 10 5" fill="none" aria-hidden="true">
+                    <path d="M1 1L5 4L9 1" stroke="#DFFCA1" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </button>
+            )}
+
+            <div className={`case-extras ${showAllCases ? 'is-open' : ''}`}>
             {/* Case 2 and 3 */}
             <div className="case-cards-row">
               <Link to="/delivery-checkout-v1" className="case-card-link">
@@ -453,16 +521,18 @@ const Introduction = () => {
                 </div>
               </div>
             </a>
+            </div>
           </div>
         </div>
 
         {/* About Me Section */}
         <div id="about-me" className="about-section">
           <div className="section-header">
-            <p className="section-title">About me</p>
+            <p className="section-title"><Copy desktop="About me" mobile="Know more about me" /></p>
           </div>
           <div className="about-photo-frame">
-            <img src={imgAboutPhotoFrame} alt="" className="about-photo-stripes" />
+            <img src={imgAboutPhotoFrame} alt="" className="about-photo-stripes about-photo-stripes-desktop" />
+            <img src={imgAboutPhotoFrameMobile} alt="" className="about-photo-stripes about-photo-stripes-mobile" />
             <img src={imgRectangle7} alt="Sabhya Singhal" className="about-photo" />
           </div>
           <div className="about-details">
@@ -470,11 +540,14 @@ const Introduction = () => {
               I ask clarifying questions in every situation. This helps me navigate through life and create meaningful experiences for myself and others. If you’re someone who has an ambiguous idea I can help you frame it into something more meaningful. Basically, I enjoy shaping experiences for a company, for users, and myself; everything else in-between.
             </p>
             <div className="about-aside">
-              <p className="about-bridge">
+              <p
+                className={`about-bridge ${aboutBridge.inView ? 'is-visible' : ''}`}
+                ref={aboutBridge.ref}
+              >
                 I am no constructor but I surely know how to "bridge" the gap between business and user needs!
               </p>
               <Link to="/resume" className="about-resume-button">
-                <span className="about-resume-text">Resume</span>
+                <span className="about-resume-text"><Copy desktop="Resume" mobile="My work experiences" /></span>
                 <span className="about-resume-icon-wrapper">
                   <img src={imgAdvance} alt="" className="about-resume-icon" />
                 </span>
@@ -586,7 +659,7 @@ const Introduction = () => {
         {/* Explorations Section */}
         <div id="explorations" className="projects-section">
           <div className="section-header">
-            <p className="section-title">Graduating from NIFT, I tried my hands on a lot of different things; things other than product design as well..</p>
+            <p className="section-title"><Copy desktop="Graduating from NIFT, I tried my hands on a lot of different things; things other than product design as well.." mobile="Studying at NIFT, I tried my hands on things other than product design" /></p>
           </div>
           <div className="projects-carousel-wrapper">
             <div
@@ -676,12 +749,20 @@ const Introduction = () => {
             </p>
             <a href="mailto:singhalsabhya05@gmail.com" className="footer-email-text">singhalsabhya05@gmail.com</a>
           </div>
+          {/* Figma Component 2 (1249:2431): hovering reveals the note while the
+              rule redraws from a short stub and the heading turns green */}
           <div className="footer-right">
-            <p className="footer-curated">
-              <span>Curated by</span>
-              <span className="footer-bold"> Sabhya Singhal</span>
+            <div className="footer-credit">
+              <p className="footer-curated">
+                <span>Curated by</span>
+                <span className="footer-bold"> Sabhya Singhal</span>
+              </p>
+              <p className="footer-powered">Powered by fun, food, and caffeine...</p>
+            </div>
+            <span className="footer-rule" aria-hidden="true" />
+            <p className="footer-invite">
+              I would love to connect to discuss collaboration opportunities. Drop me an email and I will get back to you as soon as possible. Let’s create something beautiful together.
             </p>
-            <p className="footer-powered">Powered by fun, food, and caffeine...</p>
           </div>
         </div>
       </div>

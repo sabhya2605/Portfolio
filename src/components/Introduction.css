@@ -71,9 +71,10 @@
 
 .header-nav-link {
   min-width: 146px;
-  padding: 0;
+  padding: 6px 12px;
   border: none;
   background: none;
+  box-sizing: border-box;
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -82,12 +83,19 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, font-weight 0.2s ease;
 }
 
+/*
+ * Hover variant from the nav component sets (e.g. "About me" 1835:41607):
+ * the label turns #547F6A and goes SemiBold. No fill, no lift - the file's
+ * 1px lime drop shadow on that variant is toggled off.
+ */
 .header-nav-link:hover,
 .header-nav-link:focus-visible {
-  color: #094020;
+  color: #547F6A;
+  font-weight: 600;
+  outline: none;
 }
 
 /* Desktop shows the inline nav; the Menu overlay button takes over on small screens */
@@ -114,6 +122,28 @@
   line-height: 32px;
   color: #094020;
   margin: 0;
+}
+
+
+/* Copy that differs between the desktop and mobile designs */
+.copy-mobile,
+.about-photo-stripes-mobile {
+  display: none;
+}
+
+/* Wrapper is layout-neutral on desktop; it only gates the mobile reveal */
+.case-extras {
+  display: contents;
+}
+
+.view-more-button {
+  display: none;
+}
+
+/* Header pill + bottom nav belong to the mobile design only */
+.header-contact,
+.mobile-nav {
+  display: none;
 }
 
 /* Hero Section - matches Figma node 2314-10 */
@@ -160,18 +190,18 @@
 
 .hero-image-frame {
   position: absolute;
-  left: 5px;
-  top: 3.21px;
-  width: 68px;
-  height: 107.789px;
+  left: 6.85%;   /* 5 / 73 */
+  top: 2.89%;    /* 3.21 / 111 */
+  width: 93.15%; /* 68 / 73 */
+  height: 97.11%; /* 107.789 / 111 */
 }
 
 .hero-image {
   position: absolute;
   left: 0;
   top: 0;
-  width: 68px;
-  height: 108px;
+  width: 93.15%;  /* 68 / 73 */
+  height: 97.3%;  /* 108 / 111 */
   object-fit: cover;
   border-radius: 36px;
 }
@@ -237,7 +267,7 @@
   position: absolute;
   font-family: 'Marhey', 'Libre Franklin', cursive;
   font-weight: 500;
-  font-size: 0.333em;
+  font-size: max(11px, 0.333em);
   line-height: 1.125;
   /* em below resolves against this element's own 16px */
   left: -0.2625em;
@@ -263,6 +293,12 @@
   display: block;
   overflow: visible;
   text-shadow: 1px 2px 4px #DFFCA1;
+}
+
+/* Desktop breaks after "meet." (Figma 1849:42621); mobile flows - a hidden
+   <br> is not reliably dropped in Chrome, so the break comes from block spans */
+.hero-tagline-line {
+  display: block;
 }
 
 .hero-tagline {
@@ -439,6 +475,8 @@
 }
 
 .aspora-case-tag {
+  max-width: 100%;
+  box-sizing: border-box;
   background: #F4F7FF;
   padding: 12px;
   border-radius: 12px;
@@ -692,7 +730,11 @@
   stroke-dashoffset: 100;
 }
 
-/* Pointer devices: the stroke draws on hover and clears when the cursor leaves */
+/*
+ * Pointer devices: the stroke draws once when the tag scrolls into view (then
+ * clears, like Figma's v8), and replays whenever the cursor is over it.
+ * The hover keyframes are a separate name so the animation restarts on re-hover.
+ */
 @media (hover: hover) {
   .case-tag .case-tag-outline,
   .aspora-case-tag .case-tag-outline {
@@ -700,14 +742,36 @@
     transition: opacity 0.3s ease;
   }
 
+  .case-tag.is-drawn .case-tag-outline,
+  .aspora-case-tag.is-drawn .case-tag-outline {
+    opacity: 1;
+    animation: tagOutlineFade 0.5s ease 1.5s forwards;
+  }
+
+  .case-tag.is-drawn .case-tag-outline rect,
+  .aspora-case-tag.is-drawn .case-tag-outline rect {
+    animation: tagOutlineDraw 1.2s ease-out forwards;
+  }
+
   .case-tag:hover .case-tag-outline,
   .aspora-case-tag:hover .case-tag-outline {
     opacity: 1;
+    animation: none;
   }
 
   .case-tag:hover .case-tag-outline rect,
   .aspora-case-tag:hover .case-tag-outline rect {
-    animation: tagOutlineDraw 1.2s ease-out forwards;
+    animation: tagOutlineDrawHover 1.2s ease-out forwards;
+  }
+}
+
+@keyframes tagOutlineDrawHover {
+  from {
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
@@ -867,6 +931,15 @@
   letter-spacing: 0.4px;
   color: #1C1C1C;
   margin: 0;
+  /* fades up once the section scrolls into view */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-bridge.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-resume-button {
@@ -1817,17 +1890,78 @@
   box-sizing: border-box;
 }
 
-/* Figma 1249:2437 - rule under the block, full width, #C7C7C7 */
-.footer-right::after {
-  content: '';
-  display: block;
-  border-top: 1px solid #C7C7C7;
+/* The two credit lines are one block in Figma: no gap between them */
+.footer-credit {
+  width: 376px;
+  max-width: 100%;
 }
 
 .footer-curated,
 .footer-powered {
+  transition: color 0.3s ease 0.25s;
+}
+
+/* Figma 1249:2437 - rule under the block, full width, #C7C7C7 */
+.footer-rule {
+  width: 100%;
+  height: 1px;
+  background: #C7C7C7;
+  transform-origin: left center;
+  transition: background-color 0.3s ease;
+}
+
+/* Figma 1249:2445 - the note revealed on hover */
+.footer-invite {
   width: 376px;
   max-width: 100%;
+  margin: 0;
+  font-family: 'Lucida Bright', Georgia, serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #474747;
+  text-align: left;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.4s ease;
+}
+
+/*
+ * Hover sequence: the note fades in, the rule turns black and redraws from a
+ * 24px stub out to full width (Figma "hover" -> "Variant3"), and the heading
+ * settles on the green end state.
+ */
+.footer-right:hover .footer-invite {
+  opacity: 1;
+  max-height: 160px;
+}
+
+.footer-right:hover .footer-rule {
+  background: #000;
+  animation: footerRuleDraw 0.6s ease-out forwards;
+}
+
+.footer-right:hover .footer-curated,
+.footer-right:hover .footer-powered {
+  color: #094020;
+}
+
+@keyframes footerRuleDraw {
+  from {
+    transform: scaleX(0.062); /* 24px of the 386px block */
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* No hover on touch: show the note rather than hiding it behind a gesture */
+@media (hover: none) {
+  .footer-invite {
+    opacity: 1;
+    max-height: none;
+  }
 }
 
 .footer-curated,
@@ -2061,8 +2195,6 @@
   
   .recognition-card-grey .recognition-award-image {
     order: 1;
-    width: 100%;
-    max-width: 151.114px;
     margin: 0 auto;
   }
   
@@ -2190,17 +2322,15 @@
   .recognition-award-image {
     border-radius: 12px;
     overflow: hidden;
-    height: auto;
-    width: 100%;
-    max-width: 151.114px;
-    aspect-ratio: 151.114 / 188;
+    width: 123px;
+    height: 126px;
   }
   
   .recognition-award-img {
     width: 100%;
-    height: auto;
-    max-height: 188px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
   }
   
   .testimonial-card {
@@ -2328,6 +2458,16 @@
     line-height: 36px;
     white-space: nowrap;
   }
+
+  /* keep the pill proportional to the headline (73x111 at 48px) */
+  .hero-image-wrapper {
+    width: 43px;
+    height: 65px;
+  }
+
+  .aspora-case-tag {
+    white-space: normal;
+  }
   
   .hero-tagline {
     font-size: 18px;
@@ -2398,8 +2538,6 @@
   
   .recognition-card-grey .recognition-award-image {
     order: 1;
-    width: 100%;
-    max-width: 151.114px;
     margin: 0 auto;
   }
   
@@ -2481,6 +2619,11 @@
     font-size: min(24px, 6.6vw);
     line-height: 32px;
     white-space: nowrap;
+  }
+
+  .hero-image-wrapper {
+    width: 37px;
+    height: 56px;
   }
   
   .hero-tagline {
@@ -2667,8 +2810,6 @@
   
   .recognition-card-grey .recognition-award-image {
     order: 1;
-    width: 100%;
-    max-width: 151.114px;
     margin: 0 auto;
   }
   
@@ -2747,17 +2888,15 @@
   .recognition-award-image {
     border-radius: 12px;
     overflow: hidden;
-    height: auto;
-    width: 100%;
-    max-width: 151.114px;
-    aspect-ratio: 151.114 / 188;
+    width: 123px;
+    height: 126px;
   }
   
   .recognition-award-img {
     width: 100%;
-    height: auto;
-    max-height: 188px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
   }
   
   .testimonial-card {
@@ -2847,5 +2986,648 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .footer-rule {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .footer-invite,
+  .footer-curated,
+  .footer-powered {
+    transition: none;
+  }
+
+  .about-bridge {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* ============================================================================
+   Mobile design - Figma 1916:4638 ("iPhone 13 & 14 - 2", 390x844)
+   Values below are that frame's, not scaled-down desktop ones.
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Header pill and bottom bar replace the Menu overlay */
+  .menu-button {
+    display: none !important;
+  }
+
+  .header-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 100px;
+    background: #DFFCA1;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1C1C1C;
+    cursor: pointer;
+  }
+
+  /* Frosted pill, fixed above the content (Figma: glass + 12px background blur) */
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    padding: 0 16px 16px 16px;
+    pointer-events: none;
+  }
+
+  .mobile-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    height: 59px;
+    padding: 0 12px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    pointer-events: auto;
+  }
+
+  /* keep the footer clear of the fixed bar wherever the bar shows */
+  .introduction-content {
+    padding-bottom: 99px;
+  }
+
+  .mobile-nav-link {
+    flex: 1;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    color: #333333;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  /*
+   * The mobile frame specifies letterSpacing 0 for nearly all text, so drop the
+   * global 0.02em here only - the web view keeps it. The handful of tracked
+   * nodes get their mobile values below (case titles 0.32, about copy 0.24).
+   */
+  .introduction-container {
+    letter-spacing: normal;
+  }
+
+  .copy-desktop {
+    display: none;
+  }
+
+  .copy-mobile {
+    display: inline;
+  }
+
+  .introduction-container {
+    --page-gutter: 16px;
+    padding: 0 var(--page-gutter) 0 var(--page-gutter);
+  }
+
+  /* header 61px tall, bottom bar 75px + breathing room */
+  .introduction-content {
+    gap: 32px;
+    padding-top: 84px;
+    padding-bottom: 99px;
+  }
+
+  .header-section {
+    padding: 24px 16px 8px 16px;
+  }
+
+  .name-text {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  /* ---- hero (Frame 5) ---- */
+  .hero-section {
+    gap: 8px;
+  }
+
+  .hero-title-container {
+    gap: 4px;
+    width: 100%;
+  }
+
+  .hero-title-row {
+    gap: 8px;
+  }
+
+  .hero-title,
+  .hero-subtitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .hero-image-wrapper {
+    width: 47px;
+    height: 72px;
+  }
+
+  .hero-image {
+    border-radius: 23px;
+  }
+
+  .hero-tagline {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  /* the mobile frame runs the tagline as one flowing paragraph */
+  .hero-tagline-line {
+    display: inline;
+  }
+
+  /* ---- work cases: full-width bands, no card chrome ----
+     Figma stacks header / image / text with gap 0; the spacing comes from
+     each part's own padding (header 12, image band 7, text 8). */
+  .work-section {
+    padding: 0;
+    gap: 0;
+  }
+
+  .work-cases {
+    gap: 12px;
+  }
+
+  /* Figma keeps the logo/company/date on one row, date flush right */
+  .work-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .work-header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 16px;
+  }
+
+  .work-company-info {
+    min-width: 0;
+  }
+
+  /* Figma gives the date a fixed 96px centred box, which is what wraps
+     "Oct, 2023 - / Sept, 2025" onto two lines */
+  .work-date {
+    flex: 0 0 96px;
+    width: 96px;
+    text-align: center;
+  }
+
+  .work-image-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+  }
+
+  .work-company-name,
+  .work-company-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .work-date {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .aspora-case-card,
+  .case-card,
+  .case-card-large,
+  .case-card-green,
+  .case-card-grey {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  /* image band and text sit flush; their own padding spaces them (gap 0 in Figma) */
+  .aspora-case-card,
+  .case-content,
+  .case-content-reverse,
+  .case-cards-row .case-card {
+    gap: 0;
+  }
+
+  .case-cards-row {
+    gap: 32px;
+  }
+
+  /* Figma shows two cases, then the pill reveals the rest */
+  .case-extras {
+    display: none;
+  }
+
+  .case-extras.is-open {
+    display: contents;
+  }
+
+  .view-more-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 13px 13px 20px;
+    border: none;
+    border-radius: 83px;
+    background: #DFFCA1;
+    cursor: pointer;
+  }
+
+  .view-more-text {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #094020;
+  }
+
+  .view-more-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 63px;
+    background: #094020;
+  }
+
+  .aspora-case-image-container,
+  .case-image-container,
+  .case-image-top {
+    border-radius: 24px;
+    margin: 7px 0; /* Figma image band padding */
+  }
+
+  .aspora-case-text-container,
+  .case-text-container {
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .aspora-case-category,
+  .case-category {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 400;
+    font-size: 12px !important;
+    line-height: 16px;
+    color: #969696;
+  }
+
+  .aspora-case-title,
+  .case-title {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.32px; /* Figma: 0.02em at 16px */
+  }
+
+  .aspora-case-description,
+  .case-description {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .aspora-case-description strong,
+  .case-description strong,
+  .case-description b {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .aspora-case-tag,
+  .case-tag {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  /* ---- about (Frame 1296720729: p8/0, gap 12) ---- */
+  .about-section {
+    padding: 8px 0;
+    gap: 12px;
+  }
+
+  .section-header {
+    padding: 8px 0;
+  }
+
+  .section-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* Figma 1296720730: frame 360x213, image +2/+17, stripes +7/+17 */
+  .about-photo-frame {
+    aspect-ratio: 360 / 213;
+  }
+
+  .about-photo-stripes-desktop {
+    display: none;
+  }
+
+  .about-photo-stripes-mobile {
+    display: block;
+    left: 1.94%;
+    top: 7.98%;
+    width: 98.06%;
+    height: 92.02%;
+  }
+
+  .about-photo {
+    left: 0.56%;
+    top: 7.98%;
+    width: 98.33%;
+    height: 97.65%;
+    border-radius: 9px;
+  }
+
+  /* mobile stacks bridge -> story -> button */
+  .about-details {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .about-aside {
+    display: contents;
+  }
+
+  .about-bridge {
+    order: -1;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.24px; /* Figma: 0.02em at 12px */
+  }
+
+  .about-story {
+    order: 0;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.24px; /* Figma: 0.02em at 12px */
+    text-align: justify;
+  }
+
+  .about-resume-button {
+    order: 1;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 13px 13px 13px 20px;
+    border-radius: 83px;
+  }
+
+  .about-resume-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .about-resume-icon-wrapper {
+    padding: 2px;
+  }
+
+  .about-resume-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ---- recognitions: full-bleed bands ---- */
+  .recognitions-section {
+    padding: 0;
+    gap: 12px;
+  }
+
+  .recognitions-content {
+    gap: 12px;
+  }
+
+  .recognitions-right {
+    gap: 12px;
+  }
+
+  /* Full-bleed bands. Two-class selectors so the narrower ≤1024 rules
+     (e.g. .recognition-card.recognition-card-left) don't win on width. */
+  .recognition-card.recognition-card-left,
+  .recognition-card.recognition-card-green,
+  .recognition-card.recognition-card-grey {
+    width: calc(100% + 32px);
+    margin: 0 -16px;
+    padding: 12px 16px;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+
+  /* the lift is a pointer affordance; mobile bands stay put */
+  .recognition-card:hover,
+  .recognition-card:focus,
+  .recognition-card:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .recognition-card.recognition-card-left {
+    gap: 16px;
+  }
+
+  .recognition-card-green {
+    background: transparent;
+    gap: 26px;
+  }
+
+  .recognition-card-grey {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .recognition-card-grey .recognition-text-content {
+    order: 0;
+    width: auto;
+    flex: 1 1 auto;
+  }
+
+  .recognition-card-grey .recognition-award-image {
+    order: 0;
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .recognition-title {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .recognition-description,
+  .recognition-card-green .recognition-description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .recognition-collage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 360 / 261;
+    border-radius: 17px;
+  }
+
+  /* ---- testimonials ---- */
+  .testimonials-section,
+  .projects-section {
+    gap: 12px;
+  }
+
+  .testimonial-card,
+  .testimonial-card-compact {
+    width: min(330px, 86vw);
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .testimonial-role {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .testimonial-name {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .testimonial-text {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: justify;
+  }
+
+  /* ---- explorations ---- */
+  .projects-content,
+  .testimonials-content {
+    gap: 12px;
+  }
+
+  /* Figma pads these sections 16px on the left only; cards run off both edges,
+     so cancel the page gutter instead of stacking on top of it */
+  .testimonials-carousel-wrapper,
+  .projects-carousel-wrapper {
+    width: calc(100% + var(--page-gutter) * 2);
+    margin-left: calc(-1 * var(--page-gutter));
+    margin-right: calc(-1 * var(--page-gutter));
+    padding-left: 16px;
+  }
+
+  .project-image-wrapper,
+  .project-image-wrapper.project-image-wrapper-third,
+  .project-image-wrapper.project-image-wrapper-fourth {
+    width: 155px;
+    height: 119px;
+    border-radius: 13px;
+  }
+
+  .project-image-wrapper.project-image-wrapper-third {
+    width: 152px;
+  }
+
+  .project-image-wrapper.project-image-wrapper-fifth {
+    width: 120px;
+    height: 120px;
+  }
+
+  .project-image-wrapper.project-image-wrapper-fourth {
+    padding: 0 3px;
+  }
+
+  .project-image,
+  .project-image-overlay {
+    border-radius: 13px;
+  }
+
+  .project-image-overlay-title {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .project-image-overlay-description {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .project-image-overlay-content {
+    gap: 4px;
+    padding: 10px;
+  }
+
+  /* ---- footer ---- */
+  .footer-section {
+    flex-direction: column;
+    gap: 24px;
+    padding: 10px 0 8px 0;
+  }
+
+  .footer-left {
+    gap: 10px;
+    width: 100%;
+    max-width: 232px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    line-height: 18px;
+    color: #000;
+  }
+
+  .footer-email-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .footer-right {
+    width: 100%;
+    text-align: right;
+  }
+
+  .footer-credit {
+    width: 100%;
+  }
+
+  .footer-curated,
+  .footer-powered {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  /* the mobile frame shows only the default state of the credit block */
+  .footer-invite {
+    display: none;
   }
 }
