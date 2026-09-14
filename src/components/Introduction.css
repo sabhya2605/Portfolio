@@ -131,6 +131,12 @@
   display: none;
 }
 
+/* Two classes deep so this outranks `.recognition-images-single
+   .recognition-image`, which would otherwise show both crops on desktop. */
+.recognition-images-single .recognition-image.recognition-image-mobile {
+  display: none;
+}
+
 /* Wrapper is layout-neutral on desktop; it only gates the mobile reveal */
 .case-extras {
   display: contents;
@@ -3053,10 +3059,9 @@
     height: 59px;
     padding: 0 12px;
     border-radius: 100px;
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.65);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     pointer-events: auto;
   }
 
@@ -3237,6 +3242,41 @@
     gap: 0;
   }
 
+  /*
+   * The two-up cards (checkout / magicPay) are styled by two-class rules in the
+   * desktop block, which outrank the single-class mobile resets above - so they
+   * kept 24px padding and a 24px text gap, indenting to 40px while every other
+   * block sat at 16. Match the specificity here.
+   */
+  .case-cards-row .case-card,
+  .case-cards-row .case-card-link > .case-card {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .case-cards-row .case-text-container {
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  /* Figma's mobile image bands are 360x242, not the desktop 487x360 */
+  .aspora-case-image-container,
+  .case-image-container,
+  .case-image-top {
+    aspect-ratio: 360 / 242;
+  }
+
+  .case-card-green .case-image-top {
+    border: none;
+  }
+
+  /* The ≤1024 rule letterboxes these with object-fit: contain; the mobile
+     frame's image bands are filled, so cover them instead. */
+  .case-content .case-image-container .case-image,
+  .case-content-reverse .case-image-container .case-image {
+    object-fit: cover;
+  }
+
   .case-cards-row {
     gap: 32px;
   }
@@ -3295,6 +3335,12 @@
     padding: 8px 0;
   }
 
+  /* Match the magicpin cards, where .case-tags adds 8px on top of the 8px
+     container gap, so the tag sits 16px below the description. */
+  .aspora-case-tags {
+    margin-top: 8px;
+  }
+
   .aspora-case-category,
   .case-category {
     font-family: 'Libre Franklin', sans-serif;
@@ -3327,9 +3373,15 @@
   .aspora-case-tag,
   .case-tag {
     padding: 8px 12px;
+    border: none; /* the mobile tags have no stroke (kept the desktop 1px off) */
     border-radius: 8px;
     font-size: 10px;
     line-height: 16px;
+  }
+
+  /* Figma 1892:43087 Variant10: Marhey 500 14/18 (the desktop ratio is smaller) */
+  .hero-annotation-text {
+    font-size: 14px;
   }
 
   /* ---- about (Frame 1296720729: p8/0, gap 12) ---- */
@@ -3372,11 +3424,13 @@
     border-radius: 9px;
   }
 
-  /* mobile stacks bridge -> story -> button */
+  /* mobile stacks bridge -> story -> button.
+     The photo overflows its frame by ~12px, so add a little more air before
+     the "I am no constructor" line than the frame's literal 0px. */
   .about-details {
     flex-direction: column;
     gap: 8px;
-    margin-top: 0;
+    margin-top: 4px;
   }
 
   .about-aside {
@@ -3601,6 +3655,7 @@
   }
 
   .footer-text {
+    max-width: 166px; /* Figma's text box, so it wraps at the same words */
     font-size: 12px;
     line-height: 18px;
     color: #000;
@@ -3624,6 +3679,37 @@
   .footer-powered {
     font-size: 14px;
     line-height: 22px;
+  }
+
+  /* Figma "Mask group" is 358x234; our export is a wider crop, so constrain it.
+     The band's 16px gap already spaces it - drop the base margin-bottom. */
+  .recognition-images-grid.recognition-images-single {
+    aspect-ratio: 358 / 234;
+    overflow: hidden;
+    border-radius: 24px;
+    margin-bottom: 0;
+  }
+
+  /* Both carry the extra class so they match the global hide's specificity
+     and win on order rather than by accident. */
+  .recognition-images-single .recognition-image.recognition-image-desktop {
+    display: none;
+  }
+
+  .recognition-images-single .recognition-image.recognition-image-mobile {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /*
+   * The mobile frame (1916:4486) ends after the email: its artboard is 3606px
+   * tall, the content runs to 3651 and the frame clips, so the "Curated by"
+   * block falls outside. Hidden here; the web footer keeps it.
+   */
+  .footer-right {
+    display: none;
   }
 
   /* the mobile frame shows only the default state of the credit block */

@@ -15,6 +15,7 @@ import imgRectangle6 from '../images/rectangle6.png';
 import imgAdvance from '../images/advance.png';
 import imgRectangle7 from '../images/rectangle7.png';
 import imgUxindia2024 from '../images/uxindia-2024.png';
+import imgUxindiaMobile from '../images/landing/uxindia-mobile.png';
 import imgMdiWhatsapp1 from '../images/mdi-whatsapp1.png';
 import imgMdiWhatsapp2 from '../images/mdi-whatsapp2.png';
 import imgMdiScreenshot1 from '../images/mdi-screenshot1.png';
@@ -27,26 +28,6 @@ import imgHeroPhotoFrame from '../images/landing/hero-photo-frame.svg';
 import imgAboutPhotoFrame from '../images/landing/about-photo-frame.svg';
 import imgAboutPhotoFrameMobile from '../images/landing/about-photo-frame-mobile.svg';
 import imgEffortlessCaret from '../images/landing/hero-effortless-caret.svg';
-
-// True while the viewport matches the mobile design (Figma 1916:4638).
-const MOBILE_QUERY = '(max-width: 480px)';
-
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia(MOBILE_QUERY).matches
-  );
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
-    const mql = window.matchMedia(MOBILE_QUERY);
-    const onChange = (e) => setIsMobile(e.matches);
-    mql.addEventListener('change', onChange);
-    setIsMobile(mql.matches);
-    return () => mql.removeEventListener('change', onChange);
-  }, []);
-
-  return isMobile;
-};
 
 /* Copy that differs between the desktop and mobile designs. Both are rendered
    and swapped in CSS so there is no flash while JS boots. */
@@ -116,29 +97,19 @@ const HERO_GAP_MS = 400;
 
 const HeroSubtitle = () => {
   const reduced = prefersReducedMotion();
-  const isMobile = useIsMobile();
   const [step, setStep] = useState(reduced ? HERO_WORD.length + 1 : 0);
 
   useEffect(() => {
-    if (reduced || isMobile) return;
+    if (reduced) return;
     const total = HERO_WORD.length + 1; // one step opens the gap, then a step per letter
     if (step > total) return;
     const delay = step === 0 ? HERO_GAP_MS : HERO_LETTER_MS;
     const timer = setTimeout(() => setStep((current) => current + 1), delay);
     return () => clearTimeout(timer);
-  }, [step, reduced, isMobile]);
+  }, [step, reduced]);
 
   const typed = step === 0 ? '' : HERO_WORD.slice(0, step - 1);
   const done = step > HERO_WORD.length;
-
-  // Figma 1916:4638 keeps the mobile subtitle as plain "crafting experiences"
-  if (isMobile) {
-    return (
-      <div className="hero-subtitle-wrapper">
-        <p className="hero-subtitle">Crafting Experiences</p>
-      </div>
-    );
-  }
 
   return (
     <div className="hero-subtitle-wrapper">
@@ -397,7 +368,17 @@ const Introduction = () => {
                 <p className="work-company-text">Super-saving application</p>
               </div>
             </div>
-            <p className="work-date"><Copy desktop="Oct, 2023- Sept, 2025" mobile="Oct, 2023 - Sept, 2025" /></p>
+            {/* Figma's mobile date node breaks explicitly: "Oct, 2023 -" / "Sept, 2025" */}
+            <p className="work-date">
+              <Copy
+                desktop="Oct, 2023- Sept, 2025"
+                mobile={
+                  <>
+                    Oct, 2023 -<br />Sept, 2025
+                  </>
+                }
+              />
+            </p>
           </div>
 
           <div className="work-cases">
@@ -563,8 +544,11 @@ const Introduction = () => {
           </div>
           <div className="recognitions-content">
             <div className="recognition-card recognition-card-left">
+              {/* the mobile frame crops this collage taller (358x234), so it
+                  has its own export rather than a cover-crop of the wide one */}
               <div className="recognition-images-grid recognition-images-single">
-                <img src={imgUxindia2024} alt="Volunteer at UXINDIA2024" className="recognition-image" />
+                <img src={imgUxindia2024} alt="Volunteer at UXINDIA2024" className="recognition-image recognition-image-desktop" />
+                <img src={imgUxindiaMobile} alt="Volunteer at UXINDIA2024" className="recognition-image recognition-image-mobile" />
               </div>
               <div className="recognition-text-content">
                 <p className="recognition-title">Volunteer at UXINDIA2024</p>
