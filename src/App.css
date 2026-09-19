@@ -22,6 +22,9 @@ body {
   background: #FFF;
   width: 100%;
   overflow-x: hidden;
+  /* clip, not hidden: `hidden` makes this a scroll container and breaks
+     position:sticky in descendants. Older browsers keep the hidden above. */
+  overflow-x: clip;
 }
 
 /* Responsive Styles */

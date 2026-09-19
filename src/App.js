@@ -7,6 +7,8 @@ import DeliveryCheckout from './components/DeliveryCheckout';
 import DeliveryCheckoutV1 from './components/DeliveryCheckoutV1';
 import SearchV1 from './components/SearchV1';
 import AsporaPostOnboarding from './components/AsporaPostOnboarding';
+import Landing from './components/Landing';
+import AboutV2 from './components/AboutV2';
 import './App.css';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/delivery-checkout-v1" element={<DeliveryCheckoutV1 />} />
           <Route path="/search-v1" element={<SearchV1 />} />
           <Route path="/aspora-post-onboarding" element={<AsporaPostOnboarding />} />
+          <Route path="/v2" element={<Landing />} />
+          <Route path="/about-v2" element={<AboutV2 />} />
         </Routes>
       </div>
     </Router>

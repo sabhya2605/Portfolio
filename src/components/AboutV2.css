@@ -1,0 +1,1275 @@
+/*
+ * About me (v2) — built against Figma frame 2040:28195 (Bento).
+ * Canvas is 1440 wide with a 150px gutter, so the content column is 1140px.
+ * Sizes, weights, line-heights and colours below come from the frame's own
+ * text nodes. The frame sets body copy in Arial (and its metric twins Arimo /
+ * Tinos); this maps those to Libre Franklin, the sans the rest of the site
+ * already uses, and keeps every size and colour exactly as drawn.
+ */
+
+.abv2 {
+  --abv2-page: 1440px;
+  --abv2-gutter: 150px;
+
+  --abv2-ink: #252822;
+  --abv2-ink-alt: #1c1c1c;
+  --abv2-muted: #666a60;
+  --abv2-body: #5d6056;
+  --abv2-body-alt: #59604f;
+  --abv2-deep: #094020;
+  --abv2-green: #547f6a;
+
+  --abv2-lime: #dffca1;
+  --abv2-lime-btn: #d8ef99;
+  --abv2-grey: #f7f7f7;
+  --abv2-kitchen: #f6fbec;
+  --abv2-rhythm: #f0f8fb;
+  --abv2-tile: #fafaf6;
+  --abv2-chat: #fbf8f2;
+  --abv2-bubble-them: #eae6df;
+  --abv2-bubble-me: #d9e6be;
+
+  /* Arimo and Tinos are metric-compatible with Arial and Times, so they double
+     as the fallbacks on systems that lack them. */
+  --abv2-sans: Arial, Arimo, Helvetica, sans-serif;
+  --abv2-arimo: Arimo, Arial, Helvetica, sans-serif;
+  --abv2-serif: Georgia, 'Times New Roman', Times, serif;
+  --abv2-tinos: Tinos, 'Times New Roman', Times, serif;
+  --abv2-mono: 'Courier New', Courier, monospace;
+  --abv2-abeezee: 'ABeeZee', Arial, sans-serif;
+
+  width: 100%;
+  max-width: var(--abv2-page);
+  /* .App is a flex container; without this the page cannot shrink below its
+     content width and the whole layout overflows on narrow screens. */
+  min-width: 0;
+  margin: 0 auto;
+  background: #fff;
+  color: var(--abv2-ink);
+  font-family: var(--abv2-sans);
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.abv2 *,
+.abv2 *::before,
+.abv2 *::after {
+  box-sizing: border-box;
+}
+
+/* Scroll reveal ---------------------------------------------------------- */
+
+.abv2-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.abv2-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Nav -------------------------------------------------------------------- */
+
+/* the frame sets this header to STICKY_SCROLLS */
+.abv2-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 146px;
+  background: var(--abv2-grey);
+}
+
+.abv2-nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 54px var(--abv2-gutter) 36px;
+}
+
+.abv2-wordmark {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+  color: var(--abv2-ink-alt);
+}
+
+.abv2-nav-pill {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  gap: 16px;
+  padding: 2px;
+  border-radius: 100px;
+  background: var(--abv2-lime);
+}
+
+.abv2-nav-link {
+  font-family: 'Libre Franklin', var(--abv2-sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 146px;
+  height: 52px;
+  border-radius: 100px;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease-out, font-weight 0.2s ease-out;
+}
+
+/*
+ * The prototype's ON_HOVER variant (e.g. "About me" -> 1835:41610) turns the
+ * label #547F6A and SemiBold. No fill and no lift - the earlier white fill was
+ * invented. The frame's own duration is 20ms; this keeps the original landing
+ * page's 200ms, which reads as a transition rather than a snap.
+ */
+.abv2-nav-link:hover,
+.abv2-nav-link:focus-visible {
+  color: #547f6a;
+  font-weight: 600;
+  outline: none;
+}
+
+.abv2-nav-contact:hover,
+.abv2-nav-contact:focus-visible {
+  color: #547f6a;
+  font-weight: 600;
+  text-decoration: none;
+  outline: none;
+}
+
+.abv2-nav-link.is-active {
+  background: #fff;
+}
+
+.abv2-nav-contact {
+  font-family: 'Libre Franklin', var(--abv2-sans);
+  justify-self: end;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  text-decoration: none;
+}
+
+.abv2-nav-contact {
+  transition: color 0.2s ease-out, font-weight 0.2s ease-out;
+}
+
+/* Shared type ------------------------------------------------------------ */
+
+.abv2-kicker {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--abv2-muted);
+}
+
+.abv2-kicker-tight {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.abv2-heading {
+  margin: 13px 0 0;
+  max-width: 1000px;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 50px;
+  color: var(--abv2-ink);
+}
+
+.abv2-sublabel {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--abv2-muted);
+}
+
+/* Intro ------------------------------------------------------------------ */
+
+.abv2-intro {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 117px;
+  margin-top: 51px;
+  padding: 56px var(--abv2-gutter) 56px;
+}
+
+.abv2-intro > * {
+  min-width: 0;
+}
+
+/* the frame drops the copy 102px into the section but the figure only 56px */
+.abv2-intro-copy {
+  padding-top: 46px;
+}
+
+/* the line breaks are explicit in the markup; Libre Franklin sets wider than
+   the frame's Arial, so the lines must not wrap again on their own */
+.abv2-title {
+  margin: 23px 0 0;
+  width: 520px;
+  font-family: var(--abv2-arimo);
+  white-space: nowrap;
+  font-size: 92px;
+  font-weight: 500;
+  line-height: 96px;
+  letter-spacing: -0.01em;
+  color: var(--abv2-ink);
+}
+
+.abv2-lede {
+  margin: 26px 0 0;
+  max-width: 420px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+  color: var(--abv2-ink);
+}
+
+.abv2-lede-narrow {
+  margin-top: 16px;
+  max-width: 410px;
+}
+
+.abv2-intro-figure {
+  position: relative;
+  justify-self: end;
+  width: 349px;
+  /* the frame's figure column runs 490 tall, not just the polaroid's 444 */
+  min-height: 490px;
+  margin-top: 0;
+}
+
+/* a strip of lime "tape" holding the polaroid down */
+.abv2-tape {
+  position: absolute;
+  top: -23px;
+  left: 135px;
+  width: 104px;
+  height: 47px;
+  background: var(--abv2-lime);
+  transform: rotate(-8deg);
+  z-index: 1;
+}
+
+.abv2-polaroid {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 12.57px 12.57px 20.94px;
+  background: #fff;
+  transform: rotate(0.48deg);
+  box-shadow: 0 10px 30px rgba(37, 40, 34, 0.09);
+}
+
+.abv2-polaroid img {
+  display: block;
+  width: 324px;
+  height: 374px;
+  object-fit: cover;
+}
+
+.abv2-polaroid figcaption {
+  padding: 15.71px 0 0;
+  font-family: var(--abv2-serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--abv2-ink);
+  text-align: center;
+}
+
+/* Sections --------------------------------------------------------------- */
+
+.abv2-section {
+  padding: 0 var(--abv2-gutter);
+  margin-top: 52px;
+}
+
+#away {
+  margin-top: 52px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* Away-from-the-screen grid ---------------------------------------------- */
+
+.abv2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 54px;
+  margin-top: 35px;
+}
+
+.abv2-card {
+  position: relative;
+  min-height: 555px;
+  padding: 34px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.abv2-card-kitchen {
+  background: var(--abv2-kitchen);
+}
+
+.abv2-card-hand {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #f0f0ec;
+}
+
+.abv2-card-trip {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #f0f0ec;
+}
+
+.abv2-card-rhythm {
+  background: var(--abv2-rhythm);
+}
+
+.abv2-card-index {
+  position: relative;
+  z-index: 3;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--abv2-muted);
+}
+
+.abv2-card-title {
+  position: relative;
+  z-index: 3;
+  margin: 26px 0 0;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 38px;
+  color: var(--abv2-ink);
+}
+
+.abv2-card-copy {
+  position: relative;
+  z-index: 3;
+  margin: 20px 0 0;
+  max-width: 300px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--abv2-body);
+}
+
+.abv2-card-copy-sm {
+  width: 510px;
+  max-width: none;
+  font-size: 15px;
+}
+
+.abv2-card-rhythm .abv2-card-copy-sm {
+  width: 473px;
+}
+
+.abv2-card-kitchen .abv2-card-copy {
+  max-width: 230px;
+}
+
+.abv2-card-trip .abv2-card-copy {
+  max-width: 481px;
+}
+
+.abv2-card-rhythm .abv2-card-copy {
+  max-width: 473px;
+}
+
+/* 01 — kitchen */
+.abv2-kitchen-photo {
+  position: absolute;
+  right: 34px;
+  bottom: 34px;
+  width: 245px;
+  height: 261px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* the frame layers a second, smaller shot under the first */
+.abv2-kitchen-photo-sm {
+  position: absolute;
+  left: 66px;
+  bottom: 34px;
+  width: 183px;
+  height: 183px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.abv2-kitchen-photo img,
+.abv2-kitchen-photo-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 02 / 04 — paired photo tiles */
+/* the frame pins these to the card's lower edge (34px inset, 20px gap) */
+.abv2-tiles {
+  position: absolute;
+  left: 34px;
+  bottom: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, 220px);
+  gap: 14px;
+}
+
+.abv2-tile {
+  position: relative;
+  margin: 0;
+  height: 300px;
+  padding: 7.13px;
+  border-radius: 9px;
+  background: var(--abv2-tile);
+  overflow: hidden;
+}
+
+/*
+ * Card 02 is a collage: the frame draws both photos larger than their tiles
+ * and offset, so they bleed over the tinted edge instead of sitting inside it.
+ */
+.abv2-card-hand .abv2-tile {
+  overflow: visible;
+}
+
+.abv2-card-hand .abv2-tile img {
+  position: absolute;
+  border-radius: 4px;
+}
+
+.abv2-card-hand .abv2-tile:first-child img {
+  left: -12px;
+  top: -12px;
+  width: 235px;
+  height: 326px;
+}
+
+.abv2-card-hand .abv2-tile:last-child img {
+  left: -5px;
+  top: -40px;
+  width: 230px;
+  height: 357px;
+  object-fit: contain;
+  background: #e7e9df;
+}
+
+.abv2-card-hand .abv2-tile-cap-top,
+.abv2-card-hand .abv2-tile-cap {
+  position: relative;
+  z-index: 2;
+}
+
+.abv2-card-hand .abv2-tile-cap {
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 6px;
+}
+
+.abv2-tile img {
+  display: block;
+  width: 100%;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.abv2-card-rhythm .abv2-tile img {
+  height: 244px;
+  border-radius: 11px;
+}
+
+.abv2-tile-cap {
+  font-family: var(--abv2-serif);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 17px;
+  color: #50564a;
+}
+
+.abv2-tile-cap-top {
+  font-family: var(--abv2-sans);
+  font-size: 14px;
+  line-height: 17px;
+  color: #50564a;
+}
+
+.abv2-tile-cap {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.abv2-tile-cap-top {
+  position: absolute;
+  top: 17px;
+  left: 19px;
+  font-family: var(--abv2-sans);
+  z-index: 2;
+}
+
+.abv2-tile-plus {
+  position: absolute;
+  top: -74px;
+  left: 98px;
+  z-index: 2;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 25px;
+  color: #636c51;
+}
+
+.abv2-card-rhythm .abv2-tile,
+.abv2-card-rhythm .abv2-tile img {
+  height: 294px;
+}
+
+.abv2-card-rhythm .abv2-tile img {
+  height: 244px;
+}
+
+.abv2-card-rhythm .abv2-tile-cap {
+  font-size: 16px;
+}
+
+/* 03 — group chat */
+.abv2-chat {
+  position: relative;
+  width: 415px;
+  height: 243px;
+  margin-top: 36px;
+  padding: 24px;
+  border-radius: 11px;
+  background: var(--abv2-chat);
+}
+
+.abv2-chat-label {
+  font-family: var(--abv2-mono);
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c756c;
+}
+
+.abv2-bubble {
+  display: inline-block;
+  margin-top: 17px;
+  padding: 10.67px 18.67px;
+  border-radius: 13.33px;
+  font-size: 19px;
+  line-height: 30px;
+  color: var(--abv2-body);
+}
+
+.abv2-bubble-them {
+  background: var(--abv2-bubble-them);
+}
+
+.abv2-bubble-me {
+  float: right;
+  margin-right: 15px;
+  background: var(--abv2-bubble-me);
+}
+
+.abv2-chat-note {
+  clear: both;
+  padding-top: 12px;
+  padding-right: 15px;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 21px;
+  color: #686e5a;
+  text-align: right;
+}
+
+.abv2-card-trip .abv2-card-title {
+  margin-top: 46px;
+}
+
+.abv2-card-trip .abv2-card-copy {
+  margin-top: 16px;
+}
+
+/* Icebreaker -------------------------------------------------------------- */
+
+.abv2-icebreaker {
+  display: grid;
+  grid-template-columns: 166px 1fr auto;
+  align-items: start;
+  gap: 0;
+  padding-bottom: 32px;
+  /* min, not fixed: a wrapped line must never be clipped out of the card */
+  min-height: 200px;
+  margin: 52px var(--abv2-gutter) 0;
+  padding: 36px 42px;
+  column-gap: 36px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #f0f0ec;
+}
+
+.abv2-icebreaker-num {
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 128px;
+  color: var(--abv2-green);
+}
+
+.abv2-icebreaker-body {
+  padding-top: 4px;
+}
+
+.abv2-icebreaker-line {
+  margin-top: 2px;
+  /* the frame sets this on one line; Libre Franklin needs the extra measure */
+  max-width: 640px;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 40px;
+  color: var(--abv2-ink);
+}
+
+.abv2-icebreaker-note {
+  margin-top: 10px;
+  font-family: var(--abv2-arimo);
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535c49;
+}
+
+.abv2-icebreaker-aside {
+  padding-top: 62px;
+  font-family: var(--abv2-mono);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 22px;
+  color: #85946d;
+  white-space: nowrap;
+}
+
+/* Experience -------------------------------------------------------------- */
+
+#experience {
+  margin-top: 52px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.abv2-work-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.abv2-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 49px;
+  margin-top: 32px;
+  padding: 12px 22px;
+  border-radius: 40px;
+  background: var(--abv2-lime-btn);
+  color: var(--abv2-ink);
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease;
+}
+
+.abv2-download:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.abv2-work-name {
+  margin-top: 66px;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 40px;
+  color: var(--abv2-ink);
+}
+
+.abv2-work-summary {
+  margin-top: 16px;
+  max-width: 780px;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--abv2-muted);
+}
+
+.abv2-jobs {
+  margin-top: 40px;
+}
+
+.abv2-job {
+  padding-bottom: 28px;
+}
+
+.abv2-job-company {
+  font-family: var(--abv2-serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--abv2-deep);
+}
+
+.abv2-job-role {
+  margin-top: 16px;
+  padding: 3px 0 12px;
+  font-family: var(--abv2-serif);
+  font-size: 16px;
+  line-height: 32px;
+  color: var(--abv2-muted);
+}
+
+.abv2-job-points {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style: none;
+}
+
+.abv2-job-points li {
+  position: relative;
+  /* 820px of text (+30px indent). The frame's line breaks were set with a
+     wider substitute for Tinos; this measure reproduces them exactly. */
+  max-width: 850px;
+  padding: 0 0 5px 30px;
+  font-family: var(--abv2-tinos);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--abv2-muted);
+}
+
+.abv2-job-points li + li {
+  margin-top: 0;
+}
+
+.abv2-job.has-tail-gap .abv2-job-points li:last-child {
+  padding-bottom: 13px;
+}
+
+.abv2-job-points li::before {
+  content: '\2022';
+  position: absolute;
+  left: 2px;
+  top: -2px;
+  font-family: var(--abv2-sans);
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--abv2-body-alt);
+}
+
+/* Education + certification ---------------------------------------------- */
+
+#education {
+  margin-top: 52px;
+}
+
+#certification {
+  margin-top: 52px;
+}
+
+.abv2-block-title {
+  font-family: 'Libre Franklin', var(--abv2-sans);
+  margin: 0;
+  padding: 10px 16px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--abv2-deep);
+}
+
+.abv2-panel {
+  margin-top: 36px;
+  padding: 24px;
+  border-radius: 28px;
+  background: var(--abv2-grey);
+}
+
+/* the frame draws this panel 312 tall; Libre Franklin fits the copy in fewer
+   lines than its Arial, so the height is held rather than left to the text */
+#education .abv2-panel {
+  min-height: 312px;
+}
+
+.abv2-panel-sm {
+  margin-top: 0;
+  border-radius: 20px;
+}
+
+.abv2-panel-title {
+  font-family: var(--abv2-serif);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--abv2-deep);
+}
+
+.abv2-panel-sub {
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--abv2-ink-alt);
+}
+
+.abv2-panel-body {
+  margin-top: 24px;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--abv2-body-alt);
+}
+
+.abv2-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  margin-top: 36px;
+}
+
+/* Footer ------------------------------------------------------------------ */
+
+.abv2-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+  margin-top: 100px;
+  padding: 0 var(--abv2-gutter);
+}
+
+.abv2-footer-left {
+  padding-left: 16px;
+}
+
+.abv2-footer-note {
+  font-size: 20px;
+  line-height: 28px;
+  color: #000;
+}
+
+.abv2-footer-email {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--abv2-serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000;
+  text-decoration: none;
+}
+
+.abv2-footer-email:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.abv2-footer-right {
+  width: 386px;
+  text-align: right;
+}
+
+.abv2-footer-right p {
+  font-family: var(--abv2-abeezee);
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--abv2-ink-alt);
+  transition: color 0.3s ease 0.25s;
+}
+
+/*
+ * Figma Component 2 (2040:28348 -> 1249:2439, 300ms ease-out): hovering the
+ * block redraws the rule from a short stub, reveals the note and turns the
+ * heading green - the same component the landing page footer uses.
+ */
+.abv2-footer-rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 12px;
+  background: #d9d9d9;
+  transform-origin: right center;
+  transition: background-color 0.3s ease;
+}
+
+.abv2-footer-invite {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--abv2-muted);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.4s ease;
+}
+
+@media (hover: hover) {
+  .abv2-footer-right:hover .abv2-footer-invite {
+    opacity: 1;
+    max-height: 200px;
+  }
+
+  .abv2-footer-right:hover .abv2-footer-rule {
+    background: #000;
+    animation: abv2FooterRuleDraw 0.6s ease-out forwards;
+  }
+
+  .abv2-footer-right:hover p {
+    color: var(--abv2-deep);
+  }
+}
+
+@keyframes abv2FooterRuleDraw {
+  from {
+    transform: scaleX(0.062);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Bottom bar -------------------------------------------------------------- */
+
+.abv2-bottom {
+  margin-top: 123px;
+  padding: 0 var(--abv2-gutter) 60px;
+}
+
+.abv2-bottom-rule {
+  display: block;
+  height: 5px;
+  margin: 0 5px;
+  border-radius: 3px;
+  background: var(--abv2-lime);
+}
+
+.abv2-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 42px;
+}
+
+.abv2-socials {
+  display: flex;
+  gap: 42px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.abv2-socials a,
+.abv2-top-link {
+  color: var(--abv2-ink-alt);
+  font-size: 20px;
+  line-height: 28px;
+  text-decoration: none;
+}
+
+.abv2-socials a:hover,
+.abv2-top-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.abv2-top-link {
+  color: #000;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+@media (max-width: 1439px) {
+  .abv2 {
+    --abv2-gutter: 80px;
+  }
+
+  .abv2-intro {
+    gap: 64px;
+  }
+
+  .abv2-title {
+    font-size: 72px;
+    line-height: 78px;
+  }
+
+  .abv2-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .abv2 {
+    --abv2-gutter: 40px;
+  }
+
+  .abv2-nav {
+    height: 112px;
+  }
+
+  .abv2-intro {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 64px;
+  }
+
+  .abv2-intro-figure {
+    justify-self: start;
+    margin-top: 0;
+  }
+
+  /* the fixed 520px measure only holds at the design width */
+  .abv2-title {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    font-size: 58px;
+    line-height: 64px;
+  }
+
+  .abv2-lede,
+  .abv2-lede-narrow {
+    max-width: 100%;
+  }
+
+  .abv2-heading {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .abv2-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .abv2-card {
+    min-height: 0;
+    padding-bottom: 35px;
+  }
+
+  /* absolutely-placed art has to rejoin the flow once the cards stack */
+  .abv2-kitchen-photo,
+  .abv2-kitchen-photo-sm,
+  .abv2-tiles {
+    position: static;
+    margin-top: 28px;
+    transform: none;
+  }
+
+  .abv2-tile-plus {
+    display: none;
+  }
+
+  .abv2-chat {
+    width: 100%;
+    height: auto;
+    padding-bottom: 22px;
+  }
+
+  .abv2-icebreaker {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 28px 24px 32px;
+  }
+
+  .abv2-icebreaker-aside {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .abv2 {
+    --abv2-gutter: 24px;
+  }
+
+  .abv2-nav-inner {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .abv2-nav-pill {
+    order: 3;
+    grid-column: 1 / -1;
+    justify-content: center;
+    height: 48px;
+  }
+
+  .abv2-nav-link {
+    width: auto;
+    height: 44px;
+    padding: 0 18px;
+    font-size: 16px;
+  }
+
+  .abv2-nav {
+    height: auto;
+    padding: 18px 0;
+  }
+
+  .abv2-wordmark,
+  .abv2-nav-contact {
+    font-size: 20px;
+  }
+
+  .abv2-title {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .abv2-lede,
+  .abv2-kicker {
+    font-size: 17px;
+  }
+
+  .abv2-kicker {
+    line-height: 22px;
+  }
+
+  .abv2-heading {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .abv2-intro-figure,
+  .abv2-polaroid img {
+    width: 100%;
+  }
+
+  .abv2-polaroid img {
+    height: auto;
+    aspect-ratio: 324 / 374;
+  }
+
+  .abv2-tape {
+    left: auto;
+    right: 24px;
+  }
+
+  .abv2-card-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .abv2-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .abv2-icebreaker-num {
+    font-size: 84px;
+    line-height: 84px;
+  }
+
+  .abv2-icebreaker-line {
+    font-size: 21px;
+    line-height: 32px;
+  }
+
+  .abv2-icebreaker-aside {
+    white-space: normal;
+  }
+
+  .abv2-work-head {
+    flex-direction: column;
+  }
+
+  .abv2-download {
+    margin-top: 24px;
+  }
+
+  .abv2-job-points li {
+    padding-left: 24px;
+  }
+
+  .abv2-job-points li::before {
+    left: 6px;
+  }
+
+  .abv2-panel-body,
+  .abv2-panel-sub {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .abv2-cert-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .abv2-footer {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .abv2-footer-left {
+    padding-left: 0;
+  }
+
+  .abv2-footer-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .abv2-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .abv2-socials {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .abv2 {
+    --abv2-gutter: 16px;
+  }
+
+  .abv2-title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .abv2-icebreaker-num {
+    font-size: 64px;
+    line-height: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abv2-footer-rule {
+    animation: none !important;
+  }
+
+  .abv2-reveal,
+  .abv2-download {
+    transition: none;
+  }
+
+  .abv2-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
