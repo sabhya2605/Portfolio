@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { scrollToSection } from './Menu';
 import './AboutV2.css';
 
 import imgPigeons from '../images/about-v2/figure-pigeons.jpg';
@@ -126,11 +127,23 @@ const CERTIFICATIONS = [
 ];
 
 const SOCIALS = [
-  { label: 'Linkedin', href: 'https://www.linkedin.com/in/sabhya-singhal/' },
-  { label: 'Behnace', href: 'https://www.behance.net/sabhyasinghal' },
-  { label: 'Medium', href: 'https://medium.com/@singhalsabhya05' },
-  { label: 'Dribble', href: 'https://dribbble.com/sabhyasinghal' },
+  { label: 'Linkedin', href: 'https://www.linkedin.com/in/sabhya-singhal-715130207/' },
+  { label: 'Behance', href: 'https://www.behance.net/sabhyasinghal' },
+  { label: 'Medium', href: 'https://medium.com/@sabhya.jvm' },
+  { label: 'Dribble', href: 'https://dribbble.com/sabhya26' },
 ];
+
+/* the shared helper offsets by a flat 100px; this bar is 146 tall, so the
+   target has to clear the measured header or it lands underneath it */
+const jumpToSection = (id) => {
+  const target = document.getElementById(id);
+  if (!target) return;
+  const header = document.querySelector('.abv2-nav');
+  window.scrollTo({
+    top: target.getBoundingClientRect().top + window.pageYOffset - (header ? header.offsetHeight : 0),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+  });
+};
 
 const AboutV2 = () => {
   const backToTop = (event) => {
@@ -147,17 +160,34 @@ const AboutV2 = () => {
         <div className="abv2-nav-inner">
           <span className="abv2-wordmark">Sabhya Singhal</span>
           <nav className="abv2-nav-pill">
-            <Link className="abv2-nav-link" to="/v2">
+            <Link className="abv2-nav-link" to="/">
               Projects
             </Link>
-            <span className="abv2-nav-link is-active">About me</span>
-            <Link className="abv2-nav-link" to="/resume">
+            {/* this page is "About me", so the item marks the current page
+                rather than linking back to itself */}
+            <span className="abv2-nav-link is-active" aria-current="page">
+              About me
+            </span>
+            {/* the resume is this page's experience section, not a separate page */}
+            <a
+              className="abv2-nav-link"
+              href="#experience"
+              onClick={(event) => {
+                event.preventDefault();
+                jumpToSection('experience');
+              }}
+            >
               Resume
-            </Link>
+            </a>
           </nav>
-          <a className="abv2-nav-contact" href="#contact">
+          {/* in-page jumps go through the same helper the v1 header uses */}
+          <button
+            type="button"
+            className="abv2-nav-contact"
+            onClick={() => scrollToSection('contact')}
+          >
             Contact
-          </a>
+          </button>
         </div>
       </header>
 
@@ -170,7 +200,7 @@ const AboutV2 = () => {
           <Reveal as="h1" className="abv2-title" delay={60}>
             A little beyond
             <br />
-            the pixels.
+            the <em className="abv2-title-em">pixels.</em>
           </Reveal>
           <Reveal as="p" className="abv2-lede" delay={120}>
             Hi, I&rsquo;m Sabhya. I design digital experiences
@@ -297,7 +327,8 @@ const AboutV2 = () => {
           <p className="abv2-kicker abv2-kicker-tight">My favourite icebreaker</p>
           <p className="abv2-icebreaker-line">MS Dhoni and I share an alma mater; our school.</p>
           <p className="abv2-icebreaker-note">
-            Yes, that MS Dhoni. Former captain of the Indian men&rsquo;s cricket team.
+            Yes, <em className="abv2-note-em">that</em> MS Dhoni. Former captain of the Indian
+            men&rsquo;s cricket team.
             <br />
             And yes, I will find a way to bring it up that I met him in school.
           </p>
@@ -321,7 +352,12 @@ const AboutV2 = () => {
             </Reveal>
           </div>
           <Reveal delay={100}>
-            <a className="abv2-download" href="/resume">
+            <a
+              className="abv2-download"
+              href="https://drive.google.com/file/d/1-_PkhGHJxEJ0W0J1ynj9T8ImP0u_MnNh/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Download PDF
             </a>
           </Reveal>
@@ -365,15 +401,20 @@ const AboutV2 = () => {
         <Reveal className="abv2-panel" delay={60}>
           <p className="abv2-panel-title">NIFT | July 19&rsquo; - June 23&rsquo;</p>
           <p className="abv2-panel-sub">Fashion Communication</p>
-          <p className="abv2-panel-body">
-            Activities and societies: Literary Club Organized &ldquo;Kisse and kahaniya&rdquo;, a
-            storytelling session to understand the cultural diversity at NIFT and providing a
-            platform for people to share their experiences and stories that are dying. Unraveled the
-            &ldquo;Indian approach to design&rdquo; with a team of designers and shared it with
-            fellow students and staffs.
-            <br />
-            Minor : Fashion Management, Storytelling &amp; Narratives, and Copywriting.
-          </p>
+          {/* 2040:28253 is a disc list of two items, not a paragraph */}
+          <ul className="abv2-panel-list">
+            <li>
+              Activities and societies: Literary Club
+              <br />
+              Organized &ldquo;Kisse and kahaniya&rdquo;, a storytelling session to understand the
+              cultural diversity at NIFT and providing a platform for people to share their
+              experiences and stories that are dying.
+              <br />
+              Unraveled the &ldquo;Indian approach to design&rdquo; with a team of designers and
+              shared it with fellow students and staffs.
+            </li>
+            <li>Minor : Fashion Management, Storytelling &amp; Narratives, and Copywriting.</li>
+          </ul>
         </Reveal>
       </section>
 
@@ -407,8 +448,8 @@ const AboutV2 = () => {
           </a>
         </div>
         <div className="abv2-footer-right">
-          <p>
-            Curated by Sabhya Singhal
+          <p className="abv2-footer-credit">
+            Curated by <strong>Sabhya Singhal</strong>
             <br />
             Powered by fun, food, and caffeine...
           </p>

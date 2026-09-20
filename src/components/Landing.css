@@ -162,9 +162,17 @@
   flex-wrap: wrap;
   gap: 14px;
   margin: 0;
-  font-size: 44px;
+  /* 2042:29322: Arial Medium 48/62. Both hero lines set at the same size in
+     the frame - the headline was 50/600 here, heavier and larger than the
+     line above it, which inverted the hierarchy. */
+  /* the frame says Arial Medium, but Arial ships no 500 weight - the browser
+     falls back to Regular. Arimo is metric-compatible with Arial and is loaded
+     as a 400..700 variable, so it renders a true Medium at Arial's metrics. */
+  font-family: Arimo, Arial, Helvetica, sans-serif;
+  font-size: 48px;
   font-weight: 500;
-  line-height: 1.12;
+  line-height: 62px;
+  color: #1c1c1c;
   /* the frame does not tighten the hero - negative tracking reads too narrow */
   letter-spacing: normal;
 }
@@ -201,12 +209,12 @@
 }
 
 /* The gap clears the "Effortless" mark, which overhangs the line once typed.
-   The frame shows the pre-animation state, so it does not reserve this space. */
+   The frame shows the pre-animation state, so it does not reserve this space.
+   Tighter than the v1 hero's 16px, per review. */
 .lv2-hero-headline {
-  margin-top: 29px;
-  /* the frame sets this line larger and heavier than the title above it */
-  font-size: 50px;
-  font-weight: 600;
+  margin-top: 4px;
+  /* the lime glow is on this line only, not on "Product Designer" above */
+  text-shadow: 1px 2px 4px #dffca1;
 }
 
 /*
@@ -251,11 +259,15 @@
 
 .lv2-annotation-text {
   position: absolute;
-  font-family: 'Marhey', 'Libre Franklin', cursive;
-  font-style: normal;
-  font-weight: 500;
-  /* em here resolves against the headline; the offsets below against this */
-  font-size: max(11px, 0.333em);
+  /* 2042:29345 sets the mark in Georgia Bold Italic, not a script face. The
+     lime glow belongs to the headline only, and text-shadow inherits, so it
+     has to be cleared here or the mark picks it up too. */
+  text-shadow: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 700;
+  /* 16/18 against the frame's 48px headline; em so it tracks any resize */
+  font-size: max(11px, 0.3333em);
   line-height: 1.125;
   left: -0.2625em;
   top: -0.625em;
@@ -699,7 +711,12 @@
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
-  scroll-behavior: smooth;
+  /* NOT smooth: both the drag gesture and the marquee set scrollLeft directly,
+     and smooth turns every assignment into an animation toward a target a
+     fraction of a pixel away - the rail then never actually moves. Browsers
+     only apply scroll-behavior to programmatic scrolls, so dropping it costs
+     nothing for wheel or trackpad. */
+  scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -955,7 +972,7 @@
   }
 
   .lv2-hero-headline {
-    font-size: 43px;
+    font-size: 38px;
   }
 
   .lv2-hero-photo {
@@ -1029,7 +1046,7 @@
   }
 
   .lv2-hero-headline {
-    font-size: 34px;
+    font-size: 30px;
     gap: 10px;
   }
 
@@ -1137,7 +1154,7 @@
   }
 
   .lv2-hero-headline {
-    font-size: 28px;
+    font-size: 25px;
   }
 
   .lv2-prev-inner {

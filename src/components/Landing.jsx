@@ -177,6 +177,83 @@ const useDragScroll = () => {
 };
 
 /*
+ * Marquee the rail on its own. The items are rendered twice, so once the
+ * scroll passes the halfway mark it can jump back by exactly one set and the
+ * seam is never visible. Pauses while a pointer or focus is inside it, while
+ * the tab is hidden, and entirely under prefers-reduced-motion.
+ */
+const AUTO_SCROLL_PX_PER_FRAME = 0.35;
+
+const useAutoScroll = (ref) => {
+  const paused = useRef(false);
+  // the position is tracked here as a float and assigned outright: reading
+  // scrollLeft back gives a rounded value, so `+= 0.35` each frame rounds
+  // away to nothing and the rail never moves
+  const pos = useRef(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || prefersReducedMotion()) return undefined;
+    let raf = 0;
+    let last = 0;
+    const tick = (now) => {
+      raf = requestAnimationFrame(tick);
+      if (!last) {
+        last = now;
+        return;
+      }
+      const delta = now - last;
+      last = now;
+      const half = el.scrollWidth / 2;
+      if (half <= 0) return;
+      if (paused.current || document.hidden) {
+        // stay in step with wherever a drag left it
+        pos.current = el.scrollLeft;
+        return;
+      }
+      // normalise to a 60fps step so speed is frame-rate independent
+      pos.current += AUTO_SCROLL_PX_PER_FRAME * (delta / 16.67);
+      if (pos.current >= half) pos.current -= half;
+      el.scrollLeft = pos.current;
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [ref]);
+
+  const hold = () => {
+    paused.current = true;
+  };
+  const release = () => {
+    paused.current = false;
+  };
+  return {
+    onMouseEnter: hold,
+    onMouseLeave: release,
+    onTouchStart: hold,
+    onTouchEnd: release,
+    onFocusCapture: hold,
+    onBlurCapture: release,
+  };
+};
+
+/* both hooks want some of the same events, so run them in order */
+const mergeHandlers = (...sets) => {
+  const merged = {};
+  sets.forEach((set) => {
+    Object.entries(set).forEach(([name, fn]) => {
+      const prev = merged[name];
+      merged[name] = prev
+        ? (event) => {
+            prev(event);
+            fn(event);
+          }
+        : fn;
+    });
+  });
+  return merged;
+};
+
+/*
  * Figma Component 8 (1880:43010): a gradient stroke draws itself around the
  * tag. Its 9 variants are frames of that draw-on, so one dash-offset
  * animation stands in for importing each partial stroke.
@@ -212,6 +289,18 @@ const Reveal = ({ as: Tag = 'div', className = '', delay = 0, children, ...rest 
   );
 };
 
+/* a card links out when it carries `href`, and routes when it carries `to` */
+const WorkCard = ({ item, children }) =>
+  item.href ? (
+    <a className="lv2-work-card" href={item.href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  ) : (
+    <Link className="lv2-work-card" to={item.to}>
+      {children}
+    </Link>
+  );
+
 const PREVIOUSLY_WORKED_AT = ['Aspora, YC S22', 'Magicpin', 'Flying Saints', 'Newton School'];
 
 const WORK = [
@@ -219,14 +308,16 @@ const WORK = [
     image: imgAspora,
     role: 'Product Designer IC | Aspora',
     title: 'UAE Gold Investments',
+    /* copy taken from the case study's own hero (2110:2095) - this card
+       previously repeated the post-onboarding blurb */
     body: (
       <>
-        Reworked Aspora's post-onboarding flow from a single overwhelming checklist into a
-        sequential system that surfaces only the current step, its status, and the next action
+        Bringing Aspora Gold to the UAE. A new market, a new brand language, and a first purchase
+        that needed to feel clear.
       </>
     ),
-    tag: 'Fintech Onboarding Experience',
-    to: '/aspora-post-onboarding',
+    tag: 'Fintech Investment Experience',
+    to: '/aspora-gold',
   },
   {
     image: imgSearch,
@@ -239,7 +330,9 @@ const WORK = [
       </>
     ),
     tag: 'Multi-Functional Search Experience',
-    to: '/search-v1',
+    /* temporarily pointing at the deck - /search-v1 is still routed and will
+       take this back once it is reworked */
+    href: 'https://www.figma.com/deck/QrGmLRinM3sdFA99CevFeF/Search?node-id=1-354',
   },
   {
     image: imgAspora,
@@ -363,6 +456,8 @@ const EXPLORATIONS = [
 const Landing = () => {
   const testimonialRail = useDragScroll();
   const exploreRail = useDragScroll();
+  const testimonialAuto = useAutoScroll(testimonialRail.ref);
+  const exploreAuto = useAutoScroll(exploreRail.ref);
 
   return (
     <div className="lv2">
@@ -381,10 +476,12 @@ const Landing = () => {
           <a className="lv2-nav-link is-active" href="#projects">
             Projects
           </a>
-          <a className="lv2-nav-link" href="#about">
+          {/* the full read, not the teaser section further down this page */}
+          <Link className="lv2-nav-link" to="/about">
             About me
-          </a>
-          <Link className="lv2-nav-link" to="/about-v2">
+          </Link>
+          {/* the resume lives on the about page, in its experience section */}
+          <Link className="lv2-nav-link" to="/about#experience">
             Resume
           </Link>
         </nav>
@@ -429,7 +526,7 @@ const Landing = () => {
         <div className="lv2-work-list">
           {WORK.map((item, index) => (
             <Reveal key={item.title} delay={index * 60}>
-              <Link className="lv2-work-card" to={item.to}>
+              <WorkCard item={item}>
                 <div className="lv2-work-media">
                   <img src={item.image} alt="" loading="lazy" />
                 </div>
@@ -439,7 +536,7 @@ const Landing = () => {
                   <p className="lv2-work-copy">{item.body}</p>
                   <WorkTag>{item.tag}</WorkTag>
                 </div>
-              </Link>
+              </WorkCard>
             </Reveal>
           ))}
         </div>
@@ -466,7 +563,7 @@ const Landing = () => {
               I am no constructor but I surely know how to "bridge" the gap between business and
               user needs!
             </p>
-            <Link className="lv2-about-cta" to="/about-v2">
+            <Link className="lv2-about-cta" to="/about">
               <span>More about me</span>
               <span className="lv2-about-cta-arrow" aria-hidden="true">
                 <svg viewBox="0 0 28 16" width="24" height="14" fill="none">
@@ -506,9 +603,17 @@ const Landing = () => {
         <Reveal as="h3" className="lv2-section-title">
           See what people say about their experience working with me
         </Reveal>
-        <div className="lv2-testi-rail" ref={testimonialRail.ref} {...testimonialRail.handlers}>
-          {TESTIMONIALS.map((item) => (
-            <article key={item.name} className={`lv2-testi-card is-${item.tone}`}>
+        <div
+          className="lv2-testi-rail"
+          ref={testimonialRail.ref}
+          {...mergeHandlers(testimonialRail.handlers, testimonialAuto)}
+        >
+          {[...TESTIMONIALS, ...TESTIMONIALS].map((item, i) => (
+            <article
+              key={`${item.name}-${i}`}
+              className={`lv2-testi-card is-${item.tone}`}
+              aria-hidden={i >= TESTIMONIALS.length ? 'true' : undefined}
+            >
               <p className="lv2-testi-role">{item.role}</p>
               <h4 className="lv2-testi-name">{item.name}</h4>
               <p className="lv2-testi-copy">{item.body}</p>
@@ -521,11 +626,17 @@ const Landing = () => {
         <Reveal as="h3" className="lv2-section-title">
           Some visual exploration
         </Reveal>
-        <div className="lv2-explore-rail" ref={exploreRail.ref} {...exploreRail.handlers}>
-          {EXPLORATIONS.map((item) => (
+        <div
+          className="lv2-explore-rail"
+          ref={exploreRail.ref}
+          {...mergeHandlers(exploreRail.handlers, exploreAuto)}
+        >
+          {[...EXPLORATIONS, ...EXPLORATIONS].map((item, i) => (
             <a
               className="lv2-explore-item"
-              key={item.title}
+              key={`${item.title}-${i}`}
+              aria-hidden={i >= EXPLORATIONS.length ? 'true' : undefined}
+              tabIndex={i >= EXPLORATIONS.length ? -1 : undefined}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"

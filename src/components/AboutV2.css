@@ -44,7 +44,10 @@
      content width and the whole layout overflows on narrow screens. */
   min-width: 0;
   margin: 0 auto;
-  background: #fff;
+  /* The frame's page fill is #F7F7F7 and every card/panel sits on it in white.
+     This was inverted (white page, grey panels), which is why the white cards
+     needed a hairline border to show up at all. */
+  background: var(--abv2-grey);
   color: var(--abv2-ink);
   font-family: var(--abv2-sans);
   letter-spacing: 0;
@@ -81,9 +84,11 @@
   background: var(--abv2-grey);
 }
 
+/* 2097:539 does not centre the pill: wordmark at 150, pill at 504 (354 past
+   the gutter), right-hand item a 146-wide slot flush to 1290 */
 .abv2-nav-inner {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0, 354px) auto 1fr;
   align-items: center;
   height: 100%;
   padding: 54px var(--abv2-gutter) 36px;
@@ -103,7 +108,8 @@
   gap: 16px;
   padding: 2px;
   border-radius: 100px;
-  background: var(--abv2-lime);
+  /* the nav pill is a paler lime than the page's --abv2-lime accent */
+  background: #eafac8;
 }
 
 .abv2-nav-link {
@@ -145,7 +151,7 @@
 }
 
 .abv2-nav-link.is-active {
-  background: #fff;
+  background: #f6fce6;
 }
 
 .abv2-nav-contact {
@@ -156,6 +162,14 @@
   font-weight: 500;
   line-height: 28px;
   text-decoration: none;
+  width: 146px;
+  text-align: center;
+  /* it is a <button> so the jump runs through scrollToSection, like the v1
+     header - these strip the UA button chrome back to plain text */
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
 
 .abv2-nav-contact {
@@ -167,8 +181,8 @@
 .abv2-kicker {
   font-size: 20px;
   font-weight: 700;
-  line-height: 17px;
-  letter-spacing: 0.06em;
+  line-height: 16.5px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
   color: var(--abv2-muted);
 }
@@ -177,6 +191,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+  letter-spacing: 1.6px;
 }
 
 .abv2-heading {
@@ -186,6 +201,7 @@
   font-weight: 500;
   line-height: 50px;
   color: var(--abv2-ink);
+  letter-spacing: -1.8px;
 }
 
 .abv2-sublabel {
@@ -194,6 +210,7 @@
   font-weight: 400;
   line-height: 16px;
   color: var(--abv2-muted);
+  letter-spacing: 1.6px;
 }
 
 /* Intro ------------------------------------------------------------------ */
@@ -215,27 +232,37 @@
   padding-top: 46px;
 }
 
-/* the line breaks are explicit in the markup; Libre Franklin sets wider than
-   the frame's Arial, so the lines must not wrap again on their own */
+/* The frame tracks this -6px. Without it the first line sets 578px wide and
+   overflowed its 520px box - the nowrap hack was hiding that, not fixing it. */
 .abv2-title {
-  margin: 23px 0 0;
+  margin: 22px 0 0;
   width: 520px;
   font-family: var(--abv2-arimo);
-  white-space: nowrap;
   font-size: 92px;
   font-weight: 500;
-  line-height: 96px;
-  letter-spacing: -0.01em;
+  line-height: 95.68px;
+  /* -6px at the frame's 92px; kept in em so the tracking scales with the
+     smaller sizes the breakpoints set instead of crushing the letters */
+  letter-spacing: -0.0652em;
   color: var(--abv2-ink);
 }
 
+/* 2040:28694 sets "pixels." in Georgia Italic at the same 92px and the same
+   -6px tracking as the roman it sits beside */
+.abv2-title-em {
+  font-family: var(--abv2-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
 .abv2-lede {
-  margin: 26px 0 0;
-  max-width: 420px;
+  margin: 28px 0 0;
+  max-width: 404px;
   font-size: 20px;
   font-weight: 400;
   line-height: 31px;
   color: var(--abv2-ink);
+  letter-spacing: -0.24px;
 }
 
 .abv2-lede-narrow {
@@ -243,25 +270,33 @@
   max-width: 410px;
 }
 
+/*
+ * The frame's right column starts at x=637 and insets the figure 81.5px into
+ * it - it is not flushed to the 1140 content edge. Right-aligning it put the
+ * polaroid (and the tape with it) ~70px too far right.
+ */
 .abv2-intro-figure {
   position: relative;
-  justify-self: end;
+  justify-self: start;
+  margin-left: 81.5px;
   width: 349px;
   /* the frame's figure column runs 490 tall, not just the polaroid's 444 */
   min-height: 490px;
   margin-top: 0;
 }
 
-/* a strip of lime "tape" holding the polaroid down */
+/* a strip of lime "tape" holding the polaroid down, left of centre on the
+   top edge - 100x33 before the -8deg turn matches the frame's 104x47 box */
 .abv2-tape {
   position: absolute;
-  top: -23px;
-  left: 135px;
-  width: 104px;
-  height: 47px;
-  background: var(--abv2-lime);
+  top: -9px;
+  left: 132px;
+  width: 100px;
+  height: 33px;
+  background: #e5f9ba;
   transform: rotate(-8deg);
-  z-index: 1;
+  /* the frame draws the tape after the figure, so it lies over the polaroid */
+  z-index: 3;
 }
 
 .abv2-polaroid {
@@ -289,6 +324,7 @@
   line-height: 20px;
   color: var(--abv2-ink);
   text-align: center;
+  letter-spacing: -0.25px;
 }
 
 /* Sections --------------------------------------------------------------- */
@@ -316,7 +352,7 @@
 .abv2-card {
   position: relative;
   min-height: 555px;
-  padding: 34px;
+  padding: 34.8px;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -325,14 +361,13 @@
   background: var(--abv2-kitchen);
 }
 
+/* white on the #F7F7F7 page - the frame draws no stroke on either card */
 .abv2-card-hand {
   background: #fff;
-  box-shadow: inset 0 0 0 1px #f0f0ec;
 }
 
 .abv2-card-trip {
   background: #fff;
-  box-shadow: inset 0 0 0 1px #f0f0ec;
 }
 
 .abv2-card-rhythm {
@@ -343,30 +378,69 @@
   position: relative;
   z-index: 3;
   font-size: 16px;
-  line-height: 16px;
-  letter-spacing: 0.04em;
+  line-height: 16.5px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
   color: var(--abv2-muted);
 }
 
+/*
+ * The four cards do not share one rhythm - the frame sets each article's
+ * index/title/copy gaps separately. These are the frame's own offsets; the
+ * single 26/20 pair used before pushed card 02's copy 20px down into the
+ * photo tiles below it.
+ */
 .abv2-card-title {
   position: relative;
   z-index: 3;
-  margin: 26px 0 0;
+  margin: 12px 0 0;
   font-size: 34px;
   font-weight: 400;
   line-height: 38px;
   color: var(--abv2-ink);
+  letter-spacing: -1px;
 }
 
 .abv2-card-copy {
   position: relative;
   z-index: 3;
-  margin: 20px 0 0;
+  margin: 12px 0 0;
   max-width: 300px;
   font-size: 16px;
   line-height: 24px;
   color: var(--abv2-body);
+  letter-spacing: -0.24px;
+}
+
+/* 01 - index drops 6.6px into the container, then 24 / 18 */
+.abv2-card-kitchen .abv2-card-index {
+  padding-top: 6.6px;
+}
+
+.abv2-card-kitchen .abv2-card-title {
+  margin-top: 24px;
+}
+
+.abv2-card-kitchen .abv2-card-copy {
+  margin-top: 18px;
+}
+
+/* 03 - index drops 4.2px; the title sits below the chat block */
+.abv2-card-trip .abv2-card-index {
+  padding-top: 4.2px;
+}
+
+.abv2-card-trip .abv2-card-copy {
+  margin-top: 16px;
+}
+
+/* 04 - 16 / 16 */
+.abv2-card-rhythm .abv2-card-title {
+  margin-top: 16px;
+}
+
+.abv2-card-rhythm .abv2-card-copy {
+  margin-top: 16px;
 }
 
 .abv2-card-copy-sm {
@@ -391,11 +465,12 @@
   max-width: 473px;
 }
 
-/* 01 — kitchen */
+/* 01 — kitchen. The frame does not bottom-align the pair: the small shot
+   hangs ~28px below the large one, which ends 91px above the card edge. */
 .abv2-kitchen-photo {
   position: absolute;
-  right: 34px;
-  bottom: 34px;
+  left: 267px;
+  top: 203px;
   width: 245px;
   height: 261px;
   border-radius: 8px;
@@ -406,10 +481,11 @@
 /* the frame layers a second, smaller shot under the first */
 .abv2-kitchen-photo-sm {
   position: absolute;
-  left: 66px;
-  bottom: 34px;
-  width: 183px;
-  height: 183px;
+  left: 65.95px;
+  top: 309.94px;
+  width: 182.64px;
+  height: 182.64px;
+  border: 8px solid #fff;
   border-radius: 4px;
   overflow: hidden;
   background: #fff;
@@ -426,11 +502,17 @@
 /* the frame pins these to the card's lower edge (34px inset, 20px gap) */
 .abv2-tiles {
   position: absolute;
-  left: 34px;
-  bottom: 34px;
+  left: 34.8px;
+  top: 219.8px;
   display: grid;
   grid-template-columns: repeat(2, 220px);
   gap: 14px;
+}
+
+/* the frame spaces card 04's pair wider than card 02's, and starts it lower */
+.abv2-card-rhythm .abv2-tiles {
+  top: 227.8px;
+  gap: 24px;
 }
 
 .abv2-tile {
@@ -445,12 +527,10 @@
 
 /*
  * Card 02 is a collage: the frame draws both photos larger than their tiles
- * and offset, so they bleed over the tinted edge instead of sitting inside it.
+ * and offset, so each photo fills its tile and the excess is cropped. The
+ * Figure frames clip in Figma - letting them overflow pushed the photos up
+ * over the paragraph and exposed the "+" that the design crops away.
  */
-.abv2-card-hand .abv2-tile {
-  overflow: visible;
-}
-
 .abv2-card-hand .abv2-tile img {
   position: absolute;
   border-radius: 4px;
@@ -472,10 +552,17 @@
   background: #e7e9df;
 }
 
-.abv2-card-hand .abv2-tile-cap-top,
-.abv2-card-hand .abv2-tile-cap {
-  position: relative;
-  z-index: 2;
+/*
+ * In the frame the photo is the Figure's last child, so it paints over the
+ * "Painting" figcaption - that caption is not visible in the design. The
+ * Jesmonite one is drawn on its own translucent bar and stays on top.
+ */
+.abv2-card-hand .abv2-tile-cap-top {
+  z-index: 0;
+}
+
+.abv2-card-hand .abv2-tile img {
+  z-index: 1;
 }
 
 .abv2-card-hand .abv2-tile-cap {
@@ -483,6 +570,11 @@
   left: 7px;
   right: 7px;
   bottom: 6px;
+  z-index: 2;
+  padding: 6px;
+  background: rgba(233, 232, 226, 0.88);
+  border-radius: 3px;
+  text-align: left;
 }
 
 .abv2-tile img {
@@ -504,6 +596,7 @@
   font-size: 14px;
   line-height: 17px;
   color: #50564a;
+  letter-spacing: -0.21px;
 }
 
 .abv2-tile-cap-top {
@@ -511,6 +604,7 @@
   font-size: 14px;
   line-height: 17px;
   color: #50564a;
+  letter-spacing: -0.21px;
 }
 
 .abv2-tile-cap {
@@ -565,7 +659,7 @@
   font-family: var(--abv2-mono);
   font-size: 12px;
   line-height: 14px;
-  letter-spacing: 0.08em;
+  letter-spacing: 2.67px;
   text-transform: uppercase;
   color: #7c756c;
 }
@@ -578,6 +672,7 @@
   font-size: 19px;
   line-height: 30px;
   color: var(--abv2-body);
+  letter-spacing: -0.32px;
 }
 
 .abv2-bubble-them {
@@ -599,6 +694,7 @@
   line-height: 21px;
   color: #686e5a;
   text-align: right;
+  letter-spacing: -0.32px;
 }
 
 .abv2-card-trip .abv2-card-title {
@@ -613,29 +709,33 @@
 
 .abv2-icebreaker {
   display: grid;
-  grid-template-columns: 166px 1fr auto;
-  align-items: start;
+  /* the frame puts "07" at x=42, the copy at 208 and the aside's 150px block
+     at 970 - so the right inset is 20px, not the 42px used on the left */
+  grid-template-columns: 130px 510px 1fr;
+  align-items: center;
   gap: 0;
   padding-bottom: 32px;
   /* min, not fixed: a wrapped line must never be clipped out of the card */
   min-height: 200px;
   margin: 52px var(--abv2-gutter) 0;
-  padding: 36px 42px;
+  padding: 36px 20px 36px 42px;
   column-gap: 36px;
   border-radius: 20px;
   background: #fff;
-  box-shadow: inset 0 0 0 1px #f0f0ec;
 }
 
 .abv2-icebreaker-num {
   font-size: 128px;
   font-weight: 700;
   line-height: 128px;
-  color: var(--abv2-green);
+  /* 2040:28707 sets the numeral at 35% of the green, not solid */
+  color: rgba(84, 127, 106, 0.35);
+  letter-spacing: -12.8px;
 }
 
 .abv2-icebreaker-body {
-  padding-top: 4px;
+  /* the row is centred now, so the old nudge is not needed */
+  padding-top: 0;
 }
 
 .abv2-icebreaker-line {
@@ -646,15 +746,17 @@
   font-weight: 500;
   line-height: 40px;
   color: var(--abv2-ink);
+  letter-spacing: -0.9px;
 }
 
 .abv2-icebreaker-note {
   margin-top: 10px;
-  font-family: var(--abv2-arimo);
+  font-family: var(--abv2-sans);
   max-width: 640px;
   font-size: 16px;
   line-height: 24px;
   color: #535c49;
+  letter-spacing: -0.24px;
 }
 
 .abv2-icebreaker-aside {
@@ -665,6 +767,14 @@
   line-height: 22px;
   color: #85946d;
   white-space: nowrap;
+  letter-spacing: -2px;
+  width: 150px;
+  justify-self: end;
+}
+
+/* 2040:28713 sets the word "that" in Arial Italic */
+.abv2-note-em {
+  font-style: italic;
 }
 
 /* Experience -------------------------------------------------------------- */
@@ -709,6 +819,7 @@
   font-weight: 500;
   line-height: 40px;
   color: var(--abv2-ink);
+  letter-spacing: -0.24px;
 }
 
 .abv2-work-summary {
@@ -717,6 +828,7 @@
   font-size: 18px;
   line-height: 24px;
   color: var(--abv2-muted);
+  letter-spacing: -0.24px;
 }
 
 .abv2-jobs {
@@ -733,6 +845,7 @@
   font-weight: 700;
   line-height: 32px;
   color: var(--abv2-deep);
+  letter-spacing: -0.24px;
 }
 
 .abv2-job-role {
@@ -742,6 +855,7 @@
   font-size: 16px;
   line-height: 32px;
   color: var(--abv2-muted);
+  letter-spacing: -0.24px;
 }
 
 .abv2-job-points {
@@ -752,14 +866,15 @@
 
 .abv2-job-points li {
   position: relative;
-  /* 820px of text (+30px indent). The frame's line breaks were set with a
-     wider substitute for Tinos; this measure reproduces them exactly. */
-  max-width: 850px;
+  /* 2042:28938: the Tinos on the wrapper is a 0px shell - every visible run
+     is Arial 16/24 in an 850px measure, inside an 880px item (30px indent). */
+  max-width: 880px;
   padding: 0 0 5px 30px;
-  font-family: var(--abv2-tinos);
+  font-family: var(--abv2-sans);
   font-size: 16px;
   line-height: 24px;
   color: var(--abv2-muted);
+  letter-spacing: -0.24px;
 }
 
 .abv2-job-points li + li {
@@ -777,7 +892,7 @@
   top: -2px;
   font-family: var(--abv2-sans);
   font-size: 20px;
-  line-height: 24px;
+  line-height: 36px;
   color: var(--abv2-body-alt);
 }
 
@@ -801,6 +916,11 @@
   color: var(--abv2-deep);
 }
 
+/*
+ * 2040:28249 fills this #F7F7F7 - the same grey as the page - so in the frame
+ * the panel reads as padding, not as a card. Matching the frame exactly; set
+ * this to #fff if it should read as a card like the away-section ones do.
+ */
 .abv2-panel {
   margin-top: 36px;
   padding: 24px;
@@ -825,6 +945,7 @@
   font-weight: 700;
   line-height: 32px;
   color: var(--abv2-deep);
+  letter-spacing: -0.24px;
 }
 
 .abv2-panel-sub {
@@ -833,6 +954,7 @@
   font-weight: 500;
   line-height: 32px;
   color: var(--abv2-ink-alt);
+  letter-spacing: -0.24px;
 }
 
 .abv2-panel-body {
@@ -840,6 +962,22 @@
   font-size: 20px;
   line-height: 32px;
   color: var(--abv2-body-alt);
+  letter-spacing: -0.24px;
+}
+
+/* 2040:28253 — a disc list indented 30px, same type as .abv2-panel-body */
+.abv2-panel-list {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: disc;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--abv2-body-alt);
+  letter-spacing: -0.24px;
+}
+
+.abv2-panel-list li {
+  margin-left: 30px;
 }
 
 .abv2-cert-grid {
@@ -897,6 +1035,18 @@
   line-height: 28px;
   color: var(--abv2-ink-alt);
   transition: color 0.3s ease 0.25s;
+}
+
+/* the credit follows the landing footer's text: Libre Franklin 19/28.5 with
+   the name set bold, rather than this page's ABeeZee 20/28 */
+.abv2-footer-right .abv2-footer-credit {
+  font-family: 'Libre Franklin', var(--abv2-sans);
+  font-size: 19px;
+  line-height: 28.5px;
+}
+
+.abv2-footer-right .abv2-footer-credit strong {
+  font-weight: 700;
 }
 
 /*
@@ -1014,8 +1164,65 @@
     line-height: 78px;
   }
 
+  /*
+   * Below the design width the gutter drops to 80 and the cards resize, so the
+   * frame's fixed 220px tile columns give way to fluid ones. They need a
+   * definite width to divide: absolutely positioned with only `left`, the
+   * grid shrink-to-fits, and card 02 - whose photos are absolutely positioned
+   * and contribute no intrinsic width - collapsed to 14px per tile.
+   */
   .abv2-tiles {
+    right: 34.8px;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* the frame insets this 31px from the card's right edge; anchoring it by
+     `left` only holds at 1440, where the card is exactly 543 wide */
+  .abv2-kitchen-photo {
+    left: auto;
+    right: 31px;
+  }
+
+  /* 510/473 are the frame's measures against a 543 card; let them reflow below
+     that. The rhythm card needs naming: its two-class rule outranks a bare
+     .abv2-card-copy-sm even inside this query, so it would stay 473 and clip. */
+  .abv2-card-copy-sm,
+  .abv2-card-rhythm .abv2-card-copy-sm {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/*
+ * The cards match the frame's 543px width down to ~1300px; below that the copy
+ * reflows onto more lines and runs into art that is pinned at fixed offsets.
+ * Rather than re-pin it per width, the art rejoins the flow here - the same
+ * treatment the stacked layout already uses, but keeping the two-up grid.
+ */
+@media (max-width: 1300px) {
+  .abv2-card {
+    min-height: 0;
+    padding-bottom: 35px;
+  }
+
+  .abv2-kitchen-photo,
+  .abv2-kitchen-photo-sm,
+  .abv2-tiles {
+    position: static;
+    margin-top: 28px;
+  }
+
+  .abv2-kitchen-photo,
+  .abv2-kitchen-photo-sm {
+    width: 100%;
+    max-width: 245px;
+    height: auto;
+    aspect-ratio: 245 / 261;
+  }
+
+  .abv2-kitchen-photo-sm {
+    max-width: 183px;
+    aspect-ratio: 1;
   }
 }
 
@@ -1028,6 +1235,17 @@
     height: 112px;
   }
 
+  /* the base 54/36 inner padding is sized for the 146px desktop header; left
+     alone it overflows the shorter bar and opens a void above the intro */
+  .abv2-nav-inner {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 24px var(--abv2-gutter);
+  }
+
+  .abv2-nav-contact {
+    width: auto;
+  }
+
   .abv2-intro {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -1036,6 +1254,9 @@
 
   .abv2-intro-figure {
     justify-self: start;
+    /* the 81.5px inset is the design-width column offset; once the intro
+       stacks the figure starts at the gutter like everything else */
+    margin-left: 0;
     margin-top: 0;
   }
 
@@ -1095,6 +1316,8 @@
 
   .abv2-icebreaker-aside {
     padding-top: 0;
+    width: auto;
+    justify-self: start;
   }
 }
 
@@ -1164,6 +1387,7 @@
   .abv2-tape {
     left: auto;
     right: 24px;
+    top: -12px;
   }
 
   .abv2-card-title {
