@@ -1,1 +1,11 @@
 node_modules
+
+# Local environment — these hold the Figma personal access token and must
+# never be committed. .env.example documents the required keys instead.
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.idea/
+.DS_Store

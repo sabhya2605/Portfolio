@@ -24,9 +24,15 @@ img {
 
 html {
   overflow-x: hidden;
+  /* clip, not hidden: `hidden` makes this a scroll container and breaks
+     position:sticky in descendants. Older browsers keep the hidden above. */
+  overflow-x: clip;
 }
 
 body {
   overflow-x: hidden;
+  /* clip, not hidden: `hidden` makes this a scroll container and breaks
+     position:sticky in descendants. Older browsers keep the hidden above. */
+  overflow-x: clip;
   width: 100%;
 }
