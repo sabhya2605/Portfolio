@@ -359,6 +359,9 @@ const WORK = [
       </>
     ),
     tag: 'Communication Gap Between MX -CX -Delivery Partner',
+    /* points at the write-up for now - /delivery-checkout-v1 is still routed
+       and takes this back once the case study is reworked */
+    href: 'https://medium.com/@sabhya.jvm/order-here-app-order-acceptance-flow-revamp-eaad7571e760',
     to: '/delivery-checkout-v1',
   },
 ];
