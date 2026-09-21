@@ -52,6 +52,23 @@
   font-family: var(--abv2-sans);
   letter-spacing: 0;
   text-align: left;
+  /* isolate so the backdrop below can sit behind this page's content without
+     falling behind .App's white fill */
+  position: relative;
+  isolation: isolate;
+}
+
+/*
+ * The page colour has to reach both screen edges, but the shell stays capped
+ * at 1440 for layout. A fixed backdrop carries the fill instead of the box, so
+ * nothing about the layout - or the sticky header - changes.
+ */
+.abv2::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--abv2-grey);
 }
 
 .abv2 *,

@@ -569,8 +569,11 @@
 
 /* Quick user flow — 2115:2382 carries a linear gradient wash -------------- */
 
+/* the wash runs the full width of the screen, not just the 1440 shell; the
+   inner column is centred so its content still lands on the page gutter */
 .agld-flowband {
   margin-top: 140px;
+  margin-inline: calc(50% - 50vw);
   padding: 72px var(--agld-gutter) 72px;
   background: linear-gradient(
     180deg,
@@ -583,6 +586,7 @@
 
 .agld-flowband-inner {
   max-width: 1140px;
+  margin: 0 auto;
 }
 
 /* 2136:2560 — five 212px cards, 20px apart, white with radius 10 */
@@ -736,6 +740,7 @@
 /* 1440x1410 on a lavender-to-white wash */
 .agld-fd {
   margin-top: 140px;
+  margin-inline: calc(50% - 50vw);
   padding: 124px var(--agld-gutter) 64px;
   background: linear-gradient(180deg, #f3f0fa 0%, #ffffff 100%);
 }

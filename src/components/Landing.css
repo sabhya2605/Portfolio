@@ -288,10 +288,18 @@
 
 /* Previously worked at --------------------------------------------------- */
 
+/*
+ * The strip runs the full width of the screen, not just the 1440 page shell -
+ * so on anything wider than the design width it still reaches both edges.
+ * Percentages resolve against the shell, vw against the viewport, so the
+ * negative margin is exactly the slack on each side, and the padding is the
+ * distance back to the shell's content box - which already includes the
+ * gutter, so it must not be added again. html/body/.App already clip the x axis, so
+ * 100vw cannot open a horizontal scrollbar next to a visible scrollbar.
+ */
 .lv2-prev {
-  /* full-bleed strip inside the padded page shell */
-  margin: 0 calc(var(--lv2-gutter) * -1);
-  padding: 0 var(--lv2-gutter);
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
   background: var(--lv2-green-bar);
 }
 
